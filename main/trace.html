@@ -1,0 +1,902 @@
+
+<?php include("session.php"); ?>
+<?php
+ob_start();
+session_start();
+$deviceIDs = isset ($_GET['deviceID']) ? $_GET['deviceID'] : '';
+$mapType = isset($_GET['mapType']) ? $_GET['mapType'] : '2';
+?>
+<!DOCTYPE html>   
+<html>   
+<head> 
+<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+    <link rel="stylesheet" type="text/css" href="../css/treeCommon.css">
+	<?php 
+if($mapType==1){
+?>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+<?php 
+}
+else if($mapType==2){
+?>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAKKcnYLgJKhO6-yOav7Qzn-1EFBn814Lg&sensor=false"></script>
+<?php 
+}
+?>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../map_utils.js"></script>
+	
+<?php 
+if($mapType==1){
+?>
+<SCRIPT type="text/javascript" src="../js/trace_baidu.js"></SCRIPT>
+<?php 
+}
+else if($mapType==2){
+?>
+<SCRIPT type="text/javascript" src="../js/trace_google.js"></SCRIPT>
+<?php 
+}
+?>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<title>车辆监控</title>   
+<style type="text/css">   
+html{height:100%}   
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%}   
+
+a:hover img{
+background-color: #ffffff
+}
+ 
+.xxdiv1 { width:100%; height:100%; border:0px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv2 { width:49%; height:99%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv3 { width:49%; height:49%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv4 { width:49%; height:49%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv5 { width:33%; height:49%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv6 { width:33%; height:49%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv7 { width:24.85%; height:49.85%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.xxdiv8 { width:24.85%; height:49.85%; border:1px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+
+
+.blank1 { width:100%; height:100%; border:0px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank2 { width:49%; height:99%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank3 { width:49%; height:49%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank4 { width:49%; height:49%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank5 { width:33%; height:49%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank6 { width:33%; height:49%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank7 { width:24.85%; height:49.85%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.blank8 { width:24.85%; height:49.85%; border:1px #CCCCCC solid; background:#000000; margin:0px 0px 0px 0px; padding: 0; float:left; }
+.pagination-info{display:none !important;}
+.pagination-num {width: 24px !important;}
+
+.road8{min-width:1324px;}
+.road6{min-width:1000px;}
+.road4{min-width:760px;}
+#changRoads{
+	width:150px;
+	padding:4px;	
+	position:absolute;
+	top:80px;
+	left:-138px;
+	z-index:1001;
+	background:rgb(91,192,222);
+	background:rgba(91,192,222,0.75);
+	border-radius:4px;
+}
+#closeChangeRoads{float:right;line-height:22px;cursor:pointer;color:#ffffff;}
+#closeChangeRoads:hover{color:#C3522F;}
+/*#changRoads:hover{
+	left:-4px;	
+}*/
+#_easyui_combobox_i1_0{display:none !important;}
+.combo-p .panel-body{height:105px !important;}
+</style>   
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script> 
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script> 
+</head>   
+    
+<body> 
+<div id="changRoads">
+	<strong style="color:#ffffff;padding-left:5px;">路数选择：</strong>
+	<select id="routeSelect">
+		<option value="0"></option>
+		<option value="1">1*1路</option>
+		<option value="2">2*1路</option>
+		<option value="4">2*2路</option>
+		<option value="6">3*2路</option>
+		<option value="8">4*2路</option>
+	</select>
+    <span id="closeChangeRoads" title="打开">开</span>
+<!--	<span style="padding:0 0 0 5px;">地图选择：</span>
+	<select  id="mapSelect" class="easyui-combobox"   data-options="panelHeight:'auto'" name="routeSwitch" style="width:80px;">
+		<option value="1">百度地图</option>
+		<option value="2">谷歌地图</option>
+	</select>-->
+</div>
+
+<script>
+	$(function(){
+		$("#closeChangeRoads").click(function(){
+			var s = $.trim($(this).text());
+			if(s == "开"){
+				$("#changRoads").animate({"left":"-4px"},500);
+				$(this).attr("title","关闭").html("X");	
+			}else if(s == "X"){
+				$("#changRoads").animate({"left":"-140px"},500);	
+				$(this).attr("title","打开").html("开");	
+			}	
+		});	
+	});
+</script>
+
+<div id="trace"   style="width:100%;height:100%;padding:0px">
+
+	 <div  id="dlgFortification" class="easyui-dialog" title="车辆选择"  closed="true"  
+     		style="width:600px;height:400px;padding:10px"> 
+		<div style="padding-left:4px;font-family:'楷体';font-size:16px;width:244px;height:24px;">
+            <input type="text"  maxlength="15"  id="search" placeholder="找车(按车牌或设备号)" style="font-family:'楷体';font-size:16px;width: 268px;height:24px;border: 1px solid #95b8e7;margin-top: -4px;margin-left: -4px;">
+            <img title="找车" src="../img/search16x16.png" style="cursor:pointer;position: absolute;top: 38px;
+left: 260px;width: 20px;height: 20px;" id="btnSearch">
+        </div>
+		<div class="easyui-tabs" style="width:270px;height:320px" id='tt1'>	
+ <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          {
+	       ?>
+		<div title="部门"  style="overflow:auto;padding:10px;">
+			<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>" 
+            		data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="depID">
+				
+			</ul>
+		</div>
+		   <?php 
+	          }
+	       ?>
+		<div title="车系"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   url="../service/vehicleNumber.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_modelID">
+				
+			</ul>
+		</div>
+
+		<div title="客户"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   
+			 <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          { 
+	        ?>
+			url="../service/customer.php?defDep=-1" 
+			<?php 
+	          }
+	          else 
+	          { 
+	       ?>
+			 url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+			 <?php 
+	          }
+	         
+	       ?> 
+			data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_cusID">
+				
+			</ul>
+		</div>
+		
+
+		</div>
+		<div style="padding:0px;position:absolute;top:34px;right:24px;">
+        <table id="dg" class="easyui-datagrid" title="单击选择车辆" style="width:270px;height:348px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,pagination:true">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:120",>车牌号</th>
+			    <th data-options="field:'d_esn',width:120,hidden:false">D_ESN</th>
+				<th data-options="field:'address_num',width:80,hidden:true">地址</th>
+				<th data-options="field:'latitude',width:50,hidden:true">latitude</th>
+				<th data-options="field:'longitude',width:50,hidden:true">longitude</th>
+				<th data-options="field:'time',width:100,hidden:true">时间</th>
+				<th data-options="field:'vin',width:50,hidden:true">vin</th>
+				<th data-options="field:'deviceID',width:100,hidden:true">deviceID</th>
+				<th data-options="field:'heading',width:100,hidden:true">heading</th>
+				<th data-options="field:'ign',width:100,hidden:true">ign</th>
+               <!-- <th data-options="field:'state',width:40,hidden:false">状态</th>-->
+			</tr>
+		</thead>
+	</table>
+              
+	           </div>
+		
+	    </div> 
+	    
+</div>  
+<script type="text/javascript"> 
+var depID='<?php echo  $userVo->depID ?>';
+
+//以下三个变量做为全局,用来保存树形菜单切换时表格显示的数据形成一一对应
+var treeTmp = null;
+var modelTmp = null;
+var cusTmp = null;
+
+var curMapType=<?php  echo $mapType ?>;
+var t=10;
+var vehicleNumber1=vehicleNumber;
+var arr=new Array(); 
+//map mapping utils
+var mu= new Map_Utils();
+//marker mapping utils
+var marker_mu= new Map_Utils();
+
+//control mapping utils
+var control_mu= new Map_Utils();
+
+//采用递归的方法,选中时执行
+function updateAddTreeLeaf(id,node){
+	var parentNode = $(id).tree('getParent',node.target);
+	var root = $(id).tree('getRoot');
+	if(parentNode && parentNode.text.lastIndexOf("√") < 0){
+		$(id).tree('update', {
+			target: parentNode.target,
+　　			text:parentNode.text+'<span style="font-size:9px;color:#db443a;">√</span>'
+		});
+	}
+	
+	if(parentNode && parentNode.id !== root.id){
+		updateAddTreeLeaf(id,parentNode);
+	}	
+	
+}
+
+
+//采用递归的方法,取消选中时执行
+function updateSubTreeLeaf(id,node){
+	var parentNode = $(id).tree('getParent',node.target);//得到父节点
+	
+	if(!parentNode){//如果没有你节点,则直接返回
+		return;	
+	}
+	
+	var root = $(id).tree('getRoot');
+	
+	var data = $(id).tree('getChildren',parentNode.target); //得到父节点下的所有子节点 
+	//console.info(data);
+	var flag = false;
+	
+	for(var i=0;i<data.length;i++){//判断所有节点是否有选中项,若有,则标记flag为true;
+		if(data[i].checked == true){
+			flag = true;
+			break;
+		}	
+	}
+	
+	if(!flag){//有选中的,则不做事情,没有选中的则执行下边的事件
+		var index = parentNode.text.indexOf("<span");
+		if(index >= 0){
+			$(id).tree('update', {
+				target: parentNode.target,
+	　　			text:parentNode.text.substring(0,index)
+			});
+		}
+		
+		if(parentNode.id !== root.id){
+			updateSubTreeLeaf(id,parentNode);
+		}
+
+	}
+	
+}
+
+$('#depID').tree({
+	onCheck:function(node, checked){
+		if(checked){//选中打勾
+			 updateAddTreeLeaf("#depID",node);
+			 
+		 }else{
+			 updateSubTreeLeaf("#depID",node);
+			
+		 }
+		 seletedArr=new Array();
+		var nodes = $('#depID').tree('getChecked');
+		 for (i = 0; i < nodes.length; i++){
+			 seletedArr.push(nodes[i].id);
+		 }
+		  if(seletedArr.length==0){
+			  seletedArr.push(-1);
+		  }
+		 if(seletedArr.length>0){
+			 treeTmp=seletedArr.join(",");
+			 var pageURL = '../service/vehicles4dep.php?searchType=0&deps='+treeTmp;
+			 setCarByPage(pageURL);	
+			 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+				 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+						 }
+			);*/  
+			 
+		 }
+	}
+	});
+	
+$('#v_modelID').tree({
+	onCheck:function(node, checked){
+		if(checked){//选中打勾
+			 updateAddTreeLeaf("#v_modelID",node);
+		 }else{
+			 updateSubTreeLeaf("#v_modelID",node);
+		 }
+	 	seletedArr=new Array();
+		var nodes = $('#v_modelID').tree('getChecked');
+		 for (i = 0; i < nodes.length; i++){
+			 seletedArr.push(nodes[i].id);
+		 }
+		  if(seletedArr.length==0){
+			  seletedArr.push(-1);
+		  }
+		 if(seletedArr.length>0){
+			 modelTmp=seletedArr.join(",");
+			 var pageURL = "";
+			<?php  
+				 if($_SESSION["op"]=="deplogin"){//部门用户登录
+					?>
+						pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+
+					<?php 
+						}else{ //客户登陆
+				   ?>
+						pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+					<?php 
+				  }
+				 
+			   ?>
+			  // console.log("v_modelID");
+			 setCarByPage(pageURL);
+			/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				 
+				 
+				 <?php 
+				         if($_SESSION["op"]=="deplogin")
+				          { 
+				        ?>
+				        url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+						<?php 
+				          }
+				          else 
+				          { 
+				       ?>
+				       url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+						 <?php 
+				          }
+				         
+				       ?> 
+				 
+				 
+				 
+						 
+						 
+						 }
+			); */ 
+			 
+		 }
+	}
+	});
+
+$('#v_cusID').tree({
+	onCheck:function(node, checked){
+		if(checked){//选中打勾
+			 updateAddTreeLeaf("#v_cusID",node);
+		 }else{
+			 updateSubTreeLeaf("#v_cusID",node);
+		 }
+	 	seletedArr=new Array();
+		var nodes = $('#v_cusID').tree('getChecked');
+		 for (i = 0; i < nodes.length; i++){
+			 seletedArr.push(nodes[i].id);
+		 }
+		  if(seletedArr.length==0){
+			  seletedArr.push(-1);
+		  }
+		 if(seletedArr.length>0){
+			 cusTmp=seletedArr.join(",");
+			 var pageURL = "";
+			<?php  
+				 if($_SESSION["op"]=="deplogin"){//部门用户登录
+					?>
+						pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+
+					<?php 
+						}else{ //客户登陆
+				   ?>
+						pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+					<?php 
+				  }
+				 
+			 ?>
+			 //  console.info('#v_cusID:'+pageURL);
+			 setCarByPage(pageURL);
+			 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				 
+				 
+				 <?php 
+				          if($_SESSION["op"]=="deplogin")
+				          { 
+				        ?>
+				        url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+						<?php 
+				          }
+				          else 
+				          { 
+				       ?>
+				        url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+						 <?php 
+				          }
+				         
+				       ?> 
+				 
+						 }
+			); */ 
+			 
+		 }
+	}
+	});
+	
+	function pagerFilter(data){
+		if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+			data = {
+				total: data.length,
+				rows: data
+			}
+		}
+		var dg = $(this);
+		var opts = dg.datagrid('options');
+		var pager = dg.datagrid('getPager');
+		pager.pagination({
+			onSelectPage:function(pageNum, pageSize){
+				opts.pageNumber = pageNum;
+				opts.pageSize = pageSize;
+				pager.pagination('refresh',{
+					pageNumber:pageNum,
+					pageSize:pageSize
+				});
+				dg.datagrid('loadData',data);
+			}
+		});
+		if (!data.originalRows){
+			data.originalRows = (data.rows);
+		}
+		var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+		var end = start + parseInt(opts.pageSize);
+		data.rows = (data.originalRows.slice(start, end));
+		return data;
+	}
+
+     
+	var gDeviceId = "";
+	var tmpId = "";
+	$('#dg').datagrid({
+		onClickRow: function(rowIndex, rowData){
+				tmpId = "#container_"+divindex;
+				var conHTML = $(tmpId).html();
+				
+				if(conHTML == ""){//在没有关闭窗口之前第一次进来
+				
+					if(devicesArr.in_array(rowData.deviceID)){ 
+						alert("车辆已经处于监控中!");
+						return;
+					}
+				
+					gDeviceId = rowData.deviceID;	
+
+					$(tmpId).removeClass('blank'+routNumber);
+			  		$(tmpId).addClass('xxdiv'+routNumber);
+					$(tmpId).attr("title","");
+					vehicleNumber=vehicleNumber+1;
+					vehicleNumber1=vehicleNumber;
+					deviceIDs=deviceIDs+","+gDeviceId;
+					$(tmpId).removeAttr("onclick");
+					$(tmpId).attr('id','container_'+gDeviceId);			  	 
+	
+					devicesArr.push(rowData.deviceID);
+					getLocations(1,rowData.deviceID);
+				}else if(conHTML == null){//在没有关闭窗口之前的第二次以上选择车辆
+					if(devicesArr.in_array(rowData.deviceID)){ 
+						alert("车辆已经处于监控中!");
+						return;
+					}
+					
+
+					//$(tmpId).removeClass('xxdiv'+routNumber);
+			  		//$(tmpId).addClass('blank'+routNumber);
+					
+					
+					tmpId = "#container_"+gDeviceId;
+					
+					//console.info($(tmpId).html());
+									
+					$(tmpId).attr("title","").html("");
+					
+					devicesArr.pop();//从数组中删除刚刚所添加的车辆
+					deviceIDs=deviceIDs.substring(0,deviceIDs.lastIndexOf(","+gDeviceId))+","+rowData.deviceID;
+					
+					$(tmpId).attr('id','container_'+rowData.deviceID);			  	 
+	
+					devicesArr.push(rowData.deviceID);
+					
+					getLocations(2,rowData.deviceID);					
+					gDeviceId = rowData.deviceID;	
+				}
+
+				
+			  	
+		}
+	   });
+
+	
+	var deviceIDs='<?php echo $deviceIDs?>';
+	var  devicesArr=deviceIDs.split(","); 
+
+	var routNumber=1;
+	var vehicleNumber=devicesArr.length;
+	var vehicleNumber1=vehicleNumber;
+
+	//alert("vehicleNumber:"+vehicleNumber);
+	if(vehicleNumber==1 || vehicleNumber==2  ){
+		routNumber=vehicleNumber;
+	}
+	else if(vehicleNumber>2 &&  vehicleNumber<5){
+		routNumber=4;
+	}
+	else if(vehicleNumber>4 && vehicleNumber<7){
+		routNumber=6;
+	}
+	else {
+		routNumber=8;
+	}
+	
+	$('#routeSelect').combobox({
+		onSelect: function(record){
+//			alert("select:"+record.value);
+			if(record.value<vehicleNumber){
+				alert("至少选择"+vehicleNumber+"路！");
+				return ;
+			}
+			switch(parseInt(record.value)){
+				case 2:
+					
+				case 4:
+					$("#trace").removeClass("road8").removeClass("road6").addClass("road4");
+					break;
+				case 6:
+					$("#trace").removeClass("road8").removeClass("road4").addClass("road6");
+					break;
+				case 8:
+					$("#trace").removeClass("road4").removeClass("road6").addClass("road8");
+					break;
+				default:
+					$("#trace").removeClass("road4").removeClass("road6").removeClass("road8");
+					break;	
+			}
+			mu.clear();
+			routNumber=record.value;
+			vehicleNumber1=vehicleNumber;
+			createDivs();
+			getLocations(1,deviceIDs);
+		}
+	});
+
+
+	 // createDivs();
+	//getLocations(deviceIDs);
+	  
+	  
+	 function  getLocations(times,dd){
+	  	$.post("../service/locations.php",
+			  {
+				 deviceIDS:dd
+			  },
+			  function(data,status){
+				  
+				//  console.log(data);
+				  
+				 var rows=eval(data);
+				 for ( var i=0 ; i < rows.length ; ++i ){
+				//	 alert("pppp"+rows[i].deviceID);
+				 	deviceID=rows[i].deviceID;
+				 	longitude=rows[i].longitude;
+				 	latitude=rows[i].latitude;
+				 	address_num=rows[i].address_num;
+				 	time=rows[i].time;
+		//		 	alert("time :"+time);
+				 	speed=rows[i].speed;
+					
+					onlineStatus=rows[i].onlineStatus;
+					
+				 	engineRPM=rows[i].engineRPM;
+				 	batt_level=rows[i].batt_level;
+				 	fuel_level_now=rows[i].fuel_level_now;
+				 	ign=rows[i].ign;
+				 	licenseNumber=rows[i].licenseNumber;
+				 	heading =rows[i].heading;
+					
+					alertStatus = rows[i].alertStatus;
+					
+					//console.info(heading+"->heading");
+				 	bindDiv (times,deviceID,longitude,latitude,address_num,time,speed,engineRPM,batt_level,fuel_level_now,ign,licenseNumber,onlineStatus,heading,alertStatus);
+				 }
+				  
+			  });
+	  	
+	  }
+	  var divindex;
+	  function divClick(i){
+	  	 $('#dlgFortification').dialog('open');
+	  	// alert("routNumber:"+routNumber);
+	  	//alert("divindex:"+i);
+	  	divindex=i;
+	  }
+	  
+	  function createDivs(){
+	   //   alert("createDivs:"+vehicleNumber);
+		  var div = "";
+		  for ( var i=0 ; i < routNumber ; ++i ){
+			  if(vehicleNumber1>0){
+				  div=(div+"<div class='xxdiv"+routNumber+ "' id='container_"+devicesArr[i]+"'></div>");
+			  }
+			  else{
+				  div=(div+"<div class='blank"+routNumber+ "' title='单击添加车辆'  onclick='divClick("+i+")' id='container_"+i+"'></div>");
+			  }
+			  vehicleNumber1--;
+		  }
+		//  alert(div);
+		  $("#trace").html(div);
+	  }
+
+	  $(document).ready(function(){
+			$('#routeSelect').combobox('select', routNumber);
+			$('#mapSelect').combobox('select', curMapType);
+			});
+	  
+	  $('#mapSelect').combobox({
+			onSelect: function(record){
+				if(record.value!=curMapType){
+					var url="trace.html?deviceID="+deviceIDs+"&mapType="+record.value;
+				//	alert(url);
+					// $('#form1').method="get";
+					//$('#form1').action=url;
+					// $('#form1').submit();
+					window.location.href=url;
+				}
+				
+			}
+		});
+			
+	 $('#tt1').tabs({
+	   onSelect: function(title,index){
+		   var str = $.trim(title);
+		   if(str == "部门"){
+			   setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+treeTmp);
+		   }else if(str == "车系"){
+			   
+			   var pageURL = "";
+				<?php  
+					 if($_SESSION["op"]=="deplogin"){//部门用户登录
+						?>
+							pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+	
+						<?php 
+							}else{ //客户登陆
+					   ?>
+							pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+						<?php 
+					  }
+					 
+				 ?>	   
+				 setCarByPage(pageURL);
+ 
+		   }else if(str == "客户"){
+				var pageURL = "";
+				<?php  
+					 if($_SESSION["op"]=="deplogin"){//部门用户登录
+						?>
+							pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+	
+						<?php 
+							}else{ //客户登陆
+					   ?>
+							pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+						<?php 
+					  }
+					 
+				 ?>
+				 setCarByPage(pageURL);
+
+		   }  
+		   /*if(str == "部门"){
+			  
+				$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+					 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+				 });  
+			   
+		   }else if(str == "车系"){
+				 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+					 <?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+							url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+							<?php 
+						  }else{ //客户登陆
+						   ?>
+							   url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+							<?php 
+						  }
+						 
+					   ?> 
+		 
+				});       
+		   }else if(str == "客户"){
+			   
+			 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				   <?php 
+						  if($_SESSION["op"]=="deplogin")//部门用户登录
+						  { 
+						?>
+						url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+						<?php 
+						  }
+						  else //客户登陆
+						  { 
+					   ?>
+						url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+						 <?php 
+						  }
+						 
+					   ?> 
+				 
+				});    
+		   }*/
+	   }
+	});
+	  
+	  Array.prototype.in_array = function(e)  
+	  {  
+	  for(i=0;i<this.length;i++)  
+	  {  
+	  if(this[i] == e)  
+	  return true;  
+	  }  
+	  return false;  
+	  }  
+	  
+	  
+	  
+	  /*  //得到所有车辆数据,从地图上移除这些标志
+		function getAllSections(){
+			var rows = $('#dg').datagrid('getData');
+			console.info(rows.rows);
+		}*/
+		
+		
+		/**
+		搜索时回车提交查询
+		*/
+		$("#search").keydown(function(e){ 
+			var curKey = e.which; 
+			if(curKey == 13){ 
+				$("#btnSearch").click(); 
+				return false; 
+			} 
+		});
+		
+		$("#btnSearch").live("click",function(){			
+			//getAllSections();
+			var searchValue = $.trim($("#search").val());
+
+			if(searchValue == ""){				
+				$("#search").attr("placeholder","请输入要查找的车牌号或设备号");	
+				return;	
+			}
+			
+			$("#depID").tree("reload");//刷新 树形菜单,意图在于去掉那些可能存在的勾
+			$("#v_modelID").tree("reload");
+			$("#v_cusID").tree("reload");
+			treeTmp = null;
+			modelTmp = null;
+			cusTmp = null;
+			
+			
+			var pageURL = "";
+			<?php  
+				 if($_SESSION["op"]=="deplogin"){//部门用户登录
+					?>
+						pageURL = '../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID;
+
+					<?php 
+						}else{ //客户登陆
+				   ?>
+						pageURL = url:'../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID;
+					<?php 
+				  }
+				 
+			 ?>
+			 //  console.info(pageURL);
+			 setCarByPage(pageURL);
+			/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				 <?php  
+					 if($_SESSION["op"]=="deplogin"){//部门用户登录
+						?>
+							url:'../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID
+						<?php 
+					  }else{ //客户登陆
+					   ?>
+		 				    url:'../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID
+						<?php 
+					  }
+					 
+				   ?> 
+	 
+			});*/	
+		});
+	  
+	  
+	  function setCarByPage(pageURL){
+		//var pageURL = "../service/alert.php?sqlType=1&date="+date;
+
+		$('#dg').datagrid({  
+		
+			url:pageURL, 
+			
+			singleSelect:true,//是否单选
+		
+			pagination:true,//分页控件  
+		
+			rownumbers:false//行号
+			
+			/*toolbar: [{
+				text:'处理',
+				iconCls:'icon-playback',
+				handler:function(){
+					var selectRow=$('#dg_history').datagrid('getSelected');
+					if(selectRow==null){
+						alert("请单击进行选择（最多1条记录）！");
+						return;
+					}
+					//alert(selectRow.deviceID);
+					glob_recordId=selectRow.recordId;
+					url1='../service/alert.php?sqlType=10&recordId='+glob_recordId+'&userId='+glob_userId;
+					$.get(url1, {				
+						},function(result,status){	
+							if (status=="success") {		 
+								alert (result);
+								refresh();
+							}else {
+								alert("网络问题");
+							}
+							
+					});
+				}
+			}]*/
+		});
+		
+		//设置分页控件  
+		var p = $('#dg').datagrid('getPager');  
+		
+		$(p).pagination({  
+		
+			pageSize: 10,//每页显示的记录条数，默认为10  
+		
+			pageList: [5,10,15,20,30,40,50],//可以设置每页记录条数的列表  
+		
+			beforePageText: '',//页数文本框前显示的汉字  
+		
+			afterPageText: '/{pages}'//,  
+		
+			//displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		
+		});
+	}
+</script>   
+</body>   
+</html>

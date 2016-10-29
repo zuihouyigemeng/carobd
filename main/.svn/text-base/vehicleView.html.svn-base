@@ -1,0 +1,669 @@
+<?php include("session.php"); ?>
+
+<?php 
+$mapType = isset($_GET['mapType']) ? $_GET['mapType'] : '1';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<?php 
+if($mapType==1){
+?>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+<?php 
+}
+else if($mapType==2){
+?>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAKKcnYLgJKhO6-yOav7Qzn-1EFBn814Lg&sensor=false"></script>
+<?php 
+}
+?>
+
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../map_utils.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<SCRIPT type="text/javascript" src="../jquery.layout.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="../jquery.layout.extend.js"></SCRIPT>
+<?php 
+if($mapType==1){
+?>
+<SCRIPT type="text/javascript" src="../js/vehicleView_baidu.js"></SCRIPT>
+<?php 
+}
+else if($mapType==2){
+?>
+<SCRIPT type="text/javascript" src="../js/vehicleView_google.js"></SCRIPT>
+<?php 
+}
+?>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>车辆监控</title>
+<style type="text/css">
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+
+#container {
+	height: 100%;
+}
+
+.window-shadow,
+.panel.window{background: rgba(255,255,255, 0.6) !important;}
+
+.panel.window div{background: transparent !important;}
+
+</style>
+
+</head>
+
+<body  onload='init()'>
+   <!-- <div id="header" style="width:100%;height:4%;">
+    <span style="padding:0 0 0 5px;">地图选择：</span>
+	<select  id="mapSelect" class="easyui-combobox"   editable='false', data-options="panelHeight:'auto'" name="routeSwitch" style="width:80px;">
+		<option value="1">百度地图</option>
+		<option value="2" selected=true>谷歌地图</option>
+	</select>
+    </div>-->
+	<div id="container"></div>
+	<?php include("alarm.html"); ?>
+	<?php include("healthCheck.html"); ?>
+	<?php include("vehicleInfo.html"); ?>
+	<?php include("vehicleBaseInfo.html"); ?>
+	<?php include("vehicleSet.html"); ?>
+	<?php include("vehicleStatistics.html"); ?>
+    
+
+
+<!--发动机参数设置--> 
+<div  id="dlgFortification" class="easyui-dialog" title="发动机参数设置"  closed="true"  style="width:250px;height:230px;padding:10px;font-size:16px;font-weight:bold;">
+    发动机排量:&nbsp;&nbsp;&nbsp;<input type="text" id="_swept" placeholder="必填项" style="width:40px;color:blue;font-size:16px;padding-left:4px;"></input><span style="color:blue;font-size:18px;">L</span><br /><br />
+    发动机容积率:<input placeholder="必填项" id="volumeRate" style="width:40px;color:blue;padding-left:4px;font-size:16px;"></input><br />
+    <br />
+    
+    状态:<span id="status" style="color:blue;padding-left:4px;font-size:16px;">待设置...</span><br />
+    <br />
+ 
+    <input type="button" id="setColumeRate" value="设置" onclick="setVolumeRate();" style="border-radius: 5px;line-height: 0px;padding:20px;line-height:0;height:40px;background-color:rgba(142,168,224,.5);border:1px;cursor:pointer;"/>
+
+</div>
+
+
+<!-- 远程命令 操作 -->
+<div  id="dlgDeciceVolume" class="easyui-dialog" title="远程命令"  closed="true"  style="width:250px;height:230px;padding:10px;font-size:16px;font-weight:bold;">
+    
+    <label style="font-size: 18px;">
+    	<input type="radio" id="restarDevice" checked name="deviceVolumeRate" value="0">重启设备
+    </label>
+   	<br>
+    <label style="font-size: 18px;">
+    	<input type="radio" id="getVolumeParams" name="deviceVolumeRate" value="1">获取发动机参数
+    </label>
+    <br><br>
+    
+    状态:<span id="statusCMD" style="color:blue;padding-left:4px;font-size:16px;">待设置...</span><br />
+    <br />
+    
+    <input type="button" id="setCMD" value="设置" onclick="setDevice();" style="border-radius: 5px;line-height: 0px;padding:20px;line-height:0;height:40px;background-color:rgba(142,168,224,.5);border:1px;cursor:pointer;"/>
+
+</div>
+
+
+
+
+
+    
+    
+</body>
+<script type="text/javascript" >
+
+var westStatus=1;
+
+var curMapType=<?php  echo $mapType ?>;
+//当前车辆vin
+var curr_vin="";
+//当前车辆deviceID
+var curr_deviceID="";
+
+var glob_licenseNumber;
+var glob_deviceID="";//这个完全是多余,混淆视听的....坑死人咧....
+var map;
+var t=60;
+
+var g_type = 0;
+
+var statusArr = ['连接中...','设置中...','设置成功!','待设置...'];
+var buttonArr = ['设置','请稍候','重新设置'];
+
+var stockInterval = null;
+
+var cmdInterval = null;//命令编辑
+
+var countTime = 0;//统计 发动机参数 
+var countCMD = 0;//命令编辑请求次数 统计 
+
+function getSecondTxt(){
+	 var div = document.createElement("div");
+	  div.innerHTML ="还有"+t+"秒刷新";
+	  // 设置样式
+	  div.style.cursor = "pointer";
+	  div.style.border = "1px solid gray";
+	  div.style.backgroundColor = "red";
+	  div.style.padding = "5px";
+	  t--;
+	  return div;
+}
+
+function  westSwitch(){
+	if(westStatus==1){
+		$("#imgDemo11").attr("src",'../img/btn__0000_right_pressed.png' );
+		westStatus=0;
+	}
+	else{
+		$("#imgDemo11").attr("src",'../img/btn__0002_left_pressed.png' );
+		westStatus=1;
+		
+	}
+	top.westSwitch();
+}
+
+
+/*************以下是运程命令设置代码***********/
+function setDeviceVolume(){
+	if(glob_deviceID==""){
+		alert("请选择车辆！");
+		return ;
+	}
+	$('#dlgDeciceVolume').dialog('open');	
+}
+
+
+$("input[name='deviceVolumeRate']").each(function(){
+	$(this).click(function(){
+		var discount = $(this).val();
+		if(discount != g_type){
+			changCheck();
+		}
+		
+	});
+});
+
+
+//检查当前设备对于volumeRate的设置状态.
+function checkSetCMD(){		
+	if(countCMD >= 8){
+		clearInterval(cmdInterval);
+		cmdInterval = null;
+		
+		$("#statusCMD").html("设置超时!");
+		$("#setCMD").attr('disabled',false).val(buttonArr[2]);
+		
+		return;
+	 }
+	
+	
+	var type = 3;
+	if(g_type==1){
+		type = 4;
+	}else{
+		type=3;
+	}	
+
+	$.ajax({
+		type:'get',
+		url:'../service/setVolumeRate.php',
+		data:{"deviceID":deviceID,"type":type},
+        dataType: "json",
+		cache:false,//设置ie不缓存
+		success:function(data,status){
+			var row = eval(data);
+			if(row.length > 0){
+				var af = row[0].applyField;;
+				if(af == 1){
+					$("#statusCMD").html(statusArr[0]);
+					$("#setCMD").attr('disabled',false).val(buttonArr[1]);
+				}else if(af == 2){
+					$("#statusCMD").html(statusArr[1]);
+					$("#setCMD").attr('disabled',true).val(buttonArr[1]);
+				}else if(af == 0){					
+					$("#statusCMD").html(statusArr[2]);
+					$("#setCMD").attr('disabled',false).val(buttonArr[2]);
+					clearInterval(cmdInterval);
+					cmdInterval = null;
+				}
+			
+			}else{
+				$("#statusCMD").html(statusArr[3]);
+				$("#setCMD").attr('disabled',false).val(buttonArr[0]);	
+			}
+		} 
+	});
+	
+	countCMD++;
+	
+}
+
+//设置与重新设置volumeRate时执行.
+function setDevice(){
+	
+	//$('input[name="deviceVolumeRate"]:checked').attr("disabled",true);
+	
+	var setParam = $('input[name="deviceVolumeRate"]:checked').val();//要设置的类型
+	
+	//console.log(setParam);
+	
+	g_type = setParam;
+	
+	var deviceID = $.trim(glob_deviceID);
+	
+	//设置重启      4,10
+	//获取发动机参数 4,8
+	
+	var type = 5,sub_cmd = 10;//type=5增加重启设备数据 
+	if(setParam == 1){
+		type = 6;	//增加获取发动机参数 数据
+		sub_cmd = 8; 
+	}
+	
+	if(cmdInterval){
+		clearInterval(cmdInterval);
+		cmdInterval = null;		
+	}
+	countCMD = 0;	
+	
+	$.ajax({
+		type:'get',
+		url:'../service/setVolumeRate.php',
+		data:{
+			deviceID: deviceID,
+			main_cmd: "4",
+			sub_cmd: sub_cmd,
+			fleet_cmd: "0",
+			applyField: "1",
+			swept: "",
+			volumeRate: "",
+			type:type
+		  },
+        dataType: "json",
+		cache:false,//设置ie不缓存
+		success: function(data,status){
+			if(data == '200'){//成功,则转为等待
+				checkSetCMD();
+				countCMD--;
+				
+				if(cmdInterval){
+					clearInterval(cmdInterval);
+					cmdInterval = null;
+					countCMD = 0;			 
+				}
+				cmdInterval = setInterval(checkSetCMD, 15000);//隔15s执行一次
+			}else if(data == '1001'){
+				alert('配置出错,请稍后再试...');
+			}			
+		}
+	});
+		
+}
+
+function changCheck(){
+	//console.log("changeVal-----------------------------------");
+	if(cmdInterval != null){
+		clearInterval(cmdInterval);
+		cmdInterval = null;
+	}
+	
+	countCMD = 0;
+
+	
+	var setParam = $('input[name="deviceVolumeRate"]:checked').val();//要设置的类型
+	
+	g_type = setParam;
+	
+	var mtype = 3;
+	
+	if(g_type == 0){
+		mtype = 3;	
+	}else if(g_type == 1){
+		mtype = 4;	
+	}
+	
+	$.ajax({
+		type:'get',
+		url:'../service/setVolumeRate.php',
+		data:{
+			deviceID: deviceID,
+			type:mtype
+		  },
+        dataType: "json",
+		cache:false,//设置ie不缓存
+		success: function(data,status){
+			var row = eval(data);
+			//console.log(row);
+			if(row.length > 0){
+				var af = row[0].applyField;
+				if(af == 1){
+					$("#statusCMD").html(statusArr[3]);
+					$("#setCMD").attr('disabled',false).val(buttonArr[0]);
+				}else if(af == 2){
+					$("#statusCMD").html(statusArr[1]);
+					$("#setCMD").attr('disabled',false).val(buttonArr[2]);
+				}else if(af == 0){
+					$("#statusCMD").html(statusArr[2]);
+					$("#setCMD").attr('disabled',false).val(buttonArr[2]);
+				}
+			}else{
+				$("#statusCMD").html(statusArr[3]);
+				$("#setCMD").attr('disabled',false).val(buttonArr[0]);	
+			}			
+		}
+	});
+	
+}
+/*************以上是运程命令设置代码************/
+
+
+
+/*************以下是发动机参数设置代码*************/
+function  defence(){
+	if(glob_deviceID==""){
+		alert("请选择车辆！");
+		return ;
+	}
+	$('#dlgFortification').dialog('open');
+
+}
+
+$("#setColumeRate,#setCMD").hover(function(){
+	$(this).css({"background-color":"rgba(142,168,224,.9)"});
+},function(){
+	$(this).css({"background-color":"rgba(142,168,224,.5)"});	
+});
+
+//检查当前设备对于volumeRate的设置状态.
+function checkSetVolumeRate(){
+	if(countTime >= 8){
+		clearInterval(stockInterval);
+		stockInterval = null;
+		
+		$("#status").html("设置超时!");
+		$("#setColumeRate").attr('disabled',false).val(buttonArr[2]);
+		
+		return;
+	 }
+	
+	$.ajax({
+		type:'get',
+		url:'../service/setVolumeRate.php',
+		data:{
+			deviceID: deviceID,
+			type:"0"
+		  },
+        dataType: "json",
+		cache:false,//设置ie不缓存
+		success: function(data,status){
+			var row = eval(data);			
+			if(row.length > 0){
+				var af = row[0].applyField;
+				//console.log("被执行==="+af);
+				if(af == 1){
+					$("#status").html(statusArr[0]);
+					$("#setColumeRate").attr('disabled',false).val(buttonArr[0]);
+				}else if(af == 2){
+					$("#status").html(statusArr[1]);
+					$("#setColumeRate").attr('disabled',true).val(buttonArr[1]);
+				}else if(af == 0){					
+					$("#status").html(statusArr[2]);
+					$("#setColumeRate").attr('disabled',false).val(buttonArr[2]);
+					clearInterval(stockInterval);
+					stockInterval = null;
+				}
+			
+			}else{
+				$("#status").html(statusArr[0]);
+				
+				$("#setColumeRate").attr('disabled',false).val(buttonArr[1]);	
+			}			
+		}
+	});	
+	
+	countTime++;
+	
+}
+
+//设置与重新设置volumeRate时执行.
+function setVolumeRate(){
+	
+	var deviceID = $.trim(glob_deviceID);
+	
+	var swept = $.trim($("#_swept").val());
+	var volumeRate = $.trim($("#volumeRate").val());
+	
+	if(swept == '' || volumeRate == '' || isNaN(swept) || isNaN(volumeRate)){
+		alert("排量与容积率都必须填写,且只能为数字!");
+		return;	
+	}
+	
+	if(stockInterval){
+		clearInterval(stockInterval);
+		stockInterval = null;		
+	}
+	countTime = 0;	
+	
+	$.ajax({
+		type:'get',
+		url:'../service/setVolumeRate.php',
+		data:{
+			deviceID: deviceID,
+			main_cmd: "4",
+			sub_cmd: "9",
+			fleet_cmd: "0",
+			applyField: "1",
+			swept: swept,
+			volumeRate: volumeRate,
+			type:"1"
+		  },
+        dataType: "json",
+		cache:false,//设置ie不缓存
+		success: function(data,status){
+			if(data == '200'){//成功,则转为等待
+				checkSetVolumeRate();
+				countTime--;
+				
+				if(stockInterval){
+					clearInterval(stockInterval);
+					stockInterval = null;
+					countTime = 0;			 
+				}
+				stockInterval = setInterval(checkSetVolumeRate, 15000);//隔15s执行一次
+			}else if(data == '1001'){
+				alert('配置出错,请稍后再试...');
+			}			
+		}
+	});
+		
+}
+/*************以上是发动机参数设置代码************/
+
+
+function vehiCleSetting(id){
+	if(glob_deviceID==""){
+		alert("请选择车辆！");
+		return ;
+	}
+	setting(glob_deviceID,id);
+}
+
+function  onCheck(rowData){
+	//alert("onCheck");
+	rows = new Array();
+	rows[0]=rowData;
+	checkAll(rows);
+}
+
+function  onUncheck(rowData){
+//	alert("onUncheck");
+	rows = new Array();
+	rows[0]=rowData;
+	onUncheckAll(rows);
+}
+
+function healthCheck(){
+	
+	$('#healthCheckDlg').dialog('open');
+}
+
+function statistics_dis(){
+	window.open("vehicleStatis4Dis.php?deviceID="+curr_deviceID,"_blank");
+	
+}
+
+function statistics_fuel(){
+	window.open("vehicleStatis4Fuel.php?deviceID="+curr_deviceID,"_blank");
+}
+
+
+
+
+function trace(deviceID){
+	//$('#trace').dialog('open');
+//	alert("deviceID:"+deviceID);
+     var url="trace.html?deviceID="+deviceID +"&mapType="+curMapType;
+   //  alert(url);
+	traceWin=window.open(url,"_blank");
+//	traceWin.document.write("deviceID="+deviceID) ;
+}
+	
+//	location.href = "test.html";
+	 
+
+function playback(){
+	alert("jump to playback page....");
+}
+function alerts(vin){
+//	alert("jump to alerts page....");
+    initAlert(vin);
+	$('#dlgAlert').dialog('open');
+	
+}
+function info(vin){
+//	alert("jump to info page....");
+ //  alert(vin);
+   queryBaseInfo(vin);
+	$('#dlgInf').dialog('open');
+}
+function setting(deviceID,id){
+//	alert("jump to setting page....");
+   querySetting(deviceID,id);
+   $('#dlgSet').dialog('open');
+}
+function more(){
+
+}
+
+function geo(){
+	  traceWin1=window.open('ditu.html');
+}
+function createContent(licenseNumber,time,address_num,deviceID,vin,ign,online,heading){
+		  if(ign==1){
+		     if(online == '离线'){
+				tmp="（<span style='font-size: 14px;font-weight: bold;color:rgb(192,192,192);'>离线</span>）";	 
+			 }else{
+			 	tmp="（<span style='font-size: 14px;font-weight: bold;color:green;'>运行中</span>）";
+			 }
+		  }else{
+		     tmp="（<span style='font-size: 14px;font-weight: bold;color:rgb(192,192,192);'>熄火</span>）";
+		  }
+		  var headingStr;
+		  if(heading==0 || heading==360){
+			  headingStr="正北";
+		  }
+		  if(heading>0 && heading<90){
+			  headingStr="东北";
+		  }
+		  if(heading==90){
+			  headingStr="正东";
+		  }
+		  if(heading>90 && heading<180){
+			  headingStr="东南";
+		  }
+		  if(heading==180){
+			  headingStr="正南";
+		  }
+		  if(heading>180 && heading<270){
+			  headingStr="西南";
+		  }
+		  if(heading==270){
+			  headingStr="正西";
+		  }
+		  if(heading>270 && heading<360){
+			  headingStr="西北";
+		  }
+	 var sContent =
+		  	"<div style='width:300px;border-color: #108be9;'><h4 style='font-size: 14px;font-weight: bold;'>"+licenseNumber+tmp+"</h4>"
+		  	+"<hr   size=2 color=#108be9 />"
+		  	+"<span style='font-size: 14px;margin-bottom: 10px;'>时间："+time+"&nbsp;方向："+headingStr+"</span></br>"
+		  	+"<span style='font-size: 14px;margin-bottom: 10px;'>位置："+address_num+"</span></br></br>"
+		  	+"<img  id='imgDemo1' src='../mapPic/trace.png' width='55' height='55' title='跟踪' onmouseout='JavaScript:this.src=\"../mapPic/trace.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/trace_focused.png\"'  onclick='trace(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo2' src='../mapPic/playback.png' width='55' height='55' title='回放' onmouseout='JavaScript:this.src=\"../mapPic/playback.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/playback_focused.png\"' onclick='history(\""+deviceID+"\",\""+licenseNumber+"\")' />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo3' src='../mapPic/alerts.png' width='55' height='55' title='告警' onmouseout='JavaScript:this.src=\"../mapPic/alerts.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/alerts_focused.png\"' onclick='alerts(\""+vin+"\")'  /> "
+		  	+"<img  id='imgDemo4' src='../mapPic/infor.png' width='55' height='55' title='资料' onmouseout='JavaScript:this.src=\"../mapPic/infor.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/infor_focused.png\"'  onclick='info(\""+vin+"\")'  />"
+		  	+"&nbsp;"
+		  //+"<img  id='imgDemo5' src='../mapPic/setting.png' width='55' height='55' title='设置' onmouseout='JavaScript:this.src=\"../mapPic/setting.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/setting_focused.png\"'  onclick='setting(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+	 	//    +"<img  id='imgDemo3' src='../mapPic/more.png' width='45' height='45' title='更多' onmouseout='JavaScript:this.src=\"../mapPic/more.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/more_focused.png\"' onclick='more()'  /> " 
+	 	     +"<img  id='imgDemo3' src='../mapPic/geo_normal.png' width='55' height='55' title='围栏' onmouseout='JavaScript:this.src=\"../mapPic/geo_normal.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/geo_focused.png\"' onclick='geo()'  /> " 
+		  	+"</div>";
+		  return sContent;
+}
+function history(deviceID,lic){
+	//alert("glob_deviceID:"+glob_deviceID);
+	//alert("glob_lic:"+glob_licenseNumber);
+	if(deviceID == 0) {
+		deviceID=glob_deviceID;
+	}
+	if(lic ==0){
+		lic=glob_licenseNumber;
+	}
+	var url="historyView.php?deviceId="+deviceID+"&licenseNumber="+lic+"&mapType="+curMapType;
+	url =encodeURI(url);   
+    url =encodeURI(url); 
+	varA=window.open(url,"_blank");
+
+}
+
+$('#mapSelect').combobox({
+	onSelect: function(record){
+//		alert(record.value);
+//		alert(curMapType);
+		if(record.value!=curMapType){
+			top.mapSwitch(record.value);
+			curMapType=record.value;			
+		}
+		
+	}
+});
+
+
+$(document).ready(function(){
+	$('#mapSelect').combobox('select', <?php  echo $mapType ?>);
+	}); 
+	
+	
+
+
+
+</script>
+</html>

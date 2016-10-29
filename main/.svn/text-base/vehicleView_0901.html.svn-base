@@ -1,0 +1,305 @@
+<?php include("session.php"); ?>
+
+<?php 
+$mapType = isset($_GET['mapType']) ? $_GET['mapType'] : '1';
+?>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<?php 
+if($mapType==1){
+?>
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+<?php 
+}
+else if($mapType==2){
+?>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAKKcnYLgJKhO6-yOav7Qzn-1EFBn814Lg&sensor=false"></script>
+<?php 
+}
+?>
+
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../map_utils.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<SCRIPT type="text/javascript" src="../jquery.layout.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="../jquery.layout.extend.js"></SCRIPT>
+<?php 
+if($mapType==1){
+?>
+<SCRIPT type="text/javascript" src="../js/vehicleView_baidu.js"></SCRIPT>
+<?php 
+}
+else if($mapType==2){
+?>
+<SCRIPT type="text/javascript" src="../js/vehicleView_google.js"></SCRIPT>
+<?php 
+}
+?>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>车辆监控</title>
+<style type="text/css">
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px
+}
+
+#container {
+	height: 100%
+}
+</style>
+
+</head>
+
+<body  onload='init()'>
+    <div id="header" style="width:100%;height:25px;">
+    <span style="padding:0 0 0 5px;">地图选择：</span>
+	<select  id="mapSelect" class="easyui-combobox"   data-options="panelHeight:'auto'" name="routeSwitch" style="width:80px;">
+		<option value="1">百度地图</option>
+		<option value="2" selected=true>谷歌地图</option>
+	</select>
+    </div>
+	<div id="container"></div>
+	<?php include("alarm.html"); ?>
+	<?php include("healthCheck.html"); ?>
+	<?php include("vehicleInfo.html"); ?>
+	<?php include("vehicleBaseInfo.html"); ?>
+	<?php include("vehicleSet.html"); ?>
+	<?php include("vehicleStatistics.html"); ?>
+	<?php include("fortification.html"); ?>
+</body>
+<script type="text/javascript" >
+
+var westStatus=1;
+
+var curMapType=<?php  echo $mapType ?>;
+//当前车辆vin
+var curr_vin="";
+//当前车辆deviceID
+var curr_deviceID="";
+
+var glob_licenseNumber;
+var glob_deviceID="";
+var map;
+var t=60;
+
+function getSecondTxt(){
+	 var div = document.createElement("div");
+	  div.innerHTML ="还有"+t+"秒刷新";
+	  // 设置样式
+	  div.style.cursor = "pointer";
+	  div.style.border = "1px solid gray";
+	  div.style.backgroundColor = "red";
+	  t--;
+	  return div;
+}
+
+function  westSwitch(){
+	if(westStatus==1){
+		$("#imgDemo11").attr("src",'../img/btn__0000_right_pressed.png' );
+		westStatus=0;
+	}
+	else{
+		$("#imgDemo11").attr("src",'../img/btn__0002_left_pressed.png' );
+		westStatus=1;
+		
+	}
+	top.westSwitch();
+}
+function  defence(){
+	 $('#dlgFortification').dialog('open');
+}
+
+function vehiCleSetting(){
+	if(glob_deviceID==""){
+		alert("请选择车辆！");
+		return ;
+	}
+	setting(glob_deviceID);
+}
+
+function  onCheck(rowData){
+	alert("onCheck");
+	rows = new Array();
+	rows[0]=rowData;
+	checkAll(rows);
+}
+
+function  onUncheck(rowData){
+//	alert("onUncheck");
+	rows = new Array();
+	rows[0]=rowData;
+	onUncheckAll(rows);
+}
+
+function healthCheck(){
+	
+	$('#healthCheckDlg').dialog('open');
+}
+
+function statistics_dis(){
+	window.open("vehicleStatis4Dis.php?deviceID="+curr_deviceID,"_blank");
+	
+}
+
+function statistics_fuel(){
+	window.open("vehicleStatis4Fuel.php?deviceID="+curr_deviceID,"_blank");
+}
+
+
+
+
+function trace(deviceID){
+	//$('#trace').dialog('open');
+//	alert("deviceID:"+deviceID);
+     var url="trace.html?deviceID="+deviceID +"&mapType="+curMapType;
+     alert(url);
+	traceWin=window.open(url,"_blank");
+//	traceWin.document.write("deviceID="+deviceID) ;
+}
+	
+//	location.href = "test.html";
+	 
+
+function playback(){
+	alert("jump to playback page....");
+}
+function alerts(vin){
+//	alert("jump to alerts page....");
+    initAlert(vin);
+	$('#dlgAlert').dialog('open');
+	
+}
+function info(vin){
+//	alert("jump to info page....");
+ //  alert(vin);
+   queryBaseInfo(vin);
+	$('#dlgInf').dialog('open');
+}
+function setting(deviceID){
+//	alert("jump to setting page....");
+   querySetting(deviceID);
+   $('#dlgSet').dialog('open');
+}
+function more(){
+	
+	 var url="ditu.html";
+     
+	traceWin=window.open(url,"_blank");
+//	alert("jump to more page....");
+	
+	 // 创建一个DOM元素
+	  //var div = document.createElement("div");
+	  //div.innerHTML ="<img  id='imgDemo2' src='../mapPic/playback.jpg' width='39' height='38' title='回放'  onclick='playback()'  />" ;
+	 
+	  // 设置样式
+	  //div.style.cursor = "pointer";
+	  //div.style.border = "1px solid gray";
+	 // div.style.backgroundColor = "white";
+	//  echo div.innerHtml();
+	 // alert(div.innerHTML);  
+}
+function createContent(licenseNumber,time,address_num,deviceID,vin,ign,heading){
+	if(ign==0)
+		   tmp="（<span style='font-size: 14px;font-weight: bold;color:rgb(192,192,192);'>熄火</span>）";
+		  else
+		   tmp="（<span style='font-size: 14px;font-weight: bold;color:green;'>运行中</span>）";
+		  var headingStr;
+		  if(heading==0 || heading==360){
+			  headingStr="正北";
+		  }
+		  if(heading>0 && heading<90){
+			  headingStr="东北";
+		  }
+		  if(heading==90){
+			  headingStr="正东";
+		  }
+		  if(heading>90 && heading<180){
+			  headingStr="东南";
+		  }
+		  if(heading==180){
+			  headingStr="正南";
+		  }
+		  if(heading>180 && heading<270){
+			  headingStr="西南";
+		  }
+		  if(heading==270){
+			  headingStr="正西";
+		  }
+		  if(heading>270 && heading<360){
+			  headingStr="西北";
+		  }
+	 var sContent =
+		  	"<div style='width:300px;border-color: #108be9;'><h4 style='font-size: 14px;font-weight: bold;'>"+licenseNumber+tmp+"</h4>"
+		  	+"<hr   size=2 color=#108be9 />"
+		  	+"<span style='font-size: 14px;margin-bottom: 10px;'>时间："+time+"&nbsp;方向："+headingStr+"</span></br>"
+		  	+"<span style='font-size: 14px;margin-bottom: 10px;'>位置："+address_num+"</span></br></br>"
+		  	+"<img  id='imgDemo1' src='../mapPic/trace.png' width='45' height='45' title='跟踪' onmouseout='JavaScript:this.src=\"../mapPic/trace.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/trace_focused.png\"'  onclick='trace(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo2' src='../mapPic/playback.png' width='45' height='45' title='回放' onmouseout='JavaScript:this.src=\"../mapPic/playback.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/playback_focused.png\"' onclick='history(\""+deviceID+"\",\""+licenseNumber+"\")' />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo3' src='../mapPic/alerts.png' width='45' height='45' title='告警' onmouseout='JavaScript:this.src=\"../mapPic/alerts.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/alerts_focused.png\"' onclick='alerts(\""+vin+"\")'  /> "
+		  	+"<img  id='imgDemo4' src='../mapPic/infor.png' width='45' height='45' title='资料' onmouseout='JavaScript:this.src=\"../mapPic/infor.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/infor_focused.png\"'  onclick='info(\""+vin+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo5' src='../mapPic/setting.png' width='45' height='45' title='设置' onmouseout='JavaScript:this.src=\"../mapPic/setting.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/setting_focused.png\"'  onclick='setting(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+	 	    +"<img  id='imgDemo3' src='../mapPic/more.png' width='45' height='45' title='更多' onmouseout='JavaScript:this.src=\"../mapPic/more.png\"'  onmouseover='JavaScript:this.src=\"../mapPic/more_focused.png\"' onclick='more()'  /> " 
+		  	+"</div>";
+		  return sContent;
+}
+function history(deviceID,lic){
+	//alert("glob_deviceID:"+glob_deviceID);
+	//alert("glob_lic:"+glob_licenseNumber);
+	if(deviceID == 0) {
+		deviceID=glob_deviceID;
+	}
+	if(lic ==0){
+		lic=glob_licenseNumber;
+	}
+	//alert(deviceID);
+	
+	//alert(lic);
+	
+	var url="historyView.php?deviceId="+deviceID+"&licenseNumber="+lic+"&mapType="+curMapType;
+	alert(url);
+	url =encodeURI(url);   
+    url =encodeURI(url); 
+//	varA=window.open(url,"_blank");
+    varA=window.open("test.html","_blank");
+	
+}
+
+$('#mapSelect').combobox({
+	onSelect: function(record){
+//		alert(record.value);
+//		alert(curMapType);
+		if(record.value!=curMapType){
+			top.mapSwitch(record.value);
+			curMapType=record.value;			
+		}
+		
+	}
+});
+
+
+$(document).ready(function(){
+	$('#mapSelect').combobox('select', <?php  echo $mapType ?>);
+	}); 
+	
+	
+
+
+
+</script>
+</html>

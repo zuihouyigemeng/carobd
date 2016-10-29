@@ -1,0 +1,61 @@
+<div id="alertDlg" class="easyui-dialog" title="告警<span style='color:#C3522F;margin-left:20px;'>* 彩色字体为最新告警</span>"  data-options="left:150,top:100"  closed="true"  style="width:1220px;height:610px;overflow:hidden;">	
+	<div class="easyui-tabs" style="width: 1220px; height: 610px;overflow:hidden;" id="tt1"> 
+        <div title="今日告警" style="padding: 0px"  id='div0'>
+            <iframe id="alertView_new" frameborder="0" src=""
+                    style="width: 100%; height: 99%;"></iframe>
+        </div>
+        <div title="历史告警" style="padding: 0px"  id='div1'>
+            <iframe id="alertView_hist"  frameborder="0" src=""
+                    style="width: 100%; height: 99%;"></iframe>
+        </div>
+	</div>
+</div>
+<script type="text/javascript">
+	var glob_userId ='<?php echo  $userVo->userID ?>';;
+	
+	var tabIndex=0,count = 0;	
+	var temp = false;
+	$('#tt1').tabs({
+		onSelect: function(title,index){
+        	 if(tabIndex!=index){
+        		 //top.tjTab(index);
+        		 tabIndex=index; 
+        	 }
+			 
+			 /*if($("#alertView_hist").attr("src") == ""){
+				$("#alertView_hist").attr("src","alertView_hist.php");
+			 }*/
+			 if(tabIndex == 1 && !temp){
+				count=1;
+			 	temp = true;
+			 }else if(temp){
+				count = 2;	 
+			 }
+			 
+			 
+        	 if(count == 1){
+				 $("#alertView_hist").attr("src","alertView_hist.php");
+		     }	
+		  }
+	});
+//hasNewAlerts();
+	function hasNewAlerts(){
+	
+		url='../service/alert.php?sqlType=11&userId='+glob_userId;
+		//alert(url);
+
+		$.get(url, {				
+			},function(numberOfAlerts,status){	
+				//alert (jsonStr);
+				//alert (status);
+				if (status=="success") {		 
+		 			//alert (numberOfAlerts);
+		 			$('#alertNmu').html(numberOfAlerts+' ');
+
+				}else {
+					alert ("网络问题");
+				}
+				
+		});		
+	};
+	</script>

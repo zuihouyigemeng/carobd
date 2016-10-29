@@ -1,0 +1,211 @@
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:30:05,----------------depID:------0
+2014-07-20 11:30:05,----------------depID:------1070
+2014-07-20 11:30:05,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 11:31:37,----------------depID:------0
+2014-07-20 11:31:37,----------------depID:------1070
+2014-07-20 11:31:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------depID:------0
+2014-07-20 13:16:21,----------------depID:------1070
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:21,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:30,----------------depID:------0
+2014-07-20 13:16:30,----------------depID:------1070
+2014-07-20 13:16:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:16:41,----------------deviceIDS:------ '6C500CB6'
+2014-07-20 13:16:41,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB6')
+2014-07-20 13:47:24,----------------depID:------0
+2014-07-20 13:47:24,----------------depID:------0
+2014-07-20 13:47:24,----------------depID:------0
+2014-07-20 13:47:24,----------------depID:------0
+2014-07-20 13:47:28,----------------depID:------0
+2014-07-20 13:47:28,----------------depID:------1070
+2014-07-20 13:47:28,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:47:28,----------------depID:------0
+2014-07-20 13:47:28,----------------depID:------1070
+2014-07-20 13:47:28,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 13:48:21,----------------depID:------0
+2014-07-20 13:48:21,----------------depID:------0
+2014-07-20 13:48:21,----------------depID:------0
+2014-07-20 13:48:21,----------------depID:------0
+2014-07-20 14:00:37,----------------depID:------0
+2014-07-20 14:00:37,----------------depID:------1070
+2014-07-20 14:00:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 14:00:37,----------------depID:------0
+2014-07-20 14:00:37,----------------depID:------1070
+2014-07-20 14:00:37,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:02:40,----------------depID:------0
+2014-07-20 16:02:40,----------------depID:------0
+2014-07-20 16:02:40,----------------depID:------0
+2014-07-20 16:02:40,----------------depID:------0
+2014-07-20 16:11:45,----------------deviceIDS:------ '6C4C76C1'
+2014-07-20 16:11:45,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C4C76C1')
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------depID:------0
+2014-07-20 16:12:44,----------------depID:------1070
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 16:12:44,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:06,----------------depID:------0
+2014-07-20 21:00:06,----------------depID:------1070
+2014-07-20 21:00:06,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:07,----------------depID:------0
+2014-07-20 21:00:07,----------------depID:------1070
+2014-07-20 21:00:07,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:00:07,----------------depID:------0
+2014-07-20 21:00:07,----------------depID:------1070
+2014-07-20 21:00:07,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:13:30,----------------depID:------0
+2014-07-20 21:13:30,----------------depID:------1070
+2014-07-20 21:13:30,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 21:44:39,----------------depID:------0
+2014-07-20 21:44:39,----------------depID:------1070
+2014-07-20 21:44:39,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 22:23:41,----------------depID:------0
+2014-07-20 22:23:41,----------------depID:------1070
+2014-07-20 22:23:41,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 22:23:42,----------------depID:------0
+2014-07-20 22:23:42,----------------depID:------1070
+2014-07-20 22:23:42,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 22:24:10,----------------depID:------0
+2014-07-20 22:24:10,----------------depID:------1070
+2014-07-20 22:24:10,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  
+2014-07-20 22:24:10,----------------depID:------0
+2014-07-20 22:24:10,----------------depID:------1070
+2014-07-20 22:24:10,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.address_num,l.latitude,l.longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1071,1070) and d.deviceID=l.deviceID  

@@ -1,0 +1,1138 @@
+2015-05-04 09:47:13,----------------departments:-----------defDep:1003
+2015-05-04 09:47:13,----------------departments:-----------id:1003
+2015-05-04 09:47:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:13,----------------departments:-----------defDep:1003
+2015-05-04 09:47:13,----------------departments:-----------id:1003
+2015-05-04 09:47:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:15,----------------departments:-----------defDep:1003
+2015-05-04 09:47:15,----------------departments:-----------id:1003
+2015-05-04 09:47:15,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:15,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:15,----------------departments:-----------defDep:1003
+2015-05-04 09:47:15,----------------departments:-----------id:1003
+2015-05-04 09:47:15,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:15,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:44,----------------departments:-----------defDep:1003
+2015-05-04 09:47:44,----------------departments:-----------id:1003
+2015-05-04 09:47:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:44,----------------departments:-----------defDep:1003
+2015-05-04 09:47:44,----------------departments:-----------id:1003
+2015-05-04 09:47:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:44,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 09:47:46,----------------departments:-----------defDep:1003
+2015-05-04 09:47:46,----------------departments:-----------id:1003
+2015-05-04 09:47:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:-----------defDep:1003
+2015-05-04 09:47:46,----------------departments:-----------id:1003
+2015-05-04 09:47:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:-----------defDep:1003
+2015-05-04 09:47:46,----------------departments:-----------defDep:1003
+2015-05-04 09:47:46,----------------departments:-----------id:1003
+2015-05-04 09:47:46,----------------departments:-----------id:1003
+2015-05-04 09:47:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:47:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:10,----------------departments:-----------defDep:1003
+2015-05-04 09:57:10,----------------departments:-----------id:1003
+2015-05-04 09:57:10,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:10,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:10,----------------departments:-----------defDep:1003
+2015-05-04 09:57:10,----------------departments:-----------id:1003
+2015-05-04 09:57:10,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:10,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:11,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 09:57:14,----------------departments:-----------defDep:1003
+2015-05-04 09:57:14,----------------departments:-----------id:1003
+2015-05-04 09:57:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:-----------defDep:1003
+2015-05-04 09:57:14,----------------departments:-----------id:1003
+2015-05-04 09:57:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:-----------defDep:1003
+2015-05-04 09:57:14,----------------departments:-----------id:1003
+2015-05-04 09:57:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:-----------defDep:1003
+2015-05-04 09:57:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:-----------id:1003
+2015-05-04 09:57:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 09:57:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 09:57:20,----------------departments:-----------defDep:1003
+2015-05-04 09:57:20,----------------departments:-----------id:1003
+2015-05-04 09:57:20,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 09:57:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 09:57:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 10:17:27,----------------departments:-----------defDep:1003
+2015-05-04 10:17:27,----------------departments:-----------id:1003
+2015-05-04 10:17:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:17:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:17:27,----------------departments:-----------defDep:1003
+2015-05-04 10:17:27,----------------departments:-----------id:1003
+2015-05-04 10:17:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:17:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:17:27,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 10:17:32,----------------departments:-----------defDep:1003
+2015-05-04 10:17:32,----------------departments:-----------id:1003
+2015-05-04 10:17:32,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:17:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:17:32,----------------departments:-----------defDep:1003
+2015-05-04 10:17:32,----------------departments:-----------id:1003
+2015-05-04 10:17:32,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:17:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:17:35,----------------departments:-----------defDep:1003
+2015-05-04 10:17:35,----------------departments:-----------id:1003
+2015-05-04 10:17:35,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 10:17:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 10:17:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 10:18:01,----------------departments:-----------defDep:1003
+2015-05-04 10:18:01,----------------departments:-----------id:1192
+2015-05-04 10:18:01,----------------departments:------select * from Opm_Organ where  parentId=1192 and id>1000
+2015-05-04 10:18:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1198 and id>1000
+2015-05-04 10:18:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1202 and id>1000
+2015-05-04 10:18:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1203 and id>1000
+2015-05-04 10:18:04,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1202,1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:15,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (-1) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:16,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:35,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:18:38,----------------departments:-----------defDep:1003
+2015-05-04 10:18:38,----------------departments:-----------id:1003
+2015-05-04 10:18:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:18:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:18:39,----------------departments:-----------defDep:1003
+2015-05-04 10:18:39,----------------departments:-----------id:1003
+2015-05-04 10:18:39,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:18:39,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:18:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:18:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:18:39,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:39,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:39,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:18:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:18:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:18:59,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:18:59,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:19:09,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:19:09,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:19:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:19:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:19:36,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:19:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:19:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:19:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:19:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:20:10,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:20:10,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:20:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:20:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:20:36,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:20:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:20:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:20:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:20:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:21:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:21:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:21:40,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:21:41,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:21:41,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:21:51,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:21:51,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:01,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:01,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:38,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:22:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:22:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:22:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:23:02,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:23:02,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:23:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:23:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:23:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:23:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:23:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:23:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:23:39,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:23:43,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:23:43,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:24:31,----------------deviceIDS:------ ''
+2015-05-04 10:24:31,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:24:40,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:25:09,----------------deviceIDS:------ ''
+2015-05-04 10:25:09,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:25:29,----------------deviceIDS:------ ''
+2015-05-04 10:25:29,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:25:41,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:26:08,----------------deviceIDS:------ ''
+2015-05-04 10:26:08,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:26:21,----------------deviceIDS:------ ''
+2015-05-04 10:26:21,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:26:40,----------------deviceIDS:------ ''
+2015-05-04 10:26:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:26:42,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:27:42,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:28:43,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:29:22,----------------departments:-----------defDep:1003
+2015-05-04 10:29:22,----------------departments:-----------id:1003
+2015-05-04 10:29:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:29:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:29:22,----------------departments:-----------defDep:1003
+2015-05-04 10:29:22,----------------departments:-----------id:1003
+2015-05-04 10:29:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:29:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:29:23,----------------departments:-----------defDep:1003
+2015-05-04 10:29:23,----------------departments:-----------id:1003
+2015-05-04 10:29:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:29:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:29:23,----------------departments:-----------defDep:1003
+2015-05-04 10:29:23,----------------departments:-----------id:1003
+2015-05-04 10:29:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:29:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:29:26,----------------departments:-----------defDep:1003
+2015-05-04 10:29:26,----------------departments:-----------id:1003
+2015-05-04 10:29:26,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 10:29:26,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 10:29:26,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 10:29:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:29:44,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:32:47,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:33:47,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:40:00,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:40:29,----------------departments:-----------defDep:1003
+2015-05-04 10:40:29,----------------departments:-----------id:1003
+2015-05-04 10:40:29,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:40:29,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:40:29,----------------departments:-----------defDep:1003
+2015-05-04 10:40:29,----------------departments:-----------id:1003
+2015-05-04 10:40:29,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 10:40:29,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 10:40:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:40:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:40:30,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:40:30,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:40:30,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 10:40:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:40:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:40:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:40:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:00,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:00,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:01,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:41:10,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:10,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:21,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:21,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:41:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:41:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:00,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:00,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:02,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:42:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:21,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:21,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:31,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:31,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:41,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:41,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:42:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:42:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:01,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:01,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:03,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:43:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:43:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:43:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:02,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:02,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:04,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:44:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:43,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:43,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:44:53,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:44:53,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:03,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:03,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:05,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:45:14,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:14,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:23,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:23,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:34,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:34,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:44,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:44,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:45:54,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:45:54,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:04,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:04,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:06,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:46:14,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:14,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:24,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:24,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:34,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:34,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:45,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:45,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:46:55,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:46:55,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:47:05,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:47:05,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:47:06,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:47:15,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:47:15,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:47:25,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:47:25,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:47:35,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:47:35,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:48:07,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:48:16,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:48:16,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:48:26,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:48:26,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:48:36,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:48:36,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:48:46,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:48:46,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:48:57,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:48:57,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:07,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:07,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:08,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:49:17,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:17,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:27,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:27,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:37,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:37,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:47,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:47,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:49:57,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:49:57,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:08,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:08,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:09,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:50:18,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:18,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:28,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:28,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:38,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:38,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:48,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:48,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:50:58,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:50:58,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:08,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:08,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:10,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:51:19,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:19,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:29,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:29,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:51:59,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:51:59,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:09,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:52:09,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:11,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:52:19,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:52:19,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:52:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:52:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:47,----------------deviceIDS:------ ''
+2015-05-04 10:52:47,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:52:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:52:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:52:56,----------------deviceIDS:------ ''
+2015-05-04 10:52:56,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:53:00,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:00,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:53:06,----------------deviceIDS:------ ''
+2015-05-04 10:53:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '')
+2015-05-04 10:53:10,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:10,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:53:12,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:53:20,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:20,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:53:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:53:41,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:41,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:53:51,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:53:51,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:01,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:01,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:12,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:54:21,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:21,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:31,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:31,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:54:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:54:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:02,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:02,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:13,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:55:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:55:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:55:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:03,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:03,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:13,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:13,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:14,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:56:23,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:23,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:43,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:43,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:56:53,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:56:53,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:04,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:04,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:14,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:14,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:57:24,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:24,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:34,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:34,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:44,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:44,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:57:55,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:57:55,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:58:16,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:58:25,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:58:25,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:58:35,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:58:35,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:58:46,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:58:46,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:58:56,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:58:56,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:06,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:16,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:16,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 10:59:26,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:26,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:36,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:36,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:46,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:46,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 10:59:56,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 10:59:56,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:06,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:17,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:17,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:18,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:00:27,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:27,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:37,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:37,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:47,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:47,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:00:58,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:00:58,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:08,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:08,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:18,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:18,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:18,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:01:28,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:28,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:38,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:38,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:48,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:48,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:01:58,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:01:58,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:09,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:09,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:19,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:19,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:19,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:02:29,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:29,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:02:59,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:02:59,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:03:10,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:03:10,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:03:20,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:03:20,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:03:20,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:03:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:03:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:03:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:03:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:03:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:03:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:00,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:00,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:20,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:20,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:21,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:04:31,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:31,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:41,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:41,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:04:51,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:04:51,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:01,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:01,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:22,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:05:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:05:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:05:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:02,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:02,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:22,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:22,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:23,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:06:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:43,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:43,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:06:53,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:06:53,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:03,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:03,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:13,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:13,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:23,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:23,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:23,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:07:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:44,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:44,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:07:54,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:07:54,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:04,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:04,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:14,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:14,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:25,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:25,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:25,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:08:34,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:34,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:45,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:45,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:08:55,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:08:55,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:05,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:05,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:15,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:15,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:25,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:09:25,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:25,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:35,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:35,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:46,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:46,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:09:56,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:09:56,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:06,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:16,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:16,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:26,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:10:27,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:27,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:36,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:36,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:47,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:47,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:10:57,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:10:57,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:07,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:07,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:18,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:18,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:27,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:11:28,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:28,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:37,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:37,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:48,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:48,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:11:58,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:11:58,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:18,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:18,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:28,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:12:28,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:28,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:12:59,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:12:59,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:09,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:09,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:19,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:19,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:29,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:13:29,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:29,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:39,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:39,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:49,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:49,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:13:59,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:13:59,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:14:10,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:14:10,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:14:20,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:14:20,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:14:30,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:14:30,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:14:30,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:14:40,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:14:40,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:14:50,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:14:50,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:01,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:01,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:11,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:11,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:21,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:21,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:31,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:15:31,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:31,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:15:51,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:15:51,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:02,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:02,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:12,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:12,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:23,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:23,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:31,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:16:32,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:32,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:42,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:42,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:16:52,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:16:52,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:03,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:03,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:13,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:13,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:23,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:23,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:32,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:17:33,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:33,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:43,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:43,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:17:54,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:17:54,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:04,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:04,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:14,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:14,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:24,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:24,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:33,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:18:34,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:34,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:44,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:44,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:18:54,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:18:54,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:04,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:04,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:15,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:15,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:25,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:25,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:34,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:19:35,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:35,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:45,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:45,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:19:55,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:19:55,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:05,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:05,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:16,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:16,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:26,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:26,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:35,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:20:36,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:36,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:46,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:46,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:20:57,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:20:57,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:06,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:17,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:17,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:27,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:27,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:35,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 11:21:37,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:37,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:47,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:47,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:21:57,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:21:57,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:22:07,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:22:07,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:22:17,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:22:17,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 11:22:28,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 11:22:28,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 13:59:51,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 13:59:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 13:59:51,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 13:59:56,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 13:59:56,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 14:00:06,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 14:00:06,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 14:00:17,----------------deviceIDS:------ '6C500CB8'
+2015-05-04 14:00:17,----------------sql:------select  l.*,iv.licenseNumber  from  LocationStatus l,IOV_demo.Devices_MT dm,IOV_demo.VehicleInfo iv  where l.deviceID=dm.deviceID and dm.vin=iv.vin and l.deviceID in ( '6C500CB8')
+2015-05-04 14:22:01,----------------departments:-----------defDep:1003
+2015-05-04 14:22:01,----------------departments:-----------id:1003
+2015-05-04 14:22:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:01,----------------departments:-----------defDep:1003
+2015-05-04 14:22:01,----------------departments:-----------id:1003
+2015-05-04 14:22:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:05,----------------departments:-----------defDep:1003
+2015-05-04 14:22:05,----------------departments:-----------id:1003
+2015-05-04 14:22:05,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:05,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:05,----------------departments:-----------defDep:1003
+2015-05-04 14:22:05,----------------departments:-----------id:1003
+2015-05-04 14:22:05,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:05,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:07,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:08,----------------departments:-----------defDep:1003
+2015-05-04 14:22:08,----------------departments:-----------id:1003
+2015-05-04 14:22:08,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 14:22:08,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 14:22:08,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 14:22:10,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:22:17,----------------departments:-----------defDep:1003
+2015-05-04 14:22:17,----------------departments:-----------id:1003
+2015-05-04 14:22:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:17,----------------departments:-----------defDep:1003
+2015-05-04 14:22:17,----------------departments:-----------id:1003
+2015-05-04 14:22:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:17,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 14:22:28,----------------departments:-----------defDep:1003
+2015-05-04 14:22:28,----------------departments:-----------id:1003
+2015-05-04 14:22:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:-----------defDep:1003
+2015-05-04 14:22:28,----------------departments:-----------id:1003
+2015-05-04 14:22:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:-----------defDep:1003
+2015-05-04 14:22:28,----------------departments:-----------id:1003
+2015-05-04 14:22:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:-----------defDep:1003
+2015-05-04 14:22:28,----------------departments:-----------id:1003
+2015-05-04 14:22:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:22:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:25:44,----------------departments:-----------defDep:1003
+2015-05-04 14:25:44,----------------departments:-----------id:1003
+2015-05-04 14:25:44,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 14:25:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 14:25:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 14:28:16,----------------departments:-----------defDep:1003
+2015-05-04 14:28:16,----------------departments:-----------id:1003
+2015-05-04 14:28:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:28:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:28:16,----------------departments:-----------defDep:1003
+2015-05-04 14:28:16,----------------departments:-----------id:1003
+2015-05-04 14:28:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:28:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:28:16,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 14:28:19,----------------departments:-----------defDep:1003
+2015-05-04 14:28:19,----------------departments:-----------id:1003
+2015-05-04 14:28:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:28:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:28:19,----------------departments:-----------defDep:1003
+2015-05-04 14:28:19,----------------departments:-----------id:1003
+2015-05-04 14:28:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 14:28:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 14:28:20,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:20,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:28:21,----------------departments:-----------defDep:1003
+2015-05-04 14:28:21,----------------departments:-----------id:1003
+2015-05-04 14:28:21,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 14:28:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 14:28:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 14:28:24,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 14:29:22,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 14:30:22,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 14:31:23,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 16:15:19,----------------departments:-----------defDep:1003
+2015-05-04 16:15:19,----------------departments:-----------id:1003
+2015-05-04 16:15:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:15:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:15:20,----------------departments:-----------defDep:1003
+2015-05-04 16:15:20,----------------departments:-----------id:1003
+2015-05-04 16:15:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:15:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:15:23,----------------departments:-----------defDep:1003
+2015-05-04 16:15:23,----------------departments:-----------id:1003
+2015-05-04 16:15:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:15:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:15:23,----------------departments:-----------defDep:1003
+2015-05-04 16:15:23,----------------departments:-----------id:1003
+2015-05-04 16:15:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:15:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:13,----------------departments:-----------defDep:1003
+2015-05-04 16:16:13,----------------departments:-----------id:1003
+2015-05-04 16:16:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:14,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:16:14,----------------departments:-----------defDep:1003
+2015-05-04 16:16:14,----------------departments:-----------id:1003
+2015-05-04 16:16:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:-----------defDep:1003
+2015-05-04 16:16:17,----------------departments:-----------defDep:1003
+2015-05-04 16:16:17,----------------departments:-----------id:1003
+2015-05-04 16:16:17,----------------departments:-----------id:1003
+2015-05-04 16:16:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:-----------defDep:1003
+2015-05-04 16:16:17,----------------departments:-----------defDep:1003
+2015-05-04 16:16:17,----------------departments:-----------id:1003
+2015-05-04 16:16:17,----------------departments:-----------id:1003
+2015-05-04 16:16:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:16:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:17:32,----------------departments:-----------defDep:1003
+2015-05-04 16:17:32,----------------departments:-----------id:1003
+2015-05-04 16:17:32,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 16:17:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 16:17:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 16:18:22,----------------departments:-----------defDep:1003
+2015-05-04 16:18:22,----------------departments:-----------id:1003
+2015-05-04 16:18:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:22,----------------departments:-----------defDep:1003
+2015-05-04 16:18:22,----------------departments:-----------id:1003
+2015-05-04 16:18:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:22,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:18:23,----------------departments:-----------defDep:1003
+2015-05-04 16:18:23,----------------departments:-----------id:1003
+2015-05-04 16:18:23,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 16:18:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 16:18:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 16:18:24,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1206 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:18:28,----------------departments:-----------defDep:1003
+2015-05-04 16:18:28,----------------departments:-----------id:1003
+2015-05-04 16:18:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:28,----------------departments:-----------defDep:1003
+2015-05-04 16:18:28,----------------departments:-----------id:1003
+2015-05-04 16:18:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:31,----------------departments:-----------defDep:1003
+2015-05-04 16:18:31,----------------departments:-----------id:1003
+2015-05-04 16:18:31,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 16:18:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 16:18:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 16:18:36,----------------departments:-----------defDep:1003
+2015-05-04 16:18:36,----------------departments:-----------id:1003
+2015-05-04 16:18:36,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:36,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:36,----------------departments:-----------defDep:1003
+2015-05-04 16:18:36,----------------departments:-----------id:1003
+2015-05-04 16:18:36,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:36,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:36,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:18:40,----------------departments:-----------defDep:1003
+2015-05-04 16:18:40,----------------departments:-----------id:1003
+2015-05-04 16:18:40,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:40,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:40,----------------departments:-----------defDep:1003
+2015-05-04 16:18:40,----------------departments:-----------id:1003
+2015-05-04 16:18:40,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:40,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:41,----------------departments:-----------defDep:1003
+2015-05-04 16:18:41,----------------departments:-----------id:1003
+2015-05-04 16:18:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:18:41,----------------departments:-----------defDep:1003
+2015-05-04 16:18:41,----------------departments:-----------id:1003
+2015-05-04 16:18:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:18:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:20:58,----------------departments:-----------defDep:1003
+2015-05-04 16:20:58,----------------departments:-----------id:1003
+2015-05-04 16:20:58,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:20:58,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:-----------defDep:1003
+2015-05-04 16:20:59,----------------departments:-----------id:1003
+2015-05-04 16:20:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:-----------defDep:1003
+2015-05-04 16:20:59,----------------departments:-----------id:1003
+2015-05-04 16:20:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:-----------defDep:1003
+2015-05-04 16:20:59,----------------departments:-----------id:1003
+2015-05-04 16:20:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:20:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:21:47,----------------departments:-----------defDep:1003
+2015-05-04 16:21:47,----------------departments:-----------id:1003
+2015-05-04 16:21:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:21:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:-----------defDep:1003
+2015-05-04 16:21:48,----------------departments:-----------id:1003
+2015-05-04 16:21:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:-----------defDep:1003
+2015-05-04 16:21:48,----------------departments:-----------id:1003
+2015-05-04 16:21:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:-----------defDep:1003
+2015-05-04 16:21:48,----------------departments:-----------id:1003
+2015-05-04 16:21:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:21:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:-----------defDep:1003
+2015-05-04 16:23:22,----------------departments:-----------id:1003
+2015-05-04 16:23:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:-----------defDep:1003
+2015-05-04 16:23:22,----------------departments:-----------id:1003
+2015-05-04 16:23:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:-----------defDep:1003
+2015-05-04 16:23:22,----------------departments:-----------id:1003
+2015-05-04 16:23:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:-----------defDep:1003
+2015-05-04 16:23:22,----------------departments:-----------id:1003
+2015-05-04 16:23:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:46,----------------departments:-----------defDep:1003
+2015-05-04 16:23:46,----------------departments:-----------id:1003
+2015-05-04 16:23:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:46,----------------departments:-----------defDep:1003
+2015-05-04 16:23:46,----------------departments:-----------id:1003
+2015-05-04 16:23:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:49,----------------departments:-----------defDep:1003
+2015-05-04 16:23:49,----------------departments:-----------id:1003
+2015-05-04 16:23:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:23:50,----------------departments:-----------defDep:1003
+2015-05-04 16:23:50,----------------departments:-----------id:1003
+2015-05-04 16:23:50,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:23:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:-----------defDep:1003
+2015-05-04 16:24:59,----------------departments:-----------id:1003
+2015-05-04 16:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:-----------defDep:1003
+2015-05-04 16:24:59,----------------departments:-----------id:1003
+2015-05-04 16:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:-----------defDep:1003
+2015-05-04 16:24:59,----------------departments:-----------id:1003
+2015-05-04 16:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:-----------defDep:1003
+2015-05-04 16:24:59,----------------departments:-----------id:1003
+2015-05-04 16:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:31,----------------departments:-----------defDep:1003
+2015-05-04 16:41:31,----------------departments:-----------id:1003
+2015-05-04 16:41:31,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:31,----------------departments:-----------defDep:1003
+2015-05-04 16:41:31,----------------departments:-----------id:1003
+2015-05-04 16:41:31,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:33,----------------departments:-----------defDep:1003
+2015-05-04 16:41:33,----------------departments:-----------id:1003
+2015-05-04 16:41:33,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:33,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:33,----------------departments:-----------defDep:1003
+2015-05-04 16:41:33,----------------departments:-----------id:1003
+2015-05-04 16:41:33,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:33,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:35,----------------departments:-----------defDep:1003
+2015-05-04 16:41:35,----------------departments:-----------id:1003
+2015-05-04 16:41:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:35,----------------departments:-----------defDep:1003
+2015-05-04 16:41:35,----------------departments:-----------id:1003
+2015-05-04 16:41:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:35,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:41:37,----------------departments:-----------defDep:1003
+2015-05-04 16:41:37,----------------departments:-----------id:1003
+2015-05-04 16:41:37,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:37,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:37,----------------departments:-----------defDep:1003
+2015-05-04 16:41:37,----------------departments:-----------id:1003
+2015-05-04 16:41:37,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:37,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:37,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-04 16:41:38,----------------departments:-----------defDep:1003
+2015-05-04 16:41:38,----------------departments:-----------id:1003
+2015-05-04 16:41:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:-----------defDep:1003
+2015-05-04 16:41:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:-----------id:1003
+2015-05-04 16:41:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:-----------defDep:1003
+2015-05-04 16:41:38,----------------departments:-----------id:1003
+2015-05-04 16:41:38,----------------departments:-----------defDep:1003
+2015-05-04 16:41:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:-----------id:1003
+2015-05-04 16:41:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 16:41:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 21:41:14,----------------departments:-----------defDep:1003
+2015-05-04 21:41:14,----------------departments:-----------id:1003
+2015-05-04 21:41:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 21:41:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 21:41:14,----------------departments:-----------defDep:1003
+2015-05-04 21:41:14,----------------departments:-----------id:1003
+2015-05-04 21:41:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 21:41:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 21:41:16,----------------departments:-----------defDep:1003
+2015-05-04 21:41:16,----------------departments:-----------id:1003
+2015-05-04 21:41:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 21:41:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 21:41:17,----------------departments:-----------defDep:1003
+2015-05-04 21:41:17,----------------departments:-----------id:1003
+2015-05-04 21:41:17,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-04 21:41:17,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:41:19,----------------departments:-----------defDep:1003
+2015-05-04 21:41:19,----------------departments:-----------id:1003
+2015-05-04 21:41:19,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-04 21:41:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-04 21:41:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-04 21:41:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-04 21:42:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:43:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:44:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:45:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:46:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:47:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:48:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:50:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:51:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:52:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:53:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:54:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (707) and d.deviceID=l.deviceID  
+2015-05-04 21:54:17,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in () and d.deviceID=l.deviceID  

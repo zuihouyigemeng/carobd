@@ -1,0 +1,30 @@
+2015-07-18 22:57:43,----------------departments:-----------defDep:1003
+2015-07-18 22:57:43,----------------departments:-----------id:1003
+2015-07-18 22:57:43,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-07-18 22:57:43,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-07-18 22:57:44,----------------departments:-----------defDep:1003
+2015-07-18 22:57:44,----------------departments:-----------id:1003
+2015-07-18 22:57:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-07-18 22:57:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-07-18 22:57:44,----------------departments:-----------defDep:1003
+2015-07-18 22:57:44,----------------departments:-----------id:1003
+2015-07-18 22:57:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-07-18 22:57:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-07-18 22:57:45,----------------departments:-----------defDep:1003
+2015-07-18 22:57:45,----------------departments:-----------id:1003
+2015-07-18 22:57:45,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-07-18 22:57:45,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-07-18 22:57:47,----------------departments:-----------defDep:1003
+2015-07-18 22:57:47,----------------departments:-----------id:1003
+2015-07-18 22:57:47,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-07-18 22:57:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-07-18 22:57:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-07-18 22:57:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1207 and id>1000
+2015-07-18 22:57:48,----------------departments:-----------defDep:1003
+2015-07-18 22:57:48,----------------departments:-----------id:1207
+2015-07-18 22:57:48,----------------departments:------select * from Opm_Organ where  parentId=1207 and id>1000
+2015-07-18 22:57:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1208 and id>1000
+2015-07-18 22:57:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1209 and id>1000
+2015-07-18 22:57:50,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1208) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-07-18 22:58:46,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (821) and d.deviceID=l.deviceID  
+2015-07-18 22:59:46,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (821) and d.deviceID=l.deviceID  

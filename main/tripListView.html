@@ -1,0 +1,316 @@
+
+<HTML>
+<head>   
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../locale/easyui-lang-zh_CN.js"></script> 
+<title>历史行程</title>   
+<style type="text/css">   
+html{height:100%}   
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%;width:100%}   
+</style>   
+<script>
+
+$(function(){
+	preventDefault('t1');
+});
+
+//$(document).ready(testJson());
+//alert(100);
+
+//function testJson(){
+////	$.post("../../zend_obd/jsonAPI/getTripList.php?deviceId=6C500CBD&startTime=2014-07-02%2000:00:00&stopTime=2014-07-03%2023:59:59",
+////			  {
+////				 vins: ""
+////			  },
+////			  function(data,status){
+//////				alert (status);
+////				alert(data);
+////			  });
+////}			  
+//
+//	$.getJSON("../../zend_obd/jsonAPI/getTripList.php?deviceId=6C500CBD&startTime=2014-07-02%2000:00:00&stopTime=2014-07-03%2023:59:59",
+//		 {vins: ""}, 
+//		 function(obj){
+//				alert(obj);
+//				} );
+//}	
+
+
+
+
+
+var totalDistance=0, totalFuel=0, totalTime=0;
+var totalAvgFuel,totalAvgSpeed;
+
+
+function setTemplate(){
+	var obj = null;
+	var nav=document.getElementById("listOfTrips");
+	obj = getNextSibling( nav.firstChild);
+	while (obj!=null){
+		switch (obj.id){
+			case "t1":	t_template= obj;break;
+			case "m1":  m_template= obj;break;
+			default: break;
+		}
+		obj = getNextSibling(obj);
+	}
+	
+}
+
+function calcParkingTime( lastStartTime,lastStopTime ,thisStartTime ,thisStopTime ){
+	//返回毫秒数 	
+	if (lastStopTime <= thisStartTime){ //顺序
+		result = (new Date(thisStartTime.replace(/-/ig,'/'))).getTime()-
+				(new Date(lastStopTime.replace(/-/ig,'/')).getTime()) ;
+	}else { //倒序
+		result = (new Date(lastStartTime.replace(/-/ig,'/'))).getTime()-
+				(new Date(thisStopTime.replace(/-/ig,'/'))).getTime() ;
+		
+	}
+	return result;
+}
+
+function printTimeLength(timeLength){
+	var days,hours,mins,secs;
+	var ret ="";
+	timeLength = Math.round(timeLength/1000);
+	days = Math.floor(timeLength/24/3600);
+	if (days>0) ret +=  days + "天";
+	
+	timeLength -= days *24*3600;
+	hours = Math.floor(timeLength/3600);
+	if (hours>0) ret +=  hours + "小时";
+	
+	timeLength -= hours * 3600;
+	mins = Math.floor (timeLength/60);
+	if (mins>0) ret +=  mins + "分";
+	
+	timeLength -= mins * 60;
+	secs = timeLength;
+	ret +=  secs + "秒";
+	
+	return ret;	
+}
+
+function calcTimeUsed(dateTime1, dateTime2){
+	//	dataTime2 > dateTime1
+	//  返回毫秒数	
+//	alert ("calcTimeUsed");
+//	alert (dateTime1);
+//	alert (dataTime1 + "," + dataTime2);
+	return (new Date(dateTime2.replace(/-/ig,'/')).getTime()-new Date(dateTime1.replace(/-/ig,'/')).getTime());	
+}
+
+function printAddr(address){	//考虑当数据为空的显示内容
+	return (address!="")? address:"(地址未获取)";
+}
+
+function printDistance(dist){
+	// input: unit in "m"; 
+	if (isNaN(dist)) return "--";
+	if (dist<1000)	return Math.round(dist/1000*100)/100;	//eg. 0.23KM		
+	else {
+		if (dist<10000 && dist>=1000) return Math.round(dist/1000*10)/10;	//eg. 5.3KM
+		else return Math.round(dist/1000);	//eg. 18KM	
+	}
+}
+
+function createGridInUI(strType){
+	//strType =	"m_grid", "t_grid";
+	//
+	var newObj = null;
+	var nav=document.getElementById("listOfTrips");  
+
+	switch(strType){
+	case "m_grid":	
+		newObj = m_template.cloneNode(true);
+		newObj.id = "m" + (tripNo-1).toString(); //(parseInt(cursor_grid.id.substr(1))+1).toString();
+		nav.appendChild(newObj);
+		//initGridInUI(newObj);
+		break;
+	case "t_grid":
+		newObj = t_template.cloneNode(true);
+		//alert ((cursor_grid.id).substr(0,1));
+		newObj.id = "t" + (tripNo).toString();
+		//initGridInUI(newObj);
+		nav.appendChild(newObj);
+		break;
+	default:
+		break;
+	}	
+	return newObj;
+}
+
+function initGridInUI(node){
+	if (node==null) return node;
+	//alert ("test1:" + ($(node).find("#startAddr").val()));
+	//$(node).find("#startTime").html("abcdef");
+	//alert ("test2:" + ($(node).find("#startAddr").val()));
+	//$(node).find("#stopTime").html("abc");
+	$(node).find("#startTime").html("");
+	$(node).find("#stopTime").html("");
+	$(node).find("#startAddr").html("");
+	$(node).find("#stopAddr").html("");
+	$(node).find("#distance").html("");
+	$(node).find("#fuelUsed").html("");
+	$(node).find("#timeUsed").html("");
+	$(node).find("#avgFuelUsed").html("");
+	$(node).find("#avgSpeed").html("");
+}
+
+//针对nextSibling去除定位到空的文本节点（元素节点之间的空格和换行符号）
+function moveToNextSibling()//n)
+{	
+	var obj;
+	obj = cursor_grid.nextSibling;
+	while (obj != null && obj.nodeType!=1)
+	  {
+	  obj=obj.nextSibling;
+	  }
+	if (obj!=null) cursor_grid = obj;  
+	return obj;
+}
+
+function getNextSibling(n)
+{	
+	var obj;
+	//if (n=null)	return null;
+	obj = n.nextSibling;
+	while (obj != null && obj.nodeType!=1)
+	  {
+	  obj=obj.nextSibling;
+	  }
+	return obj;
+}
+
+function test(){
+	alert ("test1:" + ($("#total").find("#startAddr").html()));
+	$("#total").find("#startAddr").html("abcdef");
+	alert ("test2:" + ($("#total").find("#startAddr").html()));
+	
+}
+
+function trip_ondblclick(node){
+	//alert($(node).find('#startTime').html());	
+	//$(node).find('*').css('background-color', 'green');
+//	$(node).find('*').bind(
+//	　　"dblclick", 
+//	　　function(event){
+//	　　　　event.preventDefault();
+//	　　}
+//	);
+	//parent.getTrackLineData($(node).find("#startTime").html(),$(node).find("#stopTime").html());	
+} 
+
+function preventDefault(nodeId){
+	$('#' + nodeId).find('*').bind(
+	　　"dblclick", 
+	　　function(event){
+	　　　　 //alert("dblclick");
+			event.preventDefault();
+	　　}
+	);
+//	$('#' + nodeId).find('*').bind(
+//	　　"selectstart", 
+//	　　function(event){
+//	　　　　//alert("dblclick");
+//			event.preventDefault();
+//	　　}
+//	);
+}
+
+
+
+</script>    
+</head>   
+<body>   
+<table id="1" alignment="top" width="380px" border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+<tbody id="listOfTrips">
+                       	<tr id="total" >
+                       		<td>                               
+                                 <div class="">
+                                    <table>
+                                        <tbody><tr>
+                                            <td><span>累计油耗：</span></td>
+                                            <td align="right"><span id="fuelUsed" name="fuelUsed"   class="valstyle">-</span></td>
+                                            <td><span>L</span></td>
+                                            <td><span>累计里程：</span></td>
+                                            <td align="right"><span  id="distance" name="distance"  class="valstyle">-</span></td>
+                                            <td><span>KM</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>平均油耗：</span></td>
+                                            <td align="right"><span  id="avgFuelUsed" name="avgFuelUsed" class="valstyle">-</span></td>
+                                            <td><span>L/100KM</span></td>
+                                            <td><span>平均速度：</span></td>
+                                            <td align="right"><span id="avgSpeed" name="avgSpeed"  class="valstyle">-</span></td>
+                                            <td><span>KM/H</span></td>
+                                        </tr>
+                                        
+                                    </tbody></table>
+                                </div>
+                            </td>
+                        </tr>                   
+
+
+                       	<tr id="t1" name="t1" data-options=""  ondblclick="JAVASCRIPT:trip_ondblclick(this);"  onselectstart="JAVASCRIPT:return false;" >
+                       		<td>              
+                                <div>
+                                    <strong style="color:blue;"><span id="startTime" name="startTime"></span> 行程记录</strong>
+                                </div>
+                                <div class="">
+                                    <h3><span id="startTime" name="startTime"  style="color:red;">--:--</span> 从：<span id="startAddr" name="startAddr" >-</span></h3>
+                                    <h3><span id="stopTime" name="stopTime"  style="color:red;">--:--</span> 到：<span id="stopAddr" name="stopAddr" >-</span></h3>
+                                </div>
+                                <div class="" >
+                                    <table> 
+                                        <tbody><tr>
+                                            <td><span>行驶里程：</span></td>
+                                            <td align="right"><span id="distance" name="distance"   class="valstyle">-</span></td>
+                                            <td><span>KM</span></td>
+                                            <td><span>行驶油耗：</span></td>
+                                            <td align="right"><span id="fuelUsed" name="fuelUsed"   class="valstyle">-</span></td>
+                                            <td><span>L</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>行驶耗时：</span></td>
+                                            <td align="right"><span id="timeUsed" name="timeUsed"   class="valstyle">--:--</span></td>
+                                            <td><span>Hr</span></td>
+                                            <td><span>平均油耗：</span></td>
+                                            <td align="right"><span id="avgFuelUsed" name="avgFuelUsed"   class="valstyle">-</span></td>
+                                            <td><span>L/100KM</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span>平均速度：</span></td>
+                                            <td align="right"><span id="avgSpeed" name="avgSpeed"   class="valstyle">-</span></td>
+                                            <td><span>KM/H</span></td>
+                                            <td colspan="3"></td>
+                                        </tr>
+                                    </tbody></table>
+                                </div>
+			  
+                            </td>
+                        </tr>                   
+                      	<tr id = "m1">
+                       		<td>                               
+                                <div>
+                                    <strong style="color:blue;">停留时间&nbsp;&nbsp;&nbsp;  <span id="parkingTime" name="parkingTime" > -天-分-秒</span></strong>
+                                </div>
+                            </td>
+                        </tr>                   
+
+</tbody></table>
+<!-- <input type="button" onclick ="JAVASCRIPT: test();" value ="ready"> -->
+</body>   
+</html>
+<?php
+?>

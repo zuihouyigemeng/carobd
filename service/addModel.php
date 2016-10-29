@@ -1,0 +1,15 @@
+<?php
+include '../../zend_obd/Vehicle.php';
+
+$device = new Vehicle();
+
+$ModelName = $_POST["modelName"];
+$BrandID = $_POST["brandID"];
+
+$obj = $device->createModel($ModelName,$BrandID);
+
+$veh = $obj['resultCode'];
+
+echo json_encode($veh);
+
+?>

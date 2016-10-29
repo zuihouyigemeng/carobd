@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<?php include("session.php"); 
+$resource=$userVo->resource;
+?>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>基础信息管理</title>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+
+<body >
+	<div class="easyui-tabs" style="width: 1550px; height: 830px" id="tt1"> 
+	
+	<?php if((in_array('用户管理' , $resource))){ ?>  
+	<div title="用户管理"  style="overflow:auto;padding:10px;" id='div0'>
+	<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div01'></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('角色管理' , $resource))){ ?> 	
+	<div title="角色管理"  style="overflow:auto;padding:10px;" id='div1'>
+	<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div11'></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('客户管理' , $resource))){ ?>
+	<div title="客户管理"  style="overflow:auto;padding:10px;" id='div2'>
+		<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div21'></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('部门管理' , $resource))){ ?>
+	<div title="部门管理"  style="overflow:auto;padding:10px;" id='div3'>
+		<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div31'></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('车辆管理' , $resource))){ ?>
+	<div title="车辆管理"  style="overflow:auto;padding:10px;" id='div4'>
+		<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div41'></iframe>
+	</div>
+	<?php } ?>
+		</div>
+
+	<script type="text/javascript">
+	var tabIndex='';
+	$('#tt1').tabs({
+		onSelect: function(title,index){
+			
+		//	if(index==0){
+    	//		 $('#div01').attr("src","base_info_user.html"); 
+    	//	}
+        	 if(tabIndex!=title){
+        		if(title=='用户管理'){
+        			alert(title);
+        			 $('#div01').attr("src","base_info_user.html"); 
+        		}
+        		else if(title=='角色管理'){
+        			alert(title);
+        			 $('#div11').attr("src","base_info_role.html"); 
+        		}
+               else if(title=='客户管理'){
+            	   alert(title);
+            	   $('#div21').attr("src","base_info_customer.php"); 
+        		}
+               else if(title=='车辆管理'){
+            	   alert(title);
+            	   $('#div41').attr("src","base_info_vehicle.html"); 
+        		}
+        		tabIndex=title;
+        	 }
+        	
+			
+		  }
+		});
+		
+	</script>
+</body>
+</html>

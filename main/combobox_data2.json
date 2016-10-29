@@ -1,0 +1,33 @@
+[{
+	"value":"0",
+	"text":"疲劳驾驶告警",
+	"group":"设防告警"
+},{
+	"value":"1",
+	"text":"出省告警",
+	"group":"设防告警"
+},{
+	"value":"2",
+	"text":"规定时间非法启动告警",
+	"group":"设防告警"
+},{
+	"value":"3",
+	"text":"超速告警",
+	"group":"设防告警"
+},{
+	"value":"4",
+	"text":"电池电量低告警",
+	"group":"obd告警"
+},{
+	"value":"5",
+	"text":"制冷剂水温告警",
+	"group":"obd告警"
+},{
+	"value":"6",
+	"text":"DTC告警",
+	"group":"obd告警"
+},{
+	"value":"7",
+	"text":"拔出告警",
+	"group":"拆除告警"
+}]

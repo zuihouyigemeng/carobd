@@ -1,0 +1,331 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>客户用户管理</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+    <link rel="stylesheet" type="text/css" href="../css/customTreeCommon.css">    
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body>	
+
+		<div  style="overflow:auto;padding:0px;">
+				
+			<div  style = "width:250px;float:left;right-margin:10px">
+			         <div id="p" class="easyui-panel" title="客户"  style="width:230px;height:500px;">
+				<ul class="easyui-tree"  
+				 <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          { 
+	        ?>
+			url="../service/customer.php?defDep=-1" 
+			<?php 
+	          }
+	          else 
+	          { 
+	       ?>
+			 url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+			 <?php 
+	          }
+	         
+	       ?> 
+				  data-options="animate:true,onlyLeafCheck:true"  id="v_cusID">
+				
+				</ul>
+			         </div>
+			</div>
+  					
+		<table id="dg" class="easyui-datagrid" title="客户用户管理(新建用户默认密码为电话号码后6位) " style="width:1200px;height:500px" data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				method: 'get',
+				onClickRow: onClickRow,
+                rownumbers:true,
+                autoRowHeight:false,
+                pagination:true,
+                pageSize:10
+			">
+		<thead>
+			<tr>
+            	<th data-options="field:'userID',width:80,hidden:true">用户ID</th>
+				<th data-options="field:'username',width:250,editor:{type:'validatebox',
+							options:{
+								required:true,
+								validType:'length[2,20]'
+							}
+							}">用户名</th>
+				<th data-options="field:'smsNum',width:250,editor:{type:'validatebox',
+							options:{
+								required:true,
+								validType:'length[11,11]'
+							}
+                            }">电话号码</th>
+				<th data-options="field:'email',width:250,editor:{type:'validatebox',
+							options:{
+								required:true,
+								validType:'email'
+							}
+                            }"  missingMessage="不能为空" invalidMessage="邮箱格式不正确">Email</th>
+				<th data-options="field:'depName',width:180,align:'right'">所属客户公司</th> 
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">新建用户</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">删除用户</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">取消</a>
+	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>   -->
+	</div>		
+			
+			
+		</div>
+
+		<script>
+		
+		var url='../service/users_c.php?opType=1&depID=';
+		
+		var depID= 	1077;	//'<?php echo  $userVo->depID ?>';
+		var depName='';
+		
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				//var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'roleId'});
+				var roleName = '客户用户';//客户管理员角色	//$(ed.target).combobox('getText');	
+				$('#dg').datagrid('getRows')[editIndex]['productname'] = roleName;
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			/*if(editIndex != undefined){
+				$('#dg').datagrid('rejectChanges');
+				editIndex = undefined;	
+			}*/
+			
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			reject();
+			if(editIndex != undefined){
+				$('#dg').datagrid('rejectChanges');
+				editIndex = undefined;	
+			}
+			if (endEditing()){
+				$('#dg').datagrid('appendRow',{depName:''});
+				editIndex = $('#dg').datagrid('getRows').length-1;
+				$('#dg').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+				
+			}
+		}
+		function removeit(){
+			if (!confirm("确认要删除？")) {
+	            window.event.returnValue = false;
+				return;
+	        }
+			if (editIndex == undefined){return}
+			$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+			var rows = $('#dg').datagrid('getChanges','deleted');
+			//alert(rows[0].userID);
+			 $.post("../service/users_c.php",
+					  {
+		               userID:rows[0].userID,
+		               opType:2
+					  },
+					  function(data,status){
+					 	if(data=='200'){
+					 		alert("成功执行");
+							$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+					 	}else{
+							alert("删除失败");	
+						}
+
+					  });
+			
+		}
+		function accept(){
+			if (endEditing()){
+				var rows = $('#dg').datagrid('getChanges','inserted');
+				//alert("inserted:"+rows.length);
+				if(rows.length>0){
+					username=rows[0].username;
+					smsNum=rows[0].smsNum;
+					email=rows[0].email;
+					roleId=		5;	//客户管理员角色 //rows[0].roleId;
+					
+					//alert("username");
+					 $.post("../service/users_c.php",
+						  {
+						   username:username,
+						   smsNum:smsNum,
+						   email:email,
+						   roleId:roleId, 
+						   opType:3,
+						   depID:depID
+						  },
+						  function(data,status){
+							if(data=='200'){
+								alert("成功执行");
+							}
+							else if(data=='1002'){
+								alert("用户已存在");
+							}
+							$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+						  });
+						
+				}
+				
+				var rows = $('#dg').datagrid('getChanges','updated');
+				//alert("updated:"+rows.length);
+				if(rows.length>0){
+					userID=rows[0].userID;
+					//alert( 'userID:'+userID);
+					username=rows[0].username;
+					smsNum=rows[0].smsNum;
+					email=rows[0].email;
+					roleId=	5;	//客户管理员角色	//rows[0].roleId;
+					//alert( 'roleId:'+roleId);
+					
+					 $.post("../service/users_c.php",
+						  {
+							userID:userID,
+						   username:username,
+						   smsNum:smsNum,
+						   email:email,
+						   roleId:roleId,
+						   opType:4,
+						   depID:depID
+						  },
+						  function(data,status){
+							if(data=='200'){
+								alert("成功执行");
+							}
+							else if(data=='1002'){
+								alert("用户已存在");
+							}
+							$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+						  });
+				}
+				
+				//$('#dg').datagrid('acceptChanges');
+				
+			}
+
+		}
+		
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		
+		
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+		}
+
+		$('#v_cusID').tree({
+			onClick: function(node){
+				depID=node.id;
+				$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+				/*$('#dg').datagrid({   
+					url:'../service/users_c.php?opType=1&depID='+node.id
+				});*/
+			}
+		});
+
+		function getData(){
+			var rows = [];
+			$.ajax({
+				type:"POST",
+				url:url+depID,
+				async: false,
+				success:function(data,status){
+					var d = JSON.parse(data);
+					//console.info(data);
+					//rows = d.rows;
+					for(var i=0;i<d.rows.length;i++){
+						var row = d.rows[i];
+						//console.info(row);
+						rows.push({
+							depName: row.depName,
+							email: row.email,
+							fullname: row.fullname,
+							roleId: row.roleId,
+							roleName: row.roleName,
+							smsNum: row.smsNum,
+							userID: row.userID,
+							username: row.username
+						});
+					}
+					
+				}
+			});
+			//console.info(rows);
+			return rows;
+		}
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var custMan = $(this);
+			var opts = custMan.datagrid('options');
+			var pager = custMan.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					custMan.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		$(function(){
+			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+		});
+		
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

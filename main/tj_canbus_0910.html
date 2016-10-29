@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body >	
+      
+	 <div style="width:1200px;height:250px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:1200px;height:600px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,toolbar:toolbar">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:80">车牌号</th>
+				<th data-options="field:'customer',width:80">客户名称</th>
+				<th data-options="field:'modelName',width:80">车型</th>
+			    <th data-options="field:'d_esn',width:150,hidden:true">终端号</th>
+				<th data-options="field:'gpsStamp',width:150,hidden:false">日期</th>
+				<th data-options="field:'address',width:250,hidden:false">地址</th>
+				<th data-options="field:'engineRPM',width:80,hidden:false">转速<br>(RPM)</th>
+				<th data-options="field:'high_temp',width:80,hidden:false">机油温度<br>(C)</th>
+				<th data-options="field:'num_of_dtc',width:80,hidden:false">故障码个数</th>
+				<th data-options="field:'speed',width:80,hidden:false">车速<br>(KMPH)</th>
+				<th data-options="field:'fuel_level_now',width:80,hidden:false">剩余油量<br>(%)</th>
+				<th data-options="field:'batt_level',width:80,hidden:false">电瓶电压<br>(V)</th>
+<!-- 				<th data-options="field:'deviceID',width:0,hidden:true">进气温度</th>
+ -->				</tr>
+		</thead>
+	</table>
+	</div>
+	<div id="main" style="width:800px;height:200px"></div>
+	<div id="main1" style="width:800px;height:200px"></div>
+              
+	<script type="text/javascript">
+	var glob_rows;
+	var toolbar = [{
+		text:'excel导出',
+		iconCls:'icon-trace',
+		handler:function(){	
+			  var url='../smarty/demo/canbus_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+glob_deviceIDs;
+		      //  alert(url);
+		         window.open(url,"_blank");
+			    }
+				
+	},{
+		text:'详细',
+		iconCls:'icon-playback',
+		handler:function(){
+//			var selectRow=$('#dg').datagrid('getSelected');
+//			if(selectRow==null){
+//				alert("请单击车辆进行选择（最多1辆）！");
+//				return;
+//			}
+//		//alert(selectRow.deviceID);
+//		getData(selectRow.deviceID,glob_startDate,glob_stopDate);
+		
+
+		}
+	}
+	];
+	
+	var  glob_startDate;
+	var  glob_stopDate;
+	var  glob_deviceIDs;
+	 function dailySearch(deviceArr,startDate,stopDate){
+		 glob_startDate=startDate;
+		 glob_stopDate=stopDate;
+		 deviceIDs=deviceArr.join(",");
+		 glob_deviceIDs=deviceIDs;
+		 url='../service/tj_canbus.php?opType=0&startDate='+startDate+'&stopDate='+stopDate+'&devices='+deviceIDs;
+		 alert(url);
+		 $('#dg').datagrid({   
+			 url:url
+					 }
+		 );
+	  }
+	 
+	  
+     // 路径配置
+      require.config({
+              paths:{ 
+                  'echarts' : 'http://echarts.baidu.com/build/echarts',
+                  'echarts/chart/line' : 'http://echarts.baidu.com/build/echarts'
+              }
+          });
+     
+   
+      function getData(deviceID,startDate,stopDate){
+    	//  alert(deviceID+" "+startDate+" "+stopDate);
+    	  $.post("../service/tj_canbus.php",
+        		  {
+    		      devices:deviceID,startDate:startDate,stopDate:stopDate,opType:'1'
+        		  },
+        		  function(data,status){
+        			   alert(data);
+        			  var rows=eval(data);
+        			  var x_data=rows[0];
+        			  
+        			  var y_data=rows[1];
+        			  var y_data1=rows[2];
+                      // 使用
+                      require(
+                          [
+                              'echarts',
+                              'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                          ],
+                          function (ec) {
+                              // 基于准备好的dom，初始化echarts图表
+                              var myChart = ec.init(document.getElementById('main')); 
+                              
+                              option = {
+                              	    title : {
+                              	        text: '汽车加油按日统计',
+                              	        subtext: ''
+                              	    },
+                              	    tooltip : {
+                              	        trigger: 'axis'
+                              	    },
+                    //          	    legend: {
+                    //          	        data:['每日里程']
+                    //          	    },
+                              	    toolbox: {
+                              	        show : true
+                              	    },
+                              	    calculable : true,
+                              	    xAxis : [
+                              	        {
+                              	            type : 'category',
+                              	            boundaryGap : false,
+                              	            data : x_data
+                              	        }
+                              	    ],
+                              	    yAxis : [
+                              	        {
+                              	            type : 'value',
+                              	            axisLabel : {
+                              	                formatter: '{value} %'
+                              	            }
+                              	        }
+                              	    ],
+                              	    series : [
+                              	        {
+                              	            name:'当日加油',
+                              	            type:'line',
+                              	            data:y_data
+                              	        }
+                              	    ]
+                              	};
+                      
+                              // 为echarts对象加载数据 
+                              myChart.setOption(option); 
+                          }
+                      ); 
+                      
+                      
+                      // 使用
+                      require(
+                          [
+                              'echarts',
+                              'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                          ],
+                          function (ec) {
+                              // 基于准备好的dom，初始化echarts图表
+                              var myChart = ec.init(document.getElementById('main1')); 
+                              
+                              option = {
+                              	    title : {
+                              	        text: '汽车漏油按日统计：',
+                              	        subtext: ''
+                              	    },
+                              	    tooltip : {
+                              	        trigger: 'axis'
+                              	    },
+                    //          	    legend: {
+                    //          	        data:['每日里程']
+                    //          	    },
+                              	    toolbox: {
+                              	        show : true
+                              	    },
+                              	    calculable : true,
+                              	    xAxis : [
+                              	        {
+                              	            type : 'category',
+                              	            boundaryGap : false,
+                              	            data : x_data
+                              	        }
+                              	    ],
+                              	    yAxis : [
+                              	        {
+                              	            type : 'value',
+                              	            axisLabel : {
+                              	                formatter: '{value} %'
+                              	            }
+                              	        }
+                              	    ],
+                              	    series : [
+                              	        {
+                              	            name:'当日漏油',
+                              	            type:'line',
+                              	            data:y_data1
+                              	        }
+                              	    ]
+                              	};
+                      
+                              // 为echarts对象加载数据 
+                              myChart.setOption(option); 
+                          }
+                      ); 
+
+    	  
+        		  });
+        		  	  
+    }
+
+      function test(){
+    	  var deviceArray = new Array();
+    	  deviceArray[0] = 'ACT610(w)9620';
+    	  deviceArray[1] = '6C500CBD';
+    	  dailySearch(deviceArray,"2014-09-09 12:00:00","2014-09-09 13:00:00");      
+    	  
+      }
+	//test       
+    $(document).ready(function(){
+    	test(); 
+    });
+      	  
+	</script>
+		</body>
+</html>

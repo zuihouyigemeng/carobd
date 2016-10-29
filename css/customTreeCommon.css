@@ -1,0 +1,8 @@
+/* CSS Document */
+.icon-depart {
+	background: url("../img/_0008_客户.png") no-repeat !important;	
+}
+
+.tree-node-selected .icon-depart{
+	background: url("../img/_0008_客户2.png") no-repeat !important;
+}

@@ -1,0 +1,22 @@
+<html>
+<head>
+<script type="text/javascript">
+
+var r=confirm("Press a button!");
+if (r==true)
+  {
+  alert("You pressed OK!");
+  }
+else
+  {
+  alert("You pressed Cancel!");
+  }
+
+</script>
+</head>
+<body>
+
+
+
+</body>
+</html>

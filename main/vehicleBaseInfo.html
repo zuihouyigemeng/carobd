@@ -1,0 +1,168 @@
+
+
+<div id="dlgInf"  class="easyui-dialog" title="车辆基本信息"  closed="true"  style="width:550px;height:500px;padding:10px">
+	<div class="easyui-accordion" style="width:500px;height:400px;">
+		<div title="车辆基本信息"  style="overflow:auto;padding:10px;">
+		
+		<form id="ff" method="post">
+		<table border="1px" cellspacing="0px" style="margin:auto;border-collapse:collapse">
+
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>车辆别名:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="nickname"></span>
+
+					</td>
+						
+				</tr>
+				
+				<tr align = right height=30px> 
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>车架号:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="vin_v"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>车牌号:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="licensenumber"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>总里程:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="totalmilage"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>品牌:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="brand1"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>车系:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="modelname"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+						<b>车型:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="type"></span>
+					</td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+					<b>手自档:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="manuautomatic"></span>
+					</td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+					<b>燃油类型:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="fuelconsumptionstandart"></span>
+					</td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+					<b>邮箱大小:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="tanksize"></span>
+					</td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff">
+					<b>动力:</b>
+					</td>
+					
+					<td align = center width = 200px>
+					<span id="swept"></span>
+					</td>
+
+				</tr>	
+			</table>
+	
+		</form>
+			
+		</div>
+</div>  
+
+<script type="text/javascript">
+
+       function queryBaseInfo(vin){
+    		$.post("../../zend_obd/jsonAPI/vehicleBaseInfo.php",
+    				  {
+    					 vin:vin
+    				  },
+    				  function(data,status){
+    					  var rows=eval(data);
+    			
+    					  document.getElementById("nickname").innerText = rows[0].nickName;
+    					  document.getElementById("vin_v").innerText = rows[0].v_vin;
+    					  document.getElementById("licensenumber").innerText = rows[0].licenseNumber;
+    					  document.getElementById("totalmilage").innerText = rows[0].TotalMilage;
+    					  document.getElementById("brand1").innerText = rows[0].Brand;
+    					  document.getElementById("modelname").innerText = rows[0].ModelName;
+    					  document.getElementById("type").innerText = rows[0].Type;
+    					  document.getElementById("manuautomatic").innerText = rows[0].manuAutomatic;
+    					  document.getElementById("fuelconsumptionstandart").innerText = rows[0].fuelConsumptionStandart;
+    					  document.getElementById("tanksize").innerText = rows[0].tanksize;
+    					  document.getElementById("swept").innerText = rows[0].Swept;
+    					  
+    				     
+    				     
+    				  });
+	   
+       }
+		
+</script>
+
+

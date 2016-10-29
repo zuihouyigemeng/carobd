@@ -1,0 +1,126 @@
+<div id="dlgVehicle" class="easyui-dialog"  data-options="left:50,top:150,iconCls:'icon-set'"  title="&nbsp;车辆统计信息" closed="true"  style="width:348px;height:400px;padding:0px;overflow:hidden;">
+      <div style="width:335px;height:90px;">
+	        <table>
+	        <tr><td rowspan='4'  width="70px" align='right'> <img  id='brand' src='' width="80px" title='brand'/></td><td align='left' ></td></tr>
+	        <tr><td  width="50px"></td><td align='left' >DTC告警数：<span id="Alarm" style="color: blue;"></span></td></tr>
+	        <tr><td  width="50px"></td><td align='left' >车况 指数：<span id="condition" style="color: blue;"></span> </td></tr>
+	        <tr><td  width="50px"><td align='left' >发动机状态：<span id ="Engine" style="color: blue;"></span></td></tr>
+	        </table>
+      </div>
+	   <div class="easyui-tabs" style="width:335px;height:30px;padding:0px" id="vehicle_info">
+		<div title="当前行程" style="padding:0px" id='dd' ></div>
+		<div title="本日行程" style="padding:0px" id='rr'></div>
+		<div title="本周行程" style="padding:0px" id='zz'></div>
+		<div title="本月行程" style="padding:0px" id='yy'></div>
+	    </div>
+	    <div style="width:330px;height:170px;padding:0px">
+		<div style="width:330px;padding-top:20px;padding-left:5px;">
+		<span id="Label" >  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<span id="cruising_distance"></span>
+		</div>
+		<div style="width:330px;padding-top:20px;padding-left:5px;">里程表（KM） ：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;   
+		<span id="odometer"></span> 
+		</div>
+		<div style="width:330px;padding-top:20px;padding-left:5px;">平均油耗（L/KM）： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<span id="average_fuel_consumption"></span>      
+		</div>
+		<div style="width:330px;padding-top:20px;padding-left:5px;">平均速度（KM/H）：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+		<span id="average_speed"></span>       
+		</div>
+		<div></div>
+	    </div>
+		<div style="width:340px;text-align:center;">
+            <img alt="体检" src="../mapPic/btn_01.png" onmouseout="JavaScript:this.src='../mapPic/btn_01.png'" onmouseover="JavaScript:this.src='../mapPic/btn_01_focused.png'" onclick="healthCheck()" style="cursor:pointer;">
+                <img alt="体检" src="../mapPic/btn_02.png" onmouseout="JavaScript:this.src='../mapPic/btn_02.png'" onmouseover="JavaScript:this.src='../mapPic/btn_02_focused.png'" onclick="history(0,0)"  style="cursor:pointer;">
+            <img alt="体检" src="../mapPic/btn_03.png" onmouseout="JavaScript:this.src='../mapPic/btn_03.png'" onmouseover="JavaScript:this.src='../mapPic/btn_03_focused.png'" onclick="btn_acct()" style="cursor:pointer;">
+    
+            <img alt="体检" src="../mapPic/btn_04.png" onmouseout="JavaScript:this.src='../mapPic/btn_04.png'" onmouseover="JavaScript:this.src='../mapPic/btn_04_focused.png'" onclick='statistics_dis()' style="cursor:pointer;">
+    
+             <img alt="体检" src="../mapPic/btn_05.png" onmouseout="JavaScript:this.src='../mapPic/btn_05.png'" onmouseover="JavaScript:this.src='../mapPic/btn_05_focused.png'" onclick="statistics_fuel()" style="cursor:pointer;">
+        </div>	
+</div>   
+
+<script>
+
+      var deviceID1;
+      var opType=0;
+      function queryStatusInfo(deviceID){
+    	  deviceID1=deviceID;
+	   $.post("../../zend_obd/jsonAPI/carConditionLoc.php",
+				  {
+					deviceID:deviceID1
+
+				  },
+				  function(data,status){
+					  var rows=eval(data);
+					  
+					  if(rows.length > 0){
+						  document.getElementById("Engine").innerHTML = rows[0].ign;
+						  document.getElementById("Alarm").innerHTML = rows[0].num_of_dtc;
+						  document.getElementById("condition").innerHTML = rows[0].vehicleIndex;
+						  var pic =  '../../picture/'+ rows[0].BrandID +'.jpg' ;			  
+					  	  
+					  }else{
+						  document.getElementById("Engine").innerHTML = "--";
+						  document.getElementById("Alarm").innerHTML = "--";
+						  document.getElementById("condition").innerHTML = "--";
+						  var pic =  '../../picture/default.jpg' ;			  
+					  	  
+					  }
+					  
+					  document.getElementById("brand").src = pic;
+					 
+				  });
+	   
+	     getTrip(0);
+		
+      }
+      
+      $('#vehicle_info').tabs({
+			onSelect: function(title){
+				
+				if(title == "当前行程")
+				{
+					opType=0;
+				}
+				else if(title == "本日行程"){
+					opType=1;
+				}
+				else if(title == "本周行程"){
+					opType=2;
+				}
+				else if(title == "本月行程"){
+					opType=3;
+				}
+				
+				getTrip(opType);
+				
+				}
+			
+					}
+		
+		);
+      
+      function  getTrip(opType){
+    		$.post("../../zend_obd/jsonAPI/getstatistics.php",
+					  {
+						deviceID:deviceID1, type:opType
+					  },
+					  function(data,status){
+						  var rows=eval(data);
+						  if(opType==0){
+							  document.getElementById("Label").innerHTML = "续航（KM）：";
+							  document.getElementById("cruising_distance").innerHTML = "&nbsp;"+rows[0].cruising_distance;
+						  }
+						  else{
+							  document.getElementById("Label").innerHTML = "行程数（个）：";
+							  document.getElementById("cruising_distance").innerHTML = rows[0].tripNum;
+						  } 
+						  document.getElementById("odometer").innerHTML = rows[0].odometer;
+						  document.getElementById("average_fuel_consumption").innerHTML = rows[0].average_fuel_consumption;
+						  document.getElementById("average_speed").innerHTML = rows[0].average_speed;
+						 
+					  });
+      }
+	
+</script>

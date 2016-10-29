@@ -1,0 +1,95 @@
+<!DOCTYPE html>   
+<html>   
+<head> 
+<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<title>一键体验</title> 
+</head>  
+
+<body>
+	<div id="dlgVehicle" class="easyui-dialog" title="一键体验"  closed="false"  style="width:800px;height:400px;padding:10px">	
+	<table>
+		<tr>
+			<td width="26%" align = "right">
+			<div>
+			<a href="javascript:void(0)" class="easyui-linkbutton"  plain="true"   group="a"   data-options="iconCls:'icon-large-picture',size:'small',iconAlign:'top' " id='4s_btn' onclick="addPanel()">
+		
+			</a>
+		
+			</div>
+			</td>
+			<td width="37%" align = "left">
+			<div id="p" class="easyui-progressbar" style="width:400px;"></div>
+			</td>
+			
+			<td width="37%" align = "left">
+  			<div>
+  			
+  			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="start()" style="width:60px;height:30px;">开始体验</a>
+  			</div>
+  		 	</td>
+   		</tr>
+   	</table>
+   	
+   		<script>
+		function start(){
+			var value = $('#p').progressbar('getValue');
+			if (value ==100 )
+			{
+				$('#p').progressbar('setValue', 0);	
+			}
+			setTimeout("start1()", 200);
+		}
+		function start1(){
+			var value = $('#p').progressbar('getValue');
+			if (value == 100)
+			{return ;}
+			if (value < 100){
+				value += Math.floor(Math.random() * 10);
+				$('#p').progressbar('setValue', value);
+				setTimeout(arguments.callee, 200);
+			}
+		}
+	</script>
+	
+	
+   	
+   	<div style="margin:20px 0 10px 0;"></div>
+   	<div class="easyui-accordion" style="width:600px;height:300px;margin:0 auto;">
+   		<div title="基本档案资料" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+			车牌号                               1891790051</br>
+			     排量                                ml  </br>
+			     车型                               --</br>
+		       在线状态                             在线   </br>
+		    ACC状态                           熄火</br>
+		</div>
+		<div title="驾驶行为分析" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+			您的得分：78分  </br>
+			您的驾驶评级为: ***</br>
+		          小提示:  您属于勇猛型,油耗偏大,建议您及时进行汽车故障排除,驾车过程中尽量平缓行车,避免急加、减速等情况!</br>
+		</div>
+		<div title="设备安装后汇总信息" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+			行程总数			8笔  </br>
+			行驶时长			1.41h</br>
+		          总油耗量			10.2L</br>
+		               总里程			50.4km</br>
+		          平均油耗			7.6L/100km</br>
+		          平均时速			56km/h</br>
+		</div>
+		<div title="车辆故障信息" data-options="iconCls:'icon-ok'" style="overflow:auto;padding:10px;">
+			故障总数			0次  </br>
+			底盘系统			0次</br>
+		          信号系统			0次</br>
+		          车身系统			0次</br>
+		          其他系统			0次</br>
+		</div>
+   	</div>
+   </div>
+</body>
+
+</html>

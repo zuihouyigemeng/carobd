@@ -1,0 +1,125 @@
+
+
+<div id="dlgInf"  class="easyui-dialog" title="车辆基本信息"  closed="true"  style="width:550px;height:500px;padding:10px">
+	<div class="easyui-accordion" style="width:500px;height:400px;">
+		<div title="车辆基本信息"  style="overflow:auto;padding:10px;">
+		
+		<form id="ff" method="post">
+			<table rules="rows" >
+
+				<tr align = right height=30px>
+					<td align = left width = 200px>车辆别名</td>
+					<td><input   style="text-align:center;border:0;" type="text" name="name" id="nickname" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px> 
+					<td align = left width = 200px>车架号</td>
+					<td><input class="easyui-validatebox textbox" style="width:180px;text-align:center;border:0;" type="text" id="vin" name="name" value="" disabled="disabled" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>车牌号</td>
+					<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" type="text" id="licensenumber" name="name" value=""   ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>总里程</td>
+					<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" type="text" name="name" id="totalmilage" value=""  disabled="disabled" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>品牌</td>
+					<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" type="text" name="name" id="brand1" value=""  disabled="disabled" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>车系</td>
+										<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" id="modelname" type="text" name="name" value=""  disabled="disabled" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>车型</td>
+									<td><input class="easyui-validatebox textbox" style="width:200px;text-align:center;border:0;" type="text" id="type" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>手自档</td>
+									<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" type="text" id="manuautomatic" name="name" value="" disabled="disabled"  ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>燃油类型</td>
+										<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" id="fuelconsumptionstandart" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>邮箱大小</td>
+									<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" id="tanksize" type="text" name="name" value=""  disabled="disabled" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>动力</td>
+									<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" id="swept" type="text" name="name" value="" disabled="disabled" ></input></td>
+
+				</tr>	
+			</table>
+		</form>
+			
+		</div>
+</div>  
+
+<script type="text/javascript">
+
+       function queryBaseInfo(vin){
+    		$.post("http://192.168.0.163/zend_obd/jsonAPI/vehicleBaseInfo.php",
+    				  {
+    					 vin:vin
+    				  },
+    				  function(data,status){
+    					  var rows=eval(data);
+    			
+    					 $("#nickname").val(rows[0].nickName);
+    				     $("#vin").val(rows[0].v_vin);
+    				     $("#licensenumber").val(rows[0].licenseNumber);
+    				     $("#totalmilage").val(rows[0].TotalMilage);
+    				     $("#brand1").val(rows[0].Brand);
+    				     $("#modelname").val(rows[0].ModelName);
+    				     $("#type").val(rows[0].Type);
+    				     $("#manuautomatic").val(rows[0].manuAutomatic);
+    				     $("#fuelconsumptionstandart").val(rows[0].fuelConsumptionStandart);
+    				     $("#tanksize").val(rows[0].tanksize);
+    				     $("#swept").val(rows[0].Swept);
+    				  });
+	   
+       }
+		
+</script>
+
+
+<table>	
+<tr>
+<td width = 200px></td>
+<td width = 200px align = center>	
+<a href="javascript:void(0)" class="easyui-linkbutton"  onclick="submitForm()">保存编辑</a>
+</td>
+<td align = center>
+</td>
+</tr>
+</table>
+	<script>
+		function submitForm(){
+			alert("aaaa");
+			//$('#ff').form('submit');
+		}
+
+	</script>

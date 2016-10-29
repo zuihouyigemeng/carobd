@@ -1,0 +1,97 @@
+<!--
+<div  id="dlgFortification" class="easyui-dialog" title="发动机参数设置"  closed="true"  style="width:200px;height:220px;padding:10px;font-size:16px;font-weight:bold;">
+
+
+发动机排量:&nbsp;&nbsp;&nbsp;<span id="swept" style="color:blue;font-size:16px;padding-left:4px;" >2.4</span><br /><br />
+发动机容积率:<span id="volumeRate" style="color:blue;padding-left:4px;font-size:16px;">0.85</span><br />
+<br />
+
+状态:<span id="status" style="color:blue;padding-left:4px;font-size:16px;">设置中...</span><br />
+<br />
+
+<input id="mainCmd" type="hidden" value="4" />
+<input id="subCmd" type="hidden" value="8" />
+<input id="fleetCmd" type="hidden" value="0" />
+<input id="applyField" type="hidden" value="1" />
+
+<input type="button" id="setColumeRate" value="设置" onclick="" style="border-radius: 5px;line-height: 0px;padding:20px;line-height:0;height:40px;background-color:rgba(142,168,224,.5);border:1px;cursor:pointer;"/>
+
+</div>-->
+
+
+
+<script>
+	//console.log(glob_deviceID);
+</script>
+
+
+
+
+
+
+
+<!--<div  id="dlgFortification" class="easyui-dialog" title="设防"  closed="true"  style="width:200px;height:200px;padding:10px">
+<form action="" method="get">
+设防开启/关闭：<br /><br />
+<input name="Fruit" id="set1" type="radio" value=""  /><label>开启 </label>
+<input name="Fruit" id="set2" type="radio" value="" /><label>关闭 </label>
+</form>
+
+
+<input type="button" name="Submit" value="保存" onclick="getFortification();"/>
+
+<br><br> <span> <b>提示：</b>车辆在设防状态下引擎发动将会发出防盗告警。 </span>
+
+</div>-->
+
+<script>
+		
+		
+		/*$.post("../service/deviceInfo.php",
+			  {
+				 optype:"deviceID",opvalue:"6C500CB6"
+			  },
+			  function(data,status){
+					 var rows = eval(data);
+					 flag = rows[0].defenceFlag
+					 if (flag!=0)
+						{
+						$("#set1").attr("checked",true);	
+						
+						}
+					else 
+						{
+						$("#set2").attr("checked",true);	
+						
+						}
+				});
+		
+		
+	
+	
+	function getFortification(){
+			var radios = document.getElementsByName("Fruit");
+			if(radios[0].checked == true)
+				{
+					var rad = 1;
+				}
+			if(radios[1].checked == true)
+				{
+					 var rad = 0;
+				
+				}
+		$.post("../../zend_obd/jsonAPI/Fortification.php",
+				{
+					deviceID:"6C500CB6",defenceSwitch:rad
+				},
+				function(data,status){
+					
+					var rows = eval(data);
+					
+					if(rows=="200")
+						alert("设置成功");
+					else
+						alert("设置失败");
+				});
+		}*/
+</script>

@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts
+END
+LoggerLayoutPattern.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts/LoggerLayoutPattern.php
+END
+LoggerLayoutTTCC.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts/LoggerLayoutTTCC.php
+END
+LoggerLayoutXml.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts/LoggerLayoutXml.php
+END
+LoggerLayoutHtml.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts/LoggerLayoutHtml.php
+END
+LoggerLayoutSimple.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/layouts/LoggerLayoutSimple.php
+END

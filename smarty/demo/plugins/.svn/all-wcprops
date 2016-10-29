@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins
+END
+resource.extendsall.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/resource.extendsall.php
+END
+resource.mysql.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/resource.mysql.php
+END
+cacheresource.memcache.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/cacheresource.memcache.php
+END
+cacheresource.apc.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/cacheresource.apc.php
+END
+resource.mysqls.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/resource.mysqls.php
+END
+cacheresource.mysql.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/plugins/cacheresource.mysql.php
+END

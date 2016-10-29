@@ -1,0 +1,93 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Complex Layout - jQuery EasyUI Demo</title>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body style="padding: 0px;">
+	<div id="p" class="easyui-panel" title="车辆列表"
+		style="width: 250px; height: 250px; padding: 0px;">
+		<table border="0" cellspacing="0" cellpadding="1">
+			<tbody>
+				<tr height="10px"></tr>
+				<tr>
+					<td><span>年份</span>
+					</td>
+					<td align="center"><select id="yearSelect"
+						class="easyui-combobox" data-options="panelHeight:'auto'"
+						name="routeSwitch" style="width: 80px;">
+							<option value="2013">2013</option>
+							<option value="2014" selected=true>2014</option>
+					</select>
+					</td>
+				</tr>
+				<tr>
+					<td><span>月份</span>
+					</td>
+					<td align="center"><select id="monthSelect"
+						class="easyui-combobox" data-options="panelHeight:'100'"
+						name="routeSwitch" style="width: 80px;">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+					</select></td>
+				</tr>
+
+				<tr height="10px"></tr>
+				<tr>
+					<td align="center" colspan=2><a href="#"
+						class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+						style="width: 80px" onclick="javascript:search1()">查询</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+	          var tabIndex;
+		 function search1(){
+			  deviceArr=window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  			alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			if(deviceArr.length>1){
+		  			alert("最多可以选择一辆车！");
+		  				return;
+		  			}
+	  			year=$('#yearSelect').combobox('getValue');
+	  			month=$('#monthSelect').combobox('getValue');
+	  			startDate=year+'-'+(month<10?('0'+month):month)+'-'+"01"+" "+"00:00:00";
+	  			stopDate =year+'-'+(month<10?('0'+month):month)+'-'+getLastDay(year,month)+" "+"23:59:59";
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		 
+		   function getLastDay(year,month) {         
+	             var new_year = year;    //取当前的年份          
+	             var new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）          
+	             if(month>12) {         
+	              new_month -=12;        //月份减          
+	              new_year++;            //年份增          
+	             }         
+	             var new_date = new Date(new_year,new_month,1);                //取当年当月中的第一天          
+	             return (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期          
+	        }  
+		
+	</script>
+</body>
+</html>

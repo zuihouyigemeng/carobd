@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<?php include("session.php"); 
+$resource=$userVo->resource;
+?>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>统计</title>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<link rel="stylesheet" type="text/css" href="../css/treeCommon.css">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<style>
+	body{padding-left:10px;}
+	/*.pagination-page-list,*/.pagination-info{display:none !important;}
+</style>
+
+</head>
+
+<body >
+<div  style="width:1575px;overflow:auto;padding:0px;">
+<nobr>
+<div  style = "width:280px;float:left;">
+			   <?php include("west_common.html"); ?>
+			   <!--<iframe  id="idwest1"  frameborder="0"   src="west_日报表.html" style="width:100%;height: 255px;"></iframe>-->
+               
+             
+     <!-- 按日期搜索开始 -->   
+    <div id="p" class="easyui-panel" title="按时间段查询"
+            style="width: 274px; height: 140px; padding: 4px;text-align:center;">
+         <div id="dailyPost" class="post" style="display:block;">   
+                <span>开始时间</span>
+            <input class='easyui-datebox'
+                data-options='formatter:myformatter,parser:myparser,panelHeight:180'
+                id='startDate'></input>
+                
+            <br/><br/>
+                
+            <span>结束时间</span>
+            <input class='easyui-datebox' style='margin-top:10px !important;'
+                data-options='formatter:myformatter,parser:myparser,panelHeight:180' id='stopDate'></input>
+                
+            <br/><br/>
+            
+            <a href='#'
+                class='easyui-linkbutton' 
+                data-options='iconCls:"icon-search"'
+                style='width: 80px' 
+                onclick='javascript:search1()'>查询</a>
+         </div>
+         
+         <div id="monthlyPost" class="post" style="display:none;">   
+         	<span>年份</span>
+            <select id="yearSelect"
+                class="easyui-combobox" data-options="panelHeight:'auto'"
+                name="routeSwitch" style="width: 80px;">
+                    
+            </select>
+            <br/><br/>				
+            <span>月份</span>			
+            <select id="monthSelect"
+                class="easyui-combobox" data-options="panelHeight:'260'"
+                name="routeSwitch" style="width: 80px;">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+            </select>
+            <br/><br/>
+            <a href="#"
+            class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+            style="width: 80px" onclick="javascript:search2()">查询</a>
+         </div>
+         
+         
+       <div id="speedPost" class="post" style="display:none;">     
+             <span>开始时间</span>
+            <input class="easyui-datetimebox"
+                data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                style="width: 150px" id='speed_startDate'></input>
+            <br/>
+            <span>结束时间</span>
+            <input class="easyui-datetimebox"
+                data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                style="width: 150px;" id='speed_stopDate'></input>
+            <br/>
+            <span style="margin-top:4px;">最高速度</span>
+            <input id='speed' style="width: 146px;margin-top:4px;"></input>
+            <br/>
+            <a href="#"
+                class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                style="width: 80px;margin-top:4px;" onclick="javascript:search3()">查询</a>
+        
+        </div>
+        
+     	<div id="cancelAlertPost" class="post" style="display:none;">     
+        	<span>开始时间</span>
+            <input class="easyui-datetimebox"  data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"  style="width:150px" id='cancelAlert_startDate'></input>
+            <br><br>
+            <span>结束时间</span>
+            <input class="easyui-datetimebox" data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"  style="width:150px" id='cancelAlert_stopDate'></input>
+            <br><br>
+            <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:80px" onclick="javascript:cancelAlert_search()">查询</a>
+        </div>
+        
+        
+        <div id="resoveledAlertPost" class="post" style="display:none;">
+        	<span>开始时间</span>
+            <input class="easyui-datetimebox"
+                data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                style="width: 150px" id='resoveledAlert_startDate'></input>
+            <br>
+            <span>结束时间</span>
+            <input class="easyui-datetimebox"
+                data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                style="width: 150px" id='resoveledAlert_stopDate'></input>
+            <br>
+            <span style="margin-top:4px;">告警类型</span>
+            <input class="easyui-combobox"
+                name="browser" style="width: 150px;height:auto;margin-top:4px;"
+                data-options="url: 'combobox_data2.json',
+                    method: 'get',
+                    valueField:'value',
+                    textField:'text',
+                    groupField:'group',
+                    multiple:true" 
+                id='com'>
+            <br>
+            <a href="#"
+                class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                style="width: 80px;margin-top:4px;" onclick="javascript:resoveledAlert_search()">查询</a>
+        </div>
+        
+        <div id="fuelChangePost" class="post" style="display:none;">
+        	<span>开始时间</span>
+            <input class="easyui-datebox"
+                data-options="formatter:myformatter,parser:myparser,panelHeight:180"
+                id='fuelChange_startDate'></input>
+            <br><br>
+            <span>结束时间</span>
+            <input class="easyui-datebox"
+                data-options="formatter:myformatter,parser:myparser,panelHeight:180" id='fuelChange_stopDate'></input>
+            <br><br>
+            <a href="#"
+                class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                style="width: 80px" onclick="javascript:fuelChange_search()">查询</a>
+        
+        </div>
+        
+        <div id="canbusPost" class="post" style="display:none;">
+        	<span>开始时间</span>
+            <input class="easyui-datebox"
+                data-options="formatter:myformatter,parser:myparser,panelHeight:180"
+                id='canbus_startDate'></input>
+            <br><br>
+            <span>结束时间</span>
+            <input class="easyui-datebox"
+                data-options="formatter:myformatter,parser:myparser,panelHeight:180" id='canbus_stopDate'></input>
+            <br><br>
+            <a href="#"
+                class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                style="width: 80px" onclick="javascript:canbus_search()">查询</a>
+        </div>
+        
+        
+        
+        <div id="tripPost" class="post" style="display:none;">
+        	<span>开始时间</span>
+            <input class="easyui-datetimebox"
+                 data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                id='trip_startDate'></input>
+            <br><br>
+            <span>结束时间</span>
+            <input class="easyui-datetimebox"
+                 data-options="formatter:myformatter2,parser:myparser2,required:true,showSeconds:false,panelHeight:200"
+                 id='trip_stopDate'></input>
+            <br><br>
+            <a href="#"
+                class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+                style="width: 80px" onclick="javascript:trip_search()">查询</a>
+        </div>
+    </div>
+    
+	<script type="text/javascript">
+		//datebox的格式 化
+        function myformatter(date){
+            var y = date.getFullYear();
+            var m = date.getMonth()+1;
+            var d = date.getDate();
+            return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+        }
+
+		function myparser(s){
+            if (!s) return new Date();
+            var ss = (s.split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+                return new Date(y,m-1,d);
+            } else {
+                return new Date();
+            }
+        }
+		
+		//datetimebox的格式化
+		function myformatter2(date){
+            var y = date.getFullYear();  
+            var m = date.getMonth()+1;  
+            var d = date.getDate();  
+            var h = date.getHours();  
+            var min = date.getMinutes();  
+            var sec = date.getSeconds();  
+            var str = y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d)+' '+(h<10?('0'+h):h)+':'+(min<10?('0'+min):min);  
+            return str;
+        }
+		
+		function myparser2(sdate){
+            if (!sdate) return new Date();
+			
+			var s = sdate.split(" ");
+						
+            var ss = (s[0].split('-'));
+            var y = parseInt(ss[0],10);
+            var m = parseInt(ss[1],10);
+            var d = parseInt(ss[2],10);
+			
+			var sss = (s[1].split(':'));
+			var hour = parseInt(sss[0],10);
+			var minute = parseInt(sss[1],10);
+			
+			
+            if (!isNaN(y) && !isNaN(m) && !isNaN(d) && !isNaN(hour) && !isNaN(minute)){
+                return new Date(y,(m-1),d,hour,minute,0);//"2013/10/01,18:25:00"				
+            } else {
+                return new Date();
+            }
+        }
+		
+		
+		$(document).ready(function(){
+			setMonthlyPostValue();//为月报表的年份进行设置
+			setDateFirst();//为各个控件设置初始值 以当前日期为基准设置
+		});
+		
+		function setMonthlyPostValue(){
+			var date = new Date();
+			var y = date.getFullYear();//但到今年	
+			
+			var str = [];
+			for(var i=2;i>=0;i--){
+				str.push({"text": y-i, "value": y-i});				
+			}
+			$("#yearSelect").combobox('loadData', str);
+		}
+			
+		//给各日期搜索框增加默认值
+		function setDateFirst(){
+			var date = new Date();
+			var y = date.getFullYear();//年
+			var m = date.getMonth()+1;//月
+			var d = date.getDate();//日
+			
+			var hour = date.getHours();//小时
+			var minute = date.getMinutes(); //分
+			
+			var thisMonthFirst = y+"-"+(m<10?('0'+m):m)+"-01";//当前月的第一天
+			var thisMonthToday = y+"-"+(m<10?('0'+m):m)+"-"+(d<10?('0'+d):d);//当前月的今天
+			
+			var thisMonthFirst_hour = y+"-"+(m<10?('0'+m):m)+"-01 00:00";//当前月第一天,精确到分钟
+			var thisMonthToday_hour = y+"-"+(m<10?('0'+m):m)+"-"+(d<10?('0'+d):d)+" "+(hour<10?('0'+hour):hour)+":"+(minute<10?('0'+minute):minute);//当前月的今天,精确到分钟
+			
+			//日报表,加漏油报表,canbus报表
+			$("#startDate,#fuelChange_startDate,#canbus_startDate").datebox("setValue",thisMonthFirst);
+			$("#stopDate,#fuelChange_stopDate,#canbus_stopDate").datebox("setValue",thisMonthToday);
+			
+			//超速报表,解除报警报表,已处理报警报表
+			$("#speed_startDate,#cancelAlert_startDate,#resoveledAlert_startDate,#trip_startDate").datetimebox ("setValue",thisMonthFirst_hour);
+			$("#speed_stopDate,#cancelAlert_stopDate,#resoveledAlert_stopDate,#trip_stopDate").datetimebox ("setValue",thisMonthToday_hour);
+			//console.info(thisMonthFirst_hour+":::"+thisMonthToday_hour);
+			//月报表
+			$("#yearSelect").combobox('select',y);
+			$("#monthSelect").combobox('select',m);
+		}
+		 
+		
+    </script>
+    
+    
+    <!--日报表-->
+	<script type="text/javascript">
+	          var tabIndex1;
+		 function search1(){
+	  			//alert("search!");
+	  			deviceArr=getCheckedDevices();//window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#startDate').datebox('getValue')+" 00:00:00";
+	  		//	alert(startDate);
+	  			
+	  			var stopDate=$('#stopDate').datebox('getValue') +" 23:59:59";
+	  		//	alert(stopDate);
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		
+		
+	</script>
+    <!-- 按日期搜索结束 -->   
+    
+    
+    <!--月报表-->
+    <script type="text/javascript">
+		 function search2(){
+			  deviceArr=getCheckedDevices();//window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  	 //		if(deviceArr.length>1){
+		 // 			alert("最多可以选择一辆车！");
+		  //				return;
+		  //			}
+	  			var year=$('#yearSelect').combobox('getValue');
+	  			var month=$('#monthSelect').combobox('getValue');
+	  			var startDate=year+'-'+(month<10?('0'+month):month)+'-'+"01"+" "+"00:00:00";
+	  			var stopDate =year+'-'+(month<10?('0'+month):month)+'-'+getLastDay(year,month)+" "+"23:59:59";
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		 
+		   function getLastDay(year,month) {         
+	             var new_year = year;    //取当前的年份          
+	             var new_month = month++;//取下一个月的第一天，方便计算（最后一天不固定）          
+	             if(month>12) {         
+	              new_month -=12;        //月份减          
+	              new_year++;            //年份增          
+	             }         
+	             var new_date = new Date(new_year,new_month,1);                //取当年当月中的第一天          
+	             return (new Date(new_date.getTime()-1000*60*60*24)).getDate();//获取当月最后一天日期          
+	        }  
+		
+	</script>
+    
+    <!--超速报表-->
+    <script type="text/javascript">
+		 function search3(){
+				deviceArr=getCheckedDevices();//window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#speed_startDate').datetimebox('getValue');	  			
+	  			var stopDate=$('#speed_stopDate').datetimebox('getValue');
+
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  		    var speed=$('#speed').attr("value");
+	  		    if(speed=='' || speed==null){
+	  		    	alert("请输入速度！");
+	  		    	return;
+	  		    }
+
+	  			top.speedSearch(deviceArr,startDate,stopDate,speed);
+	  		}
+		
+	</script>
+    
+    <!--解除报警报表-->
+    <script type="text/javascript">
+		function cancelAlert_search(){
+				deviceArr=getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  			alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			
+	  			var startDate=$('#cancelAlert_startDate').datetimebox('getValue');
+	  			
+	  			var stopDate=$('#cancelAlert_stopDate').datetimebox('getValue');
+
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  		
+	  			
+	  		   top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+	</script>
+    
+    <!--已处理报警报表-->
+    <script>
+		
+		function resoveledAlert_search(){
+			deviceArr=getCheckedDevices();
+  			if(deviceArr.length==0){
+  				alert("请单击车辆进行选择！");
+  				return;
+  			}
+			var startDate = $('#resoveledAlert_startDate').datetimebox('getValue');
+			var stopDate = $('#resoveledAlert_stopDate').datetimebox('getValue');
+
+			if (startDate == null || startDate == '') {
+				alert("请输入开始时间！");
+				return;
+			}
+			if (stopDate == null || stopDate == '') {
+				alert("请输入结束时间！");
+				return;
+			}
+			if (stopDate < startDate) {
+				alert("结束时间必须晚于开始时间！");
+				return;
+			}
+
+			strStartDate = startDate.replace(/-/g, "/");
+			var date1 = new Date(strStartDate);
+
+			strStopDate = stopDate.replace(/-/g, "/");
+			var date2 = new Date(strStopDate);
+
+			var date3 = date2.getTime() - date1.getTime();
+			//计算出相差天数
+			var days = Math.floor(date3 / (24 * 3600 * 1000));
+			// alert(days);
+			if (days > 31) {
+				alert("时间段最多为31天！");
+				return;
+			}
+
+			var comValues=$('#com').combo('getValues');
+			top.resoveledAlertSearch(deviceArr, startDate, stopDate,comValues);	
+		}
+	
+	</script>
+    
+    <!--加漏油报表-->
+    <script type="text/javascript">
+		 function fuelChange_search(){
+				deviceArr=getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  			alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#fuelChange_startDate').datebox('getValue')+" 00:00:00";
+	  			
+	  			var stopDate=$('#fuelChange_stopDate').datebox('getValue') +" 23:59:59";
+
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		
+		
+	</script>
+    
+    <!--canbus报表-->
+    <script type="text/javascript">
+		 function canbus_search(){
+
+				deviceArr=getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#canbus_startDate').datebox('getValue')+" 00:00:00";
+	  			
+	  			var stopDate=$('#canbus_stopDate').datebox('getValue') +" 23:59:59";
+
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		
+		
+	</script>
+    
+    
+    
+    <!--行程报表-->
+    <script type="text/javascript">
+		 function trip_search(){
+				var selectRows=$("#dg").datagrid('getChecked');
+				
+				//deviceArr=getCheckedDevices();
+	  			if(selectRows.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#trip_startDate').datebox('getValue');
+	  			
+	  			var stopDate=$('#trip_stopDate').datebox('getValue');
+
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			/*strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		    var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }*/
+
+	  		   top.dailySearch(selectRows,startDate,stopDate);
+	  		}
+		
+		
+	</script>
+    
+    
+</div>
+
+
+	<div class="easyui-tabs" style="width:1250px;height:620px" id="tj_tab"> 
+	<?php if((in_array('日报表' , $resource))){ ?>  
+	<div title="日报表" data-options="tabWidth:0"  style="padding: 0px;"  id='div日报表'>
+			<iframe frameborder="0" src="tj_daily.html"
+				style="width: 100%; height: 99%;"></iframe>
+	</div>
+	 <?php } ?>	
+	 <?php if((in_array('月报表' , $resource))){ ?>  
+    <div title="月报表" style="padding: 0px"  id='div月报表'>
+			<iframe frameborder="0" src="tj_monthly.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('超速报表' , $resource))){ ?>  
+	 <div title="超速报表" style="padding: 0px"  id='div超速报表'>
+			<iframe frameborder="0" src="tj_speed.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('解除报警报表' , $resource))){ ?>  
+	<div title="解除报警报表" style="padding: 0px"  id='div解除报警报表'>
+			<iframe frameborder="0" src="tj_cancelAlert.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('已处理报警报表' , $resource))){ ?> 
+	<div title="已处理报警报表" style="padding: 0px"  id='div已处理报警报表'>
+			<iframe frameborder="0" src="tj_resoveledAlert.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('加漏油报表' , $resource))){ ?>
+	<div title="加漏油报表" style="padding: 0px"  id='div加漏油报表'>
+			<iframe frameborder="0" src="tj_fuelChange.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('CANBUS报表' , $resource))){ ?>
+	<div title="CANBUS报表" style="padding: 0px"  id='divCANBUS报表'>
+			<iframe frameborder="0" src="tj_canbus.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+    
+    
+    
+    <?php if((in_array('行程报表' , $resource))){ ?>
+	<div title="行程报表" style="padding: 0px"  id='div行程报表'>
+			<iframe frameborder="0" src="tj_trip.html"
+					style="width: 100%; height: 99%;"></iframe>
+	</div>
+	<?php } ?>
+    
+    
+    
+		</div>
+        </nobr>
+	</div>
+	<script type="text/javascript">
+	
+
+	var tabIndex1='日报表';
+	$('#tj_tab').tabs({
+		onSelect: function(title,index){
+			//alert(title);
+        	 if(tabIndex1!=title){
+        		 tabIndex1=title;
+        		// $('#idwest1').attr("src","west_"+tabIndex+".html"); 	
+				//$("#P").html(dailyPost);	
+        	 }
+			 
+			 
+			 if(title == "日报表"){
+				$(".post").hide();
+				$("#dailyPost").show();
+			 }else if(title == "月报表"){
+				$(".post").hide();
+				$("#monthlyPost").show();
+			 }else if(title == "超速报表"){
+				$(".post").hide();
+				$("#speedPost").show();
+			 }else if(title == "解除报警报表"){
+				$(".post").hide();
+				$("#cancelAlertPost").show();	 
+			 }else if(title == "已处理报警报表"){
+				$(".post").hide();
+				$("#resoveledAlertPost").show();	 
+			 }else if(title == "加漏油报表"){
+				$(".post").hide();
+				$("#fuelChangePost").show();	 
+			 }else if(title == "CANBUS报表"){
+				 $(".post").hide();
+				$("#canbusPost").show();
+			 }else if(title == "行程报表"){
+				 $(".post").hide();
+				$("#tripPost").show();
+			 }
+			
+		  }
+		});
+	
+	function getCheckedDevices(){
+		var selectRows=$("#dg").datagrid('getChecked');
+		var deviceArr=new Array();
+		for ( var i=0 ; i < selectRows.length ; ++i ){
+			deviceArr.push(selectRows[i].deviceID);
+		}
+		return deviceArr;
+	}
+	
+	
+	
+		function dailySearch(deviceArr,startDate,stopDate) {
+		//	alert("into main!");
+		//	alert("#div"+tabIndex);
+		//	alert("ppppp: "+deviceArr+" "+startDate+" "+stopDate);
+			$("#div"+tabIndex1).find("iframe")[0].contentWindow.dailySearch(deviceArr,startDate,stopDate);
+		}
+		
+		function speedSearch(deviceArr,startDate,stopDate,speed){
+		//	alert("#div"+tabIndex);
+			//	alert("ppppp: "+deviceArr+" "+startDate+" "+stopDate);
+				$("#div"+tabIndex1).find("iframe")[0].contentWindow.speedSearch(deviceArr,startDate,stopDate,speed);
+		}
+		
+		function resoveledAlertSearch(deviceArr, startDate, stopDate,comValues){
+			$("#div"+tabIndex1).find("iframe")[0].contentWindow.dailySearch(deviceArr, startDate, stopDate,comValues);
+		}
+	</script>
+</body>
+</html>

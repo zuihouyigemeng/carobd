@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/filters
+END
+LoggerFilterStringMatch.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/filters/LoggerFilterStringMatch.php
+END
+LoggerFilterLevelMatch.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/filters/LoggerFilterLevelMatch.php
+END
+LoggerFilterLevelRange.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/filters/LoggerFilterLevelRange.php
+END
+LoggerFilterDenyAll.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/filters/LoggerFilterDenyAll.php
+END

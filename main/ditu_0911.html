@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<style type="text/css">
+		body, html,#allmap {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}	
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+	<title>围栏显示</title>
+	
+	
+	<style type="text/css">
+        html,body
+        {
+            height: 100%;
+            margin: 0px;
+        }
+        .left
+        {
+            float: left;
+            height: 100%;
+            width: 23%;
+            background:#fff;
+         
+        }
+        .right
+        {
+            float: right;
+            height: 100%;
+            width:77%;
+            
+        } 
+             
+    </style>
+ 
+</head>
+<body>
+
+	<div class="left"  style="float:left;" >
+		<div id="r-result" style="display:block;float:left;">
+		<table id="dg" class="easyui-datagrid"  style="width:300px;height:300px"
+			data-options="rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:true,
+				
+				pageSize:10">
+		<thead>
+			<tr>
+				
+				<th data-options="field:'geoName',width:140">围栏名称</th>
+				<th data-options="field:'applyField',width:60">状态</th>
+				<th data-options="field:'geoType',width:60,align:'right'">操作</th>
+				
+			</tr>
+		</thead>
+		</table>	
+		<input type="button" id="creat" name="Submit" value="创建围栏" onclick="establish();"/>
+		</div>
+
+		<div id="setenclosure"   title="编辑围栏"  closed="true" style="width:350px;height:400px;padding:10px;display:none;">
+		<form id="ff" method="post">
+		<font color="red"><b >提示：</b></font> <b>单击地图,围栏在单击处显示<br>如不需更改位置可直接选择半径！</b> 
+		<input class="easyui-validatebox textbox" id="lon" disabled="disabled" style="text-align:center;border:1;text-align:center;" type="hidden" name="name" value="" ></input></br>
+		<input class="easyui-validatebox textbox" id="lat" disabled="disabled" style="text-align:center;border:1;text-align:center;" type="hidden" name="name" value="" ></input></br>
+		<br>
+		<b>围栏名:</b>
+		<input class="easyui-validatebox textbox" id="username" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" ></input></br>
+		<br><br><br>
+		<b>半径：</b>
+		<br>
+		<input name="Fruit" id="set1" type="radio" value="" onclick="showOver_top(500)" checked="checked" /><label>500 </label>
+		<input name="Fruit" id="set2" type="radio" value="" onclick="showOver_top(1000)"/><label>1000</label>
+		<input name="Fruit" id="set3" type="radio" value="" onclick="showOver_top(1500)"/><label>1500</label><br>
+		<input name="Fruit" id="set4" type="radio" value="" onclick="showOver_top(2000)"/><label>2000</label>
+		<input name="Fruit" id="set4" type="radio" value="" /><label>自定义</label>&nbsp;&nbsp;&nbsp;
+		<input class="easyui-validatebox textbox" id="custom" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" onblur = "showOver_top(0)"></input>
+		
+		<br><br><br>
+			<table>	
+				<tr>
+					<td ></td>
+					<td width = 200px align = center>	
+							
+							<input type="button" name="Submit" value="保存" onclick="show_setinf();"/>
+							<input type="button" name="Submit1" value="关闭" onclick="showhidediv()"/>
+					</td>
+					<td align = center></td>
+				</tr>
+			</table>
+			</form>
+		</div > 
+		  
+		<div id="establish"   title="创建围栏"  closed="true" style="width:350px;height:400px;padding:10px;display:none;">
+
+		<font color="red"><b >提示：</b></font> <b>单击地图,围栏在单击处显示<br>如不单击地图保存围栏将错误！</b>
+		<input class="easyui-validatebox textbox" id="lon1" disabled="disabled" style="text-align:center;border:1;text-align:center;" type="hidden" name="name" value="" ></input></br>
+		<input class="easyui-validatebox textbox" id="lat1" disabled="disabled" style="text-align:center;border:1;text-align:center;" type="hidden" name="name" value="" ></input></br>
+		<br>
+		<b>围栏名:</b>
+		<input class="easyui-validatebox textbox" id="username1" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" ></input></br>
+		<br><br><br>
+		<b>半径：</b>
+		<input name="Fruit" id="set1" type="radio" value="" onclick="showOver_creat(500)" checked="checked"/><label>500 </label>
+		<input name="Fruit" id="set2" type="radio" value="" onclick="showOver_creat(1000)"/><label>1000</label>
+		<input name="Fruit" id="set3" type="radio" value="" onclick="showOver_creat(1500)"/><label>1500</label><br>
+		<input name="Fruit" id="set4" type="radio" value="" onclick="showOver_creat(2000)"/><label>2000</label>
+		<input name="Fruit" id="set5" type="radio" value="" /><label>自定义</label>&nbsp;&nbsp;&nbsp;
+		<input class="easyui-validatebox textbox" id="custom1" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" onblur = "showOver_creat(0)"></input>
+		
+		<br><br><br>
+		
+			<table>	
+				<tr>
+					<td ></td>
+					<td width = 200px align = center>	
+							
+							<input type="button" name="Submit" value="保存 " onclick="creat_customer();"/>
+							<input type="button" name="Submit1" value="关闭" onclick="showhidediv();"/>
+					</td>
+					<td align = center></td>
+				</tr>
+			</table>
+		</div>
+		
+		
+	</div>
+
+
+	<div  class="right"  id="l-map"></div>
+	
+	
+
+
+	
+</body>
+</html>
+
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("l-map");
+	
+	var point = new BMap.Point(121.492284, 31.233759);
+	map.centerAndZoom(point, 15);
+	map.enableScrollWheelZoom();
+	map.addControl(new BMap.NavigationControl());
+	var bottom_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_BOTTOM_LEFT});
+	map.addControl(bottom_left_control);  
+	//单击获取点击的经纬度
+	map.addEventListener("click",function(e){
+		
+		$("#lon").val(e.point.lng);
+		$("#lat").val(e.point.lat);
+		$("#lon1").val(e.point.lng);
+		$("#lat1").val(e.point.lat);
+		map.clearOverlays();
+		var point1 = new BMap.Point(e.point.lng, e.point.lat);
+		var circle = new BMap.Circle(point1,500,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+		map.addOverlay(circle); 
+		map.panTo(point1); 
+		
+		circle.show();
+		 
+	});
+	
+	
+	function showOver(radius,lat,lng){
+		map.clearOverlays(); 
+		
+		
+		var point1 = new BMap.Point(lng, lat);
+		var circle = new BMap.Circle(point1,radius,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+		map.addOverlay(circle); 
+		map.panTo(point1); 
+		
+		circle.show();
+	}
+	
+	var lon;
+	var lat;
+	
+	function showOver_top(radius){
+		map.clearOverlays();
+		
+		if(radius == 0){
+			var temp = $("#custom").val();
+			
+			if (temp != ""){
+				radius = temp;
+			}
+			
+		}
+		
+		
+		lon = $("#lon").val();
+		lat = $("#lat").val();
+		if(lon == "" || lat == ""){
+			//lon = 121.492284;
+			// lat = 31.233759;
+			$.post("../../zend_obd/jsonAPI/lonlat.php",
+					  {
+							geoIndex:geoIndex
+					  },
+					  function(data,status){
+							 var rows = eval(data);
+							 lat = rows[0].lat1;
+							 lon = rows[0].lng1;
+							 
+							 
+							// alert(rows[0].radius);
+							// $("#custom").val(rows[0].radius);
+							 
+							 var point2 = new BMap.Point(lon, lat);
+								var circle = new BMap.Circle(point2,radius,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+								map.addOverlay(circle); 
+								map.panTo(point2); 
+								
+								circle.show();
+								
+								//document.getElementById("custom").innerText = rows[0].radius;
+						});
+			
+			
+		}
+		else {
+			 	var point2 = new BMap.Point(lon, lat);
+				var circle = new BMap.Circle(point2,radius,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+				map.addOverlay(circle); 
+				map.panTo(point2); 
+				
+				circle.show();
+			
+		}
+		
+		
+	}
+	
+	function showOver_creat(radius){
+		map.clearOverlays();
+		
+		if(radius == 0){
+			var temp = $("#custom1").val();
+			
+			if (temp != ""){
+				radius = temp;
+			}
+			
+		}
+		
+		
+		lon = $("#lon").val();
+		lat = $("#lat").val();
+		if(lon == "" || lat == ""){
+			//lon = 121.492284;
+			// lat = 31.233759;
+			$.post("../../zend_obd/jsonAPI/lonlat.php",
+					  {
+							geoIndex:geoIndex
+					  },
+					  function(data,status){
+							 var rows = eval(data);
+							 lat = rows[0].lat1;
+							 lon = rows[0].lng1;
+							 
+							 
+							// alert(rows[0].radius);
+							// $("#custom").val(rows[0].radius);
+							 
+							 var point2 = new BMap.Point(lon, lat);
+								var circle = new BMap.Circle(point2,radius,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+								map.addOverlay(circle); 
+								map.panTo(point2); 
+								
+								circle.show();
+								
+								//document.getElementById("custom").innerText = rows[0].radius;
+						});
+			
+			
+		}
+		else {
+			 	var point2 = new BMap.Point(lon, lat);
+				var circle = new BMap.Circle(point2,radius,{fillColor:"yellow", strokeWeight: 3 ,fillOpacity: 0.1, strokeOpacity: 1});
+				map.addOverlay(circle); 
+				map.panTo(point2); 
+				
+				circle.show();
+			
+		}
+		
+		
+	}
+
+	
+
+	
+	
+</script>
+<script>
+
+var geoIndex;
+
+//显示页  
+function adit_customer(id)
+{
+	geoIndex = id;
+
+	document.getElementById("r-result").style.display="none"
+	document.getElementById("setenclosure").style.display="block"
+	document.getElementById("establish").style.display="none"
+	
+		$.post("../../zend_obd/jsonAPI/lonlat.php",
+				  {
+						geoIndex:geoIndex
+				  },
+				  function(data,status){
+						 var rows = eval(data);
+						 
+						 $("#initial").val(rows[0].radius);
+						 $("#lat").val(rows[0].lat1);
+						 $("#lon").val(rows[0].lng1);
+						 $("#username").val(rows[0].geoName);
+					});
+}
+
+//创建按钮 
+function establish(){
+	
+	document.getElementById("r-result").style.display="none"
+	document.getElementById("setenclosure").style.display="none"
+	document.getElementById("establish").style.display="block"
+	
+}
+
+//关闭按钮返回显示页 
+function showhidediv(){
+	map.clearOverlays(); 
+	location.reload();
+	document.getElementById("r-result").style.display="block"
+	document.getElementById("setenclosure").style.display="none"
+	document.getElementById("creat").style.display="block"
+	document.getElementById("establish").style.display="none"
+	
+		
+}
+
+function del_customer(id){
+	var r=confirm("确认删除该围栏吗？!"); 
+	if (r==true)
+	  {
+		$.post("../../zend_obd/jsonAPI/delete_Enclosure.php",
+				{
+				geoIndex:id,cmdType:0,applyField:1
+				},
+				function(data,status){
+					
+					var rows = eval(data);
+					
+					if(rows=="200")
+						alert("删除成功!");
+					else
+						alert("删除失败!");
+				});
+		
+	  }
+
+}
+
+	function creat_customer(){
+		
+		var name = $("#username1").val();
+		var lon = $("#lon1").val();
+		var lat = $("#lat1").val();
+		
+		var radios = document.getElementsByName("Fruit");
+		if(radios[0].checked == true)
+			{
+				var radius = 500;	
+			}
+		else if(radios[1].checked == true)
+			{
+				 var radius = 1000;
+			}
+		else if(radios[2].checked == true)
+			{
+				var radius = 1500;	
+			}
+		else if(radios[3].checked == true)
+			{
+				 var radius = 2000;
+			}
+		else if(radios[4].checked == true){
+			
+			var radius = $("#custom1").val();
+	        		
+		}
+		
+		
+
+		$.post("../../zend_obd/jsonAPI/creat_encl.php",
+				{
+				deviceID:'TEST_ID1',geoName:name,radius:radio,lat1:lat,lng1:lon
+				},
+				function(data,status){
+					
+					var rows = eval(data);
+					
+					if(rows=="200")
+						alert("OK");
+					else
+						alert("error");
+				});
+		
+		
+		
+		
+	}
+
+
+
+
+	function show_setinf(){
+		
+		var name = $("#username").val();
+		var lon = $("#lon").val();
+		var lat = $("#lat").val();
+		
+
+		var radios = document.getElementsByName("Fruit");
+		if(radios[0].checked == true)
+			{
+				var radius = 500;	
+			}
+		else if(radios[1].checked == true)
+			{
+				 var radius = 1000;
+			}
+		else if(radios[2].checked == true)
+			{
+				var radius = 1500;	
+			}
+		else if(radios[3].checked == true)
+			{
+				 var radius = 2000;
+			}
+		else if(radios[4].checked == true){
+			
+			var radius = $("#custom").val();
+	        		
+		}
+		
+		
+		
+		
+		
+		
+	$.post("../../zend_obd/jsonAPI/updata_Enclosure.php",
+			{
+			geoIndex:geoIndex,name:name,applyField:1,radius:radius,lat:lat,lon:lon
+			},
+			function(data,status){
+				
+				var rows = eval(data);
+				
+				if(rows=="200")
+					alert("OK");
+				else
+					alert("error");
+			});
+	
+	
+	
+	
+	
+	}
+</script>
+
+<script>
+
+	$('#dg').datagrid({   
+	url:'../../zend_obd/jsonAPI/enclosure_display.php?deviceID='+'TEST_ID1'
+	
+	});
+	
+	
+	$('#dg').datagrid({
+		onClickRow: function(rowIndex, rowData){
+			showOver(rowData.radius,rowData.lat1,rowData.lng1);
+		}
+	});
+	
+	
+</script>
+
+
+
+

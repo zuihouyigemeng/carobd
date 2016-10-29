@@ -1,0 +1,24 @@
+<?php
+//include 'notiFaction.php';
+include '../../zend_obd/jsonAPI/notiFaction.php';
+require_once '../../zend_obd/Encypty.php';
+include_once '../../common/AES.php';
+
+
+$device = new Alarm();
+
+$parentID = $_POST["parentID"];
+$parentName = $_POST["parentName"];
+$name = $_POST["name"];
+//$lon = $_POST["lon"];
+//$lat = $_POST["lat"];
+
+$obj = $device->insert_departments($parentID,$parentName,$name);
+
+
+$veh = $obj['resultCode'];
+
+
+echo json_encode($veh);
+
+?>

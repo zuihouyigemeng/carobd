@@ -1,0 +1,18 @@
+<?php
+include '../DBConnection.php';
+require_once '../log4php/Logger.php';
+require_once '../common/AES.php';
+Logger :: configure('../log4php.properties');
+$logger = Logger :: getRootLogger();
+$cusId = isset ($_REQUEST['cusId']) ? $_REQUEST['cusId'] : null;
+$deviceIDs = isset ($_REQUEST['deviceIDs']) ? $_REQUEST['deviceIDs'] : null;
+$sql = array ();
+$sql = "update  Devices_MT  set customerID='$cusId' where  vin in (" . $deviceIDs . ")";
+$logger->debug("----------------sql:------" . $sql);
+mysql_select_db("IOV_demo");
+if (!mysql_query($sql)) {
+	echo 1001;
+}
+mysql_query('COMMIT');
+echo 200;
+?>

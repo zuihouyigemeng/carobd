@@ -1,0 +1,1380 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户管理</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+    <link rel="stylesheet" type="text/css" href="../css/treeCommon.css">	
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui-lang-zh_CN.js"></script>
+    <style>
+		.icon-department{
+			background: url('../img/_0002_setDepartment.png') no-repeat center center;
+		}
+		.icon-custom{background: url('../img/_0000_set_custom.png') no-repeat center center;}
+		.icon-addCars{background: url('../img/_0001_addCars.png') no-repeat center center;}
+		
+		.red_span{color:#f00; font-weight:bold;}
+	</style>
+	</style>
+</head>
+<body>	
+
+		<div  style="overflow:auto;padding:0px;">
+				
+			<div  style = "width:250px;float:left;right-margin:10px">
+			         <div id="p" class="easyui-panel" title="部门"  style="width:230px;height:530px;">
+				    <ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="depID">
+				
+			</ul>
+			         </div>
+			</div>
+					
+		 <table id="dg" class="easyui-datagrid" title="部门车辆(单击车辆显示车辆详细信息)" style="width:1200px;height:300px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,pagination:true,toolbar:'#tb',">
+		<thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true,width:15"></th>
+				<th data-options="field:'licenseNumber',width:160">车牌号</th>
+				<th data-options="field:'nickName',width:160">昵称</th>
+			    <th data-options="field:'d_esn',width:180">D_ESN</th>
+				<th data-options="field:'vin',width:150">vin</th>
+				<th data-options="field:'deviceID',width:150">deviceID</th>
+				<th data-options="field:'registerKey',width:150">registerKey</th>
+				<th data-options="field:'customerName',width:120">客户</th>
+				<th data-options="field:'depName',width:120">部门</th>
+				<th data-options="field:'deviceIndex',width:150,hidden:false">设备索引号</th>
+			</tr>
+		</thead>
+	   </table>
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-custom',plain:true" onclick="assignCus()">设置客户</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-department',plain:true" onclick="assignDep()">设置部门</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-addCars',plain:true"  style="width: 120px" onclick="toAddVehicle()">添加车辆</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-addCars',plain:true"  style="width: 120px" onclick="batchImport()">批量导入车辆</a>
+	</div>	
+	<div id="depDlg" class="easyui-dialog" title="部门(提示：双击进行选择)"  data-options="left:400,top:150"  closed="true"  style="width:500px;height:300px">				
+			<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>"  id="depID1">				
+			</ul>
+		</div>
+	
+	<div class="easyui-tabs" style="width: 1200px; height:230px" id="tt1"> 
+		<div title="车辆基本信息"  style="overflow:auto;padding:10px;" id='div0' >
+	
+		<table   align="center" style="margin-top:10px">
+		<tr height="30px">
+		<td width=80 hiht>车牌号：<span class='red_span'>*</span></span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="licenseNumber"  maxlength=10  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>车架号：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="v_vin" data-options="validType:['length[0,20]']" maxlength=20  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>别名：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="nickName"  maxlength=10  style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>品牌：<span class='red_span'>*</span></td>
+		<td width=150 align='left'> 
+		       <input class="easyui-combobox" 
+				data-options="
+				url: '../../zend_obd/jsonAPI/vehicle.php?level=0',
+				method: 'get',
+				valueField:'BrandID',
+				textField:'Brand'"
+				 id='brand'>
+					</td>
+		<td width=80 hiht>车型：<span class='red_span'>*</span></td>
+		<td width=150 align='left'> 
+		 <input class="easyui-combobox" 
+				data-options="
+				valueField:'ModelID',
+				textField:'ModelName'"
+				 id='model'></td>
+		<td width=80 hiht>车款：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-combobox" 
+				data-options="
+				valueField:'ModelNumID',
+				textField:'Type'"
+				 id='modelNumber'></td>
+		
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>变速箱：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="manuAutomatic"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>排量：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="Swept"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>油箱容积：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="tanksize"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>官方油耗：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="fuelConsumptionStandart" disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>燃油类型：</td>
+		<td width=150 align='left'>
+		<select  id="oilType" 
+						class="easyui-combobox">
+							<option value="0">90#</option>
+							<option value="1">93#</option>
+							<option value="2">97#</option>
+					</select>
+		</td>
+		</tr>
+		<tr></tr>
+	    <tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:updateBaseInfo()">保存</a></td></tr>
+		</table>
+		
+		</div>
+		<div title="设备信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:50px">
+		<tr height="30px">
+		<td width=80 hiht>设备号：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="binded_d_esn"  maxlength=20 style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>设备注册码：<span class='red_span'>*</span></td>
+		<td width=100><input class="easyui-validatebox textbox" id="binded_register_key"   maxlength=20  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>激活状态：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="validate_status"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr></tr>
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:validateVehicle()">激活</a>
+						<a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:bindDevice()">重新绑定</a>
+						</td></tr>
+		</table>
+		</div>
+		<div title="用户信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:30px">
+		<tr height="30px">
+		<td width=80 hiht>用户名：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="uname"  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>密码：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="passwd"  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>用户姓名：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="fullname"  disabled='disabled'  style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>邮箱：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="email"   disabled='disabled'  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>联系电话：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="smsNum"   disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr></tr>
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:bindUser()">绑定个人用户</a></td></tr>
+		</table>
+		
+		</div>
+		<div title="车险信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:20px">
+		<tr height="30px">
+		<td width=80>保险公司：</td>
+		<td width=150 align='left'><input  class="easyui-validatebox textbox"  id="insuranceCompany"  maxlength=10  style="text-align:center;border:1;"  /></td>
+		<td width=80 align='left'>生效日期：</td>
+		<td width=150 align='left'><input  class="easyui-datebox"  editable="false" id="effectiveDate" ></td>
+		<td width=80 hiht>到期日期：</td>
+		<td width=150 align='left'> <input  class="easyui-datebox" editable="false" id="expirationDate" ></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>客服电话：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="customerServicePhone"  maxlength=15 style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>交强险保单号：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="aitfNumber"  maxlength=20   style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>理赔员姓名：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="claimClerk"   maxlength=10  style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr height="30px">
+		<td width=80 hiht>保单号：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="policyNumber"   maxlength=15  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>理赔员电话：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="claimClerkPhone"  maxlength=15   style="text-align:center;border:1;" type="text" value="" /></td>
+<!--	<td width=80 hiht>保单详细信息：</td>
+		<td width=150 align='left'><input class="textbox" id="mark" data-options="height:50,multiline:true"  /></td>    -->	
+		</tr>
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:updaeInsurance()">更新</a>
+						</td></tr>
+		</table>
+		</div>
+		<div title="年审信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:30px">
+		<tr height="30px">
+		<td width=80>车主姓名：</td>
+		<td width=150 align='left'><input  class="easyui-validatebox textbox"  id="ownerName"  maxlength=10  style="text-align:center;border:1;"  /></td>
+		<td width=80 align='left'>登记车型：</td>
+		<td width=150 align='left'><input  class="easyui-validatebox textbox"  id="licenseModel"  maxlength=10  style="text-align:center;border:1;"  /></td>
+		<td width=80 hiht>发动机编号：</td>
+		<td width=150 align='left'> <input  class="easyui-validatebox textbox"  id="ein"  maxlength=15  style="text-align:center;border:1;"  /></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>登记地点：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="licensePlace"  maxlength=15  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>最新年度检验时间：</td>
+		<td width=150 align='left'><input  class="easyui-datebox"  editable="false"   id="inspectionDate" ></td>
+		<td width=80 hiht>登记日期：</td>
+		<td width=150 align='left'><input  class="easyui-datebox"  editable="false" id="licenseDate" ></td>
+		</tr>
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:updateVehicleInfo()">更新</a>
+						</td></tr>
+		</table>
+		</div>
+		<div title="销售信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:30px">
+		<tr height="30px">
+		<td width=80>生产日期：</td>
+		<td width=150 align='left'><input  class="easyui-datebox"  editable="false" id="manufactureDate" ></td>
+		<td width=80 align='left'>销售员：</td>
+		<td width=150 align='left'><input  class="easyui-validatebox textbox"  id="salesPerson"  maxlength=15   style="text-align:center;border:1;"  /></td>
+		<td width=80 hiht>购买时间：</td>
+		<td width=150 align='left'> <input  class="easyui-datebox"  editable="false"   id="buyDate" ></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>销售员电话：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="salesPersonPhone"  maxlength=15  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>销售公司：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="salesCompany"  maxlength=15   style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>销售合同单号码：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="salesContractNumber"  maxlength=15   style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>销售公司电话：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="salesCompanyPhone"  maxlength=15   style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:updateVehicleInfo()">更新</a>
+						</td></tr>
+		</table>
+		</div>
+		<div title="驾照信息"  style="overflow:auto;padding:10px;" id='div0'>
+		<table align="center" style="margin-top:30px">
+		<tr height="30px">
+		<td width=80 hiht>驾照编号：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="licenseNo"   disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>当前积分：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="points"  disabled='disabled'  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>档案编号：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="docNo"   disabled='disabled'  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80 hiht>初领日期：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="initialDate"   disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>驾驶人姓名：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="driver_userName"  disabled='disabled'  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>有效期：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="validDate"   disabled='disabled'  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80 hiht>领取地点：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="driver_licensePlace"   disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>审验日期：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="certificationDate"  disabled='disabled'  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>准驾车型：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="permissionDriverType"   disabled='disabled'  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+	
+		</table>
+		</div>
+	</div>		
+		</div>
+		
+		
+		<div id="cusDlg" class="easyui-dialog" title="客户(提示：双击客户进行选择)"  data-options="left:400,top:150"  closed="true"  style="width:500px;height:300px">	
+				
+				<ul class="easyui-tree"   
+			 <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          { 
+	        ?>
+			url="../service/customer.php?defDep=-1" 
+			<?php 
+	          }
+	          else 
+	          { 
+	       ?>
+			 url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+			 <?php 
+	          }
+	         
+	       ?> 
+			data-options="animate:true,checkbox:false"  id="v_cusID">
+				
+			</ul>
+		</div>
+		
+		
+		
+		<div id="batchImportDlg" class="easyui-dialog" title="批量导入"  data-options="left:500,top:150"  closed="true"   style="width:400px;height:250px">	
+	 <form action= "importVehicles.php"  id= "form1"  name= "form1"  encType= "multipart/form-data"   target="hidden_frame"  method= "post"  >
+		<table  align="center" style="margin-top:50px"  >
+		<tr height="30px">
+			<td width="100px"><font color="#FF0000">*</font><?php echo "上传Excel: "; ?></td>
+			<td width="150px"><input type="file" id='file' name="file" name="file" style="width:150px" >
+			<td width="120px">
+			<span style="font-size:9.0pt;mso-bidi-font-size:12.0pt;color:red">（文件类型为.xls）</span>
+			</td>
+		</tr>
+		<tr  height="10px"></tr>
+		<tr  height="30px">
+			<td colspan=3 align="center">
+				<input type="submit" name="send" value="<?php echo "导入"; ?>"> &nbsp; &nbsp;&nbsp; &nbsp;
+				<input type="button" name="reset" value="重置"  onclick='clear1()'>
+			</td>
+		</tr>
+		<tr height="30px"><td  colspan=3 align="center"><span id= "msg" ></span><td></tr>
+		</table>
+		<iframe name='hidden_frame' id= "hidden_frame"  style='display:none'></iframe>  
+		</form> 
+		</div>	
+		
+		
+		<div title="添加车辆"  id='addVehicleDlg' class="easyui-dialog"  data-options="left:350,top:150"  closed="true"   style="width:750px;height:300px">
+	
+		<table   align="center" style="margin-top:10px;margin-left:10px;">
+		<tr height="30px">
+		<td width=80 hiht>车牌号：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="licenseNumber1"  maxlength=10  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>车架号：</td>
+		<td width=100><input class="easyui-validatebox textbox" id="v_vin1" data-options="validType:['length[0,20]']" maxlength=20  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>别名：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="nickName1"  maxlength=10  style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>品牌：<span class='red_span'>*</span></td>
+		<td width=150 align='left'> 
+		       <input class="easyui-combobox" 
+				data-options="
+				url: '../../zend_obd/jsonAPI/vehicle.php?level=0',
+				method: 'get',
+				valueField:'BrandID',
+				textField:'Brand'"
+				 id='brand1'>
+					</td>
+		<td width=80 hiht>车型：<span class='red_span'>*</span></td>
+		<td width=150 align='left'> 
+		 <input class="easyui-combobox" 
+				data-options="
+				valueField:'ModelID',
+				textField:'ModelName'"
+				 id='model1'></td>
+		<td width=80 hiht>车款：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-combobox" 
+				data-options="
+				valueField:'ModelNumID',
+				textField:'Type'"
+				 id='modelNumber1'></td>
+		
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>变速箱：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="manuAutomatic1"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>排量(L)：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="Swept1"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80>油箱容积(L)：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="tanksize1"  disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		<tr height="30px">
+		<td width=80>官方油耗(L)：</td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="fuelConsumptionStandart1" disabled='disabled' style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>燃油类型：</td>
+		<td width=150 align='left'>
+		<select  id="oilType1" 
+						class="easyui-combobox">
+							<option value="0">90#</option>
+							<option value="1">93#</option>
+							<option value="2">97#</option>
+					</select>
+		</td>
+		</tr>
+		<tr height="30px">
+		<td width=80 hiht>设备号：<span class='red_span'>*</span></td>
+		<td width=150 align='left'><input class="easyui-validatebox textbox" id="binded_d_esn1"  maxlength=20 style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 align='left'>设备注册码：<span class='red_span'>*</span></td>
+		<td width=100><input class="easyui-validatebox textbox" id="binded_register_key1"   maxlength=20  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80></td>
+		<td width=150 align='left'></td>
+		</tr>
+		<tr></tr>
+	    <tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:addVehicle()">保存</a></td></tr>
+		</table>
+		
+		</div>
+		
+  
+</body>   
+</html>   
+  
+<script type= "text/javascript" >   
+ function clear1(){
+	 document.getElementById( "file" ).outerHTML = document.getElementById( "file" ).outerHTML;   
+	 document.getElementById( "msg" ).innerHTML ='';
+ }
+function callback(msg)   
+{   
+    document.getElementById( "file" ).outerHTML = document.getElementById( "file" ).outerHTML;   
+    document.getElementById( "msg" ).innerHTML =  "<font color=red>" +msg+ "</font>" ; 
+    
+    
+    
+	//	alert("check");
+	 seletedArr=new Array();
+		var nodes = $('#depID').tree('getChecked');
+		 for (i = 0; i < nodes.length; i++){
+			 seletedArr.push(nodes[i].id);
+		 }
+		  if(seletedArr.length==0){
+			  seletedArr.push(-1);
+		  }
+		 if(seletedArr.length>0){
+			 var tmp=seletedArr.join(",");
+			// alert("tmp:"+tmp);
+			 glob_devices=tmp;
+			 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+				 url:'../service/vehicles4dep.php?searchType=0&deps='+tmp
+						 }
+			);*/
+			setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+tmp);  
+		 }
+}   
+</script>  
+		 </div>
+		
+		
+		
+
+		<script>
+		
+		function  bindUser(){
+			if(glob_deviceID==null){
+				alert("请选择车辆！");
+				return;
+			}
+			var uname=$.trim($('#uname').attr('value'));
+			if(uname==null || uname==''){
+				alert("请输入用户名！");
+				return;
+			}
+			var passwd=$.trim($('#passwd').attr('value'));
+			if(passwd==null || passwd==''){
+				alert("请输入用户密码！");
+				return;
+			}
+			 $.post("../../zend_obd/jsonAPI/vehicle.php",
+		       		  {
+					  uname:uname,passwd:passwd,deviceID:glob_deviceID,optype:14
+		       		  },
+		       		  function(data,status){
+		       			 if(data==200){
+		       				 alert("绑定成功！");
+		       			  }
+		       			 else if(data==201){
+		       				  alert("指定的用户不存在！")
+		       			  }
+		       			  else if(data==202){
+		       				  alert("指定的用户密码错误！")
+		       			  }	       			
+		       			  else {
+		       				alert("绑定用户失败！");
+		       			  }
+		       			        				        		
+		       		  });				
+			
+		}
+		
+		function addVehicle(){
+			//licenseNumber=$('#licenseNumber').attr('value');
+			var licenseNumber = document.getElementById("licenseNumber1").value;//$("#licenseNumber").val();
+			if(licenseNumber==null || licenseNumber==''){
+				alert("请输入车牌号!");
+				return;
+			}
+			
+			var v_vin = document.getElementById("v_vin1").value;
+			
+			var nickName=$('#nickName1').attr('value');
+
+			var model=$('#model1').combobox('getValue');
+			 if(model==''){
+				 alert("请输入车型!");
+					return;
+			 }
+			var modelNumber=$('#modelNumber1').combobox('getValue');
+			 if(modelNumber==''){
+				 alert("请输入车款!");
+					return;
+			 }
+			 
+			var binded_d_esn=$.trim($('#binded_d_esn1').attr('value'));
+				if(binded_d_esn==null || binded_d_esn==''){
+					alert("请输入设备号！");
+					return;
+				}
+			var	binded_register_key=$.trim($('#binded_register_key1').attr('value'));
+				if(binded_register_key==null || binded_register_key==''){
+					alert("请输入设备注册码！");
+					return;
+				}
+				
+			
+			var oilType=$('#oilType1').combobox('getValue');
+			 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+				  licenseNumber:licenseNumber,nickName:nickName,ModelNumID:modelNumber,oilType:oilType,v_vin:v_vin,d_esn:binded_d_esn,registerKey:binded_register_key,optype:12
+	       		  },
+	       		  function(data,status){
+	       			//  alert("---------"+data);
+	       			 if(data==200){
+	       				 alert("添加成功！");
+	       			  }
+	       			 else if(data==1011){
+	       				  alert("指定的设备不存在！")
+	       			  }
+	       			  else if(data==1017){
+	       				  alert("指定的设备已经绑定！")
+	       			  }
+	       			
+	       			  else {
+	       			//	  alert(data);
+	       				alert("添加车辆失败！");
+	       			  }
+	       			 
+	       				        		
+	       		  });	
+			
+		}
+		
+		function batchImport(){
+			clear1();
+			$('#batchImportDlg').dialog('open');
+		}
+		
+		function toAddVehicle(){
+			$('#addVehicleDlg').dialog('open');
+		}
+		
+		function show1(){
+			   $.messager.show({
+			    title:'My Title',
+			    msg:'Message will be closed after 4 seconds.<br>this is a test!',
+			    showType:'show'
+			   });
+			  }
+		
+		
+		var depID='<?php echo  $userVo->depID ?>';
+		var  glob_devices;
+		var  glob_vin;
+		var  glob_d_esn;
+		var glob_deviceID;
+		$('#depID').tree({
+			onCheck:function(node, checked){
+			//	alert("check");
+			 seletedArr=new Array();
+				var nodes = $('#depID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 var tmp=seletedArr.join(",");
+					// alert("tmp:"+tmp);
+					 glob_devices=tmp;
+					 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=0&deps='+tmp
+								 }
+					);*/  
+					setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+tmp); 
+				 }
+			}
+			});
+		
+		function assignCus(){
+			$('#cusDlg').dialog('open');
+		}
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		$('#v_cusID').tree({
+			onDblClick:function(node){
+			cusId=node.id;
+		//	alert("cusId:"+cusId);
+		
+			var selectRows=$('#dg').datagrid('getChecked');
+  		
+  			if(selectRows.length<1){
+  				alert("请选择车辆！");
+  				return;
+  			}
+  			var deviceArr=new Array();
+  			for ( var i=0 ; i < selectRows.length ; ++i ){
+  				deviceArr.push(selectRows[i].vin);
+  			}
+			
+			deviceIDs=deviceArr.join(",");
+			$.post("../service/assignCustomer.php",
+					  {
+				        cusId:cusId,
+		               deviceIDs:deviceIDs,
+		        
+					  },
+					  function(data,status){
+					 	if(data=='200'){
+					 		alert("ok");
+					 	}
+					 	
+					 	//close dialog
+					 	$('#cusDlg').dialog('close');
+					 	
+					 	
+					 	url='../service/vehicles4dep.php?searchType=0&deps='+glob_devices;
+					// 	alert("url:"+url);
+					 	 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+							 url:url
+									 }
+						); */ 
+						setCarByPage(url);
+					  
+					  });
+			
+			}
+			});
+		
+		
+		$('#brand').combobox({
+			onSelect: function(){
+				brandID=$('#brand').combo('getValue');
+			//	alert(brandID);
+				url='../../zend_obd/jsonAPI/vehicle.php?level=1'+"&id="+brandID;
+			//	alert(url);
+				$('#model').combobox({
+					url: url
+				});
+			}
+		});
+		
+		
+		$('#model').combobox({
+			onSelect: function(){
+				modelID=$('#model').combo('getValue');
+			//	alert(modelID);
+				url='../../zend_obd/jsonAPI/vehicle.php?level=2'+"&id="+modelID;
+			//	alert(url);
+				$('#modelNumber').combobox({
+					url: url
+				});
+			}
+		});
+		
+		
+		$('#modelNumber1').combobox({
+			onSelect: function(){
+			modelNumber=$('#modelNumber1').combo('getValue');
+			$.post("../../zend_obd/jsonAPI/vehicle.php",
+					{ ModelNumID:modelNumber,
+					 optype:13
+		    
+					  },
+					  function(data,status){
+						 var rows=eval(data);
+					 	if(rows!=null){
+					 		$('#manuAutomatic1').attr('value',rows[0].manuAutomatic);
+					 		$('#Swept1').attr('value',rows[0].Swept);
+					 		$('#tanksize1').attr('value',rows[0].tanksize);
+					 		$('#fuelConsumptionStandart1').attr('value',rows[0].fuelConsumptionStandart);
+					 	}
+					 			  
+					  });
+			}
+		});
+		
+		
+		
+		$('#modelNumber').combobox({
+			onSelect: function(){
+			modelNumber=$('#modelNumber').combo('getValue');
+			
+			$.post("../../zend_obd/jsonAPI/vehicle.php",
+					{ ModelNumID:modelNumber,
+					 optype:13
+		    
+					  },
+					  function(data,status){
+						 var rows=eval(data);
+					 	if(rows!=null){
+					 		$('#manuAutomatic').attr('value',rows[0].manuAutomatic);
+					 		$('#Swept').attr('value',rows[0].Swept);
+					 		$('#tanksize').attr('value',rows[0].tanksize);
+					 		$('#fuelConsumptionStandart').attr('value',rows[0].fuelConsumptionStandart);
+					 	}
+					 			  
+					  });
+			}
+		});
+		
+	
+		
+		$('#brand1').combobox({
+			onSelect: function(){
+				brandID=$('#brand1').combo('getValue');
+			//	alert(brandID);
+				url='../../zend_obd/jsonAPI/vehicle.php?level=1'+"&id="+brandID;
+			//	alert(url);
+				$('#model1').combobox({
+					url: url
+				});
+			}
+		});
+		
+		
+		$('#model1').combobox({
+			onSelect: function(){
+				modelID=$('#model1').combo('getValue');
+			//	alert(modelID);
+				url='../../zend_obd/jsonAPI/vehicle.php?level=2'+"&id="+modelID;
+			//	alert(url);
+				$('#modelNumber1').combobox({
+					url: url
+				});
+			}
+		});
+		
+		$('#dg').datagrid({
+			onClickRow : function(rowIndex, rowData) {
+			//	alert(glob_title);
+				vin=rowData.vin;
+				glob_vin=vin;
+				glob_d_esn=rowData.d_esn;
+				glob_deviceID=rowData.deviceID;
+					if(glob_title=='车辆基本信息'){
+						getBaseInfo(vin);
+	        		}
+	        		else if(glob_title=='设备信息'){
+	        			getBaseInfo(vin);
+	        		}
+	        		else if(glob_title=='用户信息'){
+	        			getUserInfo(glob_vin);
+	        		}
+	        		else if(glob_title=='车险信息'){
+	        			getInsurance(glob_vin);
+	        		}
+	        		else if(glob_title=='年审信息'){
+	        			getVehicleInfo(glob_vin);
+	        		}
+	        		else if(glob_title=='销售信息'){
+	        			getVehicleInfo(glob_vin);
+	        		}
+	        		else if(glob_title=='驾照信息'){
+	        			getDriverInfo(glob_vin);
+	        		}
+					
+			
+			}
+		});
+		
+		
+	
+	function updateBaseInfo(){
+		if(glob_vin == undefined || glob_vin==null){
+			return;
+		}
+		
+		//licenseNumber=$('#licenseNumber').attr('value');
+		var licenseNumber = document.getElementById("licenseNumber").value;//$("#licenseNumber").val();
+		if(licenseNumber==null || licenseNumber==''){
+			alert("请输入车牌号!");
+			return;
+		}
+		
+		var v_vin = document.getElementById("v_vin").value;
+		
+		var nickName=$('#nickName').attr('value');
+
+		var model=$('#model').combobox('getValue');
+		 if(model==''){
+			 alert("请输入车型!");
+				return;
+		 }
+		var modelNumber=$('#modelNumber').combobox('getValue');
+		 if(modelNumber==''){
+			 alert("请输入车款!");
+				return;
+		 }
+		
+		var oilType=$('#oilType').combobox('getValue');
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+       		  {
+			 vin:glob_vin,licenseNumber:licenseNumber,nickName:nickName,ModelNumID:modelNumber,oilType:oilType,v_vin:v_vin,optype:1
+       		  },
+       		  function(data,status){
+       			//  alert("ppppp:"+data);
+       			  if(data=="200"){
+       				  alert("更新成功！");
+       			  }
+       				        		
+       		  });	
+		
+	}
+	
+	
+	var glob_title='车辆基本信息';
+	$('#tt1').tabs({
+		onSelect: function(title,index){
+        	 if(glob_title!=title && glob_vin!=null){
+        		if(title=='车辆基本信息'){
+        			getBaseInfo(glob_vin);
+        		}
+        		else if(title=='设备信息'){
+        			getBaseInfo(glob_vin);
+        		}
+        		else if(title=='用户信息'){
+        			getUserInfo(glob_vin);
+        		}
+        		else if(title=='车险信息'){
+        			getInsurance(glob_vin);
+        		}
+        		else if(title=='年审信息'){
+        			getVehicleInfo(glob_vin);
+        		}
+        		else if(title=='销售信息'){
+        			getVehicleInfo(glob_vin);
+        		}
+        		else if(title=='驾照信息'){
+        			getDriverInfo(glob_vin);
+        		}
+        		
+        	 }
+        	 glob_title=title;
+        	
+			
+		  }
+		});
+	
+	var interval;
+	var number=6;
+	function validateVehicle(){
+		$("<div id='blok1001' class=\"datagrid-mask\"></div>").css({display:"block",width:"100%",height:$(window).height()}).appendTo("body"); 
+		$("<div id='blok1002' class=\"datagrid-mask-msg\"></div>").html("正在激活，请稍候。。。").appendTo("body").css({display:"block",left:($(document.body).outerWidth(true) - 190) / 2,top:($(window).height() - 45) / 2}); 
+		
+		$.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+			    vin:glob_vin,optype:'3'
+	       		  },
+	       		  function(data,status){
+	       			  if(status=='success'){
+	       				interval=setInterval("getDeviceActivateStatus("+data+");",10000); 
+	       			  }
+	       		  });	
+		
+	}
+	
+	function  cleanTimer(){
+		clearInterval(interval);
+		number=6;
+		$("#blok1001").remove();
+		$("#blok1002").remove();
+		
+	}
+		
+  function getDeviceActivateStatus (timeStamp){
+	      if(number>1){
+				number--;
+			}
+			else{
+				alert("设备无响应!");
+				cleanTimer();
+				return;
+			}
+	 // alert("timeStamp:"+timeStamp);
+	  $.post("../../zend_obd/jsonAPI/vehicle.php",
+       		  {
+		    vin:glob_vin,optype:'4',timeStamp:timeStamp
+       		  },
+       		  function(data,status){
+       			  if(status=='success'){
+       				if(data=='200'){
+       					alert("激活成功！");
+       					cleanTimer();		
+       				}
+       			
+       			  }
+       			 
+       
+       		  });	
+  }
+	
+	function bindDevice(){
+		 var binded_d_esn=$.trim($('#binded_d_esn').attr('value'));
+		if(binded_d_esn==null || binded_d_esn==''){
+			alert("请输入设备号！");
+			return;
+		}
+		var binded_register_key=$.trim($('#binded_register_key').attr('value'));
+		if(binded_register_key==null || binded_register_key==''){
+			alert("请输入设备注册码！");
+			return;
+		}
+		if(glob_d_esn==binded_register_key){
+			alert("已经绑定该设备!");
+			return;
+		}
+		$.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+			    d_esn:binded_d_esn,registerKey:binded_register_key,vin:glob_vin,optype:'2'
+	       		  },
+	       		  function(data,status){
+	       			  if(data==200){
+	       				  alert("绑定成功！");
+	       			  }
+	       			 else if(data==1011){
+	       				  alert("指定的设备不存在！")
+	       			  }
+	       			  else if(data==1017){
+	       				  alert("指定的设备已经绑定！")
+	       			  }
+	       			
+	       			  else {
+	       			//	  alert(data);
+	       				alert("绑定失败!");
+	       			  }
+	       
+	       		  });	
+		
+	}
+	
+	function getDriverInfo(){
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:glob_vin,optype:'10'
+	       		  },
+	       		  function(data,status){
+	       			vehicle= eval(data)[0];
+	       			if(vehicle == undefined || vehicle==null){
+	       				$('#licenseNo').attr('value','');
+		       			$('#points').attr('value','');
+		       			$('#docNo').attr('value','');
+		       			$('#initialDate').attr('value','');     			
+		       			$('#driver_userName').attr('value','');  
+		       			$('#validDate').attr('value','');
+		       			$('#driver_licensePlace').attr('value','');
+		       			$('#certificationDate').attr('value','');
+		       			$('#permissionDriverType').attr('value','');
+	       			}
+	       			else{
+	       				$('#licenseNo').attr('value',vehicle.licenseNo!=null ? vehicle.licenseNo:'');
+		       			$('#points').attr('value',vehicle.points!=null ? vehicle.points:'');
+		       			$('#docNo').attr('value',vehicle.docNo!=null ? vehicle.docNo:'');
+		       			$('#initialDate').attr('value',vehicle.initialDate!=null ? vehicle.initialDate:'' );     			
+		       			$('#driver_userName').attr('value',vehicle.userName!=null ? vehicle.userName:'');  
+		       			$('#validDate').attr('value',vehicle.validDate!=null ? vehicle.validDate:'');
+		       			$('#driver_licensePlace').attr('value',vehicle.licensePlace !=null ? vehicle.licensePlace:'');
+		       			$('#certificationDate').attr('value',vehicle.certificationDate !=null ? vehicle.certificationDate:'');
+		       			$('#permissionDriverType').attr('value',vehicle.permissionDriverType!=null ? vehicle.permissionDriverType:'');
+	       			}
+	       			
+	       		  });	
+	}
+	
+   function  getVehicleInfo(){
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:glob_vin,optype:'11'
+	       		  },
+	       		  function(data,status){
+	       		//	alert(data);
+	       			vehicle= eval(data)[0];
+	       			if(vehicle == undefined || vehicle==null){
+	       				$('#manufactureDate').datebox('setValue', '');
+		       			$('#salesPerson').attr('value','');
+		       			$('#buyDate').datebox('setValue', '');
+		       			$('#salesPersonPhone').attr('value','');
+		       			$('#salesCompany').attr('value','');     			
+		       			$('#salesContractNumber').attr('value','');  
+		       			$('#salesCompanyPhone').attr('value','');
+		       			$('#ownerName').attr('value','');
+		       			$('#licenseModel').attr('value','');
+		       			$('#ein').attr('value','');
+		       			$('#licensePlace').attr('value','');
+		       			$('#inspectionDate').datebox('setValue', '');
+		       			$('#licenseDate').datebox('setValue', '');
+	       			}
+	       			else{
+	       				$('#manufactureDate').datebox('setValue', vehicle.manufactureDate !=null ? vehicle.manufactureDate:'');
+		       			$('#salesPerson').attr('value',vehicle.salesPerson !=null ? vehicle.salesPerson:'');
+		       			$('#buyDate').datebox('setValue', vehicle.buyDate !=null ? vehicle.buyDate:'');
+		       			$('#salesPersonPhone').attr('value',vehicle.salesPersonPhone !=null ? vehicle.salesPersonPhone:'');
+		       			$('#salesCompany').attr('value',vehicle.salesCompany !=null ? vehicle.salesCompany:'');     			
+		       			$('#salesContractNumber').attr('value',vehicle.salesContractNumber !=null ? vehicle.salesContractNumber:''); 
+                        $('#salesCompanyPhone').attr('value',vehicle.salesCompanyPhone !=null ? vehicle.salesCompanyPhone:'');
+		       			$('#ownerName').attr('value',vehicle.ownerName !=null ? vehicle.ownerName:'');
+		       			$('#licenseModel').attr('value',vehicle.licenseModel !=null ? vehicle.licenseModel:'');
+		       			$('#ein').attr('value',vehicle.ein !=null ? vehicle.ein:'');
+		       			$('#licensePlace').attr('value',vehicle.licensePlace !=null ? vehicle.licensePlace:'');
+		       			$('#inspectionDate').datebox('setValue', vehicle.inspectionDate !=null ? vehicle.inspectionDate:'');
+		       			$('#licenseDate').datebox('setValue', vehicle.licenseDate !=null ? vehicle.licenseDate:'');
+		       		
+	       			}
+	       			
+	       		  });	
+   }
+   
+   function updateVehicleInfo(){
+	 var manufactureDate=$('#manufactureDate').datetimebox('getValue');
+	 var   salesPerson=$('#salesPerson').attr('value');
+	 var   buyDate=$('#buyDate').datetimebox('getValue');
+	 var  salesPersonPhone=$('#salesPersonPhone').attr('value');
+	 var   salesCompany=$('#salesCompany').attr('value');
+	 var  salesContractNumber=$('#salesContractNumber').attr('value');
+	 var  salesCompanyPhone=$('#salesCompanyPhone').attr('value');
+	 var   ownerName=$('#ownerName').attr('value');
+	 var  licenseModel=$('#licenseModel').attr('value');
+	 var  ein=$('#ein').attr('value');
+	 var  licensePlace=$('#licensePlace').attr('value');
+	 var   inspectionDate=$('#inspectionDate').datetimebox('getValue');
+	//   alert(inspectionDate);
+	 var   licenseDate=$('#licenseDate').datetimebox('getValue');
+	//   alert(licenseDate);
+	    if(glob_title=='销售信息'){
+			optype=8;
+		}
+		else if(glob_title=='年审信息'){
+			optype=9;
+		}
+	 //   alert("optype:"+optype);
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:glob_vin, 
+	   		manufactureDate:manufactureDate,
+	   		salesPerson:salesPerson,
+	   		buyDate:buyDate,
+	   		salesPersonPhone:salesPersonPhone,
+	   		salesCompany:salesCompany,
+	   		salesContractNumber:salesContractNumber,
+	   		salesCompanyPhone:salesCompanyPhone,
+	   		ownerName:ownerName,
+	   		licenseModel:licenseModel,
+	   		ein:ein,
+	   		licensePlace:licensePlace,
+	   		inspectionDate:inspectionDate,
+	   		licenseDate:licenseDate,
+	   		optype:optype
+	       		  },
+	       		  function(data,status){
+	       			 
+	       		      if(data='200'){
+	       		    	  alert("更新成功！");
+	       		      }
+	       		  });	
+	    
+	   
+   }
+	
+   function	updaeInsurance(){
+	   
+	 var  insuranceCompany=$('#insuranceCompany').attr('value'); 
+	 var customerServicePhone=$('#customerServicePhone').attr('value');  
+	 var  policyNumber=$('#policyNumber').attr('value');
+	 var  aitfNumber=$('#aitfNumber').attr('value');
+	 var   effectiveDate=$('#effectiveDate').datetimebox('getValue');
+	 var   expirationDate=$('#expirationDate').datetimebox('getValue');
+	 var   claimClerk=$('#claimClerk').attr('value');
+	 var   claimClerkPhone=$('#claimClerkPhone').attr('value');
+	 var   detailInfo=$('#detailInfo').attr('value');
+	 var   mark=$('#mark').attr('value');
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:glob_vin, insuranceCompany:insuranceCompany, customerServicePhone:customerServicePhone, policyNumber:policyNumber,aitfNumber:aitfNumber, effectiveDate:effectiveDate, expirationDate:expirationDate, claimClerk:claimClerk, claimClerkPhone:claimClerkPhone, detailInfo:detailInfo, mark:mark,optype:'7'
+	       		  },
+	       		  function(data,status){
+	       			 
+	       		      if(data='200'){
+	       		    	  alert("更新成功！");
+	       		      }
+	       		  });	
+   }
+	
+	function getInsurance(vin){
+		
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:vin,optype:'6'
+	       		  },
+	       		  function(data,status){
+	       			//  alert(data);
+	       			insurance= eval(data)[0];
+	       			if(insurance == undefined || insurance==null){
+	       				$('#insuranceCompany').attr('value','');
+		       			$('#customerServicePhone').attr('value','');
+		       			$('#policyNumber').attr('value','');
+		       			$('#aitfNumber').attr('value','');
+		       			$('#effectiveDate').datebox('setValue', '');	       			
+		       			$('#expirationDate').datebox('setValue', '');	  
+		       			$('#claimClerk').attr('value','');
+		       			$('#claimClerkPhone').attr('value','');
+		       			$('#mark').attr('value','');
+	       			}
+	       			else{
+	       				$('#insuranceCompany').attr('value',insurance.insuranceCompany!=null? insurance.insuranceCompany:'');
+		       			$('#customerServicePhone').attr('value',insurance.customerServicePhone!=null? insurance.customerServicePhone:'');
+		       			$('#policyNumber').attr('value',insurance.policyNumber!=null? insurance.policyNumber:'');
+		       			$('#aitfNumber').attr('value',insurance.aitfNumber!=null? insurance.aitfNumber:'');
+		       			$('#effectiveDate').datebox('setValue', insurance.effectiveDate!=null? insurance.effectiveDate:'');	       			
+		       			$('#expirationDate').datebox('setValue', insurance.expirationDate!=null? insurance.expirationDate:'');	  
+		       			$('#claimClerk').attr('value',insurance.claimClerk!=null? insurance.claimClerk:'');
+		       			$('#claimClerkPhone').attr('value',insurance.claimClerkPhone!=null? insurance.claimClerkPhone:'');
+		       			$('#mark').attr('value',insurance.mark!=null? insurance.mark:'');
+	       			}
+	       			
+	       		  });	
+	}
+	
+	
+	function getUserInfo(vin){
+
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+	       		  {
+	   		      vin:vin,optype:'5'
+	       		  },
+	       		  function(data,status){
+	       			user= eval(data)[0];
+	       			if(user == undefined || user==null){
+	       				$('#uname').attr('value','');
+		       			$('#fullname').attr('value','');
+		       			$('#email').attr('value','');
+		       			$('#smsNum').attr('value','');
+	       			}
+	       			else{
+	       				$('#uname').attr('value',user.uname!=null ? user.uname:'');
+		       			$('#fullname').attr('value',user.fullname!=null ? user.fullname:'');
+		       			$('#email').attr('value',user.email!=null ? user.email:'');
+		       			$('#smsNum').attr('value',user.smsNum!=null ? user.smsNum:'' );
+	       			}
+	       			
+	       		  });	
+	}
+
+	
+	function getBaseInfo(vin){
+		 $.post("../../zend_obd/jsonAPI/vehicle.php",
+       		  {
+   		      vin:vin,optype:'0'
+       		  },
+       		  function(data,status){
+       		//	  alert("pppp"+data);
+				//console.log("vin:"+vin);
+       			vehicle= eval(data)[0];
+       			
+       			//console.log(data);
+       			
+       			if(vehicle == undefined || vehicle==null){
+       				$('#licenseNumber').attr('value','');
+           			$('#v_vin').attr('value','');
+           			$('#nickName').attr('value','');
+           			$('#manuAutomatic').attr('value','');
+           			$('#Swept').attr('value','');
+           			$('#tanksize').attr('value','');
+           			$('#fuelConsumptionStandart').attr('value','');
+           			$('#brand').combobox('select','' );
+           			$('#model').combobox('select','' );
+           			$('#modelNumber').combobox('select','' );
+           			$('#oilType').combobox('select','' );	
+           			$('#binded_d_esn').attr('value','');
+           			$('#binded_register_key').attr('value','');
+           			$('#validate_status').attr('value','');
+       			}
+       			else{
+       				$('#licenseNumber').attr('value',vehicle.licenseNumber !=null ? vehicle.licenseNumber:'');
+           			$('#v_vin').attr('value',vehicle.v_vin !=null ? vehicle.v_vi:'');
+           			$('#nickName').attr('value',vehicle.nickName !=null ? vehicle.nickName :'');
+           			$('#manuAutomatic').attr('value',vehicle.manuAutomatic !=null ? vehicle.manuAutomatic:'');
+           			$('#Swept').attr('value',vehicle.Swept !=null ? vehicle.Swept:'');
+           			$('#tanksize').attr('value',vehicle.tanksize !=null ? vehicle.tanksize:'');
+           			$('#fuelConsumptionStandart').attr('value',vehicle.fuelConsumptionStandart !=null ? vehicle.fuelConsumptionStandart:'');
+           			$('#brand').combobox('select',vehicle.BrandID !=null ? vehicle.BrandID:'');
+           			$('#model').combobox('select',vehicle.ModelID !=null ? vehicle.ModelID:'');
+           			$('#modelNumber').combobox('select',vehicle.ModelNumID !=null ? vehicle.ModelNumID :'' );
+           			$('#oilType').combobox('select',vehicle.oilType!=null ? vehicle.oilType:'');	
+           			$('#binded_d_esn').attr('value',vehicle.d_esn!=null ? vehicle.d_esn:'');
+           			$('#binded_register_key').attr('value',vehicle.registerKey!=null ? vehicle.registerKey:'');
+           			if(vehicle.activatedFlag==null){
+           				$('#validate_status').attr('value','');
+           			}
+           			else if(vehicle.activatedFlag==0){
+           				$('#validate_status').attr('value','未激活');
+           			}
+           			else if(vehicle.activatedFlag==1){
+           				$('#validate_status').attr('value','已激活');
+           			}
+       			}
+       			
+       			
+       				
+       		  });	
+	}
+	
+	function assignDep(){
+		 $('#depDlg').dialog('open');
+	 }
+	$('#depID1').tree({
+		onDblClick:function(node){
+			deptID=node.id;
+		var selectRows=$('#dg').datagrid('getChecked');
+		
+			if(selectRows.length<1){
+				alert("请选择车辆！");
+				return;
+			}
+			var deviceArr=new Array();
+			for ( var i=0 ; i < selectRows.length ; ++i ){
+				deviceArr.push(selectRows[i].deviceIndex);
+			}
+		
+		deviceIDs=deviceArr.join(",");
+		//alert("deviceIDs:"+deviceIDs);
+		//alert("deptID:"+deptID);
+		$.post("../../zend_obd/jsonAPI/devices.php",
+				  {
+			        optype:1,
+			        deptID:deptID,
+			        str_deps:deviceIDs
+
+				  },
+				  function(data,status){
+			//		  alert("data :"+data);
+				 	if(data==200 || data=='200'){
+				 		alert("设置成功!");
+				 		
+				 		 $('#depDlg').dialog('close');
+				 		//reflesh table
+				 		fleshTable();
+				 		
+				 	}
+				 	
+			
+					
+				  
+				  });
+		
+		}
+		});
+	
+	
+	
+function fleshTable(){
+	     seletedArr=new Array();
+		var nodes = $('#depID').tree('getChecked');
+		 for (i = 0; i < nodes.length; i++){
+			 seletedArr.push(nodes[i].id);
+		 }
+		  if(seletedArr.length==0){
+			  seletedArr.push(-1);
+		  }
+		 if(seletedArr.length>0){
+			 var tmp=seletedArr.join(",");
+			// alert("tmp:"+tmp);
+			 glob_devices=tmp;
+			/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+				 url:'../service/vehicles4dep.php?searchType=0&deps='+tmp
+						 }
+			); */ 
+			setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+tmp);
+			 
+			glob_deviceID==null;
+		 }
+}
+	
+	
+	
+	
+	function setCarByPage(pageURL){
+		//var pageURL = "../service/alert.php?sqlType=1&date="+date;
+
+		$('#dg').datagrid({  
+		
+			url:pageURL, 
+			
+			singleSelect:true,//是否单选
+		
+			pagination:true,//分页控件  
+		
+			rownumbers:true//行号		
+			
+		});
+		
+		//设置分页控件  
+		var p = $('#dg').datagrid('getPager');  
+		
+		$(p).pagination({  
+		
+			pageSize: 10,//每页显示的记录条数，默认为10  
+		
+			pageList: [5,10,15,20,30,40,50],//可以设置每页记录条数的列表  
+		
+			beforePageText: '',//页数文本框前显示的汉字  
+		
+			afterPageText: '/{pages}'//,  
+		
+			//displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		
+		});
+	}
+	
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

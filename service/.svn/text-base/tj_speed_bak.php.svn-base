@@ -1,0 +1,75 @@
+<?php
+include '../DBConnection.php';
+require_once '../log4php/Logger.php';
+Logger :: configure('../log4php.properties');
+$logger = Logger :: getRootLogger();
+
+$opType = isset($_REQUEST['opType']) ? $_REQUEST['opType'] : null;
+$startDate = isset($_REQUEST['startDate']) ? $_REQUEST['startDate'] : null;
+$stopDate = isset($_REQUEST['stopDate']) ? $_REQUEST['stopDate'] : null;
+$devices=isset($_REQUEST['devices']) ? $_REQUEST['devices'] : null;
+$speed=isset($_REQUEST['speed']) ? $_REQUEST['speed'] : null;
+//$startDate = date("Y-m-d H:i:s", strtotime($startDate . '-8hour'));
+//$endDate= date("Y-m-d H:i:s", strtotime($endDate . '-8hour'));
+if($opType=='0' or $opType==0){
+$startDate = date("Y-m-d H:i:s", strtotime($startDate . '-8hour'));
+$stopDate= date("Y-m-d H:i:s", strtotime($stopDate . '-8hour'));
+$data = array();
+$devices =str_replace(',', '\',\'', $devices);
+$devices=' \''.$devices.'\'';
+$sql="SELECT vm.ModelName,c.name as customer,d.deviceID,d.d_esn,vi.licenseNumber,max(speed) as max_speed,count(speed) as sum_speed  FROM obd_demo.LocationHistory l,VehModelNumber vn,VehModel vm,Devices_MT dm,VehicleInfo vi, provision_obd.Devices d  ,Customers c   " .
+		" where  l.deviceID=dm.deviceID " .
+		" and l.deviceID=d.deviceID" .
+		" and dm.ModelNumID=vn.ModelNumID".
+		" and vn.ModelID=vm.ModelID".
+		" and dm.customerID=c.id".
+		" and  dm.vin=vi.vin and l.deviceID in ("  . $devices . ")" .
+		" AND gpsStamp >= '".$startDate."' AND gpsStamp <= '".$stopDate."'  and speed>$speed" .
+				" group by l.deviceID " ;
+//echo $sql;
+$logger->debug("----------------sql:------" . $sql);
+mysql_select_db("IOV_demo");
+$result = mysql_query($sql);
+$numRows = mysql_num_rows($result);
+$ret = array ();
+$data= array ();
+$ret['total'] = $numRows;
+if ($numRows > 0) {
+while($row = mysql_fetch_object($result)){
+	array_push($data,$row);
+}
+}
+$ret['rows'] = $data;
+echo json_encode($ret);
+}
+else if($opType=='1' or $opType==1){
+$startDate = date("Y-m-d H:i:s", strtotime($startDate . '-8hour'));
+$stopDate= date("Y-m-d H:i:s", strtotime($stopDate . '-8hour'));
+$data = array();
+$sql="select vi.licenseNumber as licenseNumber ,l.gpsStamp as over_speed_time,l.speed as over_speed,address_num as address from obd_demo.LocationHistory l,Devices_MT dm,VehicleInfo vi  ".
+" where dm.deviceID=l.deviceID and dm.vin=vi.vin".
+" and l.gpsStamp >= '".$startDate."' AND l.gpsStamp <= '".$stopDate."'  and speed>$speed and l.deviceID='$devices' order  by gpsStamp ";
+$logger->debug("----------------sql:------" . $sql);
+mysql_select_db("IOV_demo");
+$result = mysql_query($sql);
+$numRows = mysql_num_rows($result);
+$ret = array ();
+$data= array ();
+$ret['total'] = $numRows;
+if ($numRows > 0) {
+while($row = mysql_fetch_object($result)){
+	$row->over_speed_time =date("Y-m-d H:i:s", strtotime($row->over_speed_time . '+8hour'));
+	array_push($data,$row);
+}
+}
+$ret['rows'] = $data;
+echo json_encode($ret);
+}
+else{
+	echo 'optype error!';
+}
+
+
+
+
+?>

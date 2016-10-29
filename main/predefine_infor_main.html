@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<?php include("session.php"); 
+$resource=$userVo->resource;
+?>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>预设信息管理</title>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+
+<body >
+	<div class="easyui-tabs" style="width: 1550px; height: 830px" id="tt1"> 
+	
+	<?php if((in_array('非法启动时间段设置' , $resource))){ ?>  
+	<div title="非法启动时间段设置"  style="overflow:auto;padding:10px;" id='div0'>
+	<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div01'></iframe>
+	</div>
+	<?php } ?>
+	<?php if((in_array('出省设置' , $resource))){ ?> 	
+	<div title="出省设置"  style="overflow:auto;padding:10px;" id='div1'>
+	<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div11'></iframe>
+	</div>
+	<?php } ?>
+	
+	<?php if((in_array('地标管理' , $resource))){ ?> 	
+	<div title="地标管理"  style="overflow:auto;padding:10px;" id='div2'>
+	<iframe frameborder="0"  src=""
+					style="width: 100%; height: 99%;" id='div21'></iframe>
+	</div>
+	<?php } ?>
+		</div>
+
+	<script type="text/javascript">
+	var tabIndex='';
+	$('#tt1').tabs({
+		onSelect: function(title,index){
+			
+		//	if(index==0){
+    	//		 $('#div01').attr("src","base_info_user.html"); 
+    	//	}
+        	 if(tabIndex!=title){
+        		if(title=='非法启动时间段设置'){
+        			 $('#div01').attr("src","predefine_info_time.html"); 
+        		}
+        		else if(title=='出省设置'){
+        			 $('#div11').attr("src","predefine_info_outOfProvince.html"); 
+        		}
+        		else if(title=='地标管理'){
+       			 $('#div21').attr("src","base_info_landmark.html"); 
+       		}
+             
+        		tabIndex=title;
+        	 }
+        	
+			
+		  }
+		});
+		
+	</script>
+</body>
+</html>

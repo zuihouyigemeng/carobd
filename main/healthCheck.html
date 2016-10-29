@@ -1,0 +1,226 @@
+<div id="healthCheckDlg" class="easyui-dialog" title="一键体验"  data-options="left:800,top:100,iconCls:'icon-hea'"  closed="true"  style="width:400px;height:400px;padding:10px 0px 10px 0px">	   	
+   		<div>
+   	
+   		<table>
+		<tr>
+			<td width="25%" align = "right">
+			<div id='fraction'>
+				<img alt="体检" src="../mapPic/leida.gif" height="80" width="80" style="display:none;">
+			</div>
+			</td>
+			
+			<td width="40%" align = "left">
+			<div id="p" class="easyui-progressbar" style="width:200px;height:30px;"></div>
+			</td>
+			<td width="35%" align = "left">
+  			<div>
+  			<a onclick="start()"  style="width:200px;height:30px;">
+				<img alt="体检" src="../mapPic/normal.png" height="30" width="65">
+			</a>
+  			</div>
+  		 	</td>
+   		</tr>
+   	</table>
+</div>
+   	<div style="margin:20px;"></div>
+   		<div style="width:330px;height:170px;padding:0px">
+   			<div>
+   				<img alt="体检" src="../mapPic/tijianbaogao.png">
+   				<span> <b>体验报告</b></span><br>
+   			</div>
+   			
+			<div style="width:330px;padding:5px">
+			<span>电压异常:  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span id="batt_result" style="color: blue;"></span>
+			</div>
+			<div>
+			&nbsp;&nbsp;<span>DTC:</span>
+			</div>
+			<div style="width:330px;padding:5px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;动力系统 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+			<span id="DTC_1_result" style="color: blue;"></span> 
+			</div>
+			<div style="width:330px;padding:5px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;底牌系统：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<span id="DTC_2_result" style="color: blue;"></span>      
+			</div>
+			<div style="width:330px;padding:5px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;车身系统：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<span id="DTC_3_result" style="color: blue;"></span>       
+			</div>
+			<div style="width:330px;padding:5px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;信号系统： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span id="DTC_4_result" style="color: blue;"></span>  <br>     
+			</div>
+			<div style="width:330px;padding:5px">维修保养： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<span id="Maintenance_result" style="color: blue;"></span>       
+			</div>
+			
+			<div style="width:330px;padding:5px"><img alt="体检" src="../mapPic/tieshi.png"><b>提示：</b><br>
+			<span id="Prompt" style="color: blue;display: block;" ></span>       
+			</div>
+			
+			<div></div>
+	    </div>
+</div>
+
+
+<script type="text/javascript">
+	var temp ;
+	var time;
+	var timesTamp
+	function Display(){
+		$.post("../../zend_obd/jsonAPI/vehicleCheck.php",
+				  {
+					vin:curr_vin
+				  },
+				  function(data,status){
+					  var rows1=eval(data);
+					   timesTamp = rows1[0].now;
+					  var heartbeat = rows1[0].heartbeat_interval;
+					  
+					  
+					 
+					   time = setInterval(getCheck,200);
+					   temp =0;
+					  	
+				  });
+		
+		}
+	
+	function getCheck(){
+		
+		temp++;
+		var rows2;
+		$.post("../../zend_obd/jsonAPI/getVehicleCheck.php",
+				  {
+					timeStamp:timesTamp,vin:curr_vin
+					
+				  },
+				  function(data,status){
+					  rows2=eval(data);
+					  
+					  if(temp == 5 && rows2 == null )
+						{
+														
+							$.post("../../zend_obd/jsonAPI/getTimeDatam.php",
+									  {
+										vin:curr_vin
+										
+									  },
+									  function(data,status){
+										  
+										  var rows=eval(data);
+										  var top = "";
+										  									  
+										  document.getElementById("batt_result").innerText = rows[0].result;
+										  document.getElementById("DTC_1_result").innerText = rows[1].result;
+										  document.getElementById("DTC_2_result").innerText = rows[2].result;
+										  document.getElementById("DTC_3_result").innerText = rows[3].result;
+										  document.getElementById("DTC_4_result").innerText = rows[4].result;
+										  document.getElementById("Maintenance_result").innerText = rows[5].result;
+										  document.getElementById("fraction").innerHTML=rows[6].result;
+										  if(rows[0].result=="OK" && rows[1].result=="OK" && rows[2].result=="OK" && rows[3].result=="OK" && rows[4].result=="OK" && rows[5].result=="OK")
+											  {
+											  	top = " 您的爱车很健康，请持续关注您的爱车体检。" + "\n\n";
+											  }
+										  if (rows[0].result !="OK")
+											  {
+											  	top +=   " 电瓶电压未充满，请及时充电，避免造成车辆无法发动."  + "\n\n";
+											  }
+										 if(rows[1].result!="OK"||rows[2].result!="OK"||rows[3].result!="OK"||rows[4].result!="OK")
+											  {
+											  	top +=   " 请尽快到4S维修检测。"  + "\n\n";
+											  }
+										 if(rows[5].result!="OK")
+											  {
+											  	top +=  " 您的爱车距离上次保养已超过5000公里，需要及时保养。" + "\n\n";
+											  }
+										 
+										 document.getElementById("Prompt").innerText = top;
+										 
+									  });
+							clearInterval(time);
+							
+						}
+					  
+					   
+					  
+					  if(rows2 != null) {
+					  
+					  document.getElementById("batt_result").innerText = rows2[0].result;
+					  document.getElementById("DTC_1_result").innerText = rows2[1].result;
+					  document.getElementById("DTC_2_result").innerText = rows2[2].result;
+					  document.getElementById("DTC_3_result").innerText = rows2[3].result;
+					  document.getElementById("DTC_4_result").innerText = rows2[4].result;
+					  document.getElementById("Maintenance_result").innerText = rows2[5].result;
+					  document.getElementById("fraction").innerHTML=rows2[6].result;
+					  if(rows[0].result=="OK" && rows[1].result=="OK" && rows[2].result=="OK" && rows[3].result=="OK" && rows[4].result=="OK" && rows[5].result=="OK")
+					  {
+					  	top = " 您的爱车很健康，请持续关注您的爱车体检。" + "\n\n";
+					  }
+					  if (rows[0].result!="OK")
+						  {
+						  	top +=   " 电瓶电压未充满，请及时充电，避免造成车辆无法发动."  + "\n\n";
+						  }
+					 if(rows[1].result!="OK"||rows[2].result!="OK"||rows[3].result!="OK"||rows[4].result!="OK")
+						  {
+						  	top +=   " 请尽快到4S维修检测。"  + "\n\n";
+						  }
+					 if(rows[5].result!="OK")
+						  {
+						  	top +=  " 您的爱车距离上次保养已超过5000公里，需要及时保养。" + "\n\n";
+						  }
+					 
+					 document.getElementById("Prompt").innerText = top;
+							
+					  
+				  }
+					  
+				  });
+		
+			  
+		
+	}
+		
+		function start(){
+			
+			var value = $('#p').progressbar('getValue');
+			
+			if (value ==100 )
+			{
+				$('#p').progressbar('setValue', 0);
+			}
+			
+			setTimeout("start1()", 200);
+			
+		}
+		function start1(){
+			var value = $('#p').progressbar('getValue');
+			
+			
+			if (value == 100)
+			{
+				setTimeout("Display()",100);
+				
+				return ;
+			}
+			else if (value == 0)
+				{
+				  document.getElementById("batt_result").innerText = "";
+				  document.getElementById("DTC_1_result").innerText = "";
+				  document.getElementById("DTC_2_result").innerText = "";
+				  document.getElementById("DTC_3_result").innerText = "";
+				  document.getElementById("DTC_4_result").innerText = "";
+				  document.getElementById("Maintenance_result").innerText = "";
+				  document.getElementById("fraction").innerHTML="<img alt='体检' src='../mapPic/leida.gif' height='80' width='80'>";
+				  document.getElementById("Prompt").innerText = "";
+				
+				
+				}
+			if (value < 100){
+				
+				value += Math.floor(Math.random() * 10);
+				$('#p').progressbar('setValue', value);
+				setTimeout(arguments.callee, 200);
+			}
+		}
+		
+	
+		</script>

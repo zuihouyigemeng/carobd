@@ -1,0 +1,7 @@
+/* CSS Document */
+#depID .icon-depart {
+	background: url("../img/_0006_部门.png") no-repeat !important;	
+}
+#depID .tree-node-selected .icon-depart{
+	background: url("../img/_0006_部门2.png") no-repeat !important;
+}

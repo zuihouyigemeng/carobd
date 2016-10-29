@@ -1,0 +1,55 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<title>Hello, World</title>  
+<style type="text/css">  
+html{height:100%}  
+body{height:100%;margin:0px;padding:0px}  
+#container{height:98%}  
+</style>  
+<script type="text/javascript"
+	src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+</head>  
+   
+<body>  
+<div><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width: 80px" onclick="javascript:test()">查询</a></div>
+<div id="container"></div>
+<script type="text/javascript">
+var map = new BMap.Map("container");          // 创建地图实例  
+var point = new BMap.Point(121.585122, 31.211295);  // 创建点坐标  
+map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]}));     //2D图，卫星图
+map.addControl(new BMap.ScaleControl());    
+map.addControl(new BMap.OverviewMapControl());    
+map.centerAndZoom(point, 16);                 // 初始化地图，设置中心点坐标和地图级别  
+
+var lat=121.585122;
+var lon=31.521295;
+function test(){
+	alert("test");
+	for(i=0;i<10000;i++){
+		
+		var point = new BMap.Point(lat, lon);  // 创建点坐标  
+	    var iconImg = createIcon();
+		var marker = new BMap.Marker(point,{icon:iconImg});
+		map.addOverlay(marker);
+		
+		var tmp=Math.random();
+		tmp=tmp/100;
+		
+		var tmp1=Math.random();
+		tmp1=tmp1/100;
+		lon=lon-0.000200;
+	}
+	
+}
+
+function createIcon(){
+    var icon = new BMap.Icon("http://180.166.124.142:9983/obd_web/mapPic/car.png", new BMap.Size(43,23));
+    return icon;
+}
+</script>  
+</body>  
+</html>

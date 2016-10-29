@@ -1,0 +1,165 @@
+2015-05-01 17:31:52,----------------departments:-----------defDep:1003
+2015-05-01 17:31:52,----------------departments:-----------id:1003
+2015-05-01 17:31:52,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:31:52,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:31:52,----------------departments:-----------defDep:1003
+2015-05-01 17:31:52,----------------departments:-----------id:1003
+2015-05-01 17:31:52,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:31:52,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:31:54,----------------departments:-----------defDep:1003
+2015-05-01 17:31:54,----------------departments:-----------id:1003
+2015-05-01 17:31:54,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:31:54,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:31:54,----------------departments:-----------defDep:1003
+2015-05-01 17:31:54,----------------departments:-----------id:1003
+2015-05-01 17:31:54,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:31:54,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:01,----------------departments:-----------defDep:1003
+2015-05-01 17:32:01,----------------departments:-----------id:1003
+2015-05-01 17:32:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:01,----------------departments:-----------defDep:1003
+2015-05-01 17:32:01,----------------departments:-----------id:1003
+2015-05-01 17:32:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:02,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-01 17:32:04,----------------departments:-----------defDep:1003
+2015-05-01 17:32:04,----------------departments:-----------id:1003
+2015-05-01 17:32:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:-----------defDep:1003
+2015-05-01 17:32:04,----------------departments:-----------id:1003
+2015-05-01 17:32:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:-----------defDep:1003
+2015-05-01 17:32:04,----------------departments:-----------id:1003
+2015-05-01 17:32:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:-----------defDep:1003
+2015-05-01 17:32:04,----------------departments:-----------id:1003
+2015-05-01 17:32:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:32:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:35:34,----------------departments:-----------defDep:1003
+2015-05-01 17:35:34,----------------departments:-----------id:1003
+2015-05-01 17:35:34,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-01 17:35:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-01 17:35:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-01 17:35:38,----------------departments:-----------defDep:1003
+2015-05-01 17:35:38,----------------departments:-----------id:1192
+2015-05-01 17:35:38,----------------departments:------select * from Opm_Organ where  parentId=1192 and id>1000
+2015-05-01 17:35:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1198 and id>1000
+2015-05-01 17:35:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1202 and id>1000
+2015-05-01 17:35:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1203 and id>1000
+2015-05-01 17:38:34,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId, oo.name as depName from  Users_Admin  ua, Opm_User_Role ou, Opm_Role role, Customers oo   where ua.userID=ou.userID and ou.roleId=role.id and ua.organId=1077 and ua.organId=oo.id and ua.iscustomer=1
+2015-05-01 17:38:46,----------------departments:-----------defDep:1003
+2015-05-01 17:38:46,----------------departments:-----------id:1003
+2015-05-01 17:38:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:46,----------------departments:-----------defDep:1003
+2015-05-01 17:38:46,----------------departments:-----------id:1003
+2015-05-01 17:38:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:47,----------------departments:-----------defDep:1003
+2015-05-01 17:38:47,----------------departments:-----------id:1003
+2015-05-01 17:38:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:47,----------------departments:-----------defDep:1003
+2015-05-01 17:38:47,----------------departments:-----------id:1003
+2015-05-01 17:38:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:48,----------------departments:-----------defDep:1003
+2015-05-01 17:38:48,----------------departments:-----------id:1003
+2015-05-01 17:38:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:-----------defDep:1003
+2015-05-01 17:38:49,----------------departments:-----------id:1003
+2015-05-01 17:38:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:-----------defDep:1003
+2015-05-01 17:38:49,----------------departments:-----------id:1003
+2015-05-01 17:38:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:-----------defDep:1003
+2015-05-01 17:38:49,----------------departments:-----------id:1003
+2015-05-01 17:38:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:-----------defDep:1003
+2015-05-01 17:38:53,----------------departments:-----------id:1003
+2015-05-01 17:38:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:-----------defDep:1003
+2015-05-01 17:38:53,----------------departments:-----------id:1003
+2015-05-01 17:38:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:-----------defDep:1003
+2015-05-01 17:38:53,----------------departments:-----------id:1003
+2015-05-01 17:38:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:-----------defDep:1003
+2015-05-01 17:38:53,----------------departments:-----------id:1003
+2015-05-01 17:38:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:38:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:39:06,----------------departments:-----------defDep:1003
+2015-05-01 17:39:06,----------------departments:-----------id:1003
+2015-05-01 17:39:06,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-05-01 17:39:06,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-05-01 17:39:06,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-05-01 17:42:07,----------------departments:-----------defDep:1003
+2015-05-01 17:42:07,----------------departments:-----------id:1003
+2015-05-01 17:42:07,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:07,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:07,----------------departments:-----------defDep:1003
+2015-05-01 17:42:07,----------------departments:-----------id:1003
+2015-05-01 17:42:07,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:07,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:08,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-01 17:42:10,----------------departments:-----------defDep:1003
+2015-05-01 17:42:10,----------------departments:-----------id:1003
+2015-05-01 17:42:10,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:10,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:10,----------------departments:-----------defDep:1003
+2015-05-01 17:42:10,----------------departments:-----------id:1003
+2015-05-01 17:42:10,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:10,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:14,----------------departments:-----------defDep:1003
+2015-05-01 17:42:14,----------------departments:-----------id:1003
+2015-05-01 17:42:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:14,----------------departments:-----------defDep:1003
+2015-05-01 17:42:14,----------------departments:-----------id:1003
+2015-05-01 17:42:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:14,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-05-01 17:42:16,----------------departments:-----------defDep:1003
+2015-05-01 17:42:16,----------------departments:-----------id:1003
+2015-05-01 17:42:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:16,----------------departments:-----------defDep:1003
+2015-05-01 17:42:16,----------------departments:-----------id:1003
+2015-05-01 17:42:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:16,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-05-01 17:42:18,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId, oo.name as depName from  Users_Admin  ua, Opm_User_Role ou, Opm_Role role, Customers oo   where ua.userID=ou.userID and ou.roleId=role.id and ua.organId=1077 and ua.organId=oo.id and ua.iscustomer=1
+2015-05-01 17:42:19,----------------departments:-----------defDep:1003
+2015-05-01 17:42:19,----------------departments:-----------id:1003
+2015-05-01 17:42:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:-----------defDep:1003
+2015-05-01 17:42:19,----------------departments:-----------id:1003
+2015-05-01 17:42:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:-----------defDep:1003
+2015-05-01 17:42:19,----------------departments:-----------id:1003
+2015-05-01 17:42:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:-----------defDep:1003
+2015-05-01 17:42:19,----------------departments:-----------id:1003
+2015-05-01 17:42:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-05-01 17:42:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000

@@ -1,0 +1,147 @@
+2014-09-09 10:28:25,----------------departments:----------postid:
+2014-09-09 10:28:25,----------------departments:-----------defDep:1003
+2014-09-09 10:28:25,----------------departments:-----------id:1003
+2014-09-09 10:28:25,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 10:28:25,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 10:28:25,----------------departments:----------postid:
+2014-09-09 10:28:25,----------------departments:-----------defDep:1003
+2014-09-09 10:28:25,----------------departments:-----------id:1003
+2014-09-09 10:28:25,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 10:28:25,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 10:28:25,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-09-09 10:28:33,-----------vehicles4dep-----sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.customerID  in (1079) and d.deviceID=l.deviceID  
+2014-09-09 10:28:33,-----------vehicles4dep-----sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.customerID  in (1079) and d.deviceID=l.deviceID  
+2014-09-09 10:29:32,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (291) and d.deviceID=l.deviceID  
+2014-09-09 10:30:39,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (291) and d.deviceID=l.deviceID  
+2014-09-09 10:31:42,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (291) and d.deviceID=l.deviceID  
+2014-09-09 10:32:40,----------------departments:----------postid:
+2014-09-09 10:32:40,----------------departments:-----------defDep:1003
+2014-09-09 10:32:40,----------------departments:-----------id:1003
+2014-09-09 10:32:40,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 10:32:40,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 10:32:40,----------------departments:----------postid:
+2014-09-09 10:32:40,----------------departments:-----------defDep:1003
+2014-09-09 10:32:40,----------------departments:-----------id:1003
+2014-09-09 10:32:40,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 10:32:40,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:33,----------------departments:----------postid:
+2014-09-09 11:43:33,----------------departments:-----------defDep:1003
+2014-09-09 11:43:33,----------------departments:-----------id:1003
+2014-09-09 11:43:33,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:33,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:33,----------------departments:----------postid:
+2014-09-09 11:43:33,----------------departments:-----------defDep:1003
+2014-09-09 11:43:33,----------------departments:-----------id:1003
+2014-09-09 11:43:33,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:33,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:37,----------------departments:----------postid:
+2014-09-09 11:43:37,----------------departments:-----------defDep:1003
+2014-09-09 11:43:37,----------------departments:-----------id:1003
+2014-09-09 11:43:37,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:37,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:37,----------------departments:----------postid:
+2014-09-09 11:43:37,----------------departments:-----------defDep:1003
+2014-09-09 11:43:37,----------------departments:-----------id:1003
+2014-09-09 11:43:37,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:37,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:43,----------------departments:----------postid:
+2014-09-09 11:43:43,----------------departments:-----------defDep:1003
+2014-09-09 11:43:43,----------------departments:-----------id:1003
+2014-09-09 11:43:43,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:43,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:43,----------------departments:----------postid:
+2014-09-09 11:43:43,----------------departments:-----------defDep:1003
+2014-09-09 11:43:43,----------------departments:-----------id:1003
+2014-09-09 11:43:43,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:43,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:48,----------------departments:----------postid:
+2014-09-09 11:43:48,----------------departments:-----------defDep:1003
+2014-09-09 11:43:48,----------------departments:-----------id:1003
+2014-09-09 11:43:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:48,----------------departments:----------postid:
+2014-09-09 11:43:48,----------------departments:-----------defDep:1003
+2014-09-09 11:43:48,----------------departments:-----------id:1003
+2014-09-09 11:43:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:50,----------------departments:----------postid:
+2014-09-09 11:43:50,----------------departments:-----------defDep:1003
+2014-09-09 11:43:50,----------------departments:-----------id:1003
+2014-09-09 11:43:50,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 11:43:50,----------------departments:----------postid:
+2014-09-09 11:43:50,----------------departments:-----------defDep:1003
+2014-09-09 11:43:50,----------------departments:-----------id:1003
+2014-09-09 11:43:50,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 11:43:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:47:04,----------------departments:----------postid:
+2014-09-09 13:47:04,----------------departments:-----------defDep:1003
+2014-09-09 13:47:04,----------------departments:-----------id:1003
+2014-09-09 13:47:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:47:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:47:04,----------------departments:----------postid:
+2014-09-09 13:47:04,----------------departments:-----------defDep:1003
+2014-09-09 13:47:04,----------------departments:-----------id:1003
+2014-09-09 13:47:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:47:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:47:04,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-09-09 13:54:49,----------------departments:----------postid:
+2014-09-09 13:54:49,----------------departments:-----------defDep:1003
+2014-09-09 13:54:49,----------------departments:-----------id:1003
+2014-09-09 13:54:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:54:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:54:49,----------------departments:----------postid:
+2014-09-09 13:54:49,----------------departments:-----------defDep:1003
+2014-09-09 13:54:49,----------------departments:-----------id:1003
+2014-09-09 13:54:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:54:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:07,----------------departments:----------postid:
+2014-09-09 13:55:07,----------------departments:-----------defDep:1003
+2014-09-09 13:55:07,----------------departments:-----------id:1003
+2014-09-09 13:55:07,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:07,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:07,----------------departments:----------postid:
+2014-09-09 13:55:07,----------------departments:-----------defDep:1003
+2014-09-09 13:55:07,----------------departments:-----------id:1003
+2014-09-09 13:55:07,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:07,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:11,----------------departments:----------postid:
+2014-09-09 13:55:11,----------------departments:-----------defDep:1003
+2014-09-09 13:55:11,----------------departments:-----------id:1003
+2014-09-09 13:55:11,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:11,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:11,----------------departments:----------postid:
+2014-09-09 13:55:11,----------------departments:-----------defDep:1003
+2014-09-09 13:55:11,----------------departments:-----------id:1003
+2014-09-09 13:55:11,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:11,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:12,----------------departments:----------postid:
+2014-09-09 13:55:12,----------------departments:-----------defDep:1003
+2014-09-09 13:55:12,----------------departments:-----------id:1003
+2014-09-09 13:55:12,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:12,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:12,----------------departments:----------postid:
+2014-09-09 13:55:12,----------------departments:-----------defDep:1003
+2014-09-09 13:55:12,----------------departments:-----------id:1003
+2014-09-09 13:55:12,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:12,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:30,----------------departments:----------postid:
+2014-09-09 13:55:30,----------------departments:-----------defDep:1003
+2014-09-09 13:55:30,----------------departments:-----------id:1003
+2014-09-09 13:55:30,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:30,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:31,----------------departments:----------postid:
+2014-09-09 13:55:31,----------------departments:-----------defDep:1003
+2014-09-09 13:55:31,----------------departments:-----------id:1003
+2014-09-09 13:55:31,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:44,----------------departments:----------postid:
+2014-09-09 13:55:44,----------------departments:-----------defDep:1003
+2014-09-09 13:55:44,----------------departments:-----------id:1003
+2014-09-09 13:55:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-09-09 13:55:44,----------------departments:----------postid:
+2014-09-09 13:55:44,----------------departments:-----------defDep:1003
+2014-09-09 13:55:44,----------------departments:-----------id:1003
+2014-09-09 13:55:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-09-09 13:55:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000

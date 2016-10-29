@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body >	
+      
+	 <div style="width:1200px;height:250px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:1200px;height:250px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,toolbar:toolbar">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:150">车牌号</th>
+				<th data-options="field:'customer',width:150">客户名称</th>
+				<th data-options="field:'ModelName',width:150">车型</th>
+			    <th data-options="field:'d_esn',width:150,hidden:false">终端号</th>
+				<th data-options="field:'sum_distance',width:150,hidden:false">总里程(km)</th>
+				<th data-options="field:'sum_fuel_consumption',width:150,hidden:false">总油耗(L)</th>
+				<th data-options="field:'max_speed',width:150,hidden:false">最高速度(km/h)</th>
+				<th data-options="field:'deviceID',width:0,hidden:true">deviceID</th>
+			</tr>
+		</thead>
+	</table>
+	</div>
+	<div id="main" style="width:800px;height:200px"></div>
+	<div id="main1" style="width:800px;height:200px"></div>
+              
+	<script type="text/javascript">
+	var glob_rows;
+	var toolbar = [{
+		text:'excel导出',
+		iconCls:'icon-trace',
+		handler:function(){	
+			  var url='../smarty/demo/monthly_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+glob_deviceIDs;
+		        alert(url);
+		         window.open(url,"_blank");
+			    }
+				
+	},{
+		text:'详细',
+		iconCls:'icon-playback',
+		handler:function(){
+			var selectRow=$('#dg').datagrid('getSelected');
+		if(selectRow==null){
+			alert("请单击车辆进行选择（最多1辆）！");
+			return;
+		}
+		alert(selectRow.deviceID);
+		getData(selectRow.deviceID,selectRow.sum_distance,selectRow.sum_fuel_consumption);
+		
+
+		}
+	}
+	];
+	
+	var  glob_startDate;
+	var  glob_stopDate;
+	var  glob_deviceIDs;
+	 function dailySearch(deviceArr,startDate,stopDate){
+		// alert("month::::"+deviceArr[0]+" "+startDate+" "+stopDate);
+		 glob_startDate=startDate;
+		 glob_stopDate=stopDate;
+		 deviceIDs=deviceArr.join(",");
+		 glob_deviceIDs=deviceIDs;
+		 url='../service/tj_daily.php?opType=0&startDate='+startDate+'&stopDate='+stopDate+'&devices='+deviceIDs;
+		 alert(url);
+		 $('#dg').datagrid({   
+			 url:url
+					 }
+		 );
+	  }
+	 
+	  
+     // 路径配置
+      require.config({
+              paths:{ 
+                  'echarts' : 'http://echarts.baidu.com/build/echarts',
+                  'echarts/chart/line' : 'http://echarts.baidu.com/build/echarts'
+              }
+          });
+     
+   
+      function getData(deviceID,sum_distance,sum_fuel_consumption){
+
+    	  x_data = new Array();
+    	  y_data = new Array();
+    	  y_data1 = new Array();
+    	  x_data[0]='test';
+    	  y_data[0]=sum_distance;
+    	  y_data1[0]=sum_fuel_consumption;
+    	
+        			  
+        			   alert("ppppp");
+        			
+                      // 使用
+                      require(
+                          [
+                              'echarts',
+                              'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                          ],
+                          function (ec) {
+                              // 基于准备好的dom，初始化echarts图表
+                              var myChart = ec.init(document.getElementById('main')); 
+                              
+                              option = {
+                              	    title : {
+                              	        text: '汽车里程月统计：',
+                              	        subtext: ''
+                              	    },
+                              	    tooltip : {
+                              	        trigger: 'axis'
+                              	    },
+                    //          	    legend: {
+                    //          	        data:['每日里程']
+                    //          	    },
+                              	    toolbox: {
+                              	        show : true
+                              	    },
+                              	    calculable : true,
+                              	    xAxis : [
+                              	        {
+                              	            type : 'category',
+                              	            boundaryGap : false,
+                              	            data : x_data
+                              	        }
+                              	    ],
+                              	    yAxis : [
+                              	        {
+                              	            type : 'value',
+                              	            axisLabel : {
+                              	                formatter: '{value} KM'
+                              	            }
+                              	        }
+                              	    ],
+                              	    series : [
+                              	        {
+                              	            name:'当月里程',
+                              	            type:'line',
+                              	            data:y_data
+                              	        }
+                              	    ]
+                              	};
+                      
+                              // 为echarts对象加载数据 
+                              myChart.setOption(option); 
+                          }
+                      ); 
+                      
+                      
+                      // 使用
+                      require(
+                          [
+                              'echarts',
+                              'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                          ],
+                          function (ec) {
+                              // 基于准备好的dom，初始化echarts图表
+                              var myChart = ec.init(document.getElementById('main1')); 
+                              
+                              option = {
+                              	    title : {
+                              	        text: '汽车油耗月统计：',
+                              	        subtext: ''
+                              	    },
+                              	    tooltip : {
+                              	        trigger: 'axis'
+                              	    },
+                    //          	    legend: {
+                    //          	        data:['每日里程']
+                    //          	    },
+                              	    toolbox: {
+                              	        show : true
+                              	    },
+                              	    calculable : true,
+                              	    xAxis : [
+                              	        {
+                              	            type : 'category',
+                              	            boundaryGap : false,
+                              	            data : x_data
+                              	        }
+                              	    ],
+                              	    yAxis : [
+                              	        {
+                              	            type : 'value',
+                              	            axisLabel : {
+                              	                formatter: '{value} L'
+                              	            }
+                              	        }
+                              	    ],
+                              	    series : [
+                              	        {
+                              	            name:'当月油耗',
+                              	            type:'line',
+                              	            data:y_data1
+                              	        }
+                              	    ]
+                              	};
+                      
+                              // 为echarts对象加载数据 
+                              myChart.setOption(option); 
+                          }
+                      ); 
+
+    	  
+        //		  });
+        		  	  
+    }
+	</script>
+		</body>
+</html>

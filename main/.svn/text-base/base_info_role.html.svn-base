@@ -1,0 +1,388 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户管理</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body  >	
+		<div style = "width:500px;float:left;right-margin:10px">
+			
+		<table id="dg" class="easyui-datagrid" title="角色管理" style="width:380px;height:500px"
+			data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				method: 'get',
+				onClickRow: onClickRow,
+                rownumbers:false,
+                autoRowHeight:false,
+                pagination:true,
+                pageSize:10
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'roleId',width:80,hidden:true">角色ID</th>
+				<th data-options="field:'roleName',width:250,editor:'text'">角色名称</th>
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">新建角色</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">删除角色</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">取消</a>
+	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>   -->
+	</div>		
+			
+			
+			
+		</div>
+		
+		<div  style = "width:400px;float:left;left-margin:10px">
+			    <div id="p" class="easyui-panel" title="角色权限"  style="width:350px;height:500px;">
+				<ul class="easyui-tree"   url="../service/resource.php"   data-options="animate:true,checkbox:true,onlyLeafCheck:false"   id="resourceTree">
+				</ul>
+			         </div>
+			</div>
+
+		<script>
+		
+		var glob_roleId;
+		var glob_old_rows;
+		
+		$('#dg').datagrid({
+			onBeforeEdit: function(rowIndex, rowData){
+		//		alert("onBeforeEdit:"+rowData.roleId);
+				glob_roleId=rowData.roleId;
+				$('#alertDlg').dialog('open');
+				
+				if(glob_old_rows!=null){
+					var length=glob_old_rows.length;
+					//  alert("odlength:"+length);
+					  for(i=0;i<length;i++){
+						  resourceId=glob_old_rows[i].resourceId;
+						  node = $('#resourceTree').tree('find', resourceId);
+							$('#resourceTree').tree('uncheck', node.target);
+					  }
+				}
+				
+				
+				
+				 $.post("../service/role.php",
+						  {
+			               roleId:rowData.roleId,
+			               opType:6
+						  },
+						  function(data,status){
+						//	  alert(data);
+							  var rows=eval(data);
+							  glob_old_rows=rows;
+							  var length=rows.length;
+							//  alert("length:"+length);
+							  for(i=0;i<length;i++){
+								  resourceId=rows[i].resourceId;
+								  node = $('#resourceTree').tree('find', resourceId);
+									$('#resourceTree').tree('check', node.target);
+							  }
+						 	
+						  
+						  });
+				
+			}
+		   });
+		
+		
+		$('#dg').datagrid({
+			onBeginEdit: function(rowIndex, rowData){
+			
+			}
+		   });
+		
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+			//	var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'roleId'});
+			//	var roleName = $(ed.target).combobox('getText');
+			//	$('#dg').datagrid('getRows')[editIndex]['productname'] = roleName;
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			if (endEditing()){
+				$('#dg').datagrid('appendRow',{depName:'0'});
+				editIndex = $('#dg').datagrid('getRows').length-1;
+				$('#dg').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+				
+			}
+		}
+		function removeit(){
+			if (editIndex == undefined){
+				alert("请选择角色！");
+				return;
+				}
+			if (!confirm("确认要删除？")) {
+	           return;
+	        }
+			$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+			var rows = $('#dg').datagrid('getChanges','deleted');
+	//		alert(rows[0].userID);
+			 $.post("../service/role.php",
+					  {
+		               roleId:rows[0].roleId,
+		               opType:3
+					  },
+					  function(data,status){
+					 	if(data=='200'){
+					 		alert("删除成功");
+					 	}
+					 	
+					// 	alert("url:"+url);
+						$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData()); 
+					  
+					  });
+			
+		}
+		function accept(){
+		//	alert("editIndex:"+editIndex);
+			
+			var tmpIndex=editIndex;
+			
+			if (endEditing()){
+			//	alert("editIndex111:"+editIndex);
+				var rows = $('#dg').datagrid('getChanges','inserted');
+				var rows1 = $('#dg').datagrid('getChanges','updated');
+			//	alert("inserted111:"+rows.length);
+				if(rows.length>0){
+					var nodes = $('#resourceTree').tree('getChecked', ['checked','indeterminate']);
+					var ss = [];
+					var sourceIds='';
+					for(var i=0; i<nodes.length; i++){
+						var row = nodes[i];
+						ss.push(row.id);
+					}
+					 sourceIds=ss.join(',');
+				var	roleName=rows[0].roleName.trim();
+					
+					if(!roleName){
+						alert("角色名不能为空");
+						return;
+					}
+					
+				//	alert("roleName:"+roleName);
+					 $.post("../service/role.php",
+									  {
+						              roleName:roleName,
+						              opType:5,
+						              sourceIds:sourceIds
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("ok");
+									 	}
+									 	
+									 	else if(data=='1002'){
+									 		alert("角色已存在！");
+									 	}
+									// 	alert("url:"+url);
+										$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+									  
+									  });
+				}
+				
+				 if(rows1.length>0)
+	           {
+				//	alert("updated:"+rows1.length);
+				var	roleId=rows1[0].roleId;
+				var	roleName=rows1[0].roleName;
+			   //		alert( 'roleId:'+roleId);
+					
+					var nodes = $('#resourceTree').tree('getChecked', ['checked','indeterminate']);
+					var ss = [];
+					var sourceIds='';
+					for(var i=0; i<nodes.length; i++){
+						var row = nodes[i];
+						ss.push(row.id);
+					}
+					 sourceIds=ss.join(',');
+					
+					 $.post("../service/role.php",
+									  {
+						               roleName:roleName,
+						               roleId:roleId,
+						               opType:4,
+						               sourceIds:sourceIds
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("ok");
+									 	}
+									 	else if(data=='1002'){
+									 		alert("角色已存在！");
+									 	}
+									 	
+								//	 	alert("url:"+url);
+										$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+									  
+									  });
+				}
+				else{
+					if(tmpIndex!=undefined){
+						roleId=$('#dg').datagrid('getRows')[tmpIndex]['roleId'];
+						roleName=$('#dg').datagrid('getRows')[tmpIndex]['roleName'];	
+					//	alert("pppp:"+roleId);
+					//	alert("pppp:"+roleName);
+						var nodes = $('#resourceTree').tree('getChecked', ['checked','indeterminate']);
+						var ss = [];
+						var sourceIds='';
+						for(var i=0; i<nodes.length; i++){
+							var row = nodes[i];
+							ss.push(row.id);
+						}
+						 sourceIds=ss.join(',');
+						
+						 $.post("../service/role.php",
+										  {
+							               roleName:roleName,
+							               roleId:roleId,
+							               opType:4,
+							               sourceIds:sourceIds
+										  },
+										  function(data,status){
+										 	if(data=='200'){
+										 		alert("ok");
+										 	}
+										 	
+									//	 	alert("url:"+url);
+											$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+										  
+										  });
+						
+						
+						
+					}
+					
+				}
+				
+				
+				//$('#dg').datagrid('acceptChanges');
+			}
+			
+			
+			
+			
+	
+
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		
+		
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			//alert(rows.length+' rows are changed!');
+		}
+		
+		
+		var url='../service/role.php?opType=2';
+	//	alert("url:"+url);
+		/*$('#dg').datagrid({  
+			 url:url
+					 }
+		); */
+		
+		
+		function getData(){
+			var rows = [];
+			$.ajax({
+				type:"POST",
+				url:url,
+				async: false,
+				success:function(data,status){
+					var d = JSON.parse(data);
+					//console.info(data);
+					for(var i=0;i<d.rows.length;i++){
+						var row = d.rows[i];
+						//console.info(row);
+						rows.push({
+							roleId:row.roleId,
+							roleName:row.roleName
+						});
+					}
+					
+				}
+			});
+			//console.info(rows);
+			return rows;
+		}
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var custMan = $(this);
+			var opts = custMan.datagrid('options');
+			var pager = custMan.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					custMan.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		$(function(){
+			$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+		});
+	
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

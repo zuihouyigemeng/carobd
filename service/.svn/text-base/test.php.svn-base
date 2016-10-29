@@ -1,0 +1,25 @@
+<?php
+include '../DBConnection.php';
+require_once '../log4php/Logger.php';
+Logger :: configure('../log4php.properties');
+$logger = Logger :: getRootLogger();
+echo "Hello";
+
+$data = array();
+
+	$data[0]["deviceID"] = "ABC";
+	$data[0]["licenseNumber"] = "A1234";
+	$data[0]["customer"] = "customer-name";
+	$data[0]["ModelName"] = "Model";
+	$data[0]["totalFuelCharge"] = 0;
+	$data[0]["totalFuelLoss"] = 0;			
+			
+	$totalFuelCharge = 100;
+	$totalFuelLoss = 50;
+	$data[0]["totalFuelCharge"] = $totalFuelCharge;
+	$data[0]["totalFuelLoss"] = $totalFuelLoss;
+
+	echo json_encode($data);
+
+
+?>

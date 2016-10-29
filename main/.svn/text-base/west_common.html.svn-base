@@ -1,0 +1,614 @@
+<!--搜索开始-->
+<div style="padding-left:4px;font-family:'楷体';font-size:16px;width:244px;height:20px;">
+    <input type="text" id="search1"  maxlength="15" 
+    	   placeholder="找车(按车牌或设备号)" 
+           style="font-family:'楷体';font-size:13px;width: 272px;
+           			height:20px;line-height: 20px;border: 1px solid #95b8e7;
+                    margin-top: 0px;margin-left: -4px;">
+    <img title="找车" 
+    	 src="../img/search16x16.png" 
+         style="cursor:pointer;position: absolute;top: 21px;left: 262px;width: 20px;height: 20px;" 
+         id="btnSearch1">
+</div>
+<!--搜索end-->
+
+<div class="easyui-tabs" style="width: 274px; height: 150px" id='tt1'>
+
+	<?php 
+	          if($_SESSION["op"]=="deplogin")
+	          {
+	       ?>
+		<div title="部门"  style="overflow:auto;padding:10px;">
+			<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="depID">
+				
+			</ul>
+		</div>
+		   <?php 
+	          }
+	       ?>
+		<div title="车系"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   url="../service/vehicleNumber.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_modelID">
+				
+			</ul>
+		</div>
+
+		<div title="客户"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   
+			 <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          { 
+	        ?>
+			url="../service/customer.php?defDep=-1" 
+			<?php 
+	          }
+	          else 
+	          { 
+	       ?>
+			 url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+			 <?php 
+	          }
+	         
+	       ?> 
+			data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_cusID">
+				
+			</ul>
+		</div>
+
+</div>
+
+
+<div style="padding: 0px">
+	<table id="dg" class="easyui-datagrid" title=""
+		style="width: 274px; height: 310px"
+		data-options="rownumbers:false,singleSelect:true,selectOnCheck:false,checkOnSelect:false,pagination:true">
+		<!--		data-options="rownumbers:true,singleSelect:false,pagination:true,url:'../service/vehicles.php',method:'get',toolbar:toolbar">   -->
+		<thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true,width:5"></th>
+				<th data-options="field:'licenseNumber',width:80">车牌号</th>
+				<th data-options="field:'online',width:54,hidden:false">引擎状态</th>
+				<th data-options="field:'d_esn',width:80,hidden:false">D_ESN</th>
+				<th data-options="field:'address_num',width:80,hidden:true">地址</th>
+				<th data-options="field:'latitude',width:50,hidden:true">latitude</th>
+				<th data-options="field:'longitude',width:50,hidden:true">longitude</th>
+				<th data-options="field:'time',width:100,hidden:true">时间</th>
+				<th data-options="field:'vin',width:50,hidden:true">vin</th>
+				<th data-options="field:'deviceID',width:100,hidden:true">deviceID</th>
+				<th data-options="field:'heading',width:100,hidden:true">heading</th>
+				<th data-options="field:'ign',width:100,hidden:true">ign</th>
+			</tr>
+		</thead>
+	</table>
+     
+</div>
+
+
+
+<script type="text/javascript">
+	var treeTmp = null;
+	var modelTmp = null;
+	var cusTmp = null;
+
+
+	var seletedArr = new Array();
+
+	$('#dg').datagrid({
+		onCheckAll : function(rows) {
+			//	alert(rows[0].d_esn);
+			top.checkAll(rows);
+		}
+
+	});
+
+	$('#dg').datagrid({
+		onCheck : function(rowIndex, rowData) {
+			top.onCheck(rowData);
+		}
+
+	});
+
+	$('#dg').datagrid({
+		onUncheck : function(rowIndex, rowData) {
+			top.onUncheck(rowData);
+		}
+
+	});
+
+	$('#dg').datagrid({
+		onUncheckAll : function(rows) {
+			//	alert(rows[0].d_esn);
+			top.onUncheckAll(rows);
+		}
+
+	});
+
+	$('#dg').datagrid({
+		onDblClickRow : function(rowIndex, rowData) {
+			//	alert("DbClick row "+rowData.d_esn);
+			top.vehicleClick(rowData);
+			//	$("#myid", top.document).;
+			//	alert($("#updkbi", top.document).attr("value"));
+		}
+	});
+
+	function getSelected() {
+		var row = $('#dg').datagrid('getSelected');
+		if (row) {
+			$.messager.alert('Info', row.itemid + ":" + row.productid + ":"
+					+ row.attr1);
+		}
+	}
+	function getSelections() {
+		var ss = [];
+		var rows = $('#dg').datagrid('getSelections');
+		for ( var i = 0; i < rows.length; i++) {
+			var row = rows[i];
+			ss.push('<span>' + row.itemid + ":" + row.productid + ":"
+					+ row.attr1 + '</span>');
+		}
+		$.messager.alert('Info', ss.join('<br/>'));
+	}
+	
+	//采用递归的方法,选中时执行
+	function updateAddTreeLeaf(id,node){
+		var parentNode = $(id).tree('getParent',node.target);
+		var root = $(id).tree('getRoot');
+		if(parentNode && parentNode.text.lastIndexOf("√") < 0){
+			$(id).tree('update', {
+				target: parentNode.target,
+	　　			text:parentNode.text+'<span style="font-size:9px;color:#db443a;">√</span>'
+			});
+		}
+		
+		if(parentNode && parentNode.id !== root.id){
+			updateAddTreeLeaf(id,parentNode);
+		}	
+		
+	}
+	
+	
+	//采用递归的方法,取消选中时执行
+	function updateSubTreeLeaf(id,node){
+		var parentNode = $(id).tree('getParent',node.target);//得到父节点
+		
+		if(!parentNode){//如果没有父节点,则直接返回
+			return;	
+		}
+		
+		var root = $(id).tree('getRoot');
+		
+		var data = $(id).tree('getChildren',parentNode.target); //得到父节点下的所有子节点 
+		//console.info(data);
+		var flag = false;
+		
+		for(var i=0;i<data.length;i++){//判断所有节点是否有选中项,若有,则标记flag为true;
+			if(data[i].checked == true){
+				flag = true;
+				break;
+			}	
+		}
+		
+		if(!flag){//有选中的,则不做事情,没有选中的则执行下边的事件
+			var index = parentNode.text.indexOf("<span");
+			if(index >= 0){
+				$(id).tree('update', {
+					target: parentNode.target,
+		　　			text:parentNode.text.substring(0,index)
+				});
+			}
+			
+			if(parentNode.id !== root.id){
+				updateSubTreeLeaf(id,parentNode);
+			}
+
+		}
+		
+	}
+			
+
+	//初始为根节点，从页面参数传入
+	var depID = '<?php echo  $userVo->depID ?>';
+	
+	$('#depID').tree({
+		onCheck:function(node, checked){
+			
+		    if(checked){//选中打勾
+				 updateAddTreeLeaf("#depID",node);
+				 
+			 }else{
+				 updateSubTreeLeaf("#depID",node);
+				
+			 }
+		 	seletedArr=new Array();
+			var nodes = $('#depID').tree('getChecked');
+			 for (i = 0; i < nodes.length; i++){
+				 seletedArr.push(nodes[i].id);
+			 }
+			  if(seletedArr.length==0){
+				  seletedArr.push(-1);
+			  }
+			 if(seletedArr.length>0){
+				 treeTmp=seletedArr.join(",");
+				 var pageURL = '../service/vehicles4dep.php?searchType=0&deps='+treeTmp;
+				 setCarByPage(pageURL);
+			//	 alert("tmp:"+tmp);
+				/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+					 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+							 }
+				); */ 
+				 
+			 }
+		}
+		});
+		
+		$('#v_modelID').tree({
+			onCheck:function(node, checked){
+			 	if(checked){//选中打勾
+					 updateAddTreeLeaf("#v_modelID",node);
+				 }else{
+					 updateSubTreeLeaf("#v_modelID",node);
+				 }
+			 	seletedArr=new Array();
+				var nodes = $('#v_modelID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 modelTmp=seletedArr.join(",");
+					 var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+							<?php 
+						  }
+						 
+					   ?>
+					  // console.log("v_modelID");
+					 setCarByPage(pageURL);
+					 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 
+						 
+						 <?php 
+						         if($_SESSION["op"]=="deplogin")
+						          { 
+						        ?>
+						        url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+								<?php 
+						          }
+						          else 
+						          { 
+						       ?>
+						       url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+								 <?php 
+						          }
+						         
+						       ?> 
+						 
+						 
+						 
+								 
+								 
+								 }
+					);  */
+					 
+				 }
+			}
+			});
+		
+		$('#v_cusID').tree({
+			onCheck:function(node, checked){
+				if(checked){//选中打勾
+					 updateAddTreeLeaf("#v_cusID",node);
+				 }else{
+					 updateSubTreeLeaf("#v_cusID",node);
+				 }
+			 	seletedArr=new Array();
+				var nodes = $('#v_cusID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 cusTmp=seletedArr.join(",");
+					 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 
+						 
+						 <?php 
+						          if($_SESSION["op"]=="deplogin")
+						          { 
+						        ?>
+						        url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+								<?php 
+						          }
+						          else 
+						          { 
+						       ?>
+						        url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+								 <?php 
+						          }
+						         
+						       ?> 
+						 
+								 }
+					);*/  
+					var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+							<?php 
+						  }
+						 
+					 ?>
+					 //  console.info('#v_cusID:'+pageURL);
+					 setCarByPage(pageURL);
+					 
+				  }
+				}
+			});
+
+
+	$(document).ready(function() {
+		
+		/**
+		搜索时回车提交查询
+		*/
+		$("#search1").keydown(function(e){ 
+			var curKey = e.which; 
+			if(curKey == 13){ 
+				$("#btnSearch1").click(); 
+				return false; 
+			} 
+		});
+		
+		//	var node = $('#depID').tree('find', 1070);
+		//	$('#depID').tree('select', node.target);
+		$("#btnSearch1").live("click",function(){
+			var searchValue = $.trim($("#search1").val());	
+
+			if(searchValue == ""){				
+				$("#search1").attr("placeholder","请输入要查找的车牌号或设备号");	
+				return;	
+			}
+			$("#depID").tree("reload");//刷新 树形菜单,意图在于去掉那些可能存在的勾
+			$("#v_modelID").tree("reload");
+			$("#v_cusID").tree("reload");
+			treeTmp = null;
+			modelTmp = null;
+			cusTmp = null;
+			
+			 var searchValue = $.trim($("#search1").val());
+			 //alert(searchValue+"=>"+depID);
+			/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				 <?php  
+					 if($_SESSION["op"]=="deplogin"){//部门用户登录
+						?>
+							url:'../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID
+						<?php 
+					  }else{ //客户登陆
+					   ?>
+							url:'../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID
+						<?php 
+					  }
+					 
+				   ?> 
+	 
+			});*/
+			
+			var pageURL = "";
+			<?php  
+				 if($_SESSION["op"]=="deplogin"){//部门用户登录
+					?>
+						pageURL = '../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID;
+
+					<?php 
+						}else{ //客户登陆
+				   ?>
+						pageURL = url:'../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID;
+					<?php 
+				  }
+				 
+			 ?>
+			//   console.info(pageURL);
+			 setCarByPage(pageURL);
+			
+			
+		});
+	});
+	
+	function pagerFilter(data) {
+		if (typeof data.length == 'number' && typeof data.splice == 'function') { // is array
+			data = {
+				total : data.length,
+				rows : data
+			}
+		}
+		var dg = $(this);
+		var opts = dg.datagrid('options');
+		var pager = dg.datagrid('getPager');
+		pager.pagination({
+			onSelectPage : function(pageNum, pageSize) {
+				opts.pageNumber = pageNum;
+				opts.pageSize = pageSize;
+				pager.pagination('refresh', {
+					pageNumber : pageNum,
+					pageSize : pageSize
+				});
+				dg.datagrid('loadData', data);
+			}
+		});
+		if (!data.originalRows) {
+			data.originalRows = (data.rows);
+		}
+		var start = (opts.pageNumber - 1) * parseInt(opts.pageSize);
+		var end = start + parseInt(opts.pageSize);
+		data.rows = (data.originalRows.slice(start, end));
+		return data;
+	}
+	
+	 $('#tt1').tabs({
+		   onSelect: function(title,index){
+			   //console.info(title+"<>"+index);
+			   var str = $.trim(title);
+			   /*if(str == "部门"){
+				  
+					$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+					 });  
+				   
+			   }else if(str == "车系"){
+					 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 <?php  
+							 if($_SESSION["op"]=="deplogin"){//部门用户登录
+								?>
+								url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+								<?php 
+							  }else{ //客户登陆
+							   ?>
+								   url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+								<?php 
+							  }
+							 
+						   ?> 
+			 
+					});       
+			   }else if(str == "客户"){
+				   
+				 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+					   <?php 
+							  if($_SESSION["op"]=="deplogin")//部门用户登录
+							  { 
+							?>
+							url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+							<?php 
+							  }
+							  else //客户登陆
+							  { 
+						   ?>
+							url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+							 <?php 
+							  }
+							 
+						   ?> 
+					 
+					});    
+			   }*/
+			   
+			   
+			   
+			   if(str == "部门"){
+				   setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+treeTmp);
+			   }else if(str == "车系"){
+				   
+				   var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+							<?php 
+						  }
+						 
+					 ?>	   
+					 setCarByPage(pageURL);
+     
+			   }else if(str == "客户"){
+				    var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+							<?php 
+						  }
+						 
+					 ?>
+					 setCarByPage(pageURL);
+  
+			   }   
+		    }
+		});
+		
+		
+	function setCarByPage(pageURL){
+
+		$('#dg').datagrid({  
+		
+			url:pageURL, 
+			
+			singleSelect:false,//是否单选
+		
+			pagination:true,//分页控件  
+		
+			rownumbers:false,//行号
+			
+			/*toolbar: [{
+				text:'处理',
+				iconCls:'icon-playback',
+				handler:function(){
+					var selectRow=$('#dg_history').datagrid('getSelected');
+					if(selectRow==null){
+						alert("请单击进行选择（最多1条记录）！");
+						return;
+					}
+					//alert(selectRow.deviceID);
+					glob_recordId=selectRow.recordId;
+					url1='../service/alert.php?sqlType=10&recordId='+glob_recordId+'&userId='+glob_userId;
+					$.get(url1, {				
+						},function(result,status){	
+							if (status=="success") {		 
+								alert (result);
+								refresh();
+							}else {
+								alert("网络问题");
+							}
+							
+					});
+				}
+			}]*/
+		});
+		
+		//设置分页控件  
+		var p = $('#dg').datagrid('getPager');  
+		
+		$(p).pagination({  
+		
+			pageSize: 10,//每页显示的记录条数，默认为10  
+		
+			pageList: [5,10,15,20,30,40,50],//可以设置每页记录条数的列表  
+		
+			beforePageText: '',//页数文本框前显示的汉字  
+		
+			afterPageText: '/{pages}'//,  
+		
+			//displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		
+		});
+	}
+</script>

@@ -1,0 +1,206 @@
+
+
+<div id="dlgUserSet"  class="easyui-dialog" title="设置"  closed="true"  style="width:350px;height:400px;padding:10px">
+
+
+	
+	<div style="margin:20px 0 10px 0;"></div>
+	<div class="easyui-tabs" style="width:300px;height:300px;align:center">
+
+		<div title="我的资料"  style="overflow:auto;padding:10px;text-align:center">
+		
+		
+		<form id="ff" method="post">
+		<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>用户名:</b></td>
+					<td><input class="easyui-validatebox textbox" id="username" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+			
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>姓名:</b></td>
+					<td><input class="easyui-validatebox textbox" id="name" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>电话:</b></td>
+					<td><input class="easyui-validatebox textbox" id="smsnum" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+		
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>邮箱:</b></td>
+					<td><input class="easyui-validatebox textbox" id="email" style="text-align:center;border:1;" type="text" name="name" value="" ></td>
+
+				</tr>	
+
+			</table>
+			<table>	
+				<tr>
+					<td ></td>
+					<td width = 200px align = center>	
+							<input type="button" name="Submit" value="保存" onclick="show_setinf();"/>
+					</td>
+					<td align = center>
+					
+					</td>
+				</tr>
+			</table>
+			</form>
+		
+			</div>
+			
+			<div title="修改密码"  style="overflow:auto;padding:10px;text-align:center">
+			<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>旧密码:</b></td>
+					<td><input class="easyui-validatebox textbox" id="oldpassword" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>新密码:</b></td>
+					<td><input class="easyui-validatebox textbox" id="newpassword" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+								
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>确认密码:</b></td>
+					<td><input class="easyui-validatebox textbox" id="conpassword" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+		
+					
+
+			</table>
+				<table>	
+				<tr>
+					<td ></td>
+					<td width = 200px align = center>	
+							<input type="button" name="Submit" value="保存" onclick="show_setpasswd();"/>
+					</td>
+					<td align = center>
+					
+					</td>
+				</tr>
+				</table>
+			</div>
+			
+			
+		</div>
+		</div>
+	
+<script>
+
+	$.post("../../zend_obd/jsonAPI/fastSet.php",
+			{
+			userID:148
+		
+			},
+			function (data,status){
+				var rows = eval(data);
+				
+				
+				$("#username").val(rows[0].username);
+				$("#smsnum").val(rows[0].smsNum);
+				$("#name").val(rows[0].fullname);
+				$("#email").val(rows[0].email);				
+			});
+
+	
+
+		function show_setpasswd(){
+		var one = $("#oldpassword").val();
+		
+		var two = $("#newpassword").val();
+		var three = $("#conpassword").val();
+		if (two != three)
+		{
+			alert("两次输入的密码不一致，请重新输入！");
+			return ;
+		}
+		$.post("../../zend_obd/jsonAPI/updata_fastset.php",
+				{
+			userID:148,oldpassword:one,newpassword:two
+				},
+				function(data,status){
+					
+					var rows = eval(data);
+					
+					
+					if(rows=="200")
+						alert("密码修改成功！");
+					else
+						alert("旧密码不确定！ ");
+				});
+		}
+		
+		function show_setinf(){
+			var one = $("#username").val();
+			var two = $("#name").val();
+			var three = $("#smsnum").val();
+			var four = $("#email").val();
+			
+			validatemobile(three);
+			
+			var reg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+			if(!reg.test(four)){
+				alert("输入正确格式的Email地址！");
+				return ;
+			}
+			
+			$.post("../../zend_obd/jsonAPI/setuserinf.php",
+					{
+				userID:148,username:one,name:two,smsnum:three,email:four
+					},
+					function(data,status){
+						
+						
+						var rows = eval(data);
+						
+						if(rows=="200")
+							alert("修改成功！");
+						else
+							alert("修改失败！ ");
+					});
+			}
+		
+		
+		
+</script>
+	
+	<script>
+	 function validatemobile(mobile)
+	    {
+	        if(mobile.length==0)
+	        {
+	           alert('请输入手机号码！');
+	           document.form1.mobile.focus();
+	           return false;
+	        }    
+	        if(mobile.length!=11)
+	        {
+	            alert('请输入有效的手机号码！');
+	            document.form1.mobile.focus();
+	            return false;
+	        }
+	        
+	        var myreg = /^(((13[0-9]{1})|159|153)+\d{8})$/;
+	        if(!myreg.test(mobile))
+	        {
+	            alert('请输入有效的手机号码！');
+	            document.form1.mobile.focus();
+	            return false;
+	        }
+	    }
+	 
+	
+	</script>
+
+
+</div>  
+
+
+	

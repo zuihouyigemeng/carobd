@@ -1,0 +1,269 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>用户管理</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body>	
+
+		<div  style="overflow:auto;padding:0px;">
+				
+			<div  style = "width:250px;float:left;right-margin:10px">
+			         <div id="p" class="easyui-panel" title="部门"  style="width:230px;height:500px;">
+				<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>"   data-options="animate:true,onlyLeafCheck:true"  id="depID">
+				
+				</ul>
+			         </div>
+			</div>
+					
+		<table id="dg" class="easyui-datagrid" title="时间段管理" style="width:1200px;height:500px"
+			data-options="
+				iconCls: 'icon-edit',
+				singleSelect: true,
+				toolbar: '#tb',
+				url: 'datagrid_data1.json',
+				method: 'get',
+				onClickRow: onClickRow
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'userID',width:80,hidden:true">用户ID</th>
+				<th data-options="field:'username',width:250,editor:{type:'validatebox',
+							options:{
+								required:true,
+								validType:'length[2,20]'
+							}
+							}">用户名</th>
+				<th data-options="field:'smsNum',width:250,editor:{type:'validatebox',
+							options:{
+								required:true,
+								validType:'length[11,11]'
+							}
+							}">电话号码</th>
+				<th data-options="field:'email',width:250,editor:'text'">Email</th>
+				<th data-options="field:'roleId',width:200,
+						formatter:function(value,row){
+							return row.roleName;
+						},
+						editor:{
+							type:'combobox',
+							options:{
+								valueField:'roleId',
+								textField:'roleName',
+								url:'../service/role.php?opType=1',
+								required:true
+							}
+						}">角色</th>
+				<th data-options="field:'depName',width:180,align:'right'">部门</th> 
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">新建时间段</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">删除时间段</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">取消</a>
+	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>   -->
+	</div>		
+			
+			
+		</div>
+
+		<script>
+		var depID='<?php echo  $userVo->depID ?>';
+		var depName='';
+		
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'roleId'});
+				var roleName = $(ed.target).combobox('getText');
+				$('#dg').datagrid('getRows')[editIndex]['productname'] = roleName;
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			if (endEditing()){
+				$('#dg').datagrid('appendRow',{depName:''});
+				editIndex = $('#dg').datagrid('getRows').length-1;
+				$('#dg').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+				
+			}
+		}
+		function removeit(){
+			if (!confirm("确认要删除？")) {
+	            window.event.returnValue = false;
+	        }
+			if (editIndex == undefined){return}
+			$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+			var rows = $('#dg').datagrid('getChanges','deleted');
+			alert(rows[0].userID);
+			 $.post("../service/users.php",
+					  {
+		               userID:rows[0].userID,
+		               opType:2
+					  },
+					  function(data,status){
+					 	if(data=='200'){
+					 		alert("ok");
+					 	}
+					 	
+					 	alert("url:"+url);
+						$('#dg').datagrid({   
+							 url:url+depID
+									 }
+						); 
+					  
+					  });
+			
+		}
+		function accept(){
+			if (endEditing()){
+				var rows = $('#dg').datagrid('getChanges','inserted');
+				alert("inserted:"+rows.length);
+				if(rows.length>0){
+					username=rows[0].username;
+					smsNum=rows[0].smsNum;
+					email=rows[0].email;
+					roleId=rows[0].roleId;
+					
+					alert("username");
+					 $.post("../service/users.php",
+									  {
+						               username:username,
+						               smsNum:smsNum,
+						               email:email,
+						               roleId:roleId,
+						               opType:3,
+						               depID:depID
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("ok");
+									 	}
+									 	else if(data=='1002'){
+									 		alert("用户已存在");
+									 	}
+									 	
+									 	alert("url:"+url);
+										$('#dg').datagrid({   
+											 url:url+depID
+													 }
+										); 
+									  
+									  });
+				}
+				
+				var rows = $('#dg').datagrid('getChanges','updated');
+				alert("updated:"+rows.length);
+				if(rows.length>0){
+					userID=rows[0].userID;
+					alert( 'userID:'+userID);
+					username=rows[0].username;
+					smsNum=rows[0].smsNum;
+					email=rows[0].email;
+					roleId=rows[0].roleId;
+					alert( 'roleId:'+roleId);
+					
+					 $.post("../service/users.php",
+									  {
+						                userID:userID,
+						               username:username,
+						               smsNum:smsNum,
+						               email:email,
+						               roleId:roleId,
+						               opType:4,
+						               depID:depID
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("ok");
+									 	}
+									 	else if(data=='1002'){
+									 		alert("用户已存在");
+									 	}
+									 	
+									 	alert("url:"+url);
+										$('#dg').datagrid({   
+											 url:url+depID
+													 }
+										); 
+									  
+									  });
+				}
+				
+				
+				$('#dg').datagrid('acceptChanges');
+			}
+			
+			
+			
+			
+	
+
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		
+		
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+		
+		
+		var url='../service/users.php?opType=1&depID=';
+		//alert("url:"+url);
+		$('#dg').datagrid({   
+			 url:url+depID
+					 }
+		); 
+		
+		
+			$('#depID').tree({
+				onClick: function(node){
+					depID=node.id;
+					$('#dg').datagrid({   
+				    url:'../service/users.php?opType=1&depID='+node.id
+				}
+			);
+		
+			}
+		});
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

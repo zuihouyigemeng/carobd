@@ -1,0 +1,101 @@
+2014-08-18 09:23:08,----------------departments:----------postid:
+2014-08-18 09:23:08,----------------departments:-----------defDep:1003
+2014-08-18 09:23:08,----------------departments:-----------id:1003
+2014-08-18 09:23:08,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:23:08,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:23:08,----------------departments:----------postid:
+2014-08-18 09:23:08,----------------departments:-----------defDep:1003
+2014-08-18 09:23:08,----------------departments:-----------id:1003
+2014-08-18 09:23:08,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:23:08,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:23:09,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 09:31:31,----------------departments:----------postid:
+2014-08-18 09:31:31,----------------departments:-----------defDep:1003
+2014-08-18 09:31:31,----------------departments:-----------id:1003
+2014-08-18 09:31:31,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:31:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:31:31,----------------departments:----------postid:
+2014-08-18 09:31:31,----------------departments:-----------defDep:1003
+2014-08-18 09:31:31,----------------departments:-----------id:1003
+2014-08-18 09:31:31,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:31:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:31:31,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 09:31:38,----------------departments:----------postid:
+2014-08-18 09:31:38,----------------departments:-----------defDep:1003
+2014-08-18 09:31:38,----------------departments:-----------id:1003
+2014-08-18 09:31:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:31:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:31:38,----------------departments:----------postid:
+2014-08-18 09:31:38,----------------departments:-----------defDep:1003
+2014-08-18 09:31:38,----------------departments:-----------id:1003
+2014-08-18 09:31:38,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:31:38,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:31:39,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 09:31:41,----------------departments:----------postid:1003
+2014-08-18 09:31:41,----------------departments:-----------defDep:1003
+2014-08-18 09:31:41,----------------departments:-----------id:1003
+2014-08-18 09:31:41,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1004 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1012 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1015 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1016 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1028 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1070 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1073 and id>1000
+2014-08-18 09:31:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1075 and id>1000
+2014-08-18 09:31:42,----------------departments:----------postid:1004
+2014-08-18 09:31:42,----------------departments:-----------defDep:1003
+2014-08-18 09:31:42,----------------departments:-----------id:1004
+2014-08-18 09:31:42,----------------departments:------select * from Opm_Organ where  parentId=1004 and id>1000
+2014-08-18 09:31:42,----------------departments:------select count(*)  from Opm_Organ where parentId=1005 and id>1000
+2014-08-18 09:31:44,----------------departments:----------postid:1005
+2014-08-18 09:31:44,----------------departments:-----------defDep:1003
+2014-08-18 09:31:44,----------------departments:-----------id:1005
+2014-08-18 09:31:44,----------------departments:------select * from Opm_Organ where  parentId=1005 and id>1000
+2014-08-18 09:31:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1072 and id>1000
+2014-08-18 09:31:45,-----------vehicles4dep-----sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1072) and d.deviceID=l.deviceID  
+2014-08-18 09:31:45,-----------vehicles4dep-----sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1072) and d.deviceID=l.deviceID  
+2014-08-18 09:32:24,----------------departments:----------postid:
+2014-08-18 09:32:24,----------------departments:-----------defDep:1003
+2014-08-18 09:32:24,----------------departments:-----------id:1003
+2014-08-18 09:32:24,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:32:24,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:32:24,----------------departments:----------postid:
+2014-08-18 09:32:24,----------------departments:-----------defDep:1003
+2014-08-18 09:32:24,----------------departments:-----------id:1003
+2014-08-18 09:32:24,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:32:24,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:32:24,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 09:32:26,----------------departments:----------postid:
+2014-08-18 09:32:26,----------------departments:-----------defDep:1003
+2014-08-18 09:32:26,----------------departments:-----------id:1003
+2014-08-18 09:32:26,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:32:26,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:32:26,----------------departments:----------postid:
+2014-08-18 09:32:26,----------------departments:-----------defDep:1003
+2014-08-18 09:32:26,----------------departments:-----------id:1003
+2014-08-18 09:32:26,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 09:32:26,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 09:32:26,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 10:49:16,----------------departments:----------postid:
+2014-08-18 10:49:16,----------------departments:-----------defDep:1003
+2014-08-18 10:49:16,----------------departments:-----------id:1003
+2014-08-18 10:49:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 10:49:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 10:49:16,----------------departments:----------postid:
+2014-08-18 10:49:16,----------------departments:-----------defDep:1003
+2014-08-18 10:49:16,----------------departments:-----------id:1003
+2014-08-18 10:49:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 10:49:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 10:49:17,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-18 10:49:20,----------------departments:----------postid:
+2014-08-18 10:49:20,----------------departments:-----------defDep:1003
+2014-08-18 10:49:20,----------------departments:-----------id:1003
+2014-08-18 10:49:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 10:49:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 10:49:20,----------------departments:----------postid:
+2014-08-18 10:49:20,----------------departments:-----------defDep:1003
+2014-08-18 10:49:20,----------------departments:-----------id:1003
+2014-08-18 10:49:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-18 10:49:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-18 10:49:20,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1

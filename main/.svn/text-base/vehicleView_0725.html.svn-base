@@ -1,0 +1,495 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>   
+<html>   
+<head> 
+<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../map_utils.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<title>车辆监控</title>   
+<style type="text/css">   
+html{height:100%}   
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%}   
+
+a:hover img{
+background-color: #ffffff
+}
+ 
+
+.xxdiv { width:155px; height:90px; border:0px #CCCCCC solid; background:#F6F6F6; margin:0px 0px 0px 0px; padding: 0; float:left; }
+
+</style>   
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>  
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>
+</head>   
+    
+<body> 
+<div id="container"></div>  
+<?php include("alarm.html"); ?> 
+<?php include("healthCheck.html"); ?> 
+<?php include("vehicleInfo.html"); ?> 
+<?php include("vehicleBaseInfo.html"); ?>
+<?php include("vehicleSet.html"); ?>
+<?php include("vehicleStatistics.html"); ?>
+<?php include("fortification.html"); ?>
+
+<script type="text/javascript">  
+
+//当前车辆vin
+var curr_vin="";
+//当前车辆deviceID
+var curr_deviceID="";
+mu= new Map_Utils();
+function history(deviceID,lic){
+	//alert("glob_deviceID:"+glob_deviceID);
+	//alert("glob_lic:"+glob_licenseNumber);
+	if(deviceID == 0) {
+		deviceID=glob_deviceID;
+	}
+	if(lic ==0){
+		lic=glob_licenseNumber;
+	}
+	//alert(deviceID);
+	
+	//alert(lic);
+	
+	var url="historyView.php?deviceId="+deviceID+"&licenseNumber="+lic;
+	url =encodeURI(url);   
+    url =encodeURI(url); 
+ //   alert(url);
+
+	varA=window.open(url,"_blank");
+}
+
+
+//var map = new BMap.Map("container");            // 创建Map实例
+//var point = new BMap.Point(116.404, 39.915);    // 创建点坐标
+//map.centerAndZoom(point,15);                     // 初始化地图,设置中心点坐标和地图级别。
+//map.enableScrollWheelZoom();  
+
+
+// 百度地图API功能
+
+    var map = new BMap.Map("container");
+	map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
+	map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]}));     //2D图，卫星图
+	map.addControl(new BMap.ScaleControl());    
+	map.addControl(new BMap.OverviewMapControl());    
+//	map.setCurrentCity("上海");
+	var point = new BMap.Point(103.2319, 35.3349);
+	map.centerAndZoom(point, 5);
+	
+	var glob_licenseNumber;
+	var glob_deviceID="";
+function vehicleClick(rowData){
+//	alert("click!");
+	lon=rowData.longitude;
+	lat=rowData.latitude;
+	licenseNumber=rowData.licenseNumber;
+	address_num=rowData.address_num;
+	time=rowData.time;
+	vin=rowData.vin;
+	deviceID=rowData.deviceID;
+	heading=rowData.heading;
+	curr_vin=vin;
+	glob_licenseNumber=licenseNumber;
+	glob_deviceID=deviceID;
+	curr_deviceID=deviceID;
+	queryStatusInfo(deviceID);
+	$('#dlgVehicle').dialog('open');
+	
+//	alert(lon);
+//	alert(lat);
+	var gpsPoint = new BMap.Point(lon, lat);
+	
+	 BMap.Convertor.translate(gpsPoint,0,function(point){
+		//  alert("translateCallback");
+		    alert(vin);
+		    alert("mu size:"+mu.size())
+		   if(mu.containsKey(vin)){
+			   alert("remove old!");
+			   var markerold=mu.get(vin);
+				map.removeOverlay(markerold);
+				mu.removeByKey(vin);
+		   }
+		  map.centerAndZoom(point, 15);
+		  //  alert("deviceID:"+deviceID);
+		  var sContent =
+		  	"<div style='width:300px;border-width:5px;border-color: #108be9;'><h4 style='margin:0 0 0 0;padding:0 0'>"+licenseNumber+"</h4>"
+		  	+"<hr style='color:#108be9'/>"
+		  	+"<span style='font-size: 14px;font-weight: bold;margin-bottom: 10px;'>定位时间："+time+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>"
+		  	+"<span style='font-size: 14px;font-weight: bold;margin-bottom: 10px;'>位置："+address_num+"</span></br></br>"
+		  	+"<img  id='imgDemo1' src='../mapPic/trace.png' width='39' height='38' title='跟踪'  onclick='trace(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo2' src='../mapPic/playback.png' width='39' height='38' title='回放'  onclick='history(\""+deviceID+"\",\""+licenseNumber+"\")' />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo3' src='../mapPic/alerts.png' width='39' height='38' title='告警'  onclick='alerts(\""+vin+"\")'  /> "
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo4' src='../mapPic/infor.png' width='39' height='38' title='档案'  onclick='info(\""+vin+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo5' src='../mapPic/setting.png' width='39' height='38' title='设置'  onclick='setting(\""+deviceID+"\")'  />"
+		  	+"&nbsp;"
+		  	+"<img  id='imgDemo3' src='../mapPic/more.png' width='39' height='38' title='更多'  onclick='more()'  /> "
+		  	+"</div>";
+		// 	alert(sContent);
+		  //var point1 = new BMap.Point(lon, lat);
+		  //map.centerAndZoom(point1, 10);
+		  var iconImg = createIcon();
+		  var marker = new BMap.Marker(point,{icon:iconImg});
+		  marker.setRotation(heading);
+		  marker.setRotation(90);
+		  var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+		  marker.addEventListener("click", function(){
+		   this.openInfoWindow(infoWindow);
+		   //图片加载完毕重绘infowindow
+		   document.getElementById('imgDemo').onload = function (){
+		       infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+		   }
+		  });		
+		  map.addOverlay(marker);
+		  mu.put(vin,marker);
+		  marker.openInfoWindow(infoWindow);
+		  	});
+	 
+}
+
+function createIcon(){
+    var icon = new BMap.Icon("http://180.166.124.142:9983/obd_web/mapPic/car.png", new BMap.Size(43,23));
+    return icon;
+}
+
+function trace(deviceID){
+	//$('#trace').dialog('open');
+//	alert("deviceID:"+deviceID);
+	traceWin=window.open("trace.php?deviceID="+deviceID,"_blank");
+//	traceWin.document.write("deviceID="+deviceID) ;
+}
+	
+//	location.href = "test.html";
+	 
+
+function playback(){
+	alert("jump to playback page....");
+}
+function alerts(vin){
+//	alert("jump to alerts page....");
+    initAlert(vin);
+	$('#dlgAlert').dialog('open');
+	
+}
+function info(vin){
+//	alert("jump to info page....");
+ //  alert(vin);
+   queryBaseInfo(vin);
+	$('#dlgInf').dialog('open');
+}
+function setting(deviceID){
+//	alert("jump to setting page....");
+   querySetting(deviceID);
+   $('#dlgSet').dialog('open');
+}
+function vehiCleSetting(){
+	if(glob_deviceID==""){
+		alert("请选择车辆！");
+		return ;
+	}
+	setting(glob_deviceID);
+}
+
+function  defence(){
+	 $('#dlgFortification').dialog('open');
+}
+
+
+
+function more(){
+//	alert("jump to more page....");
+	
+	 // 创建一个DOM元素
+	  var div = document.createElement("div");
+	  div.innerHTML ="<img  id='imgDemo2' src='../mapPic/playback.jpg' width='39' height='38' title='回放'  onclick='playback()'  />" ;
+	 
+	  // 设置样式
+	  div.style.cursor = "pointer";
+	  div.style.border = "1px solid gray";
+	  div.style.backgroundColor = "white";
+	//  echo div.innerHtml();
+	  alert(div.innerHTML);
+	  
+}
+ 
+
+
+//定义一个控件类,即function
+function ZoomControl(){
+  // 默认停靠位置和偏移量
+  this.defaultAnchor = BMAP_ANCHOR_TOP_RIGHT;
+  this.defaultOffset = new BMap.Size(150, 10);
+}
+
+//通过JavaScript的prototype属性继承于BMap.Control
+ZoomControl.prototype = new BMap.Control();
+
+// 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
+// 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
+ZoomControl.prototype.initialize = function(map){
+  // 创建一个DOM元素
+  var div = document.createElement("div");
+  div.innerHTML ="<img  style='margin:0;padding:0' id='imgDemo1' width='73' height='55' src='../img/btn_01.png'  title='设防'  onclick='defence()'  />"
+  +"<img  id='imgDemo2' style='margin:0;padding:0' width='73' height='55' src='../img/btn_02.png'  title='超速阀值设置'  onclick='vehiCleSetting()'  />"
+  +"<img  id='imgDemo3' style='margin:0;padding:0' width='73' height='55' src='../img/btn_03.png'  title='心跳间隔设置'  onclick='vehiCleSetting()'  /> "
+  +"<img  id='imgDemo3' style='margin:0;padding:0' width='73' height='55'  src='../img/btn_04.png'  title='空转阀值设置'  onclick='vehiCleSetting()'  /> "
+  +"</div>";
+  // 设置样式
+  div.style.cursor = "pointer";
+  div.style.border = "1px solid gray";
+  div.style.backgroundColor = "white";
+  div.style.padding = "0px";
+  div.style.margin = "0px";
+  
+  
+  // 添加DOM元素到地图中
+  map.getContainer().appendChild(div);
+  // 将DOM元素返回
+  return div;
+}
+// 创建控件
+var myZoomCtrl = new ZoomControl();
+// 添加到地图当中
+
+map.addControl(myZoomCtrl);
+
+
+
+var t=60;
+timename=setInterval("flesh();",1000); 
+function ZoomControl1(){
+	  // 默认停靠位置和偏移量
+	  this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+	  this.defaultOffset = new BMap.Size(80, 10);
+	}
+//通过JavaScript的prototype属性继承于BMap.Control
+ZoomControl1.prototype = new BMap.Control();
+
+//自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
+// 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
+ZoomControl1.prototype.initialize = function(map){
+	 // 创建一个DOM元素
+	  var div = getSecondTxt();
+	  
+	  // 添加DOM元素到地图中
+	  map.getContainer().appendChild(div);
+	  // 将DOM元素返回
+	  return div;
+}
+// 创建控件
+var myZoomCtrl1 = new ZoomControl1();
+// 添加到地图当中
+
+map.addControl(myZoomCtrl1);
+
+function flesh(){
+	if(t==0 ){
+		//updat maker
+		var vin=mu.keys();
+		if( vin.length >0){
+			
+			vin=vin.join(",");
+	//		alert("vin:"+vin);
+			
+			 $.post("../service/fleshVehicles.php",
+			  {
+				 vins:vin
+			  },
+			  function(data,status){
+				  var rows=eval(data);
+			//	  alert(rows[0].deviceID);
+			//	  map.clearOverlays(); 
+			//	  mu.clear();
+				  checkAll(rows);
+			  });
+
+			
+		}
+		
+		t=60;
+	}
+	map.removeControl(myZoomCtrl1);
+	ZoomControl1.prototype.initialize = function(map){
+		 // 创建一个DOM元素
+		  var div = getSecondTxt();
+		  // 添加DOM元素到地图中
+		  map.getContainer().appendChild(div);
+		  // 将DOM元素返回
+		  return div;
+	}
+	// 创建控件
+	 myZoomCtrl = new ZoomControl1();
+	// 添加到地图当中
+	map.addControl(myZoomCtrl1);
+}
+
+function getSecondTxt(){
+	 var div = document.createElement("div");
+	  div.innerHTML ="还有"+t+"秒刷新";
+	  // 设置样式
+	  div.style.cursor = "pointer";
+	  div.style.border = "1px solid gray";
+	  div.style.backgroundColor = "red";
+	  t--;
+	  return div;
+}
+
+
+
+//定义一个控件类,即function
+function ZoomControl2(){
+  // 默认停靠位置和偏移量
+  this.defaultAnchor = BMAP_ANCHOR_TOP_LEFT;
+  this.defaultOffset = new BMap.Size(0, 200);
+}
+
+//通过JavaScript的prototype属性继承于BMap.Control
+ZoomControl2.prototype = new BMap.Control();
+
+// 自定义控件必须实现自己的initialize方法,并且将控件的DOM元素返回
+// 在本方法中创建个div元素作为控件的容器,并将其添加到地图容器中
+ZoomControl2.prototype.initialize = function(map){
+  // 创建一个DOM元素
+  var div = document.createElement("div");
+  div.innerHTML ="<img  id='imgDemo1' src='../img/btn_zuo_normal.png'    onclick='top.westSwitch()'  />"
+  +"</div>";
+  // 设置样式
+  div.style.cursor = "pointer";
+  div.style.border = "1px solid gray";
+  div.style.backgroundColor = "white";
+  // 添加DOM元素到地图中
+  map.getContainer().appendChild(div);
+  // 将DOM元素返回
+  return div;
+}
+// 创建控件
+var myZoomCtrl2 = new ZoomControl2();
+// 添加到地图当中
+
+map.addControl(myZoomCtrl2);
+
+
+function healthCheck(){
+	
+	$('#healthCheckDlg').dialog('open');
+}
+
+function statistics_dis(){
+	window.open("vehicleStatis4Dis.php?deviceID="+curr_deviceID,"_blank");
+	
+}
+
+function statistics_fuel(){
+	window.open("vehicleStatis4Fuel.php?deviceID="+curr_deviceID,"_blank");
+	
+}
+
+
+
+function onUncheckAll (rows){
+	
+	for ( var i=0 ; i < rows.length ; ++i ) {
+		vin=rows[i].vin;
+		
+		var marker=mu.get(vin);
+	//	alert("mu size:"+mu.size());
+	//	alert("vin:"+vin +"marker:"+marker);
+		map.removeOverlay(marker);
+		mu.removeByKey(vin);
+	}
+}
+
+
+function checkAll(rows){
+	for ( var i=0 ; i < rows.length ; ++i ) {
+		lon=rows[i].longitude,
+		lat=rows[i].latitude,
+		licenseNumber=rows[i].licenseNumber,
+		address_num=rows[i].address_num,
+		time=rows[i].time;
+		var vin=rows[i].vin;
+		alert("mu size:"+mu.size())
+		alert("vin:"+vin );
+		deviceID=rows[i].deviceID;
+		if(mu.containsKey(vin)){
+			   alert("remove old!");
+			   var markerold=mu.get(vin);
+				map.removeOverlay(markerold);
+				mu.removeByKey(vin);
+		}
+		var point = new BMap.Point(lon, lat);
+	//	 BMap.Convertor.translate(gpsPoint,0,function (point){
+				var sContent =
+					"<div style='width:300px;border-width:5px;border-color: #108be9;'><h4 style='font-size: 18px;font-weight: bold;'>"+licenseNumber+"</h4>"
+				  	+"<hr style='color:#108be9'/>"
+				  	+"<span style='font-size: 14px;font-weight: bold;margin-bottom: 10px;'>定位时间："+time+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></br>"
+				  	+"<span style='font-size: 14px;font-weight: bold;margin-bottom: 10px;'>位置："+address_num+"</span></br></br>"
+				  	+"<img  id='imgDemo1' src='../mapPic/trace.png' width='39' height='38' title='跟踪'  onclick='trace(\""+deviceID+"\")'  />"
+				  	+"&nbsp;"
+				  	+"<img  id='imgDemo2' src='../mapPic/playback.png' width='39' height='38' title='回放'  onclick='history(\""+deviceID+"\",\""+licenseNumber+"\")' />"
+				  	+"&nbsp;"
+				  	+"<img  id='imgDemo3' src='../mapPic/alerts.png' width='39' height='38' title='告警'  onclick='alerts(\""+vin+"\")'  /> "
+				  	+"&nbsp;"
+				  	+"<img  id='imgDemo4' src='../mapPic/infor.png' width='39' height='38' title='档案'  onclick='info(\""+vin+"\")'  />"
+				  	+"&nbsp;"
+				  	+"<img  id='imgDemo5' src='../mapPic/setting.png' width='39' height='38' title='设置'  onclick='setting(\""+deviceID+"\")'  />"
+				  	+"&nbsp;"
+				  	+"<img  id='imgDemo3' src='../mapPic/more.png' width='39' height='38' title='更多'  onclick='more()'  /> "
+				  	+"</div>";				
+			    var iconImg = createIcon();
+				var marker = new BMap.Marker(point,{icon:iconImg});
+				var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+				marker.addEventListener("click", function(){          
+				//   this.openInfoWindow(infoWindow);
+				   //图片加载完毕重绘infowindow
+				 //  document.getElementById('imgDemo').onload = function (){
+				 //      infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+				 //  }
+				});
+				map.addOverlay(marker);
+				mu.put(vin,marker);
+
+		//	});
+	}
+	
+}
+
+function  onCheck(rowData){
+	rows = new Array();
+	rows[0]=rowData;
+	checkAll(rows);
+}
+
+function  onUncheck(rowData){
+//	alert("onUncheck");
+	rows = new Array();
+	rows[0]=rowData;
+	onUncheckAll(rows);
+}
+
+
+
+
+
+
+</script>   
+
+
+
+
+
+
+
+</body>
+</html>

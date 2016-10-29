@@ -1,0 +1,387 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加地标</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+    <style type="text/css">  
+		html{height:100%}  
+		body{height:100%;margin:0px;padding:0px;overflow:hidden;min-width:600px;}  
+		#container{height:100%;width:50%;overflow:hidden;float:left;}  
+		.form_landmark{width:30%;height:100%;float:right;}
+		
+		.form_title,.departmentMsg_title{width:100%;height:40px;background:#95b8e7;border-left:1px solid green;}
+		
+		.form_title_text,.departmentMsg_title_text{padding-left:20px;font-size:20px;line-height:40px;}
+		
+		.form_content{width:100%;border-left:1px solid green;overflow:auto;}
+		
+		
+		.departmentMsg{width:20%;height:100%;float:right;margin-right:0px;overflow:hidden;}
+		#departmentMsg_tree_content{width:100%;overflow:auto;border-left:1px solid green;}
+		
+		.title{font-size:18px;font-family:'宋体';width:30%;text-align:right;height:40px;line-height:40px;}
+		.context{padding-left:20px;width:50%;}
+		.msg{width:20%;color:red;font-family:'楷体';font-size:13px;}
+		.context input,#address,#search{width:150px;height:24px;border-radius:4px;padding-left:4px;font-size:14px;font-family:'楷体'}
+		.landmarkBtn{
+			width:80px;
+			height:40px;
+			border-radius:5px;
+			text-align: center;
+			font-size: 18px;
+			font-family: '楷体';
+			background: #95b8e7;
+			border: 1px solid #95b8e7;
+			cursor:pointer;
+		}
+		.landmarkBtn:hover{
+			background: green;
+			border: 1px solid green;	
+		}
+	</style> 
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>
+</head>
+<body  onunload="window.opener.fresh()" >
+		
+        <div id="searchDiv" style="width:230px;height:40px;position:absolute;top:5px;left:70px;z-index: 1;opacity:0.8;">
+        	<input type="text" id="search" style="width;150px;height:24px;" value="搜索城市"/>
+			<input type="button" id="searchMap" class="landmarkBtn" value="搜索" style="font-size: 13px;width: 50px;height: 28px;"/>
+        </div>
+        
+		<div id="container"></div>
+
+		<div class="form_landmark">
+			<div class="form_title">
+                <span class="form_title_text" id="updateId">地标信息</span>
+            </div>
+            <div class="form_content">
+            	<form method="post">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td class="title">所属部门</td>
+                        <td class="context">
+                        	<input type="text" 
+                                class="easyui-validatebox textbox validatebox-text" 
+                                readonly
+                                data-id="" 
+                                id="departmentName" 
+                                value=""
+                                name="departmentName"/>
+                        </td>
+                        <td class="msg">*</td>
+                      </tr>
+                      <tr>
+                        <td class="title">地标名称</td>
+                        <td class="context">
+                        	<input type="text" 
+                                class="easyui-validatebox textbox validatebox-text" 
+                                id="landmarkName" 
+                                name="landmarkName"/>
+                        </td>
+                        <td class="msg">*</td>
+                      </tr>
+                      <tr>
+                        <td class="title">地标经度</td>
+                        <td class="context">
+                        	<input type="text" 
+                                class="easyui-validatebox textbox validatebox-text" 
+                                readonly 
+                                id="longitude" 
+                                name="longitude"/>
+                        </td>
+                        <td class="msg">*</td>
+                      </tr>
+                      <tr>
+                        <td class="title">地标纬度</td>
+                        <td class="context">
+                        	<input type="text" 
+                                class="easyui-validatebox textbox validatebox-text" 
+                                readonly 
+                                id="latitude" 
+                                name="latitude"/>
+                        </td>
+                        <td class="msg">*</td>
+                      </tr>
+                      <tr>
+                        <td class="title">街道地址</td>
+                        <td class="context" colspan="2">
+                        	<span id="address" name="address"></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="msg" id="showMsg" colspan="3" align="center"></td>
+                      </tr>
+                    </table>
+                    <div style="font-size:13px;font-family:'楷体';padding:10px;color:#666;">
+                    	温馨提示：在地图上用鼠标左键标注地标！<br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可按住左键拖动标注！
+                    </div>
+                    <div style="text-align:center;margin:20px;">
+
+                        <input type="button" 
+                            class="landmarkBtn" 
+                            id="sureLandmark" 
+                            style="margin-right:40px;"
+                            onClick="saveLandmark();"
+                            value="保存"/>
+
+                        <input type="button" 
+                            class="landmarkBtn" 
+                            id="returnMain" 
+                            onclick="freshOpener();"
+                            value="返回"/>
+
+                    </div>
+					
+                </form>
+            </div>
+        </div>
+
+		<div class="departmentMsg">
+            <div class="departmentMsg_title">
+                <span class="departmentMsg_title_text">部门列表</span>
+            </div>
+            <div id="departmentMsg_tree_content">
+                <ul class="easyui-tree"   
+                    url="../service/add_department.php?defDep=<?php echo  $userVo->depID ?>"  
+                    data-options="animate:true,onlyLeafCheck:true"  
+                    id="depID">
+                
+                </ul>
+            </div>
+		</div>
+		
+		
+		<script>
+			var Request = new Object();  
+			Request = GetRequest();
+			
+			var op = decodeURI(decodeURI(Request['op']));
+			if(op == "add"){
+				operatBMap("add",116.404, 39.915);// 创建点坐标,默认天安门为中心坐标
+			}else if(op == "update"){
+				var id = decodeURI(decodeURI(Request['id']));
+				var landmarkName = decodeURI(decodeURI(Request['landmarkName']));
+				var lng = decodeURI(decodeURI(Request['lng']));
+				var lat = decodeURI(decodeURI(Request['lat']));
+				var departmentId = decodeURI(decodeURI(Request['departmentId']));
+				var departmentName = decodeURI(decodeURI(Request['departmentName']));
+				var address = decodeURI(decodeURI(Request['address']));
+				
+				operatBMap("update",lng,lat);
+				
+				$("#departmentName").val(departmentName);
+				$("#departmentName").attr("data-id",departmentId);
+				$("#landmarkName").val(landmarkName);
+				$("#latitude").val(lat);
+				$("#longitude").val(lng);
+				$("#address").text(address);
+				//alert(id);
+				$("#updateId").attr("data-id",id);
+				$(document).attr("title","修改地标信息");
+			}
+			
+		
+		
+			function operatBMap(op,lng,lat){
+				var map = new BMap.Map("container",{enableMapClick:false}); // 创建地图实例,禁用点击景点弹出景点信息
+				map.addControl(new BMap.NavigationControl());
+				map.addControl(new BMap.ScaleControl());                     
+				map.addControl(new BMap.OverviewMapControl());
+				
+				var point = new BMap.Point(lng,lat);// 创建点坐标,默认天安门为中心坐标
+				
+				map.centerAndZoom(point, 15); // 初始化地图，设置中心点坐标和地图级别  
+				map.enableScrollWheelZoom();    // 启动鼠标滚轮操作
+				
+				var gc = new BMap.Geocoder();//地址解析类
+				var marker = null;
+				
+				if(op == "update"){				
+					//var point2 = new BMap.Point(lng, lat);       
+					marker = new BMap.Marker(point);        // 创建标注    
+					map.addOverlay(marker); 
+					marker.enableDragging();
+					marker.addEventListener("dragend", function(e){    
+						$("#latitude").val(e.point.lat);
+						$("#longitude").val(e.point.lng);  
+						//获取地址信息  
+						gc.getLocation(e.point, function(rs){  
+							$("#address").text(showLocationInfo(e.point, rs));  
+						});  
+					});
+				}
+				
+				
+				
+				//以下方法在地图点击某位置时增加一个标注，若已经点击添加过了标注，则先消除原来的标注，再加新的标注
+				map.addEventListener("click", function(e){    
+					if(marker != null){//若标注对象不为空，则说明已经创建过标注，则先删除标注
+						map.removeOverlay(marker); 
+					}
+					
+					var point = new BMap.Point(e.point.lng, e.point.lat);       
+					marker = new BMap.Marker(point);        // 创建标注    
+					map.addOverlay(marker); 
+					
+					gc.getLocation(e.point, function(rs){  
+						$("#address").text(showLocationInfo(e.point, rs));  
+					});
+					
+					$("#latitude").val(e.point.lat);
+					$("#longitude").val(e.point.lng);
+					
+					marker.enableDragging();
+					marker.addEventListener("dragend", function(e){    
+						$("#latitude").val(e.point.lat);
+						$("#longitude").val(e.point.lng); 
+						//获取地址信息  
+						gc.getLocation(e.point, function(rs){  
+							$("#address").text(showLocationInfo(e.point, rs));  
+						});   
+					});
+					 
+				});
+				
+				$("#searchMap").live("click",function(){
+					var val = document.getElementById("search").value;
+					map.centerAndZoom(val);	
+				});
+				
+				
+			}
+			
+			//显示地址信息窗口  
+			function showLocationInfo(pt, rs){ 
+				var addComp = rs.addressComponents;  
+				var addr = addComp.province + addComp.city + addComp.district + addComp.street + addComp.streetNumber;    
+				 return addr;
+			} 
+			
+			//此函数得到传递过来的值，并进行解析，保存到对象theRequest中。
+			function GetRequest() {  
+			   var url = location.search; //获取url中"?"符后的字串
+			   var theRequest = new Object();  
+			   if (url.indexOf("?") != -1) {  
+				  var str = url.substr(1);  
+				  strs = str.split("&");  
+				  for(var i = 0; i < strs.length; i ++) {  
+					 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+				  }  
+			   }  
+			   return theRequest;  
+			}
+				
+			
+			$(function(){
+				var window_height = $(window).height();
+				
+				//以下为设置树与表单的div的高度占剩下的所有部分，窗口大小改变高度跟着改变
+				$("#departmentMsg_tree_content,.form_content").css({"height":(window_height - 40) + "px"});	
+				$(window).resize(function(){
+					window_height = $(window).height();
+					$("#departmentMsg_tree_content,.form_content").css({"height":(window_height - 40) + "px"});	
+				});
+				$("#search").live("click",function(){
+					$(this).select();	
+				});
+				
+			});
+			
+			$('#depID').tree({
+				onClick: function(node){
+					$("#departmentName").val(node.text).attr("data-id",node.id);号
+				}
+			});
+
+		
+			function saveLandmark(){
+				
+				var departmentName = $("#departmentName").val();
+				var departmentId = $("#departmentName").attr("data-id");
+				var landmarkName = $.trim($("#landmarkName").val());
+				var lat = $("#latitude").val();
+				var lng = $("#longitude").val();
+				var address = $("#address").text();
+				
+				if(departmentName == ""){
+					$("#showMsg").text("* 部门必须选择");
+					return;
+				}
+				
+				if(landmarkName == ""){
+					$("#showMsg").text("* 地标名称必须填写");
+					$("#landmarkName").focus();
+					return;
+				}
+				
+				if(lat == ""){
+					$("#showMsg").text("* 必须标注地标(参照温馨提示)");
+					return;	
+				}
+				
+				if(op == "add"){
+					$.post("../service/addLandmark.php",					
+						{landmarkName:landmarkName,lat:lat,lng:lng,departmentId:departmentId,address:address},
+						function(data,status){
+							
+							var rows = eval(data);
+							
+							if(rows=="200"){							
+								alert("标注添加成功");
+								window.close();
+							}else if(rows=="1002"){						
+								$("#showMsg").text("* 该地标已经存在");
+								$("#landmarkName").select();
+							}else{
+								$("#showMsg").text("* 系统错误，添加地标失败，请重试");
+							}
+						}
+						
+					);
+				}else if(op == "update"){
+					var id = $("#updateId").attr("data-id");
+					$.post("../service/updateLandmark.php",
+						{landmarkName:landmarkName,lat:lat,lng:lng,departmentId:departmentId,id:id,address:address},
+						function(data,status){
+							
+							var rows = eval(data);
+							
+							if(rows=="200"){							
+							//	alert("标注修改成功");
+								window.close();
+							}else if(rows=="1002"){						
+								$("#showMsg").text("* 该地标已经存在");
+								$("#landmarkName").select();
+							}else{
+								$("#showMsg").text("* 系统错误，添加地标失败，请重试");
+							}
+						}
+						
+					);
+				}
+				
+				
+				
+				
+			}
+			
+			function freshOpener(){
+				window.close();
+			}
+			
+			
+	</script>
+
+
+	
+
+</body>
+</html>

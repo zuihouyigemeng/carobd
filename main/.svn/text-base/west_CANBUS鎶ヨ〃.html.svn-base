@@ -1,0 +1,112 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Complex Layout - jQuery EasyUI Demo</title>
+<link rel="stylesheet" type="text/css"
+	href="../themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+<link rel="stylesheet" type="text/css" href="../demo.css">
+<script type="text/javascript" src="../jquery.min.js"></script>
+<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body style="padding: 0px;">
+	<div id="p" class="easyui-panel" title="车辆列表"
+		style="width: 250px; height: 250px; padding: 0px;">
+		<table border="0" cellspacing="0" cellpadding="1">
+			<tbody>
+				<tr height="10px"></tr>
+				<tr>
+					<td><span>开始时间</span>
+					</td>
+					<td align="center"><input class="easyui-datebox"
+						data-options="formatter:myformatter,parser:myparser,panelHeight:145"
+						id='startDate'></input>
+					</td>
+				</tr>
+				<tr>
+					<td><span>结束时间</span>
+					</td>
+					<td align="center"><input class="easyui-datebox"
+						data-options="formatter:myformatter,parser:myparser,panelHeight:145" id='stopDate'></input>
+					</td>
+				</tr>
+				<script type="text/javascript">
+							function myformatter(date){
+								var y = date.getFullYear();
+								var m = date.getMonth()+1;
+								var d = date.getDate();
+								return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+							}
+							function myparser(s){
+								if (!s) return new Date();
+								var ss = (s.split('-'));
+								var y = parseInt(ss[0],10);
+								var m = parseInt(ss[1],10);
+								var d = parseInt(ss[2],10);
+								if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+									return new Date(y,m-1,d);
+								} else {
+									return new Date();
+								}
+							}
+						</script>
+				<tr height="10px"></tr>
+				<tr>
+					<td align="center" colspan=2><a href="#"
+						class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+						style="width: 80px" onclick="javascript:search1()">查询</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script type="text/javascript">
+	          var tabIndex;
+		 function search1(){
+	  		//	alert("search!");
+				deviceArr=window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  			alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			var startDate=$('#startDate').datebox('getValue')+" 00:00:00";
+	  		//	alert(startDate);
+	  			
+	  			var stopDate=$('#stopDate').datebox('getValue') +" 23:59:59";
+	  		//	alert(stopDate);
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  		//	alert("ppppp");
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		
+		
+	</script>
+</body>
+</html>

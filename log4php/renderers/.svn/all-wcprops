@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/renderers
+END
+LoggerRendererDefault.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/renderers/LoggerRendererDefault.php
+END
+LoggerRendererObject.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/renderers/LoggerRendererObject.php
+END
+LoggerRendererMap.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/renderers/LoggerRendererMap.php
+END
+LoggerRendererException.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/renderers/LoggerRendererException.php
+END

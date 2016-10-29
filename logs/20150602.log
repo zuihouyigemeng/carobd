@@ -1,0 +1,477 @@
+2015-06-02 08:27:13,----------------departments:-----------defDep:1003
+2015-06-02 08:27:13,----------------departments:-----------id:1003
+2015-06-02 08:27:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 08:27:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 08:27:13,----------------departments:-----------defDep:1003
+2015-06-02 08:27:13,----------------departments:-----------id:1003
+2015-06-02 08:27:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 08:27:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 08:27:14,----------------departments:-----------defDep:1003
+2015-06-02 08:27:14,----------------departments:-----------id:1003
+2015-06-02 08:27:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 08:27:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 08:27:14,----------------departments:-----------defDep:1003
+2015-06-02 08:27:14,----------------departments:-----------id:1003
+2015-06-02 08:27:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 08:27:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 08:27:16,----------------departments:-----------defDep:1003
+2015-06-02 08:27:16,----------------departments:-----------id:1003
+2015-06-02 08:27:16,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-06-02 08:27:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-06-02 08:27:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-06-02 08:27:17,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 08:28:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 08:29:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 08:30:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 08:31:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 08:32:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 14:23:35,----------------departments:-----------defDep:1003
+2015-06-02 14:23:35,----------------departments:-----------id:1003
+2015-06-02 14:23:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:35,----------------departments:-----------defDep:1003
+2015-06-02 14:23:35,----------------departments:-----------id:1003
+2015-06-02 14:23:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:36,----------------departments:-----------defDep:1003
+2015-06-02 14:23:36,----------------departments:-----------id:1003
+2015-06-02 14:23:36,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:36,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:36,----------------departments:-----------defDep:1003
+2015-06-02 14:23:36,----------------departments:-----------id:1003
+2015-06-02 14:23:36,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:36,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:39,----------------departments:-----------defDep:1003
+2015-06-02 14:23:39,----------------departments:-----------id:1003
+2015-06-02 14:23:39,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:39,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:39,----------------departments:-----------defDep:1003
+2015-06-02 14:23:39,----------------departments:-----------id:1003
+2015-06-02 14:23:39,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:39,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:39,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 14:23:41,----------------departments:-----------defDep:1003
+2015-06-02 14:23:41,----------------departments:-----------defDep:1003
+2015-06-02 14:23:41,----------------departments:-----------id:1003
+2015-06-02 14:23:41,----------------departments:-----------id:1003
+2015-06-02 14:23:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:-----------defDep:1003
+2015-06-02 14:23:41,----------------departments:-----------id:1003
+2015-06-02 14:23:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:-----------defDep:1003
+2015-06-02 14:23:41,----------------departments:-----------id:1003
+2015-06-02 14:23:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:23:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:46,----------------departments:-----------defDep:1003
+2015-06-02 14:24:46,----------------departments:-----------id:1003
+2015-06-02 14:24:46,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:46,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:-----------defDep:1003
+2015-06-02 14:24:47,----------------departments:-----------id:1003
+2015-06-02 14:24:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:-----------defDep:1003
+2015-06-02 14:24:47,----------------departments:-----------id:1003
+2015-06-02 14:24:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:-----------defDep:1003
+2015-06-02 14:24:47,----------------departments:-----------id:1003
+2015-06-02 14:24:47,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:48,----------------departments:-----------defDep:1003
+2015-06-02 14:24:48,----------------departments:-----------id:1003
+2015-06-02 14:24:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:48,----------------departments:-----------defDep:1003
+2015-06-02 14:24:48,----------------departments:-----------id:1003
+2015-06-02 14:24:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:55,----------------departments:-----------defDep:1003
+2015-06-02 14:24:55,----------------departments:-----------id:1003
+2015-06-02 14:24:55,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:55,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:55,----------------departments:-----------defDep:1003
+2015-06-02 14:24:55,----------------departments:-----------id:1003
+2015-06-02 14:24:55,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:55,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:56,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 14:24:59,----------------departments:-----------defDep:1003
+2015-06-02 14:24:59,----------------departments:-----------id:1003
+2015-06-02 14:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:-----------defDep:1003
+2015-06-02 14:24:59,----------------departments:-----------id:1003
+2015-06-02 14:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:-----------defDep:1003
+2015-06-02 14:24:59,----------------departments:-----------defDep:1003
+2015-06-02 14:24:59,----------------departments:-----------id:1003
+2015-06-02 14:24:59,----------------departments:-----------id:1003
+2015-06-02 14:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:24:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:22,----------------departments:-----------defDep:1003
+2015-06-02 14:28:22,----------------departments:-----------id:1003
+2015-06-02 14:28:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:-----------defDep:1003
+2015-06-02 14:28:23,----------------departments:-----------id:1003
+2015-06-02 14:28:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:-----------defDep:1003
+2015-06-02 14:28:23,----------------departments:-----------id:1003
+2015-06-02 14:28:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:-----------defDep:1003
+2015-06-02 14:28:23,----------------departments:-----------id:1003
+2015-06-02 14:28:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:-----------defDep:1003
+2015-06-02 14:28:41,----------------departments:-----------id:1003
+2015-06-02 14:28:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:-----------defDep:1003
+2015-06-02 14:28:41,----------------departments:-----------id:1003
+2015-06-02 14:28:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:-----------defDep:1003
+2015-06-02 14:28:41,----------------departments:-----------id:1003
+2015-06-02 14:28:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:-----------defDep:1003
+2015-06-02 14:28:41,----------------departments:-----------id:1003
+2015-06-02 14:28:41,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:28:41,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:29:04,----------------departments:-----------defDep:1003
+2015-06-02 14:29:04,----------------departments:-----------id:1003
+2015-06-02 14:29:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:29:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:29:04,----------------departments:-----------defDep:1003
+2015-06-02 14:29:04,----------------departments:-----------id:1003
+2015-06-02 14:29:04,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:29:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:29:08,----------------departments:-----------defDep:1003
+2015-06-02 14:29:08,----------------departments:-----------id:1003
+2015-06-02 14:29:08,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 14:29:08,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 14:29:08,-----------vehicles4dep-----sql:------select * from(
+				select 
+					c.`name` as customerName,
+					dm.nickName,
+					d.registerKey,
+					d.deviceID,
+					v.vin,
+					d.d_esn,
+					o.name as depName,
+					v.licenseNumber,
+					l.ign,l.onlineStatus,
+					l.address_num,
+					l.baidu_latitude as latitude ,
+					l.baidu_longitude as longitude,
+					l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as `time` ,
+					(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus 
+				from 
+					VehicleInfo v ,
+					provision_obd.Devices d,
+					Devices_MT dm,
+					IOV_demo.Opm_Organ o,
+					obd_demo.LocationStatus l,
+					Customers c  
+				
+				where 
+					d.deviceID=dm.deviceID 
+					and dm.vin=v.vin 
+					and d.depID=o.id 
+					and d.depID  in (1192,1198,1199,1200,1201,1202,1203,1206,1003) 
+					and d.deviceID=l.deviceID  
+					and dm.customerID=c.id) b 
+			
+			where  b.licenseNumber like '%6265%' or b.d_esn like '%6265%' limit 0,10
+2015-06-02 14:30:09,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (725) and d.deviceID=l.deviceID  
+2015-06-02 14:31:09,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (725) and d.deviceID=l.deviceID  
+2015-06-02 14:32:11,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (725) and d.deviceID=l.deviceID  
+2015-06-02 14:33:22,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (725) and d.deviceID=l.deviceID  
+2015-06-02 14:34:27,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (725) and d.deviceID=l.deviceID  
+2015-06-02 15:28:48,----------------departments:-----------defDep:1003
+2015-06-02 15:28:48,----------------departments:-----------id:1003
+2015-06-02 15:28:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:28:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:28:56,----------------departments:-----------defDep:1003
+2015-06-02 15:28:56,----------------departments:-----------id:1003
+2015-06-02 15:28:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:28:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:28:57,----------------departments:-----------defDep:1003
+2015-06-02 15:28:57,----------------departments:-----------id:1003
+2015-06-02 15:28:57,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:28:57,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:28:58,----------------departments:-----------defDep:1003
+2015-06-02 15:28:58,----------------departments:-----------id:1003
+2015-06-02 15:28:58,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:28:58,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:28:58,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:29:20,----------------departments:-----------defDep:1003
+2015-06-02 15:29:20,----------------departments:-----------id:1003
+2015-06-02 15:29:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:29:20,----------------departments:-----------defDep:1003
+2015-06-02 15:29:20,----------------departments:-----------id:1003
+2015-06-02 15:29:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:29:20,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 15:29:26,----------------departments:-----------defDep:1003
+2015-06-02 15:29:26,----------------departments:-----------id:1003
+2015-06-02 15:29:26,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:26,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:-----------defDep:1003
+2015-06-02 15:29:27,----------------departments:-----------id:1003
+2015-06-02 15:29:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:-----------defDep:1003
+2015-06-02 15:29:27,----------------departments:-----------id:1003
+2015-06-02 15:29:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:-----------defDep:1003
+2015-06-02 15:29:27,----------------departments:-----------id:1003
+2015-06-02 15:29:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:29:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:12,----------------departments:-----------defDep:1003
+2015-06-02 15:31:12,----------------departments:-----------id:1003
+2015-06-02 15:31:12,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:12,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:12,----------------departments:-----------defDep:1003
+2015-06-02 15:31:12,----------------departments:-----------id:1003
+2015-06-02 15:31:12,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:12,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:15,----------------departments:-----------defDep:1003
+2015-06-02 15:31:15,----------------departments:-----------id:1003
+2015-06-02 15:31:15,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:15,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:15,----------------departments:-----------defDep:1003
+2015-06-02 15:31:15,----------------departments:-----------id:1003
+2015-06-02 15:31:15,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:15,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:16,----------------departments:-----------defDep:1003
+2015-06-02 15:31:16,----------------departments:-----------id:1003
+2015-06-02 15:31:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:16,----------------departments:-----------defDep:1003
+2015-06-02 15:31:16,----------------departments:-----------id:1003
+2015-06-02 15:31:16,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:16,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:16,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 15:31:19,----------------departments:-----------defDep:1003
+2015-06-02 15:31:19,----------------departments:-----------id:1003
+2015-06-02 15:31:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:19,----------------departments:-----------defDep:1003
+2015-06-02 15:31:19,----------------departments:-----------id:1003
+2015-06-02 15:31:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:19,----------------departments:-----------defDep:1003
+2015-06-02 15:31:19,----------------departments:-----------id:1003
+2015-06-02 15:31:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:20,----------------departments:-----------defDep:1003
+2015-06-02 15:31:20,----------------departments:-----------id:1003
+2015-06-02 15:31:20,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:20,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:56,----------------departments:-----------defDep:1003
+2015-06-02 15:31:56,----------------departments:-----------id:1003
+2015-06-02 15:31:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:56,----------------departments:-----------defDep:1003
+2015-06-02 15:31:56,----------------departments:-----------id:1003
+2015-06-02 15:31:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:58,----------------departments:-----------defDep:1003
+2015-06-02 15:31:58,----------------departments:-----------id:1003
+2015-06-02 15:31:58,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:58,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:-----------defDep:1003
+2015-06-02 15:31:59,----------------departments:-----------id:1003
+2015-06-02 15:31:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:-----------defDep:1003
+2015-06-02 15:31:59,----------------departments:-----------id:1003
+2015-06-02 15:31:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:-----------defDep:1003
+2015-06-02 15:31:59,----------------departments:-----------id:1003
+2015-06-02 15:31:59,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:31:59,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:31:59,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 15:32:02,----------------departments:-----------defDep:1003
+2015-06-02 15:32:02,----------------departments:-----------defDep:1003
+2015-06-02 15:32:02,----------------departments:-----------id:1003
+2015-06-02 15:32:02,----------------departments:-----------id:1003
+2015-06-02 15:32:02,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:-----------defDep:1003
+2015-06-02 15:32:02,----------------departments:-----------id:1003
+2015-06-02 15:32:02,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:-----------defDep:1003
+2015-06-02 15:32:02,----------------departments:-----------id:1003
+2015-06-02 15:32:02,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:02,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:54,----------------departments:-----------defDep:1003
+2015-06-02 15:32:54,----------------departments:-----------id:1003
+2015-06-02 15:32:54,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:54,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:54,----------------departments:-----------defDep:1003
+2015-06-02 15:32:54,----------------departments:-----------id:1003
+2015-06-02 15:32:54,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:54,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:-----------defDep:1003
+2015-06-02 15:32:56,----------------departments:-----------defDep:1003
+2015-06-02 15:32:56,----------------departments:-----------id:1003
+2015-06-02 15:32:56,----------------departments:-----------id:1003
+2015-06-02 15:32:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:-----------defDep:1003
+2015-06-02 15:32:56,----------------departments:-----------defDep:1003
+2015-06-02 15:32:56,----------------departments:-----------id:1003
+2015-06-02 15:32:56,----------------departments:-----------id:1003
+2015-06-02 15:32:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:56,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:57,----------------departments:-----------defDep:1003
+2015-06-02 15:32:57,----------------departments:-----------id:1003
+2015-06-02 15:32:57,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:57,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:32:57,----------------departments:-----------defDep:1003
+2015-06-02 15:32:57,----------------departments:-----------id:1003
+2015-06-02 15:32:57,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:32:57,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:33:48,----------------departments:-----------defDep:1003
+2015-06-02 15:33:48,----------------departments:-----------id:1003
+2015-06-02 15:33:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:33:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:33:48,----------------departments:-----------defDep:1003
+2015-06-02 15:33:48,----------------departments:-----------id:1003
+2015-06-02 15:33:48,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:33:48,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:33:49,----------------departments:-----------defDep:1003
+2015-06-02 15:33:49,----------------departments:-----------id:1003
+2015-06-02 15:33:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:33:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:33:49,----------------departments:-----------defDep:1003
+2015-06-02 15:33:49,----------------departments:-----------id:1003
+2015-06-02 15:33:49,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:33:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:00,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2015-06-02 15:34:00,----------------departments:-----------defDep:1003
+2015-06-02 15:34:00,----------------departments:-----------id:1003
+2015-06-02 15:34:00,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:00,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:00,----------------departments:-----------defDep:1003
+2015-06-02 15:34:00,----------------departments:-----------id:1003
+2015-06-02 15:34:00,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:00,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:-----------defDep:1003
+2015-06-02 15:34:03,----------------departments:-----------defDep:1003
+2015-06-02 15:34:03,----------------departments:-----------id:1003
+2015-06-02 15:34:03,----------------departments:-----------id:1003
+2015-06-02 15:34:03,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:-----------defDep:1003
+2015-06-02 15:34:03,----------------departments:-----------id:1003
+2015-06-02 15:34:03,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:-----------defDep:1003
+2015-06-02 15:34:03,----------------departments:-----------id:1003
+2015-06-02 15:34:03,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:34:03,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:-----------defDep:1003
+2015-06-02 15:52:35,----------------departments:-----------id:1003
+2015-06-02 15:52:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:-----------defDep:1003
+2015-06-02 15:52:35,----------------departments:-----------id:1003
+2015-06-02 15:52:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:-----------defDep:1003
+2015-06-02 15:52:35,----------------departments:-----------id:1003
+2015-06-02 15:52:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:-----------defDep:1003
+2015-06-02 15:52:35,----------------departments:-----------id:1003
+2015-06-02 15:52:35,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:52:35,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:52:39,----------------departments:-----------defDep:1003
+2015-06-02 15:52:39,----------------departments:-----------id:1003
+2015-06-02 15:52:39,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-06-02 15:52:39,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-06-02 15:52:39,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-06-02 15:52:41,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:28,----------------departments:-----------defDep:1003
+2015-06-02 15:56:28,----------------departments:-----------id:1003
+2015-06-02 15:56:28,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:56:28,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:56:29,----------------departments:-----------defDep:1003
+2015-06-02 15:56:29,----------------departments:-----------id:1003
+2015-06-02 15:56:29,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 15:56:29,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 15:56:29,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:29,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:29,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:29,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:30,----------------departments:-----------defDep:1003
+2015-06-02 15:56:30,----------------departments:-----------id:1003
+2015-06-02 15:56:30,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-06-02 15:56:30,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-06-02 15:56:30,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-06-02 15:56:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:35,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (-1) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 15:56:36,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 21:07:13,----------------departments:-----------defDep:1003
+2015-06-02 21:07:13,----------------departments:-----------id:1003
+2015-06-02 21:07:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 21:07:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 21:07:13,----------------departments:-----------defDep:1003
+2015-06-02 21:07:13,----------------departments:-----------id:1003
+2015-06-02 21:07:13,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 21:07:13,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 21:07:14,----------------departments:-----------defDep:1003
+2015-06-02 21:07:14,----------------departments:-----------id:1003
+2015-06-02 21:07:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 21:07:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 21:07:14,----------------departments:-----------defDep:1003
+2015-06-02 21:07:14,----------------departments:-----------id:1003
+2015-06-02 21:07:14,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2015-06-02 21:07:14,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2015-06-02 21:07:19,----------------departments:-----------defDep:1003
+2015-06-02 21:07:19,----------------departments:-----------id:1003
+2015-06-02 21:07:19,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2015-06-02 21:07:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2015-06-02 21:07:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2015-06-02 21:07:21,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time ,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1206) and d.deviceID=l.deviceID  and dm.customerID=c.id limit 0,10
+2015-06-02 21:08:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:09:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:10:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:11:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:12:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:13:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:14:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  
+2015-06-02 21:15:15,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (727) and d.deviceID=l.deviceID  

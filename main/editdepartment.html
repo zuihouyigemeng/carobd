@@ -1,0 +1,167 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>编辑部门信息</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body  onunload="window.opener.fresh()" >	
+
+			
+		
+		<div class="easyui-accordion" style="width:400px;height:300px">
+		
+		
+	
+		<div title="部门管理"  style="overflow:auto;padding:10px;">
+				
+		
+					
+	
+					
+				<form id="ff" method="post">
+                
+                    <input id="id" type="hidden" name="id"/>
+                    <input id="parentId" type="hidden" name="parentId"/>
+                    
+		<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>部门名称:</b></td>
+					<td><input class="easyui-validatebox textbox" id="name" style="text-align:center;border:1;text-align:center;" type="text" name="name" value=""  maxlength="10" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>父部门名称:</b></td>
+					<td><input class="easyui-validatebox textbox" id="parent" style="text-align:center;border:1;" type="text" name="name" value=""   disabled="disabled"></input></td>
+
+				</tr>
+
+			</table>
+			</form>
+			
+			
+			<script>
+			
+			//此函数得到传递过来的值，并进行解析，保存到对象theRequest中。
+			function GetRequest() {  
+			   var url = location.search; //获取url中"?"符后的字串  
+			   var theRequest = new Object();  
+			   if (url.indexOf("?") != -1) {  
+				  var str = url.substr(1);  
+				  strs = str.split("&");  
+				  for(var i = 0; i < strs.length; i ++) {  
+					 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+				  }  
+			   }  
+			   return theRequest;  
+			}
+			
+			
+			var Request = new Object();  
+			Request = GetRequest();
+			
+			var id = decodeURI(decodeURI(Request['id']));
+			var name = decodeURI(decodeURI(Request['name']));
+			var parentId = decodeURI(decodeURI(Request['parentId']));
+			var parentName = decodeURI(decodeURI(Request['parentName']));
+			
+			
+			$("#name").val(name);
+			$("#parent").val(parentName);
+			
+			$("#id").val(id);
+			$("#parentId").val(parentId);
+			
+			
+			
+			//alert(id+"="+name+"="+parentId+"="+parentName);
+			
+			/*
+			    var query = location.search.substring(1);
+				//alert(query);
+			    var values= query.split("&");
+			    for(var i = 0; i < values.length; i++) {
+			        var pos = values[i].indexOf('=');
+			        if (pos == -1) continue;
+			        var paramname = values[i].substring(0, pos);
+			        var value = values[i].substring(pos+1);
+			        
+			    }
+		     
+			   
+	$.post("../../zend_obd/jsonAPI/customerID.php",
+			{
+			id:value
+		
+			},
+			function (data,status){
+				var rows = eval(data);
+				
+				
+				$("#name").val(rows[0].name);
+				$("#parent").val(rows[0].parentName);
+				$("#lon").val(rows[0].lon);
+				$("#lat").val(rows[0].lat);				
+			});
+
+	 */
+
+		function show_set(){
+			var one = $("#name").val();
+			if(one==""){
+				alert("请输入客户名称!");
+				return ;
+			}
+			
+			$.post("../service/updata_department.php",
+				{id:id,name:one,parentId:parentId,parentName:parentName},
+				function(data,status){
+					
+					var rows = eval(data);
+					
+					if(rows=="200"){
+						//opener.location.reload();//添加部门成功之后刷新父窗口，加载出新添加的数据
+						alert("修改部门信息成功");
+						window.close();
+					}else if(rows=="1002"){
+						alert("该部门已经存在！");
+					}
+					
+				});
+		}
+		
+		
+</script>
+					
+					
+<table>	
+<tr>
+<td width = 100px></td>
+<td width = 200px align = center>	
+		<input type="button" name="Submit" value="保存编辑" onclick="show_set();"/>
+		<input type="button" name="Submit" value="关闭" onclick="javascript:window.close();"/>
+</td>
+<td align = center>
+
+</td>
+</tr>
+</table>
+			
+		</div>
+
+		</div>
+
+
+	
+
+</body>
+</html>
+	
+	

@@ -1,0 +1,425 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service
+END
+fleetManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/fleetManager.php
+END
+updata_fleet.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updata_fleet.php
+END
+tj_daily.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/192/02_OBD/trunk/web/obd_web_1.0.8/service/tj_daily.php
+END
+setVolumeRate.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/setVolumeRate.php
+END
+alertAPI_.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alertAPI_.php
+END
+getModel.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/getModel.php
+END
+users.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/users.php
+END
+tj_speed_bak.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_speed_bak.php
+END
+resoveledAlertAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/resoveledAlertAPI.php
+END
+insert_departments.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/insert_departments.php
+END
+alert_1022.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alert_1022.php
+END
+test.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/test.php
+END
+resoveledAlert.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/resoveledAlert.php
+END
+administration.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/administration.php
+END
+tj_speedAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_speedAPI.php
+END
+updateBrand.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updateBrand.php
+END
+updateLandmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updateLandmark.php
+END
+tj_fuelChange.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_fuelChange.php
+END
+tripAlertAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tripAlertAPI.php
+END
+operatBrand.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/operatBrand.php
+END
+tj_canbusAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_canbusAPI.php
+END
+landmarkManage.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/landmarkManage.php
+END
+addLandmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/addLandmark.php
+END
+updateModel.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updateModel.php
+END
+users_c.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/users_c.php
+END
+operatLandmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/operatLandmark.php
+END
+assignCustomer.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/assignCustomer.php
+END
+alert_.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alert_.php
+END
+cancelAlertAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/cancelAlertAPI.php
+END
+getBrandLogo.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/getBrandLogo.php
+END
+tj_canbus.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_canbus.php
+END
+tj_fuelChangeAPI1.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_fuelChangeAPI1.php
+END
+add_department.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/add_department.php
+END
+deviceInfo.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/deviceInfo.php
+END
+tj_fuelChange1.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_fuelChange1.php
+END
+delete_department.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/delete_department.php
+END
+departments.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/departments.php
+END
+resource.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/resource.php
+END
+tj_speed.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_speed.php
+END
+departmentsManage.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/departmentsManage.php
+END
+vehicles.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/vehicles.php
+END
+getCar.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/getCar.php
+END
+alert.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alert.php
+END
+delete_landmark.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/delete_landmark.php
+END
+cancelAlert.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/cancelAlert.php
+END
+updateVehModelNumber.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updateVehModelNumber.php
+END
+vehicles4dep.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/vehicles4dep.php
+END
+delete_fleet.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/delete_fleet.php
+END
+fleshVehicles.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/fleshVehicles.php
+END
+users_c1.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/users_c1.php
+END
+organTime.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/organTime.php
+END
+tj_fuelChangeAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_fuelChangeAPI.php
+END
+locations.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/locations.php
+END
+addBrand.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/addBrand.php
+END
+updata_department.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/updata_department.php
+END
+role.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/role.php
+END
+customer.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/customer.php
+END
+alertAPI.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alertAPI.php
+END
+addVehicleNumber.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/addVehicleNumber.php
+END
+outOfProvince.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/outOfProvince.php
+END
+alertAPI_1022.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/alertAPI_1022.php
+END
+organ.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/organ.php
+END
+addModel.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/addModel.php
+END
+deleteBrand.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/deleteBrand.php
+END
+tj_fuelChange_bak.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/tj_fuelChange_bak.php
+END
+deleteVehicleNumber.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/deleteVehicleNumber.php
+END
+insert_fleet.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/insert_fleet.php
+END
+deleteModel.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/deleteModel.php
+END
+getBrand.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/getBrand.php
+END
+vehicleNumber.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/service/vehicleNumber.php
+END

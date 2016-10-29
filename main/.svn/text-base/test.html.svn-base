@@ -1,0 +1,7 @@
+<html>
+
+aaaaabbbb
+<script type="text/javascript" >
+alert(window.opener.window.curMapType);
+</script>
+</html>

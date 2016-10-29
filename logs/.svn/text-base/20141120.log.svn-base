@@ -1,0 +1,209 @@
+2014-11-20 13:15:42,----------------departments:-----------defDep:1003
+2014-11-20 13:15:42,----------------departments:-----------id:1003
+2014-11-20 13:15:42,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:15:42,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,----------------departments:-----------defDep:1003
+2014-11-20 13:15:42,----------------departments:-----------id:1003
+2014-11-20 13:15:42,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:15:42,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-11-20 13:15:42,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-11-20 13:15:53,----------------departments:-----------defDep:1003
+2014-11-20 13:15:53,----------------departments:-----------id:1003
+2014-11-20 13:15:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:15:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:15:53,----------------departments:-----------defDep:1003
+2014-11-20 13:15:53,----------------departments:-----------id:1003
+2014-11-20 13:15:53,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:15:53,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:15:53,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2014-11-20 13:15:53,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2014-11-20 13:15:58,----------------opType:------1
+2014-11-20 13:15:58,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:15:59,----------------opType:------1
+2014-11-20 13:15:59,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:16:00,----------------opType:------1
+2014-11-20 13:16:00,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:16:00,----------------opType:------1
+2014-11-20 13:16:00,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:16:00,----------------opType:------1
+2014-11-20 13:16:00,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:16:01,----------------opType:------1
+2014-11-20 13:16:01,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role where name not like '%客户%'  order by id 
+2014-11-20 13:16:18,----------------departments:-----------defDep:1003
+2014-11-20 13:16:18,----------------departments:-----------id:1003
+2014-11-20 13:16:18,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:-----------defDep:1003
+2014-11-20 13:16:18,----------------departments:-----------id:1003
+2014-11-20 13:16:18,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:-----------defDep:1003
+2014-11-20 13:16:18,----------------departments:-----------id:1003
+2014-11-20 13:16:18,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:-----------defDep:1003
+2014-11-20 13:16:18,----------------departments:-----------id:1003
+2014-11-20 13:16:18,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:18,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:-----------defDep:1003
+2014-11-20 13:16:19,----------------departments:-----------id:1003
+2014-11-20 13:16:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:-----------defDep:1003
+2014-11-20 13:16:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:-----------id:1003
+2014-11-20 13:16:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:-----------defDep:1003
+2014-11-20 13:16:19,----------------departments:-----------id:1003
+2014-11-20 13:16:19,----------------departments:-----------defDep:1003
+2014-11-20 13:16:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:-----------id:1003
+2014-11-20 13:16:19,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:19,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:19,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId, oo.name as depName from  Users_Admin  ua, Opm_User_Role ou, Opm_Role role, Customers oo   where ua.userID=ou.userID and ou.roleId=role.id and ua.organId=1077 and ua.organId=oo.id and ua.iscustomer=1
+2014-11-20 13:16:19,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId, oo.name as depName from  Users_Admin  ua, Opm_User_Role ou, Opm_Role role, Customers oo   where ua.userID=ou.userID and ou.roleId=role.id and ua.organId=1077 and ua.organId=oo.id and ua.iscustomer=1
+2014-11-20 13:16:21,----------------departments:-----------defDep:1003
+2014-11-20 13:16:21,----------------departments:-----------id:1003
+2014-11-20 13:16:21,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:-----------defDep:1003
+2014-11-20 13:16:21,----------------departments:-----------id:1003
+2014-11-20 13:16:21,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:-----------defDep:1003
+2014-11-20 13:16:21,----------------departments:-----------id:1003
+2014-11-20 13:16:21,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:-----------defDep:1003
+2014-11-20 13:16:21,----------------departments:-----------id:1003
+2014-11-20 13:16:21,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:21,----------------opType:------2
+2014-11-20 13:16:21,----------------resource:------select id,name from obd_Resource where parent_menu_id=0
+2014-11-20 13:16:21,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=2 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=3 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=5 
+2014-11-20 13:16:21,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=5 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=1 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=26 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=16 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=17 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=18 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=19 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=20 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=25 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=6 
+2014-11-20 13:16:21,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=6 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=8 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=9 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=10 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=11 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=12 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=13 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=14 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=23 
+2014-11-20 13:16:21,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=23 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=21 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=24 
+2014-11-20 13:16:21,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=27 
+2014-11-20 13:16:21,----------------opType:------2
+2014-11-20 13:16:21,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:21,----------------opType:------2
+2014-11-20 13:16:21,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:22,----------------opType:------2
+2014-11-20 13:16:22,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:22,----------------departments:-----------defDep:1003
+2014-11-20 13:16:22,----------------departments:-----------id:1003
+2014-11-20 13:16:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:22,----------------departments:-----------defDep:1003
+2014-11-20 13:16:22,----------------departments:-----------id:1003
+2014-11-20 13:16:22,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:22,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:22,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2014-11-20 13:16:22,----------------sql:------select ua.userID,ua.email,ua.username,ua.smsNum,ua.fullname,role.name as roleName,role.id as roleId,oo.name as depName from  Users_Admin  ua,Opm_User_Role our,Opm_Role role,Opm_Organ oo  where ua.userID=our.userID and our.roleId=role.id and ua.organId=1003 and ua.isCustomer=0 and our.organId=oo.id
+2014-11-20 13:16:22,----------------resource:------select id,name from obd_Resource where parent_menu_id=0
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=2 
+2014-11-20 13:16:22,----------------opType:------2
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=3 
+2014-11-20 13:16:22,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=5 
+2014-11-20 13:16:22,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=5 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=1 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=26 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=16 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=17 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=18 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=19 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=20 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=25 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=6 
+2014-11-20 13:16:22,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=6 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=8 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=9 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=10 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=11 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=12 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=13 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=14 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=23 
+2014-11-20 13:16:22,----------------getChildren:------select id,name  from obd_Resource where parent_menu_id=23 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=21 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=24 
+2014-11-20 13:16:22,----------------departments:------select count(*)  from obd_Resource where parent_menu_id=27 
+2014-11-20 13:16:22,----------------opType:------2
+2014-11-20 13:16:22,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:22,----------------opType:------2
+2014-11-20 13:16:22,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:23,----------------opType:------2
+2014-11-20 13:16:23,----------------sql:------select  id as roleId,name as roleName   from  Opm_Role   order by id 
+2014-11-20 13:16:23,----------------departments:-----------defDep:1003
+2014-11-20 13:16:23,----------------departments:-----------id:1003
+2014-11-20 13:16:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:23,----------------departments:-----------defDep:1003
+2014-11-20 13:16:23,----------------departments:-----------id:1003
+2014-11-20 13:16:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000 and type=1
+2014-11-20 13:16:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000 and type=1
+2014-11-20 13:16:23,----------------departments:-----------defDep:1003
+2014-11-20 13:16:23,----------------departments:-----------defDep:1003
+2014-11-20 13:16:23,----------------departments:-----------id:1003
+2014-11-20 13:16:23,----------------departments:-----------id:1003
+2014-11-20 13:16:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:23,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:23,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:-----------defDep:1003
+2014-11-20 13:16:24,----------------departments:-----------id:1003
+2014-11-20 13:16:24,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:-----------defDep:1003
+2014-11-20 13:16:24,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:-----------id:1003
+2014-11-20 13:16:24,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:-----------defDep:1003
+2014-11-20 13:16:24,----------------departments:-----------id:1003
+2014-11-20 13:16:24,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:24,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:-----------defDep:1003
+2014-11-20 13:16:25,----------------departments:-----------id:1003
+2014-11-20 13:16:25,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:-----------defDep:1003
+2014-11-20 13:16:25,----------------departments:-----------id:1003
+2014-11-20 13:16:25,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:-----------defDep:1003
+2014-11-20 13:16:25,----------------departments:-----------id:1003
+2014-11-20 13:16:25,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-11-20 13:16:25,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000

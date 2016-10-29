@@ -1,0 +1,9 @@
+div {
+	scrollbar-base-color: rgb(255, 255, 255); scrollbar-face-color: rgb(204, 204, 204); scrollbar-3dlight-color: rgb(255, 255, 255); scrollbar-shadow-color: rgb(204, 204, 204); scrollbar-highlight-color: rgb(255, 255, 255); scrollbar-darkshadow-color: rgb(255, 255, 255); scrollbar-arrow-color: rgb(51, 51, 51); scrollbar-track-color: rgb(255, 255, 255);
+}
+body {
+	scrollbar-base-color: rgb(255, 255, 255); scrollbar-face-color: rgb(204, 204, 204); scrollbar-3dlight-color: rgb(255, 255, 255); scrollbar-shadow-color: rgb(204, 204, 204); scrollbar-highlight-color: rgb(255, 255, 255); scrollbar-darkshadow-color: rgb(255, 255, 255); scrollbar-arrow-color: rgb(51, 51, 51); scrollbar-track-color: rgb(255, 255, 255);
+}
+html {
+	scrollbar-base-color: rgb(255, 255, 255); scrollbar-face-color: rgb(204, 204, 204); scrollbar-3dlight-color: rgb(255, 255, 255); scrollbar-shadow-color: rgb(204, 204, 204); scrollbar-highlight-color: rgb(255, 255, 255); scrollbar-darkshadow-color: rgb(255, 255, 255); scrollbar-arrow-color: rgb(51, 51, 51); scrollbar-track-color: rgb(255, 255, 255);
+}

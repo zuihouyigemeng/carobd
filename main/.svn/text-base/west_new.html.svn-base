@@ -1,0 +1,51 @@
+
+	<div id="p" class="easyui-panel" title="车辆列表"
+		style="width: 250px; height: 150px; padding: 0px;">
+		<table border="0" cellspacing="0" cellpadding="1">
+			<tbody>
+				<tr height="10px"></tr>
+				<tr>
+					<td><span>开始时间</span>
+					</td>
+					<td align="center"><input class="easyui-datebox"
+						data-options="formatter:myformatter,parser:myparser"
+						id='startDate'></input>
+					</td>
+				</tr>
+				<tr>
+					<td><span>结束时间</span>
+					</td>
+					<td align="center"><input class="easyui-datebox"
+						data-options="formatter:myformatter,parser:myparser" id='stopDate'></input>
+					</td>
+				</tr>
+				<script type="text/javascript">
+							function myformatter(date){
+								var y = date.getFullYear();
+								var m = date.getMonth()+1;
+								var d = date.getDate();
+								return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+							}
+							function myparser(s){
+								if (!s) return new Date();
+								var ss = (s.split('-'));
+								var y = parseInt(ss[0],10);
+								var m = parseInt(ss[1],10);
+								var d = parseInt(ss[2],10);
+								if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+									return new Date(y,m-1,d);
+								} else {
+									return new Date();
+								}
+							}
+						</script>
+				<tr height="10px"></tr>
+				<tr>
+					<td align="center" colspan=2><a href="#"
+						class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+						style="width: 80px" onclick="javascript:search1()">查询</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	

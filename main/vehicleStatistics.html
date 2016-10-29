@@ -1,0 +1,97 @@
+<div id="statisticsDlg" class="easyui-dialog" title="行程统计"  closed="true" >
+    <div id="main" style="height:300px">
+    </div>
+    	</div>
+    <script type="text/javascript">
+        // 路径配置
+         require.config({
+                 paths:{ 
+                     'echarts' : 'http://echarts.baidu.com/build/echarts',
+                     'echarts/chart/line' : 'http://echarts.baidu.com/build/echarts'
+                 }
+             });
+        
+        
+       
+        
+        
+        function getData(){
+        	  $.post("http://192.168.0.163/zend_obd/jsonAPI/driving_dist.php",
+            		  {
+            		 deviceID:'6C500CBD',time:'2014-07-01'
+            		  },
+            		  function(data,status){
+            			  alert("ppp");
+            			  var rows=eval(data);
+            			  var x_data=rows[0];
+            			  alert(x_data);
+            			  var y_data=rows[1];
+                          // 使用
+                          require(
+                              [
+                                  'echarts',
+                                  'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                              ],
+                              function (ec) {
+                                  // 基于准备好的dom，初始化echarts图表
+                                  var myChart = ec.init(document.getElementById('main')); 
+                                  
+                                  option = {
+                                  	    title : {
+                                  	        text: '汽车里程统计',
+                                  	        subtext: ''
+                                  	    },
+                                  	    tooltip : {
+                                  	        trigger: 'axis'
+                                  	    },
+                                  	    legend: {
+                                  	        data:['每日里程']
+                                  	    },
+                                  	    toolbox: {
+                                  	        show : true
+                                  	    },
+                                  	    calculable : true,
+                                  	    xAxis : [
+                                  	        {
+                                  	            type : 'category',
+                                  	            boundaryGap : false,
+                                  	            data : x_data
+                                  	        }
+                                  	    ],
+                                  	    yAxis : [
+                                  	        {
+                                  	            type : 'value',
+                                  	            axisLabel : {
+                                  	                formatter: '{value} KM'
+                                  	            }
+                                  	        }
+                                  	    ],
+                                  	    series : [
+                                  	        {
+                                  	            name:'当日里程',
+                                  	            type:'line',
+                                  	            data:y_data
+                                  	        }
+                                  	    ]
+                                  	};
+                          
+                                  // 为echarts对象加载数据 
+                                  myChart.setOption(option); 
+                              }
+                          ); 
+            			  
+            			  
+            			  
+            			  
+                        
+            			  
+        	  
+            		  });
+            		  
+            		  
+        	
+        
+       
+        }
+       
+    </script>

@@ -1,0 +1,170 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加车队</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body  onunload="window.opener.fresh()" >	
+
+		<!--<div class="easyui-accordion" style="width:200px;height:300px;float:left;">
+			<div title="部门列表"  style="overflow:auto;padding:10px;">
+                <div  style = "width:150px;float:left;">
+                
+                    <ul class="easyui-tree"   url="../service/add_department.php?defDep=<?php echo  $userVo->depID ?>"  data-options="animate:true,onlyLeafCheck:true"  id="depID">
+                    
+                    </ul>
+                
+                </div>
+            </div>
+		</div>-->
+		
+		<div class="easyui-accordion" style="width:400px;height:250px;float:left;">
+
+		<div title="车队信息"  style="overflow:auto;padding:10px;">
+	
+				<form id="ff" method="post">
+		<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>车队名称:</b></td>
+					<td><input class="easyui-validatebox textbox" id="name" style="text-align:center;border:1;text-align:center;" type="text" name="name" value=""  maxlength="10"></input></td>
+
+				</tr>
+                
+                
+                <tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>联系方式:</b></td>
+					<td><input class="easyui-validatebox textbox" id="tel" style="text-align:center;border:1;text-align:center;" type="text" name="name" value=""  maxlength="16"></input></td>
+
+				</tr>
+                
+                
+                <tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>地址:</b></td>
+					<td><input class="easyui-validatebox textbox" id="address" style="text-align:center;border:1;text-align:center;" type="text" name="name" value=""  maxlength="30"></input></td>
+
+				</tr>
+                
+                
+                
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>所属部门:</b></td>
+					<td><input class="easyui-validatebox textbox" id="parent" style="text-align:center;border:1;" disabled="disabled" type="text" name="name" value="" ></input>
+                    
+                    <input id="parentid" type="hidden" name="parentid"></input>
+                    
+                    </td>
+
+				</tr>
+
+			</table>
+			</form>
+			
+			
+<script>
+
+			/*$('#depID').tree({
+				onClick: function(node){
+					$("#parent").val(node.text);
+					$("#parentid").val(node.id);//保存父部门的id号
+				}
+			});*/
+			
+			//此函数得到传递过来的值，并进行解析，保存到对象theRequest中。
+			function GetRequest() {  
+			   var url = location.search; //获取url中"?"符后的字串  
+			 
+			   var theRequest = new Object();  
+			   if (url.indexOf("?") != -1) {  
+				  var str = url.substr(1);  
+				  strs = str.split("&");  
+				  for(var i = 0; i < strs.length; i ++) {  
+					 theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);  
+				  }  
+			   }  
+			   return theRequest;  
+			}
+			
+			
+			var Request = new Object();  
+			Request = GetRequest();
+			
+			var parentId = Request['parentId'];
+			var parentName = decodeURI(decodeURI(Request['parentName']));
+			$("#parentid").val(parentId);
+			$("#parent").val(parentName);
+			
+			function show_set(){
+			    
+				var parentName = $("#parent").val();
+			
+				if(parentName==""){
+					alert("请选择部门!");
+					return ;
+				}
+				
+				var name = $("#name").val();
+				if(name==""){
+					alert("请输入车队名称!");
+					return ;
+				}
+				
+				var parentId = $("#parentid").val();
+				var tel = $("#tel").val();
+				var address = $("#address").val();
+				
+				$.post("../service/insert_fleet.php",
+					{parentID:parentId,parentName:parentName,name:name,tel:tel,address:address},
+					function(data,status){
+						
+						var rows = eval(data);
+						
+						if(rows=="200"){							
+							//opener.location.reload();//添加部门成功之后刷新父窗口，加载出新添加的数据
+							alert("添加车队成功");
+							window.close();
+						}else if(rows=="1002"){						
+							alert("该车队已经存在！");
+						}
+					})
+			
+			}
+
+		
+		function freshOpener(){
+			window.close();
+		}
+		
+		
+</script>
+					
+					
+<table>	
+<tr>
+<td width = 100px></td>
+<td width = 200px align = center>	
+		<input type="button" name="Submit" value="保存编辑" onclick="show_set();"/>
+		<input type="button" name="Submit" value="关闭" onclick="freshOpener()"/>
+</td>
+<td align = center>
+
+</td>
+</tr>
+</table>
+			
+		
+</div>
+</div>
+	
+
+</body>
+</html>
+	
+	

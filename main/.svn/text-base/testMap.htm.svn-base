@@ -1,0 +1,228 @@
+
+
+<html>   
+<head>   
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../locale/easyui-lang-zh_CN.js"></script> 
+    <SCRIPT type="text/javascript" src="../jquery.layout.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="../jquery.layout.extend.js"></SCRIPT>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>  
+	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>  
+<title>历史行程</title>   
+<style type="text/css">   
+html{height:100%}   
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%;width:100%}   
+</style>   
+	<script>
+		function showAlert( obj){
+			alert (obj);
+		}
+		
+		function isValidGps(lat,lng){
+			return ((lat>+1e-5 && lat<=90.0)|| (lat<-1e-5 && lat >=-90.0)) && ((lng>+1e-5 && lng<=180.0)|| (lng<-1e-5 && lng >=-180.0));
+		}
+	</script>  
+	
+</head>   
+
+<body class="easyui-layout"  id="cc" >   
+<div data-options="region:'south',split:false" style="height:150px;width:100%">
+	<table id="dg" class="easyui-datagrid"  style="height:148px;width:1560px"
+						data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false">
+					<thead>
+						<tr>
+						
+			                <th data-options="field:'serverDate',width:200">日期</th>
+							<th data-options="field:'serverTime',width:200">时间</th>
+							<th data-options="field:'longitude',width:200">经度</th>
+							<th data-options="field:'latitude',width:200">纬度</th>
+							<th data-options="field:'address_num',width:500,align:'right'">地址</th>
+							<th data-options="field:'heading',width:100">方向</th>
+						
+						</tr>
+					</thead>
+				</table>	   
+</div>
+<div data-options="region:'center',iconCls:'icon-ok'" id="conterid" >
+
+  
+<div style="margin:20px 0 10px 0; position:absolute; z-index:10;  visibility:hidden">
+		<a id="Test1" href="#" class="easyui-linkbutton" onclick="JAVASCRIPT:onTest1();">Test1</a>  
+		<a id="Test2" href="#" class="easyui-linkbutton" onclick="javascript:">Test2</a>   
+</div>
+
+<div id="" style="width:450px;height:300px;top:0px;left:600px;  position:absolute; z-index:10; visibility:hidden">
+	<iframe id ="cvFrame" src="cvFrame.php" id="cvFrame" name="cvFrame" frameBorder=0 scrolling=yes ></iframe>
+</div>   
+
+
+<!-- 历史行程列表 -->
+
+<!-- 行程播放控制面板 -->
+
+
+<!-- 地图 -->	
+<div id="container" style="position:absolute; z-index:1"></div>  
+<script type="text/javascript">  
+
+function doSearch(){
+	var  textValue= $('#licenseNumber').val();
+	var searchType=$('#searchType').combobox('getValue');
+//	alert(searchType);
+	
+	var recent=$('#recent').combobox('getValue');;
+//	alert(recent);
+	
+	var startTime=$('#beginTimeV').datetimebox('getValue');
+	//alert(startTime);
+	
+	var stopTime=$('#endTimeV').datetimebox('getValue');
+	//alert($stopTime);
+	
+	if(startTime != null && startTime !=''){
+		if(stopTime ==null || stopTime==''){
+			alert("请输入结束时间！");
+			return;
+		}
+	}
+	
+	if(stopTime != null && stopTime !=''){
+		if(startTime ==null || startTime==''){
+			alert("请输入开始时间！");
+			return;
+		}
+	}
+	
+	if((startTime == null || startTime =='') &&(stopTime ==null || stopTime=='') ){
+			if(recent== "last3hr"){
+					var now =new Date();
+				    now.setHours(now.getHours()-3);
+				    startTime=now.format('yyyy-MM-dd hh:mm:ss');
+	                stopTime=new Date().format('yyyy-MM-dd hh:mm:ss');
+					
+			}
+			else if(recent== "last6hr"){
+				 var now =new Date();
+				    now.setHours(now.getHours()-6);
+				    startTime=now.format('yyyy-MM-dd hh:mm:ss');
+	                stopTime=new Date().format('yyyy-MM-dd hh:mm:ss');
+			}
+			else if(recent== "last12hr"){
+				    var now =new Date();
+				    now.setHours(now.getHours()-12);
+				    startTime=now.format('yyyy-MM-dd hh:mm:ss');
+	                stopTime=new Date().format('yyyy-MM-dd hh:mm:ss');
+			}
+			
+			else if(recent== "today"){
+				    var now =new Date();
+				    now.setHours(now.getHours()-24);
+				    startTime=now.format('yyyy-MM-dd hh:mm:ss');
+	                stopTime=new Date().format('yyyy-MM-dd hh:mm:ss');
+			}
+					
+	}
+	
+	//   alert("optype:"+searchType);
+	//   alert("opvalue:"+textValue);
+	 $.post("../service/deviceInfo.php",
+			  {
+				 optype:searchType,
+				 opvalue:textValue
+				 
+			  },
+			  function(data,status){
+			 // 	alert(data.length);
+				  var rows=eval(data);
+				  if(rows.length==0){
+				  	alert("没有数据！");
+				  }
+				  else{
+				  	glob_deviceID=rows[0].deviceID;
+				  //	 alert(_deviceID);
+				  	getTrackLineData(startTime,stopTime);
+				  	 
+				  }
+			
+				
+			  });
+	
+   
+	
+	
+}
+
+
+
+// 百度地图API功能
+var sContent =
+"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>15800892321【在线】</h4>" + 
+"定位：GPS（南）"+"时间：2014-06-22 10:22:05</br>"
++"位置：上海市浦东新区松涛路489号-a</br>"
++"<img  id='imgDemo1' src='../mapPic/trace.jpg' width='39' height='38' title='跟踪'  onclick='trace()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo2' src='../mapPic/playback.jpg' width='39' height='38' title='回放'  onclick='playback()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo3' src='../mapPic/alerts.jpg' width='39' height='38' title='告警'  onclick='alerts()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo4' src='../mapPic/infor.jpg' width='39' height='38' title='档案'  onclick='info()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo5' src='../mapPic/setting.jpg' width='39' height='38' title='设置'  onclick='setting()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo5' src='../mapPic/more.jpg' width='39' height='38' title='更多'  onclick='more()'  /> "
++"</div>";
+//var map = new BMap.Map("container");
+
+$(function(){
+    var map = new BMap.Map("container");
+	map.addControl(new BMap.NavigationControl());  
+	map.addControl(new BMap.ScaleControl());    
+	map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]}));    
+	//map.addControl(new BMap.OverviewMapControl());    
+	var point = new BMap.Point(121.58211, 31.20918);
+	var marker = new BMap.Marker(point);
+	map.centerAndZoom(point, 15);
+	map.addOverlay(marker);
+
+//var point = new BMap.Point(121.582123, 31.209193);
+//var marker = new BMap.Marker(point);
+//var infoWindow = new BMap.InfoWindow(sContent);  // 创建信息窗口对象
+//map.centerAndZoom(point, 15);
+//map.addOverlay(marker);
+
+})
+
+
+function testMapAPI(){
+	alert("testMapAPI");
+
+	return;
+}
+
+
+
+function onTest1(){
+	//displayTrackPoint_test(31.20918, 121.58211);
+	//displayTrackLine_test();
+	//testMapAPI();
+
+	//test_displayTrackPointAtOffset();
+	//testGPS2Baidu_Single();
+	//testGPS2Baidu_Multi();
+	//testGPS2Baidu();
+	//displayTrackLine1();
+}
+
+
+</script>  
+</div> 
+</body>   
+</html>

@@ -1,0 +1,305 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>出省设置</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body>	
+
+		<div  style="overflow:auto;padding:0px;">
+				
+			<div  style = "width:250px;float:left;right-margin:10px">
+			         <div id="p" class="easyui-panel" title="部门"  style="width:230px;height:500px;">
+				<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>"   data-options="animate:true,onlyLeafCheck:true"  id="depID">
+				
+				</ul>
+			         </div>
+			</div>
+					
+		<table id="dg" class="easyui-datagrid" title="出省设置(可有多个，但第一个开启的设置项生效)" style="width:1200px;height:500px"
+			data-options="
+			    rownumbers:true,
+				toolbar: '#tb',
+                iconCls: 'icon-edit',
+				singleSelect: true,
+				method: 'get',
+				onClickRow: onClickRow,
+                autoRowHeight:false,
+                pagination:true,
+                pageSize:10
+			">
+		<thead>
+			<tr>
+				<th data-options="field:'id',width:80,hidden:true">id</th>
+				<th data-options="field:'organId',width:250,hidden:true">部门id</th>
+				<th data-options="field:'depName',width:250,align:'right'">部门</th> 
+				<th data-options="field:'provinceId',width:200,
+						formatter:function(value,row){
+							return row.provinceName;
+						},
+						editor:{
+							type:'combobox',
+							options:{
+								valueField:'provinceId',
+								textField:'provinceName',
+								url:'../service/organ.php?opType=1',
+								required:true
+							}
+						}">省份</th>
+				<th data-options="field:'status',width:250,align:'center',editor:{type:'checkbox',options:{on:'on',off:'off'}}">开关</th>				
+			</tr>
+		</thead>
+	</table>
+	<div id="tb" style="height:auto">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()">新建</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true" onclick="removeit()">删除</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true" onclick="accept()">保存</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo',plain:true" onclick="reject()">取消</a>
+	<!-- <a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search',plain:true" onclick="getChanges()">GetChanges</a>   -->
+	</div>		
+			
+			
+		</div>
+
+		<script>
+		var depID='<?php echo  $userVo->depID ?>';
+		var depName='';
+		
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				$('#dg').datagrid('endEdit', editIndex);
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		function append(){
+			reject();
+			if(editIndex != undefined){
+				$('#dg').datagrid('rejectChanges');
+				editIndex = undefined;	
+			}
+			if (endEditing()){
+				$('#dg').datagrid('appendRow',{status:'1'});
+				editIndex = $('#dg').datagrid('getRows').length-1;
+				$('#dg').datagrid('selectRow', editIndex)
+						.datagrid('beginEdit', editIndex);
+				
+			}
+		}
+		function removeit(){
+			if (!confirm("确认要删除？")) {
+	            window.event.returnValue = false;
+				return;
+	        }
+			if (editIndex == undefined){return}
+			$('#dg').datagrid('cancelEdit', editIndex)
+					.datagrid('deleteRow', editIndex);
+			editIndex = undefined;
+			var rows = $('#dg').datagrid('getChanges','deleted');
+		//	alert("id:"+rows[0].id);
+			 $.post("../service/outOfProvince.php",
+					  {
+		               id:rows[0].id,
+		               opType:2
+					  },
+					  function(data,status){
+					 	if(data=='200'){
+					 		alert("删除成功");
+					 	}
+					 	
+			//		 	alert("url:"+url);
+						$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+					  
+					  });
+			
+		}
+		function accept(){
+			if (endEditing()){
+				var rows = $('#dg').datagrid('getChanges','inserted');
+			//	alert("inserted:"+rows.length);
+				if(rows.length>0){
+					
+				var curRows=$('#dg').datagrid('getRows');
+				
+				//alert("curRows"+curRows.length);
+					
+					var provinceId=rows[0].provinceId;
+					var sta=rows[0].status;
+					 $.post("../service/outOfProvince.php",
+									  {
+						              depID:depID,
+						              provinceId:provinceId,
+						              status:sta,
+						              opType:3
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("添加成功");
+									 	}									 	
+								//	 	alert("url:"+url);
+										$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+									  
+									  });
+				}
+				
+				var rows = $('#dg').datagrid('getChanges','updated');
+
+			//	alert("updated:"+rows.length);
+				if(rows.length>0){
+					var id=rows[0].id;
+				    var provinceId=rows[0].provinceId;
+					var sta0=rows[0].status;
+					$.post("../service/outOfProvince.php",
+									  {
+						                id:id,
+						                provinceId:provinceId,
+						                status:sta0,
+						                 opType:4
+									  },
+									  function(data,status){
+									 	if(data=='200'){
+									 		alert("修改成功");
+									 	}									 									 	
+									// 	alert("url:"+url);
+										$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData()); 
+									  
+									  });
+				}
+				
+				
+				//$('#dg').datagrid('acceptChanges');
+			}
+			
+			
+			
+			
+	
+
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		
+		
+		function getChanges(){
+			var rows = $('#dg').datagrid('getChanges');
+			alert(rows.length+' rows are changed!');
+		}
+		
+		
+		var url='../service/outOfProvince.php?opType=1&depID=';
+	//	alert("url:"+url+depID);
+		//$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+		
+		
+			$('#depID').tree({
+				onClick: function(node){
+					depID=node.id;
+					$('#dg').datagrid({   
+				    url:'../service/outOfProvince.php?opType=1&depID='+node.id
+				}
+			);
+		
+			}
+		});
+			
+			$('#depID').tree({
+				onLoadSuccess: function(node, data){		
+					var node = $('#depID').tree('find', depID);
+					$('#depID').tree('select', node.target);
+				}
+			});
+			
+	function getData(){
+		var rows = [];
+		$.ajax({
+			type:"POST",
+			url:url+depID,
+			async: false,
+			success:function(data,status){
+				var d = JSON.parse(data);
+				var len = d.rows.length;
+				for(var i=0;i<len;i++){
+					var row = d.rows[i];
+					//console.info(row);
+					rows.push({		
+						provinceName: row.provinceName,				
+						depName: row.depName,
+						id: row.id,
+						organId: row.organId,
+						status: row.status,
+						provinceId: row.provinceId
+					});
+				}
+				
+			}
+		});
+		//console.info(rows);
+		return rows;
+	}
+	
+	function pagerFilter(data){
+		if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+			data = {
+				total: data.length,
+				rows: data
+			}
+		}
+		var custMan = $(this);
+		var opts = custMan.datagrid('options');
+		var pager = custMan.datagrid('getPager');
+		pager.pagination({
+			onSelectPage:function(pageNum, pageSize){
+				opts.pageNumber = pageNum;
+				opts.pageSize = pageSize;
+				pager.pagination('refresh',{
+					pageNumber:pageNum,
+					pageSize:pageSize
+				});
+				custMan.datagrid('loadData',data);
+			}
+		});
+		if (!data.originalRows){
+			data.originalRows = (data.rows);
+		}
+		var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+		var end = start + parseInt(opts.pageSize);
+		data.rows = (data.originalRows.slice(start, end));
+		return data;
+	}
+	
+	$(function(){
+		$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+	});
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

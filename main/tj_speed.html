@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body >	
+      
+	 <div style="width:1200px;height:540px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:1200px;height:250px">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:200">车牌号</th>
+				<th data-options="field:'customer',width:180">客户名称</th>
+				<th data-options="field:'ModelName',width:180">车型</th>
+			    <th data-options="field:'d_esn',width:180,hidden:false">终端号</th>
+				<th data-options="field:'sum_speed',width:180,hidden:false">超速次数</th>
+				<th data-options="field:'max_speed',width:180,hidden:false">最高速度(km/h)</th>
+				<th data-options="field:'deviceID',width:0,hidden:true">deviceID</th>
+			</tr>
+		</thead>
+	</table>
+	
+	 <table id="dg1" class="easyui-datagrid" title="详细清单" style="width:1200px;height:295px">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:200">车牌号</th>
+				<th data-options="field:'over_speed_time',width:200">超速时间</th>
+				<th data-options="field:'over_speed',width:180">最高速度(km/h)</th>
+			    <th data-options="field:'address',width:560,hidden:false">地址</th>
+				<th data-options="field:'deviceID',width:0,hidden:true">deviceID</th>
+			</tr>
+		</thead>
+	</table>
+	</div>
+	
+	
+              
+	<script type="text/javascript">
+	var glob_rows;
+	
+	/*function pagerFilter(data){
+		if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+			data = {
+				total: data.length,
+				rows: data
+			}
+		}
+		var dg = $(this);
+		var opts = dg.datagrid('options');
+		var pager = dg.datagrid('getPager');
+		pager.pagination({
+			onSelectPage:function(pageNum, pageSize){
+				opts.pageNumber = pageNum;
+				opts.pageSize = pageSize;
+				pager.pagination('refresh',{
+					pageNumber:pageNum,
+					pageSize:pageSize
+				});
+				dg.datagrid('loadData',data);
+			}
+		});
+		if (!data.originalRows){
+			data.originalRows = (data.rows);
+		}
+		var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+		var end = start + parseInt(opts.pageSize);
+		data.rows = (data.originalRows.slice(start, end));
+		return data;
+	}
+	
+	var toolbar = [{
+		text:'excel导出',
+		iconCls:'icon-trace',
+		handler:function(){	
+			  var url='../smarty/demo/speed_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+glob_deviceIDs+'&speed='+glob_speed+"&device="+glob_deviceID;
+		     //   alert(url);
+		         window.open(url,"_blank");
+			    }
+				
+	},{
+		text:'详细',
+		iconCls:'icon-playback',
+		handler:function(){
+			var selectRow=$('#dg').datagrid('getSelected');
+		if(selectRow==null){
+			alert("请单击车辆进行选择（最多1辆）！");
+			return;
+		}
+		
+		glob_deviceID=selectRow.deviceID;
+		url='../service/tj_speedAPI.php?opType=1&startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+selectRow.deviceID+'&speed='+glob_speed;
+	//	 alert(url);
+		 $('#dg1').datagrid({loadFilter:pagerFilter}).datagrid({   
+			 url:url
+					 }
+		);  
+		
+		}
+	}
+	];*/
+	
+	var  glob_startDate;
+	var  glob_stopDate;
+	var  glob_deviceIDs;
+	var  glob_deviceID;
+	var  glob_speed;
+	
+	function speedSearch(deviceArr,startDate,stopDate,speed){
+		 glob_startDate=startDate;
+		 glob_stopDate=stopDate;
+		 deviceIDs=deviceArr.join(",");
+		 glob_deviceIDs=deviceIDs;
+		 glob_speed=speed;
+		 url='../service/tj_speedAPI.php?opType=0&startDate='+startDate+'&stopDate='+stopDate+'&devices='+deviceIDs+'&speed='+speed;
+	//	 alert(url);
+		 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+			 url:url
+					 }
+		);*/
+		setSpeedByPage("#dg",url);
+	  }
+	 
+	 function setSpeedByPage(id,pageURL){
+		//var pageURL = '../service/alert.php?sqlType=0&date='+date+'&userId='+glob_userId;
+					  //"../service/alert.php?sqlType=0&date="+date;
+		if(id=="#dg"){
+			$('#dg').datagrid({  
+			
+				url:pageURL, 
+				
+				singleSelect:true,//是否单选
+			
+				pagination:false,//分页控件  
+			
+				rownumbers:true,//行号
+				
+				toolbar: [{
+					text:'excel导出',
+					iconCls:'icon-trace',
+					handler:function(){	
+						  var url='../smarty/demo/speed_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+glob_deviceIDs+'&speed='+glob_speed+"&device="+glob_deviceID;
+						 //   alert(url);
+							 window.open(url,"_blank");
+							}
+							
+				},{
+					text:'详细',
+					iconCls:'icon-playback',
+					handler:function(){
+						var selectRow=$('#dg').datagrid('getSelected');
+					if(selectRow==null){
+						alert("请单击车辆进行选择（最多1辆）！");
+						return;
+					}
+					
+					glob_deviceID=selectRow.deviceID;
+					url='../service/tj_speedAPI.php?opType=1&startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+selectRow.deviceID+'&speed='+glob_speed;
+					//console.info(url);
+					setSpeedByPage("#dg1",url);
+					}
+				}]
+			});
+		}else{
+			$('#dg1').datagrid({  
+			
+				url:pageURL, 
+				
+				singleSelect:true,//是否单选
+			
+				pagination:true,//分页控件  
+			
+				rownumbers:true//行号
+			});
+			//设置分页控件  
+			var p = $(id).datagrid('getPager');  
+			
+			$(p).pagination({  
+			
+				pageSize: 10,//每页显示的记录条数，默认为10  
+			
+				pageList: [10,20,30,40,50,100],//可以设置每页记录条数的列表  
+			
+				beforePageText: '第',//页数文本框前显示的汉字  
+			
+				afterPageText: '页 共 {pages} 页',  
+			
+				displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+			
+			});
+		}
+		
+	}
+	</script>
+		</body>
+</html>

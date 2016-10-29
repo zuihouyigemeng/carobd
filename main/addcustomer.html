@@ -1,0 +1,174 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>添加用户</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body  onunload="window.opener.fresh()" >	
+
+		<div class="easyui-accordion" style="width:200px;height:300px;float:left;">
+			<div title="客户列表"  style="overflow:auto;padding:10px;">
+			<div  style = "width:150px;float:left;">
+			
+				<ul class="easyui-tree"  
+			 <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          { 
+	        ?>
+			url="../service/customer.php?defDep=-1" 
+			<?php 
+	          }
+	          else 
+	          { 
+	       ?>
+			 url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+			 <?php 
+	          }  
+	       ?> 
+				
+		    data-options="animate:true,onlyLeafCheck:true"  id="depID">
+				
+				</ul>
+			
+			</div>
+		</div>
+		</div>
+		
+		<div class="easyui-accordion" style="width:400px;height:300px;float:left;">
+
+		<div title="客户信息"  style="overflow:auto;padding:10px;">
+	
+				<form id="ff" method="post">
+		<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>客户名称:</b></td>
+					<td><input class="easyui-validatebox textbox" id="name" style="text-align:center;border:1;text-align:center;" type="text" name="name" value=""  maxlength="10"></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>父机构名称:</b></td>
+					<td><input class="easyui-validatebox textbox" id="parent" style="text-align:center;border:1;" disabled="disabled" type="text" name="name" value="" ></input></td>
+
+				</tr>
+								
+			<!-- 	<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>经度:</b></td>
+					<td><input class="easyui-validatebox textbox" id="lon" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+		
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>纬度:</b></td>
+					<td><input class="easyui-validatebox textbox" id="lat" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>	  -->
+
+			</table>
+			</form>
+			
+			
+<script>
+
+			$('#depID').tree({
+				onClick: function(node){
+					
+					
+					$("#parent").val(node.text);
+			
+			
+			}
+			});
+			
+			function show_set(){
+			    
+				var parentName = $("#parent").val();
+			
+				if(parentName==""){
+					alert("请选择父机构!");
+					return ;
+				}
+				
+				var name = $("#name").val();
+				if(name==""){
+					alert("请输入客户名称!");
+					return ;
+				}
+				
+				$.post("../../zend_obd/jsonAPI/customerName.php",
+				{
+				parentName:parentName
+			
+				},
+				function (data,status){
+					var rows = eval(data);
+					
+					var parentID = rows[0].parentId
+					
+					var parentName = $("#parent").val();
+					var name = $("#name").val();
+					var lon = "113.28907";
+					var lat = "23.12716";
+					
+					$.post("../../zend_obd/jsonAPI/insert_customer.php",
+							{
+						parentID:parentID,parentName:parentName,name:name,lon:lon,lat:lat
+							},
+							function(data,status){
+								
+								var rows = eval(data);
+								
+								if(rows=="200"){
+									alert("客户添加成功");
+									window.close();
+								}else if(rows=="1002"){						
+									alert("客户名存在！");
+								}
+							});
+					
+				});
+
+				
+			
+			
+			}
+
+		
+		function freshOpener(){
+			window.close();
+
+		}
+		
+		
+</script>
+					
+					
+<table>	
+<tr>
+<td width = 100px></td>
+<td width = 200px align = center>	
+		<input type="button" name="Submit" value="保存编辑" onclick="show_set();"/>
+		<input type="button" name="Submit" value="关闭" onclick="freshOpener()"/>
+</td>
+<td align = center>
+
+</td>
+</tr>
+</table>
+			
+		
+</div>
+</div>
+	
+
+</body>
+</html>
+	
+	

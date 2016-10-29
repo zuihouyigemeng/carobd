@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/configurators
+END
+LoggerConfiguratorPhp.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/configurators/LoggerConfiguratorPhp.php
+END
+LoggerConfiguratorIni.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/configurators/LoggerConfiguratorIni.php
+END
+LoggerConfiguratorXml.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/configurators/LoggerConfiguratorXml.php
+END
+LoggerConfiguratorBasic.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/configurators/LoggerConfiguratorBasic.php
+END

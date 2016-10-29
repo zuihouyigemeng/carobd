@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Complex Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<SCRIPT type="text/javascript" src="../jquery.layout.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="../jquery.layout.extend.js"></SCRIPT>
+</head>
+<body class="easyui-layout"  onload="addPanel()" id="cc">
+		<div data-options="region:'north'" style="height:90px;background: url('../img/bg.jpg')"  >
+	    <!--<div style="padding-left:88%"></div>   -->
+		<div style="padding-left:55%" id="buttDiv">
+		<span style="vertical-align: top;margin-right: 100px;">欢迎您，anydata! </span>
+		<a href="javascript:void(0)" class="easyui-linkbutton"  plain="true"    data-options="iconCls:'icon-large-picture',size:'large',iconAlign:'top' " id='4s_btn' onclick="addPanel(this)">4s管理</a>
+        <a href="#" class="easyui-linkbutton" plain="true"  data-options="iconCls:'icon-large-clipart',size:'large',iconAlign:'top'" id='obd_btn' onclick="btn_obd(this)">车辆监控</a>
+        <a href="#" class="easyui-linkbutton"  plain="true"   data-options="iconCls:'icon-large-shapes',size:'large',iconAlign:'top'" onclick="btn_acct(this)">运营管理</a>
+        <a href="#" class="easyui-linkbutton" plain="true" group="a" data-options="iconCls:'icon-large-smartart',size:'large',iconAlign:'top'" onclick="btn_manage(this)">系统管理</a>
+         <a href="#" class="easyui-linkbutton" plain="true" group="a" data-options="iconCls:'icon-large-clipart',size:'large',iconAlign:'top'">统计</a>
+        <a href="#" class="easyui-linkbutton"  plain="true" group="a" data-options="iconCls:'icon-large-shapes',size:'large',iconAlign:'top'"  onclick="other()">其他</a>
+		<a href="#" class="easyui-linkbutton" plain="true"  group="a" data-options="iconCls:'icon-logout',size:'large',iconAlign:'top'"  onclick="logout()">退出</a>
+		</div>
+		</div>
+		<div data-options="region:'south',split:true" style="height:50px;"></div>
+		<div data-options="region:'east',split:true"  style="width:200px;"   >
+			<ul class="easyui-tree" data-options="url:'tree_data1.json',method:'get',animate:true,dnd:true"></ul>
+		</div>
+		<div data-options="region:'west',split:true"  style="width:300px"  id='west'>
+	     <iframe  id="idwest"  frameborder="0"  src="" style="width:100%;height:99%;"></iframe>
+		</div>
+			
+	
+	
+		<div data-options="region:'center',iconCls:'icon-ok'" id="conterid" >
+	    <iframe  id="test"  frameborder="0"  src="" style="width:100%;height:100%;"></iframe>
+        </div>
+		   
+		   
+		  
+	
+
+	<script type="text/javascript">
+	
+	$(function (){ 
+		$('#buttDiv').find('a').click(function () { 
+		$('#buttDiv').find('a').removeClass('l-btn-selected'); 
+		$(this).addClass('l-btn-selected'); 
+		}) 
+		}) 
+	
+	function hiddenPanel(region){
+		$('#cc').layout('hidden',region);
+	}
+	function showPanel(region){
+		$('#cc').layout('show',region);
+	}
+	function hiddenAll(){
+		$('#cc').layout('hidden','west');
+		$('#cc').layout('hidden','east');
+		$('#cc').layout('hidden','north');
+		$('#cc').layout('hidden','south');
+		$('#cc').layout('hidden','east');
+		$('#cc').layout('hidden','south');
+	}
+	function showAll(){
+		$('#cc').layout('show','west');
+		$('#cc').layout('show','east');
+		$('#cc').layout('show','north');
+		$('#cc').layout('show','south');
+	}
+	
+	
+		var index = 0;
+		function addPanel(){
+			$("#4s_btn").addClass('l-btn-selected'); 
+			$('#buttDiv').find('a').linkbutton("enable"); 
+			$("#4s_btn").linkbutton("disable"); 
+
+	//	     alert("tttt");
+	//		$("#cc").panel({region:'center',href:'D:\workspace_new1\easyUI\demo\layout\flex\index.html'});  
+	//		$("#cc").panel('refresh'); 
+	
+		//	$('#cc').layout('remove','west');
+		//	$('#cc').layout('remove','east');
+		
+			hiddenPanel('west');
+			hiddenPanel('east');
+			
+		//	$('#test').src="http://114.80.200.25/obd_4s1/index.php?user=zhangjf&pass=1111111111";
+			$('#test').attr("src","http://114.80.200.25/obd_4s1/index.php?user=zhangjf&pass=1111111111");  
+	//		$('#tt').tabs('add',{
+	//			title: '4S管理',
+	//			content: '<div style="padding:0px;width:100%;height:100% "><iframe  frameborder="0"  src="http://114.80.200.25/obd_4s1/index.php?user=zhangjf&pass=1111111111" style="width:100%;height:100%;"/></div>',
+	//			closable: true
+	//		});
+	 //     $("#4s_btn").attr("style", "background: #fafafa");//
+		}
+
+		
+		function btn_manage(obj){
+			$('#buttDiv').find('a').linkbutton("enable"); 
+			hiddenPanel('east');
+			hiddenPanel('west');
+			$('#test').attr("src","http://114.80.200.25/obd_4s1/manager.html?user=zhangjf&pass=1111111111");
+			$(obj).linkbutton("disable");
+		}
+		
+		
+		function btn_acct(){
+			hiddenPanel('east');
+			hiddenPanel('west');
+			$('#test').attr("src","http://114.80.200.25/OBD_acct1/login.php?op=login&name=root&passw=root_zxc!@#"); 
+			$('#buttDiv').find('a').linkbutton("enable"); 
+			$(obj).linkbutton("disable");
+		}
+		function btn_obd(obj){
+            $('#buttDiv').find('a').linkbutton("enable"); 
+			showPanel('west');
+			hiddenPanel('east');
+			$('#test').attr("src","vehicleView.html"); 
+			$('#idwest').attr("src","west.html"); 
+			$(obj).linkbutton("disable");
+		}
+		
+		function other(){
+			alert("other!");
+			$("#conterid").find("iframe")[0].contentWindow.btn();
+		}
+		
+		function vehicleClick(lat,lon,licenseNumber,address_num,time,vin,deviceID){
+			$("#conterid").find("iframe")[0].contentWindow.vehicleClick(lat,lon,licenseNumber,address_num,time,vin,deviceID);
+		}
+		
+		function checkAll(rows){
+			$("#conterid").find("iframe")[0].contentWindow.checkAll(rows);
+		}
+		
+		function onUncheckAll(rows){
+			$("#conterid").find("iframe")[0].contentWindow.onUncheckAll(rows);
+		}
+		
+		function  onCheck(rowData){
+			$("#conterid").find("iframe")[0].contentWindow.onCheck(rowData);
+		}
+		
+        function  onUncheck(rowData){
+        	$("#conterid").find("iframe")[0].contentWindow.onUncheck(rowData);
+		}
+		
+		var westStatus=1;
+		function  westSwitch(){
+			if(westStatus==1){
+				$('#cc').layout('hidden','west');
+				westStatus=0;
+			}
+			else{
+				$('#cc').layout('show','west');
+				westStatus=1;
+			}
+		}
+		
+		
+
+	</script>
+</body>
+</html>

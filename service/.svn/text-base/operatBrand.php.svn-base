@@ -1,0 +1,274 @@
+<?php
+include '../DBConnection.php';
+include '../../zend_obd/Maintain.php';
+
+	
+class OperatBrand {
+	
+	/**模糊查找所有的品牌*/
+	public function getBrand($Brand){
+		mysql_select_db("IOV_demo");
+			
+			$sql = "SELECT BrandID,Brand FROM VehBrand where Brand like '%$Brand%' order by Brand";
+			$ret = array ();
+			$data = array ();
+			$result = mysql_query($sql);
+			$checkRows = mysql_num_rows($result);
+			if ($checkRows > 0) {
+				while ($row = mysql_fetch_object($result)) {
+					$data[] = $row;
+				}
+				mysql_free_result($result);
+			}
+			$ret["data"] = $data;
+			return $ret;
+		
+	}
+	
+	
+	/**根据品牌id查找所有对应的车型*/
+	public function getModel($brandId,$model){
+		mysql_select_db("IOV_demo");
+			
+			$sql = "SELECT ModelID,ModelName FROM VehModel where BrandID = '$brandId' and ModelName like '%$model%' order by ModelName";
+			$ret = array ();
+			$data = array ();
+			$result = mysql_query($sql);
+			$checkRows = mysql_num_rows($result);
+			if ($checkRows > 0) {
+				while ($row = mysql_fetch_object($result)) {
+					$data[] = $row;
+				}
+				mysql_free_result($result);
+			}
+			$ret["data"] = $data;
+			return $ret;
+		
+	}
+	
+	/**根据车型ModelId查找所有对应的车款*/
+	public function getCar($modelId,$flag){
+		mysql_select_db("IOV_demo");
+			
+			$sql = "select * from (SELECT `Type`,ModelNumID,`Year`,manuAutomatic,Swept,ModelID,tanksize,volume_rate,fuelConsumptionStandart FROM VehModelNumber where  `Type` like '%$flag%' or manuAutomatic like '$flag%' or Year like '$flag%' or Swept like '$flag%')  b
+where b.ModelID = '$modelId'  order by `Type`";
+			$ret = array ();
+			$data = array ();
+			$result = mysql_query($sql);
+			$checkRows = mysql_num_rows($result);
+			if ($checkRows > 0) {
+				while ($row = mysql_fetch_object($result)) {
+					$data[] = $row;
+				}
+				mysql_free_result($result);
+			}
+			$ret["data"] = $data;
+			return $ret;
+		
+	}
+	
+	//删除车款信息
+	public function deleteVehModelNumber($ModelNumID){
+		$ret = array ();
+		
+		mysql_select_db("IOV_demo");
+		
+		$sqlCheck = "select count(ModelNumID) count from `Devices_MT` where ModelNumID=$ModelNumID";
+		$result = mysql_query($sqlCheck);
+		$checkRows = mysql_num_rows($result);
+		if($checkRows>0){
+			while ($row = mysql_fetch_object($result)) {
+				$data[] = $row;
+				$count = $row->count;
+				
+				if($count > 0){
+					$ret["resultCode"] = '1005';//该车辆在使用，不能删除
+					$ret["resultMsg"] = "this car is using";
+					return $ret;
+				}
+				
+			}
+		}
+		
+		$sql = "delete from  VehModelNumber where ModelNumID='$ModelNumID'";
+		$result = mysql_query($sql);
+		$checkRows = mysql_num_rows($result);
+		if (!mysql_query($sql)) {
+			$ret["resultCode"] = '1001';
+			$ret["resultMsg"] = "sys error!";
+			return $ret;
+		} else {
+			$ret["resultCode"] = '200';
+			$ret["resultMsg"] = "success";
+			return $ret;
+		}
+	}
+		
+	//删除车型，若它下边的车辆有正在使用的，则不能删除
+	public function deleteModel($ModelID){
+		$ret = array ();
+		mysql_select_db("IOV_demo");
+		
+		#得到该车型下有多少车款
+		$ids = $this->getAllVehModelNumberByModelID($ModelID);
+		
+		#检查所有的车款中是否有车辆正投入使用
+		$sqlCheck = "select count(ModelNumID) count from `Devices_MT` where ModelNumID in ($ids)";
+		$result = mysql_query($sqlCheck);
+		$checkRows = mysql_num_rows($result);
+		
+		if($checkRows>0){
+			while ($row = mysql_fetch_object($result)) {
+				$count = $row->count;
+				
+				if($count > 0){
+					$ret["resultCode"] = '1005';//该车款中有车辆正在使用，不能删除
+					$ret["resultMsg"] = "this car is using";
+					return $ret;
+				}
+				
+			}
+		}
+		
+		#若该车型下的所有车款都没有车辆在使用，则执行下边的语句 将其删除
+		$sql = "delete from  VehModel  where ModelID='$ModelID'";
+		$result = mysql_query($sql);
+		$checkRows = mysql_num_rows($result);
+		if (!mysql_query($sql)) {
+			$ret["resultCode"] = '1001';
+			$ret["resultMsg"] = "sys error!";
+			return $ret;
+		} else {
+			$this->deleteVehModelNumberByModelID($ModelID);
+			$ret["resultCode"] = '200';
+			$ret["resultMsg"] = "success";
+			return $ret;
+		}
+		
+	}
+	
+	//删除品牌信息
+	public function deleteBrand($BrandID){
+		$ret = array ();
+		$deleteSql=array();
+		mysql_select_db("IOV_demo");
+		
+		#得到该品牌下有多少车款
+		$ids = $this->getAllVehModelNumberByBrandID($BrandID);
+		
+		#检查所有的车款中是否有车辆正投入使用
+		$sqlCheck = "select count(ModelNumID) count from `Devices_MT` where ModelNumID in ($ids)";
+		$result = mysql_query($sqlCheck);
+		$checkRows = mysql_num_rows($result);
+		
+		if($checkRows>0){
+			while ($row = mysql_fetch_object($result)) {
+				$count = $row->count;
+				
+				if($count > 0){
+					$ret["resultCode"] = '1005';//该车款中有车辆正在使用，不能删除
+					$ret["resultMsg"] = "this car is using";
+					return $ret;
+				}
+				
+			}
+		}
+		
+		/**
+		以下代码是在该品牌下所有的车款都没有在使用的情况下，才会执行
+		*/
+		$sql="select ModelID from VehModel where BrandID='$BrandID'";
+		$result = mysql_query($sql);
+		$numRows = mysql_num_rows($result);
+		if ($numRows > 0) {
+			while ($row = mysql_fetch_object($result)) {
+				$arr[]=$row->ModelID;
+			}
+			$deleteModelIDs = implode(",", $arr);
+			$deleteSql[]="delete from  VehModelNumber  where  ModelID in (" . $deleteModelIDs . ")";
+			$deleteSql[]="delete from VehModel where BrandID='$BrandID'";
+		}
+		
+		$deleteSql[] = "delete from  VehBrand  where  BrandID='$BrandID'";
+		
+		mysql_query('START TRANSACTION');
+		mysql_select_db("IOV_demo");
+		for ($i = 0; $i < count($deleteSql); $i++) {
+			if (!mysql_query($deleteSql[$i])) {
+				$err = mysql_error();
+				mysql_query('ROLLBACK');
+				$ret["resultCode"] = '1001';
+				$ret["resultMsg"] = "sys error!";
+				return $ret;
+			}
+		}
+		mysql_query('COMMIT');
+		$ret["resultCode"] = '200';
+		$ret["resultMsg"] = "success";
+		return $ret;
+	}
+	
+	
+	
+	//得到modelID下的所有车款ModelNumID
+	private function getAllVehModelNumberByModelID($modelID){
+		mysql_select_db("IOV_demo");
+
+		$id = array();
+
+		$sql = "select ModelNumID from VehModelNumber where ModelId = $modelID";	
+		$result = mysql_query($sql);
+		
+		$checkRows = mysql_num_rows($result);
+		
+		if($checkRows>0){
+			while ($row = mysql_fetch_object($result)) {
+				
+				array_push($id, $row->ModelNumID);
+			}
+			
+			$deptIDs = implode(",", $id);
+		}
+		
+		return $deptIDs;
+	}
+	
+	#得到某品牌下边的所有的车款
+	private function getAllVehModelNumberByBrandID($brandId){
+		mysql_select_db("IOV_demo");
+
+		$id = array();
+
+		$sql = "select ModelID from VehModel where BrandID = $brandId";	
+		$result = mysql_query($sql);
+		
+		$checkRows = mysql_num_rows($result);
+		
+		if($checkRows>0){
+			while ($row = mysql_fetch_object($result)) {
+				array_push($id,$this->getAllVehModelNumberByModelID($row->ModelID));
+				//array_push($id, $row->ModelID);
+			}
+			
+			$deptIDs = implode(",", $id);
+		}
+		
+		return $deptIDs;
+	}
+	
+	
+	
+	private function deleteVehModelNumberByModelID($modelID){
+		mysql_select_db("IOV_demo");
+		$sql = "delete from  VehModelNumber  where  ModelID='$modelID'";
+		$result = mysql_query($sql);
+		if (!mysql_query($sql)) {
+			return 1;
+		} else {
+			return 0;
+		}
+	}
+		
+}
+	
+?>

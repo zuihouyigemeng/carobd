@@ -1,0 +1,864 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+    <link rel="stylesheet" type="text/css" href="../css/treeCommon.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+    <style>
+
+		.pagination-info{display:none !important;}
+		.pagination-num {width: 26px !important;}
+		
+	</style>
+</head>
+<body  style="padding-left:4px;padding-bottom:0px;padding-top:5px;">
+
+		<div style="padding-left:4px;font-family:'楷体';font-size:16px;width:244px;height:24px;">
+            <input type="text" maxlength="15" id="search" placeholder="找车(按车牌或设备号)" style="font-family:'楷体';font-size:16px;width: 272px;height:24px;border: 1px solid #95b8e7;margin-top: -4px;margin-left: -4px;">
+            <img title="找车" src="../img/search16x16.png" style="cursor:pointer;position: absolute;top: 6px;
+left: 254px;width: 20px;height: 20px;" id="btnSearch">
+        </div>
+        <div class="easyui-tabs" style="width:274px;height:270px;min-height:270px;" id='tt1'>	      
+          <?php 
+	          if($_SESSION["op"]=="deplogin")
+	          {
+	       ?>
+            <div title="部门"  style="overflow:auto;padding:10px;">
+                <ul class="easyui-tree" 
+                    url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>" 
+                    data-options="animate:true,checkbox:true,onlyLeafCheck:true"  
+                    id="depID">
+                </ul>
+            </div>
+               <?php 
+                  }
+               ?>
+            <div title="车系"  style="overflow:auto;padding:10px;">
+                    
+                <ul class="easyui-tree"
+                    url="../service/vehicleNumber.php?defDep=<?php echo  $userVo->depID ?>" 
+                    data-options="animate:true,checkbox:true,onlyLeafCheck:true"  
+                    id="v_modelID">
+                    
+                </ul>
+            </div>
+    
+            <div title="客户"  style="overflow:auto;padding:10px;">
+                    
+                <ul class="easyui-tree"   
+                    <?php  if($_SESSION["op"]=="deplogin") {  ?>
+                        url="../service/customer.php?defDep=-1" 
+                    <?php }else{ ?>
+                        url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" 	
+                    <?php } ?> 
+                        data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_cusID">
+                    
+                </ul>
+            </div>
+
+		</div>
+		
+		
+	 <div style="padding:0px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:274px;height:340px"
+            data-options="rownumbers:false,pagination:true,toolbar:toolbar">
+        <thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true,width:5"></th>
+				<th data-options="field:'licenseNumber',width:80">车牌号</th>
+				<th data-options="field:'online',width:58,hidden:false">引擎状态</th>
+			    <th data-options="field:'d_esn',width:84,hidden:false">D_ESN</th>
+				<th data-options="field:'address_num',width:80,hidden:true">地址</th>
+				<th data-options="field:'latitude',width:50,hidden:true">latitude</th>
+				<th data-options="field:'longitude',width:50,hidden:true">longitude</th>
+				<th data-options="field:'time',width:100,hidden:true">时间</th>
+				<th data-options="field:'vin',width:50,hidden:true">vin</th>
+				<th data-options="field:'deviceID',width:100,hidden:true">deviceID</th>
+				<th data-options="field:'heading',width:100,hidden:true">heading</th>
+				<th data-options="field:'ign',width:100,hidden:true">ign</th>
+                <th data-options="field:'alertStatus',width:100,hidden:true">alertStatus</th>
+			</tr>
+		</thead>
+	</table>
+              
+	           </div>
+<!-- 	<div id="p" class="easyui-panel" title="车辆列表" style="width:250px;height:420px;padding:0px;">
+			<table id="dg" title="" style="width:250px;height:400px"
+			data-options="rownumbers:true,singleSelect:true,pagination:true,url:'datagrid_data1.json',method:'get'">
+		<thead>
+			<tr>
+				<th data-options="field:'itemid',width:80">Item ID</th>
+				<th data-options="field:'productid',width:100">Product</th>
+			</tr>
+		</thead>
+	</table>
+	</div>   -->
+	<script type="text/javascript">			  
+		var treeTmp = null;
+		var modelTmp = null;
+		var cusTmp = null;
+		
+		var tabIndex;
+		var seletedArr=new Array();
+		
+		var toolbar = [{
+			text:'跟踪',
+			iconCls:'icon-trace',
+			handler:function(){
+			var selectRows=$('#dg').datagrid('getSelections');
+			if(selectRows.length==0){
+				alert("请单击车辆进行选择（最多8辆）！");
+				return;
+			}
+			var deviceArr=new Array();
+			if(selectRows.length<9){
+				for ( var i=0 ; i < selectRows.length ; ++i ){
+					deviceArr.push(selectRows[i].deviceID);
+				}
+			}
+			else{
+				alert("您选择的车辆已超过8辆,默认选择前8辆进行跟踪.");
+				for ( var i=0 ; i < 8 ; ++i ){
+					deviceArr.push(selectRows[i].deviceID);
+				}
+			}
+			
+			
+			var tmp=deviceArr.join(",");
+			 //alert(tmp);
+			 top.trace(tmp);
+				}
+		},{
+			text:'回放',
+			iconCls:'icon-playback',
+			handler:function(){
+				var selectRows=$('#dg').datagrid('getSelections');
+			if(selectRows.length==0){
+				alert("请单击车辆进行选择（最多1辆）！");
+				return;
+			}
+			
+			top.openPlayBack(selectRows[0].deviceID,selectRows[0].licenseNumber);
+			
+			}
+		},'-',{
+			text:'告警',
+			iconCls:'icon-alerts',
+			handler:function(){
+			var selectRows=$('#dg').datagrid('getSelections');
+			if(selectRows.length==0){
+				alert("请单击车辆进行选择（最多1辆）！");
+				return;
+			}
+			var vin=selectRows[0].vin;
+			top.openAlert(vin);
+			
+			}
+		}];
+		
+		$('#dg').datagrid({
+			onCheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.checkAll(rows);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onCheck: function(rowIndex,rowData){
+				top.onCheck(rowData);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onUncheck: function(rowIndex,rowData){
+				top.onUncheck(rowData);
+			}
+		
+		});
+		
+		$('#dg').datagrid({
+			onUncheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.onUncheckAll(rows);
+			}
+		
+		});
+	
+		
+		$('#dg').datagrid({
+		onDblClickRow: function(rowIndex, rowData){
+				
+				var statusArr = ['待设置...','设置中...','设置成功!'];
+				var buttonArr = ['设置','请稍候','重新设置'];
+								
+				$('#dg').datagrid('selectRow',rowIndex);
+				top.vehicleClick(rowData);
+				
+				var deviceID = rowData.deviceID;
+				
+				var obj = top.window.frames['vehicle'];//得到父窗口中的名字为vehicle的子窗口对像
+				//$("#swept", obj.window.document).text(rowData.registerKey);
+				//console.log(obj.countTime);
+				
+				if(obj.stockInterval != null){
+					obj.countTime = 10;	//重新双击某车时,让此值大于8,则原来的定时器就会被销毁
+				}else{
+					obj.countTime = 0;
+				}
+				
+				$.ajax({
+					type:'get',
+					url:'../service/setVolumeRate.php',
+					data:{
+						deviceID: deviceID,
+						type:"0"
+					  },
+					dataType: "json",
+					cache:false,//设置ie不缓存
+					success:function(data,status){
+						var row = eval(data);
+						if(row.length > 0){
+							var af = row[0].applyField;
+							if(af == 1){
+								$("#status", obj.window.document).html(statusArr[0]);
+								$("#setColumeRate", obj.window.document).attr('disabled',false).val(buttonArr[0]);
+							}else if(af == 2){
+								$("#status", obj.window.document).html(statusArr[1]);
+								$("#setColumeRate", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}else if(af == 0){
+								$("#status", obj.window.document).html(statusArr[2]);
+								$("#setColumeRate", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}
+							
+							if($.trim(row[0].param1) == "" || $.trim(row[0].param2) == ""){
+								getVolumeRate(obj, deviceID);//数据中有一个为空就从车型库中拿相应的数据	
+							}else{							
+								$("#_swept", obj.window.document).val(row[0].param1);
+								$("#volumeRate", obj.window.document).val(row[0].param2);
+							}
+						}else{
+							getVolumeRate(obj, deviceID);
+							$("#status", obj.window.document).html(statusArr[0]);
+							$("#setColumeRate", obj.window.document).attr('disabled',false).val(buttonArr[0]);	
+						}
+					} 
+				});
+				
+				
+				/*$.get('../service/setVolumeRate.php',
+					  {
+						deviceID: deviceID,
+						type:"0"
+					  },
+					  function(data,status){
+						
+				});	*/
+				
+				
+				
+				if(obj.cmdInterval != null){
+					obj.countCMD = 10;	//重新双击某车时,让此值大于8,则原来的定时器就会被销毁
+				}else{
+					obj.countCMD = 0;
+				}
+				
+				var mtype = 3;
+				
+				if(obj.g_type == 0){
+					mtype = 3;	
+				}else if(obj.g_type == 1){
+					mtype = 4;	
+				}
+				
+				$.ajax({
+					type:'get',
+					url:'../service/setVolumeRate.php',
+					data:{
+						deviceID: deviceID,
+						type:mtype
+					  },
+					dataType: "json",
+					cache:false,//设置ie不缓存
+					success:function(data,status){
+						var row = eval(data);
+						if(row.length > 0){
+							var af = row[0].applyField;
+							if(af == 1){
+								$("#statusCMD", obj.window.document).html(statusArr[0]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[0]);
+							}else if(af == 2){
+								$("#statusCMD", obj.window.document).html(statusArr[1]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}else if(af == 0){
+								$("#statusCMD", obj.window.document).html(statusArr[2]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}
+						}else{
+							$("#statusCMD", obj.window.document).html(statusArr[0]);
+							$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[0]);	
+						}
+					} 
+				});
+				
+				
+				/*$.get('../service/setVolumeRate.php',
+					  {
+						deviceID: deviceID,
+						type:mtype
+					  },
+					  function(data,status){
+						var row = eval(data);
+						//console.log(row);
+						if(row.length > 0){
+							var af = row[0].applyField;
+							if(af == 1){
+								$("#statusCMD", obj.window.document).html(statusArr[0]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[0]);
+							}else if(af == 2){
+								$("#statusCMD", obj.window.document).html(statusArr[1]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}else if(af == 0){
+								$("#statusCMD", obj.window.document).html(statusArr[2]);
+								$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[2]);
+							}
+						}else{
+							$("#statusCMD", obj.window.document).html(statusArr[0]);
+							$("#setCMD", obj.window.document).attr('disabled',false).val(buttonArr[0]);	
+						}
+				});	*/
+				
+				
+				
+			}
+	   });
+		
+		//从车型管理中得到的数据		
+		function getVolumeRate(obj, deviceID){
+			$.get('../service/setVolumeRate.php',
+				  {
+					deviceID: deviceID,
+					type:"2"
+				  },
+				  function(data,status){
+					var row = eval(data);
+					if(row.length > 0){
+						$("#_swept", obj.window.document).val(row[0].Swept);//修改iframe中的id为swept的内容值
+						$("#volumeRate", obj.window.document).val(row[0].volume_rate);//修改iframe中的id为swept的内容值						
+					}else{
+						$("#_swept", obj.window.document).val("");//修改iframe中的id为swept的内容值
+						$("#volumeRate", obj.window.document).val("");//修改iframe中的id为swept的内容值
+					}
+			});	
+		}
+		
+		
+		function getSelected(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+			}
+		}
+		function getSelections(){
+			var ss = [];
+			var rows = $('#dg').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];
+				ss.push('<span>'+row.itemid+":"+row.productid+":"+row.attr1+'</span>');
+			}
+			$.messager.alert('Info', ss.join('<br/>'));
+		}
+		
+		
+		//采用递归的方法,选中时执行
+		function updateAddTreeLeaf(id,node){
+			var parentNode = $(id).tree('getParent',node.target);
+			var root = $(id).tree('getRoot');
+			
+			//alert(!parentNode);
+			
+			if(parentNode && parentNode.text.lastIndexOf("√") < 0){
+				$(id).tree('update', {
+					target: parentNode.target,
+		　　			text:parentNode.text+'<span style="font-size:9px;color:#db443a;">√</span>'
+				});
+			}
+			
+			if(parentNode && parentNode.id !== root.id){
+				updateAddTreeLeaf(id,parentNode);
+			}	
+			
+		}
+		
+		
+		//采用递归的方法,取消选中时执行
+		function updateSubTreeLeaf(id,node){
+			var parentNode = $(id).tree('getParent',node.target);//得到父节点
+			
+			if(!parentNode){//如果没有你节点,则直接返回
+				return;	
+			}
+			
+			var root = $(id).tree('getRoot');
+			
+			var data = $(id).tree('getChildren',parentNode.target); //得到父节点下的所有子节点 
+			//console.info(data);
+			var flag = false;
+			
+			for(var i=0;i<data.length;i++){//判断所有节点是否有选中项,若有,则标记flag为true;
+				if(data[i].checked == true){
+					flag = true;
+					break;
+				}	
+			}
+			
+			if(!flag){//有选中的,则不做事情,没有选中的则执行下边的事件
+				var index = parentNode.text.indexOf("<span");
+				if(index >= 0){
+					$(id).tree('update', {
+						target: parentNode.target,
+			　　			text:parentNode.text.substring(0,index)
+					});
+				}
+				
+				if(parentNode.id !== root.id){
+					updateSubTreeLeaf(id,parentNode);
+				}
+	
+			}
+			
+		}
+				
+		
+		//初始为根节点，从页面参数传入	
+		var depID='<?php echo  $userVo->depID ?>';
+		$('#depID').tree({
+			//checkbox:true,
+			onCheck:function(node, checked){
+				 
+				 $("#search").val("");
+			 	 seletedArr=new Array();
+				 var nodes = $('#depID').tree('getChecked');
+				 
+				 if(checked){//选中打勾
+					 updateAddTreeLeaf("#depID",node);
+					 
+				 }else{
+					 updateSubTreeLeaf("#depID",node);
+					
+				 }
+				 getAllSections();
+				 for (i = 0; i < nodes.length; i++){
+					 
+					 //if($('#depID').tree('isLeaf',nodes[i].target)){//如果 该 节点是子节点,则加入到数组seletedArr中;
+					seletedArr.push(nodes[i].id);
+					//console.info(nodes[i].id);
+					// }
+
+				 }
+		//		  console.info(seletedArr);
+				 if(seletedArr.length==0){
+					 seletedArr.push(-1);
+				 }
+				  
+				 if(seletedArr.length>0){
+						 treeTmp=seletedArr.join(",");
+						//console.info(tmp);
+						/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+							 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+						 }
+						 
+					); */ 
+					var pageURL = '../service/vehicles4dep.php?searchType=0&deps='+treeTmp;
+					setCarByPage(pageURL);
+					 
+				 }
+			}
+		});
+		
+		//&nbsp;得到所有车辆数据,从地图上移除这些标志
+		function getAllSections(){
+			var rows = $('#dg').datagrid('getData');/*/要能够使用此方法,则在table标签中不能使用singleSelect:false,selectOnCheck:false,checkOnSelect:false属性*/
+			//console.info(rows.rows);
+			top.onUncheckAll(rows.rows);
+		}
+		
+		/**
+		搜索时回车提交查询
+		*/
+		$("#search").keydown(function(e){ 
+			var curKey = e.which; 
+			if(curKey == 13){ 
+				$("#btnSearch").click(); 
+				return false; 
+			} 
+		}); 
+				
+		//查询车辆
+		$("#btnSearch").live("click",function(){	
+			var searchValue = $.trim($("#search").val());
+
+			if(searchValue == ""){				
+				$("#search").attr("placeholder","请输入要查找的车牌号或设备号");	
+				return;	
+			}		
+
+			getAllSections();//从地图上移除所有的汽车标志
+			
+			$("#depID").tree("reload");//刷新 树形菜单,意图在于去掉那些可能存在的勾
+			$("#v_modelID").tree("reload");
+			$("#v_cusID").tree("reload");
+			treeTmp = null;
+			modelTmp = null;
+			cusTmp = null;
+			
+			
+			var pageURL = "";
+			<?php  
+				 if($_SESSION["op"]=="deplogin"){//部门用户登录
+					?>
+						pageURL = '../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID
+
+					<?php 
+				  		}else{ //客户登陆
+				   ?>
+						pageURL = '../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID
+					<?php 
+				  }
+				 
+			   ?>
+			   
+			 setCarByPage(pageURL);
+				    /*
+			 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+				 <?php  
+					 if($_SESSION["op"]=="deplogin"){//部门用户登录
+						?>
+							url:'../service/vehicles4dep.php?searchType=6&searchValue='+searchValue+"&deps="+depID
+						<?php 
+					  }else{ //客户登陆
+					   ?>
+		 				    url:'../service/vehicles4dep.php?searchType=7&searchValue='+searchValue+"&cus="+depID
+						<?php 
+					  }
+					 
+				   ?> 
+	 
+			});	*/
+		});
+		
+		
+		
+		$('#v_modelID').tree({
+			onCheck:function(node, checked){
+				if(checked){//选中打勾
+					 updateAddTreeLeaf("#v_modelID",node);
+				 }else{
+					 updateSubTreeLeaf("#v_modelID",node);
+				 }
+				 
+				 getAllSections();
+				 
+				$("#search").val("");
+			 	seletedArr=new Array();
+				var nodes = $('#v_modelID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 modelTmp=seletedArr.join(",");
+					
+					var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+							<?php 
+						  }
+						 
+					   ?>
+					   
+					 setCarByPage(pageURL);
+					
+					
+					 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 <?php  
+							 if($_SESSION["op"]=="deplogin"){//部门用户登录
+								?>
+								url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+								<?php 
+							  }else{ //客户登陆
+							   ?>
+								   url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+								<?php 
+							  }
+							 
+						   ?> 
+			 
+					});  */
+					 
+				 }
+			}
+			});
+		
+		$('#v_cusID').tree({
+			onCheck:function(node, checked){
+				 if(checked){//选中打勾
+					 updateAddTreeLeaf("#v_cusID",node);
+				 }else{
+					 updateSubTreeLeaf("#v_cusID",node);
+				 }
+				 getAllSections();
+				 $("#search").val("");
+				 seletedArr=new Array();
+				 var nodes = $('#v_cusID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 cusTmp=seletedArr.join(",");
+					var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+							<?php 
+						  }
+						 
+					 ?>
+					 //  console.info(pageURL);
+					 setCarByPage(pageURL);
+					
+					/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 
+						 
+						 <?php 
+						          if($_SESSION["op"]=="deplogin")//部门用户登录
+						          { 
+						        ?>
+						        url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+								<?php 
+						          }
+						          else //客户登陆
+						          { 
+						       ?>
+						        url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+								 <?php 
+						          }
+						         
+						       ?> 
+						 
+								 }
+					);  */
+					 
+				 }
+			}
+			});
+		
+		
+		
+		
+		
+	   $('#tt1').tabs({
+		   onSelect: function(title,index){
+			   //console.info(title+"<>"+index);
+			   var str = $.trim(title);
+			   getAllSections();
+			   if(str == "部门"){
+				  
+					/*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=0&deps='+treeTmp
+					 });  */
+				   setCarByPage('../service/vehicles4dep.php?searchType=0&deps='+treeTmp);
+			   }else if(str == "车系"){
+				   
+				   var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID;
+							<?php 
+						  }
+						 
+					 ?>
+					   
+					 setCarByPage(pageURL);
+				   
+				   
+					/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+						 <?php  
+							 if($_SESSION["op"]=="deplogin"){//部门用户登录
+								?>
+								url:'../service/vehicles4dep.php?searchType=1&models='+modelTmp+"&deps="+depID
+								<?php 
+							  }else{ //客户登陆
+							   ?>
+								   url:'../service/vehicles4dep.php?searchType=11&models='+modelTmp+"&cus="+depID
+								<?php 
+							  }
+							 
+						   ?> 
+			 
+					}); */      
+			   }else if(str == "客户"){
+				    var pageURL = "";
+					<?php  
+						 if($_SESSION["op"]=="deplogin"){//部门用户登录
+							?>
+								pageURL = '../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp;
+		
+							<?php 
+								}else{ //客户登陆
+						   ?>
+								pageURL = '../service/vehicles4dep.php?searchType=3&cus='+cusTmp;
+							<?php 
+						  }
+						 
+					 ?>
+					   // console.info(pageURL);
+					 setCarByPage(pageURL);
+				/* $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({ 
+					   <?php 
+							  if($_SESSION["op"]=="deplogin")//部门用户登录
+							  { 
+							?>
+							url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+cusTmp
+							<?php 
+							  }
+							  else //客户登陆
+							  { 
+						   ?>
+							url:'../service/vehicles4dep.php?searchType=3&cus='+cusTmp	
+							 <?php 
+							  }
+							 
+						   ?> 
+					 
+					}); */   
+			   }
+		   }
+		});
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		
+	function setCarByPage(pageURL){
+		//var pageURL = "../service/alert.php?sqlType=1&date="+date;
+
+		$('#dg').datagrid({  
+		
+			url:pageURL, 
+			
+			singleSelect:false,//是否单选
+		
+			pagination:true,//分页控件  
+		
+			rownumbers:false,//行号
+			
+			/*toolbar: [{
+				text:'处理',
+				iconCls:'icon-playback',
+				handler:function(){
+					var selectRow=$('#dg_history').datagrid('getSelected');
+					if(selectRow==null){
+						alert("请单击进行选择（最多1条记录）！");
+						return;
+					}
+					//alert(selectRow.deviceID);
+					glob_recordId=selectRow.recordId;
+					url1='../service/alert.php?sqlType=10&recordId='+glob_recordId+'&userId='+glob_userId;
+					$.get(url1, {				
+						},function(result,status){	
+							if (status=="success") {		 
+								alert (result);
+								refresh();
+							}else {
+								alert("网络问题");
+							}
+							
+					});
+				}
+			}]*/
+		});
+		
+		//设置分页控件  
+		var p = $('#dg').datagrid('getPager');  
+		
+		$(p).pagination({  
+		
+			pageSize: 10,//每页显示的记录条数，默认为10  
+		
+			pageList: [5,10,15,20,30,40,50],//可以设置每页记录条数的列表  
+		
+			beforePageText: '',//页数文本框前显示的汉字  
+		
+			afterPageText: '/{pages}'//,  
+		
+			//displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+		
+		});
+	}
+
+		
+		
+	</script>
+		</body>
+</html>

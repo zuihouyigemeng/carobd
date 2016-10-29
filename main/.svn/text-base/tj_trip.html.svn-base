@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+    <style>
+		.icon-trace {background: url('../img/_0003_导出列表.png') no-repeat center center;}
+		/*.icon-playback {background: url('../img/_0009_详细.png') no-repeat center center;}
+		.icon-detail{background: url('../img/_0004_导出详细.png') no-repeat center center;}*/
+	</style>
+</head>
+<body >	
+      
+	 <div style="width:1200px;height:500px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:1200px;height:500px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,pagination:true,toolbar:toolbar">
+		<thead>
+			<tr>
+            	<th data-options="field:'depName',width:100">部门</th>
+				<th data-options="field:'nickName',width:80">车牌号</th>
+				<th data-options="field:'deviceID',width:80">设备号</th>
+                <th data-options="field:'startTime',width:150">开始时间</th>
+                <th data-options="field:'startAddr',width:200">开始地址</th>               
+				<th data-options="field:'stopTime',width:150,hidden:false">结束时间</th>
+                <th data-options="field:'stopAddr',width:200">结束地址</th>
+                <th data-options="field:'trackDistance',width:70,hidden:false">里程(KM)</th>
+			    <th data-options="field:'fuel_consumption',width:70,hidden:false">油耗(L)</th>
+				<th data-options="field:'avg_fuel',width:100,hidden:false">平均油耗(L/100KM)</th>
+			</tr>
+		</thead>
+	</table>
+	</div>
+	<script type="text/javascript">
+	var glob_rows;
+	var toolbar = [{
+		text:'excel导出',
+		iconCls:'icon-trace',
+		handler:function(){	
+			var headArr = ['部门','车牌号','设备号','开始地址','开始时间','结束地址','结束时间','里程(KM)','油耗(L)','平均油耗(L/100KM)'];
+			var title = "车辆"+glob_devices+"在["+glob_startDate+"--"+glob_stopDate+"]的行程统计表";
+			MakeExcel(title, headArr, getData());
+		
+		
+			  /*var url='../smarty/demo/resoveledAlert_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+glob_deviceIDs+'&alertTypes='+glob_alertTypes;
+		    //    alert(url);
+		         window.open(url,"_blank");*/
+		}
+				
+	}];
+	
+	var  glob_startDate;
+	var  glob_stopDate;
+	var dataArr = new Array();
+	var glob_devices;
+    function dailySearch(selectRows,startDate,stopDate){
+		 dataArr.length = 0;//进来就清空.
+		 
+		 var deviceArr = new Array();
+		 for ( var i=0 ; i < selectRows.length ; ++i ){
+			deviceArr.push(selectRows[i].deviceID);
+		 }
+		 
+		 glob_devices=deviceArr.join(",");
+		 
+		 //console.log(selectRows);//这里包含了车牌,设备号,所属部门的信息
+		 glob_startDate=startDate;
+		 glob_stopDate=stopDate;
+		 
+		 var url='../service/tripAlertAPI.php';
+		// $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({url:url}); 
+		
+		
+		for(var i=0;i<selectRows.length;i++){
+			
+			//console.log(selectRows[i]);
+			
+			var deviceID = selectRows[i].deviceID;
+			var depName = selectRows[i].depName;
+			var nickName = selectRows[i].licenseNumber;
+			
+			$.ajax({				
+				type:"GET",
+				url: url,
+				data: "startDate="+startDate+"&stopDate="+stopDate+"&deviceID="+selectRows[i].deviceID,
+				async:false,
+				success:function(data){
+					var rows = JSON.parse(data);
+					rows['deviceID'] = deviceID;
+					rows['depName'] = depName;
+					rows['nickName'] = nickName;	
+					if(rows.data.length==0){
+						var data1 = new Array();
+						var m=new Object()
+						m.trackDistance='--';
+						m.fuel_consumption='--';
+						m.startTime='--';
+						m.stopTime='--';
+						data1[0]=m;
+						rows.data=data1;
+					}
+					dataArr.push(rows);	
+					//console.log(rows);
+						
+				}
+			});
+
+		}		
+		//console.log(dataArr);	
+		$('#dg').datagrid({loadFilter:pagerFilter}).datagrid('loadData', getData());
+	}
+  
+  	function getData(){
+		var rows = [];
+		
+		for(var i=0;i<dataArr.length;i++){
+			var dataRow = dataArr[i];
+			//console.log(dataRow);
+			var deviceID = dataRow.deviceID;
+			var depName = dataRow.depName;
+			var nickName = dataRow.nickName;
+			
+			var data = dataRow.data;
+			
+			for(var j=0;j<data.length;j++){
+				
+/*				baidu_startLat: "0.000000"
+				baidu_startLon: "0.000000"
+				baidu_stopLat: "31.164367"
+				baidu_stopLon: "121.577306"
+				fuel_consumption: "0.895"
+				fuel_leve_now: "0"
+				startAddress: ""
+				startLat: "0.000000"
+				startLon: "0.000000"
+				startTime: "2015-01-02 18:07:58"
+				stopAddress: "上海市浦东新区御青路227号"
+				stopLat: "31.160278"
+				stopLon: "121.566670"
+				stopTime: "2015-01-02 18:34:18"
+				trackDistance: "6623"
+				trackDistance1: "6623"
+				trackType: 0*/
+				
+				var dRow = data[j];
+				
+				var fuel_consumption = dRow.fuel_consumption;//油耗
+				var startTime = dRow.startTime;
+				var stopTime = dRow.stopTime;
+				var trackDistance = dRow.trackDistance;//里程
+				var avg_fuel = "--";
+				
+				var startAddr = "--";
+				var stopAddr = "--";
+				
+				if(dRow.startAddress){
+					startAddr = dRow.startAddress;
+				}
+				
+				if(dRow.stopAddress){
+					stopAddr = dRow.stopAddress;
+				}
+				
+				
+				if(isNaN(trackDistance)){
+					trackDistance = dRow.trackDistance1;
+				}
+				
+				if(isNaN(trackDistance)){
+					trackDistance = "--";
+				}else{
+					//平均油耗(L/100K M)a.toFixed(2)
+				 	avg_fuel = (fuel_consumption / (trackDistance / 1000 / 100)).toFixed(2);
+					trackDistance = (trackDistance/1000).toFixed(4);	
+				}
+
+				if(isNaN(avg_fuel) || trackDistance == 0){
+					avg_fuel = "--";	
+				}
+				
+				if(fuel_consumption == 0){
+					avg_fuel = "--";	
+				}
+				
+				rows.push({
+					deviceID   		: deviceID,
+					depName   		: depName,
+					nickName  		: nickName,
+					startAddr		: startAddr,
+					stopAddr		: stopAddr,
+					fuel_consumption: fuel_consumption,
+					startTime		: startTime,
+					stopTime		: stopTime,
+					trackDistance	: trackDistance,
+					avg_fuel		: avg_fuel
+				});	
+			}
+	
+		}
+		//console.log(rows);
+		return rows;
+	}
+	
+	
+  	function pagerFilter(data){
+		if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+			data = {
+				total: data.length,
+				rows: data
+			}
+		}
+		var dg = $(this);
+		var opts = dg.datagrid('options');
+		var pager = dg.datagrid('getPager');
+		pager.pagination({
+			onSelectPage:function(pageNum, pageSize){
+				opts.pageNumber = pageNum;
+				opts.pageSize = pageSize;
+				pager.pagination('refresh',{
+					pageNumber:pageNum,
+					pageSize:pageSize
+				});
+				dg.datagrid('loadData',data);
+			}
+		});
+		if (!data.originalRows){
+			data.originalRows = (data.rows);
+		}
+		var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+		var end = start + parseInt(opts.pageSize);
+		data.rows = (data.originalRows.slice(start, end));
+		return data;
+	}
+	
+	
+	
+	
+function MakeExcel(title, headArr, dataArr){
+	//var i,j;
+	var xls;
+    try {
+         xls = new ActiveXObject("Excel.Application");
+    }catch(e) {
+         alert( "要打印该表，您必须安装Excel电子表格软件，同时浏览器须使用“ActiveX 控件”，您的浏览器须允许执行控件。 请点击【帮助】了解浏览器设置方法！");
+         return;
+    }
+	
+    xls.visible =true;  //设置excel为可见
+    var xlBook = xls.Workbooks.Add;
+    var xlsheet = xlBook.Worksheets(1);
+	
+    <!--合并-->
+    xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,10)).mergecells=true;
+    xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,10)).value = title;
+   // xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,6)).Interior.ColorIndex=5;//设置底色为蓝色 
+   // xlsheet.Range(xlsheet.Cells(1,1),xlsheet.Cells(1,6)).Font.ColorIndex=4;//设置字体色         
+   // xlsheet.Rows(1). Interior .ColorIndex = 5 ;//设置底色为蓝色  设置背景色 Rows(1).Font.ColorIndex=4  
+    <!--设置行高-->
+    xlsheet.Rows(1).RowHeight = 25;
+    <!--设置字体 ws.Range(ws.Cells(i0+1,j0), ws.Cells(i0+1,j1)).Font.Size = 13 -->
+    xlsheet.Rows(1).Font.Size=16;
+    <!--设置字体 设置选定区的字体  xlsheet.Range(xlsheet.Cells(i0,j0), ws.Cells(i0,j0)).Font.Name = "黑体" -->
+    xlsheet.Rows(1).Font.Name="黑体";
+    <!--设置列宽 xlsheet.Columns(2)=14;-->
+    xlsheet.Columns("A:D").ColumnWidth =18;
+     <!--设置显示字符而不是数字-->
+   // xlsheet.Columns(2).NumberFormatLocal="@";
+   // xlsheet.Columns(7).NumberFormatLocal="@";
+
+     //设置单元格内容自动换行 range.WrapText  =  true  ;
+     //设置单元格内容水平对齐方式 range.HorizontalAlignment  =  Excel.XlHAlign.xlHAlignCenter;//设置单元格内容竖直堆砌方式
+      //range.VerticalAlignment=Excel.XlVAlign.xlVAlignCenter
+    //range.WrapText  =  true;  xlsheet.Rows(3).WrapText=true  自动换行
+   
+    //设置标题栏
+	var headArrLen = headArr.length;
+	for(var i=0;i<headArrLen;i++){
+		xlsheet.Cells(2,i+1).Value = headArr[i];
+		
+	}
+	
+
+	
+	xlsheet.Range(xlsheet.Cells(2,1),xlsheet.Cells(2,headArrLen)).Interior.ColorIndex=4;//设置底色为蓝色
+	xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(2,headArrLen)).Borders(3).Weight = 2; //设置左边距
+    xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(2,headArrLen)).Borders(4).Weight = 2;//设置右边距
+    xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(2,headArrLen)).Borders(1).Weight = 2;//设置顶边距
+    xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(2,headArrLen)).Borders(2).Weight = 2;//设置底边
+	
+	<!--设置行高-->
+    xlsheet.Rows(2).RowHeight = 20;
+    <!--设置字体 ws.Range(ws.Cells(i0+1,j0), ws.Cells(i0+1,j1)).Font.Size = 13 -->
+    xlsheet.Rows(2).Font.Size=13;
+	<!--设置字体 设置选定区的字体  xlsheet.Range(xlsheet.Cells(i0,j0), ws.Cells(i0,j0)).Font.Name = "黑体" -->
+    xlsheet.Rows(2).Font.Name="黑体";
+	
+/*     xlsheet.Cells(2,1).Value="卡号";
+     xlsheet.Cells(2,2).Value="密码";
+     xlsheet.Cells(2,3).Value="计费方式";
+     xlsheet.Cells(2,4).Value="有效天数";
+     xlsheet.Cells(2,5).Value="金额";
+     xlsheet.Cells(2,6).Value="所属服务项目";
+     xlsheet.Cells(2,7).Value="发卡时间";
+	 
+	deviceID   		: deviceID,
+	depName   		: depName,
+	nickName  		: nickName,
+	fuel_consumption: fuel_consumption,
+	startTime		: startTime,
+	stopTime		: stopTime,
+	trackDistance	: trackDistance,
+	avg_fuel		: avg_fuel
+部门 
+车牌号 
+设备号 
+开始时间 
+结束时间 
+里程(KM) 
+油耗(L) 
+平均油耗(L/100KM) 
+
+	 */
+	 xlsheet.Columns.AutoFit;
+	 var dataArrLen = dataArr.length;
+	 var depNameTmp = "", deviceTmp = "";
+	 for(var i=0;i<dataArrLen;i++){
+		
+		if(i==0){
+			depNameTmp = dataArr[i].depName;
+			deviceTmp = dataArr[i].deviceID;
+		}else if(i>0){
+			if(depNameTmp == dataArr[i].depName){
+				depNameTmp = dataArr[i].depName;
+				
+				//合并单元格
+				xlsheet.Range(xlsheet.Cells(i+2,1),xlsheet.Cells(i+2+1,1)).mergecells=true;
+    			xlsheet.Range(xlsheet.Cells(i+2,1),xlsheet.Cells(i+2+1,1)).value = dataArr[i].depName;
+				
+			}else{
+				depNameTmp = dataArr[i].depName;	
+			}
+			
+			if(deviceTmp == dataArr[i].deviceID){
+				
+				deviceTmp = dataArr[i].deviceID;	
+				
+				//合并单元格
+				xlsheet.Range(xlsheet.Cells(i+2,2),xlsheet.Cells(i+2+1,2)).mergecells=true;
+    			xlsheet.Range(xlsheet.Cells(i+2,2),xlsheet.Cells(i+2+1,2)).value = dataArr[i].nickName;
+				
+				xlsheet.Range(xlsheet.Cells(i+2,3),xlsheet.Cells(i+2+1,3)).mergecells=true;
+    			xlsheet.Range(xlsheet.Cells(i+2,3),xlsheet.Cells(i+2+1,3)).value = dataArr[i].deviceID;
+				
+			}else{
+				deviceTmp = dataArr[i].deviceID;	
+			}
+			
+		}
+		
+		 
+		 //['部门','车牌号','设备号','开始地址','开始时间','结束地址','结束时间','里程(KM)','油耗(L)','平均油耗(L/100KM)'];
+		xlsheet.Cells(i+3,1).Value = dataArr[i].depName;
+		xlsheet.Cells(i+3,2).Value = dataArr[i].nickName;
+		xlsheet.Cells(i+3,3).Value = dataArr[i].deviceID;
+		xlsheet.Cells(i+3,4).Value = dataArr[i].startAddr;
+		xlsheet.Cells(i+3,5).Value = dataArr[i].startTime;
+		xlsheet.Cells(i+3,6).Value = dataArr[i].stopAddr;
+		xlsheet.Cells(i+3,7).Value = dataArr[i].stopTime;
+		xlsheet.Cells(i+3,8).Value = dataArr[i].trackDistance;
+		xlsheet.Cells(i+3,9).Value = dataArr[i].fuel_consumption;
+		xlsheet.Cells(i+3,10).Value = dataArr[i].avg_fuel;
+		
+		xlsheet.Range( xlsheet.Cells(1,1),xlsheet.Cells(i+3,i+1)).HorizontalAlignment =-4108;//居中
+		xlsheet.Rows(i+3).RowHeight = 16;
+	 }
+	 
+	 
+/*     var oTable=document.all['fors:data'];
+     var rowNum=oTable.rows.length;
+     for(i=2;i<=rowNum;i++){
+		 for (j=1;j<=7;j++){
+			//html table类容写到excel
+		    xlsheet.Cells(i+1,j).Value=oTable.rows(i-1).cells(j-1).innerHTML;
+         }
+
+    }*/
+     <!--   xlsheet.Range(xls.Cells(i+4,2),xls.Cells(rowNum,4)).Merge; -->
+     // xlsheet.Range(xlsheet.Cells(i, 4), xlsheet.Cells(i-1, 6)).BorderAround , 4
+     // for(mn=1,mn<=6;mn++) .     xlsheet.Range(xlsheet.Cells(1, mn), xlsheet.Cells(i1, j)).Columns.AutoFit;
+     // xlsheet.Columns.AutoFit;
+     /* xlsheet.Range( xlsheet.Cells(1,1),xlsheet.Cells(rowNum+1,headArrLen)).HorizontalAlignment =-4108;//居中
+      xlsheet.Range( xlsheet.Cells(1,1),xlsheet.Cells(1,headArrLen)).VerticalAlignment =-4108;
+      xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(rowNum+1,headArrLen)).Font.Size=12;
+      xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(rowNum+1,headArrLen)).Borders(3).Weight = 2; //设置左边距
+      xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(rowNum+1,headArrLen)).Borders(4).Weight = 2;//设置右边距
+      xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(rowNum+1,headArrLen)).Borders(1).Weight = 2;//设置顶边距
+      xlsheet.Range( xlsheet.Cells(2,1),xlsheet.Cells(rowNum+1,headArrLen)).Borders(2).Weight = 2;//设置底边距*/
+		//定义列宽  
+		xlsheet.Columns('A:A').ColumnWidth = 15;  
+		xlsheet.Columns('B:B').ColumnWidth = 15;  
+		xlsheet.Columns('C:C').ColumnWidth = 15;  
+		xlsheet.Columns('D:D').ColumnWidth = 20;  
+		xlsheet.Columns('E:E').ColumnWidth = 20;  
+		xlsheet.Columns('F:F').ColumnWidth = 15;  
+		xlsheet.Columns('G:G').ColumnWidth = 15;  
+		xlsheet.Columns('H:H').ColumnWidth = 20;  
+       
+      xls.UserControl = true;  //很重要,不能省略,不然会出问题 意思是excel交由用户控制
+      xls=null;
+      xlBook=null;
+      xlsheet=null;
+}	
+	
+	</script>
+		</body>
+</html>

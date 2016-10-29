@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/libs
+END
+debug.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/libs/debug.tpl
+END
+Smarty.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/libs/Smarty.class.php
+END
+SmartyBC.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/libs/SmartyBC.class.php
+END

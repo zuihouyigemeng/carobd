@@ -1,0 +1,47 @@
+<?php 
+ob_start();
+session_start();
+  if(!isset($_SESSION["userVo"])||$_SESSION["userVo"]==null)
+	{
+		header("Location: ../login.php");
+	    	ob_end_flush();
+	}
+   $userVo=$_SESSION["userVo"];
+
+}
+   
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Complex Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body>
+	
+	<div ></div>
+	<div class="easyui-tabs" style="width:1100px;height:400px">
+		<div title="用户管理" style="padding:10px">
+			
+	
+
+		</div>
+		<div title="角色管理" style="padding:10px">
+		
+		</div>
+		<div title="客户管理" style="padding:10px">
+			<ul class="easyui-tree"   url="../service/administration.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,cascadeCheck:true"  id="depID">
+				
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

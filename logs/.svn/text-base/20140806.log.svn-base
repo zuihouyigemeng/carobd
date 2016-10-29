@@ -1,0 +1,302 @@
+2014-08-06 00:00:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:01:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:02:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:03:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:04:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:05:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:06:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:07:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:08:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:09:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:10:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:11:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:12:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:13:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:14:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:15:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:16:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:17:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:18:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:19:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:20:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:21:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:22:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:23:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:24:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:25:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:26:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:27:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:28:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:29:52,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 00:31:05,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (132) and d.deviceID=l.deviceID  
+2014-08-06 18:17:50,----------------departments:----------postid:
+2014-08-06 18:17:50,----------------departments:-----------defDep:1003
+2014-08-06 18:17:50,----------------departments:-----------id:1003
+2014-08-06 18:17:50,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-06 18:17:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-06 18:17:50,----------------departments:----------postid:
+2014-08-06 18:17:50,----------------departments:-----------defDep:1003
+2014-08-06 18:17:50,----------------departments:-----------id:1003
+2014-08-06 18:17:50,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-08-06 18:17:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------depID:------0
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------depID:------1003
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1003 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1004 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1005 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1072 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1006 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1011 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1012 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1013 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1014 
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1015 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1009 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1016 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1021 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1030 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1062 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1063 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1028 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1010 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1029 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1053 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1070 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1071 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1073 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1074 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1075 
+2014-08-06 18:17:51,----------------getDeptLowerId:------select id from Opm_Organ where parentId=1076 
+2014-08-06 18:17:51,----------------ign:------2
+2014-08-06 18:17:51,----------------sql:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and d.depID  in (1004,1005,1072,1006,1011,1012,1013,1014,1015,1009,1016,1021,1030,1062,1063,1028,1010,1029,1053,1070,1071,1073,1074,1075,1076,1003) and d.deviceID=l.deviceID  
+2014-08-06 18:18:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:19:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:20:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:21:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:22:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:23:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:24:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:25:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:26:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:27:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:28:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:29:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:30:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:31:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:32:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:33:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:34:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:35:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:36:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  
+2014-08-06 18:37:51,----------------sql1:------select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (261) and d.deviceID=l.deviceID  

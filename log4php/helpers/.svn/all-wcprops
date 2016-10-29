@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers
+END
+LoggerMDCPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerMDCPatternConverter.php
+END
+LoggerNamedPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerNamedPatternConverter.php
+END
+LoggerPatternParser.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerPatternParser.php
+END
+LoggerClassNamePatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerClassNamePatternConverter.php
+END
+LoggerLocationPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerLocationPatternConverter.php
+END
+LoggerOptionConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerOptionConverter.php
+END
+LoggerLiteralPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerLiteralPatternConverter.php
+END
+LoggerCategoryPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerCategoryPatternConverter.php
+END
+LoggerDatePatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerDatePatternConverter.php
+END
+LoggerPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerPatternConverter.php
+END
+LoggerFormattingInfo.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerFormattingInfo.php
+END
+LoggerBasicPatternConverter.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/LBS/!svn/ver/97/02_OBD/trunk/web/obd_web_1.0.7/log4php/helpers/LoggerBasicPatternConverter.php
+END

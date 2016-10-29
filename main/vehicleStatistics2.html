@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>汽车里程统计</title>
+    <!-- 来自百度CDN -->
+    <script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+    <script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../timeUtils.js"></script>
+</head>
+<body style="height:300px,width:500px">
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div style="height:300px,width:500px"> 
+    <div id="main" style="height:400px"></div>
+    <div id="butt" >
+      <a href="#" class="easyui-linkbutton" plain="true"  data-options="iconCls:'icon-large-smartart',size:'samall',iconAlign:'top'" onclick="preMonth_dis()">上个月</a>
+         <a href="#" class="easyui-linkbutton" plain="true"  data-options="iconCls:'icon-large-smartart',size:'samall',iconAlign:'top'" onclick="nextMonth_dis()">下个月</a>
+     </div>
+    </div>
+    
+    <script type="text/javascript">
+    
+        var  thisMonthFirstDay=getCurrentMonthFirst();
+        
+        // 路径配置
+         require.config({
+                 paths:{ 
+                     'echarts' : 'http://echarts.baidu.com/build/echarts',
+                     'echarts/chart/line' : 'http://echarts.baidu.com/build/echarts'
+                 }
+             });
+        
+        
+         getData();
+         
+         function getCurrentMonthFirst(){
+        	  var date=new Date();
+        	  date.setDate(1);
+        	  return date;
+        	 }
+         
+         function preMonth_dis(){
+        	 alert(thisMonthFirstDay.getMonth());
+        	 thisMonthFirstDay.setMonth(thisMonthFirstDay.getMonth()-1);
+        	 alert( thisMonthFirstDay);
+        	 getData();
+         }
+         
+         function nextMonth_dis(){
+        	 thisMonthFirstDay.setMonth(thisMonthFirstDay.getMonth()+1);//加一个月
+        	 alert( thisMonthFirstDay);
+        	 getData();
+         }
+         
+     
+        
+        
+        function getData(){
+        	  $.post("http://192.168.0.163/zend_obd/jsonAPI/driving_dist.php",
+            		  {
+            		 deviceID:'6C500CBD',time:thisMonthFirstDay.format('yyyy-MM-dd')
+            		  },
+            		  function(data,status){
+            			//  alert("ppp");
+            			  var rows=eval(data);
+            			  var x_data=rows[0];
+            			  var y_data=rows[1];
+                          // 使用
+                          require(
+                              [
+                                  'echarts',
+                                  'echarts/chart/line' // 使用柱状图就加载bar模块，按需加载
+                              ],
+                              function (ec) {
+                                  // 基于准备好的dom，初始化echarts图表
+                                  var myChart = ec.init(document.getElementById('main')); 
+                                  
+                                  option = {
+                                  	    title : {
+                                  	        text: '汽车里程统计',
+                                  	        subtext: ''
+                                  	    },
+                                  	    tooltip : {
+                                  	        trigger: 'axis'
+                                  	    },
+                                  	    legend: {
+                                  	        data:['每日里程']
+                                  	    },
+                                  	    toolbox: {
+                                  	        show : true
+                                  	    },
+                                  	    calculable : true,
+                                  	    xAxis : [
+                                  	        {
+                                  	            type : 'category',
+                                  	            boundaryGap : false,
+                                  	            data : x_data
+                                  	        }
+                                  	    ],
+                                  	    yAxis : [
+                                  	        {
+                                  	            type : 'value',
+                                  	            axisLabel : {
+                                  	                formatter: '{value} KM'
+                                  	            }
+                                  	        }
+                                  	    ],
+                                  	    series : [
+                                  	        {
+                                  	            name:'当日里程',
+                                  	            type:'line',
+                                  	            data:y_data
+                                  	        }
+                                  	    ]
+                                  	};
+                          
+                                  // 为echarts对象加载数据 
+                                  myChart.setOption(option); 
+                              }
+                          ); 
+            			  
+            			  
+            			  
+            			  
+            			  
+            			  
+        	  
+            		  });
+            		  
+            		  
+        	
+            	
+        	
+            		 	
+                   
+        	
+       
+        }
+       
+    </script>
+</body>

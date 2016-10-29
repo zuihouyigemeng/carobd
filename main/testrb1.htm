@@ -1,0 +1,158 @@
+
+
+<html>   
+<head>   
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes" />   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+	<meta charset="UTF-8" />
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../locale/easyui-lang-zh_CN.js"></script> 
+    <SCRIPT type="text/javascript" src="../jquery.layout.js"></SCRIPT>
+    <SCRIPT type="text/javascript" src="../jquery.layout.extend.js"></SCRIPT>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=oCbw1Qz8ayXfZKlgDHKyfsWG"></script>  
+	<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script>  
+<title>历史行程</title>   
+<style type="text/css">   
+html{height:100%}   
+body{height:100%;margin:0px;padding:0px}  
+#container{height:100%;width:100%}   
+</style>   
+	<script>
+		function showAlert( obj){
+			alert (obj);
+		}
+		
+		function isValidGps(lat,lng){
+			return ((lat>+1e-5 && lat<=90.0)|| (lat<-1e-5 && lat >=-90.0)) && ((lng>+1e-5 && lng<=180.0)|| (lng<-1e-5 && lng >=-180.0));
+		}
+	</script>  
+	
+</head>   
+
+<body class="easyui-layout"  id="cc" >   
+<div data-options="region:'south',split:false" style="height:150px;width:100%">
+	<table id="dg" class="easyui-datagrid"  style="height:148px;width:1560px"
+						data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false">
+					<thead>
+						<tr>
+						
+			                <th data-options="field:'serverDate',width:200">日期</th>
+							<th data-options="field:'serverTime',width:200">时间</th>
+							<th data-options="field:'longitude',width:200">经度</th>
+							<th data-options="field:'latitude',width:200">纬度</th>
+							<th data-options="field:'address_num',width:500,align:'right'">地址</th>
+							<th data-options="field:'heading',width:100">方向</th>
+						
+						</tr>
+					</thead>
+				</table>	   
+</div>
+<div data-options="region:'center',iconCls:'icon-ok'" id="conterid" >
+
+  
+<div style="margin:20px 0 10px 0; position:absolute; z-index:10;  visibility:hidden">
+		<a id="Test1" href="#" class="easyui-linkbutton" onclick="JAVASCRIPT:onTest1();">Test1</a>  
+		<a id="Test2" href="#" class="easyui-linkbutton" onclick="javascript:">Test2</a>   
+</div>
+
+<div id="test" style="width:800px;height:600px;top:0px;left:400px;  position:absolute; z-index:10; visibility:visible">
+		<table border="1px" cellspacing="0px"  style="margin:auto;border-collapse:collapse" >
+				<tr align = center height=30px>
+					<td align = left width = 100px bgcolor="#edf4ff"><b>用户名:</b></td>
+					<td><input class="easyui-validatebox textbox" id="username" style="text-align:center;border:1;text-align:center;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+			
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>姓名:</b></td>
+					<td><input class="easyui-validatebox textbox" id="name" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>电话:</b></td>
+					<td><input class="easyui-validatebox textbox" id="smsnum" style="text-align:center;border:1;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+		
+				<tr align = right height=30px>
+					<td align = left width = 200px bgcolor="#edf4ff"><b>邮箱:</b></td>
+					<td><input class="easyui-validatebox textbox" id="email" style="text-align:center;border:1;" type="text" name="name" value="" ></td>
+
+				</tr>	
+
+			</table>
+
+</div>   
+
+
+
+<!-- 地图 -->	
+<div id="container" style="position:absolute; z-index:1"></div>  
+<script type="text/javascript"><!--  
+
+
+
+// 百度地图API功能
+var sContent =
+"<h4 style='margin:0 0 5px 0;padding:0.2em 0'>15800892321【在线】</h4>" + 
+"定位：GPS（南）"+"时间：2014-06-22 10:22:05</br>"
++"位置：上海市浦东新区松涛路489号-a</br>"
++"<img  id='imgDemo1' src='../mapPic/trace.jpg' width='39' height='38' title='跟踪'  onclick='trace()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo2' src='../mapPic/playback.jpg' width='39' height='38' title='回放'  onclick='playback()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo3' src='../mapPic/alerts.jpg' width='39' height='38' title='告警'  onclick='alerts()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo4' src='../mapPic/infor.jpg' width='39' height='38' title='档案'  onclick='info()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo5' src='../mapPic/setting.jpg' width='39' height='38' title='设置'  onclick='setting()'  /> "
++"&nbsp;&nbsp;&nbsp;"
++"<img  id='imgDemo5' src='../mapPic/more.jpg' width='39' height='38' title='更多'  onclick='more()'  /> "
++"</div>";
+//var map = new BMap.Map("container");
+<!---->
+<!--$(function(){-->
+<!--    var map = new BMap.Map("container");-->
+<!--	map.addControl(new BMap.NavigationControl());  -->
+<!--	map.addControl(new BMap.ScaleControl());    -->
+<!--	map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_HYBRID_MAP]}));    -->
+<!--	//map.addControl(new BMap.OverviewMapControl());    -->
+<!--	var point = new BMap.Point(121.58211, 31.20918);-->
+<!--	var marker = new BMap.Marker(point);-->
+<!--	map.centerAndZoom(point, 15);-->
+<!--	map.addOverlay(marker);-->
+<!---->
+<!---->
+<!--})-->
+
+
+function testMapAPI(){
+	alert("testMapAPI");
+
+	return;
+}
+
+
+
+function onTest1(){
+	//displayTrackPoint_test(31.20918, 121.58211);
+	//displayTrackLine_test();
+	//testMapAPI();
+
+	//test_displayTrackPointAtOffset();
+	//testGPS2Baidu_Single();
+	//testGPS2Baidu_Multi();
+	//testGPS2Baidu();
+	//displayTrackLine1();
+}
+
+
+--></script>  
+</div> 
+</body>   
+</html>

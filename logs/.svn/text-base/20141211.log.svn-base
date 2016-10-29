@@ -1,0 +1,480 @@
+2014-12-11 14:28:32,----------------departments:-----------defDep:1003
+2014-12-11 14:28:32,----------------departments:-----------id:1003
+2014-12-11 14:28:32,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:28:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:28:32,----------------departments:-----------defDep:1003
+2014-12-11 14:28:32,----------------departments:-----------id:1003
+2014-12-11 14:28:32,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:28:32,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:28:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:32,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:32,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 14:28:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:33,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:28:34,----------------departments:-----------defDep:1003
+2014-12-11 14:28:34,----------------departments:-----------id:1003
+2014-12-11 14:28:34,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1004 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1012 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1015 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1016 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1028 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1070 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1073 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1075 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1079 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1083 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1168 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1177 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1199 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1200 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1201 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1202 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1203 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1204 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1205 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1207 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1208 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1210 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1211 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1212 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1213 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1214 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1215 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1216 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1217 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1218 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1219 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1220 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1221 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1222 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1223 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1224 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1225 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1226 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1227 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1228 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1229 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1230 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1231 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1232 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1233 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1234 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1235 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1236 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1237 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1238 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1239 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1240 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1241 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1242 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1243 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1244 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1245 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1246 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1247 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1249 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1250 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1251 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1252 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1253 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1254 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1255 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1256 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1257 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1258 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1259 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1261 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1262 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1263 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1264 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1265 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1266 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1267 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1268 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1269 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1270 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1271 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1272 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1273 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1274 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1275 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1276 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1277 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1278 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1279 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1280 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1281 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1282 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1283 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1284 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1285 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1286 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1287 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1288 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1289 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1290 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1291 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1292 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1293 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1294 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1295 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1296 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1297 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1298 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1299 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1300 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1301 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1302 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1303 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1304 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1305 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1306 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1307 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1308 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1309 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1310 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1311 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1314 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1315 and id>1000
+2014-12-11 14:28:34,----------------departments:------select count(*)  from Opm_Organ where parentId=1451 and id>1000
+2014-12-11 14:29:09,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (null) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:09,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (null) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:13,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (328) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:13,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (328) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:14,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (-1) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:14,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (-1) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:15,-----------vehicles4dep-----sql:------select  
+				c.name as customerName,
+				dm.nickName,
+				d.registerKey,
+				d.deviceID,
+				v.vin,
+				d.d_esn,
+				v.licenseNumber,
+				l.ign,l.onlineStatus,
+				l.address_num,
+				l.baidu_latitude as latitude ,
+				l.baidu_longitude as longitude,
+				l.heading,
+				concat( l.gpsDate, ' ', l.gpsTime ) as time 
+			from 
+				VehicleInfo v ,
+				provision_obd.Devices d,
+				Devices_MT dm,
+				obd_demo.LocationStatus l,
+				Customers c 
+			where 
+				d.deviceID=dm.deviceID and 
+				dm.vin=v.vin and  
+				dm.customerID  in (null)  and  
+				d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and 
+				d.deviceID=l.deviceID  and 
+				dm.customerID=c.id
+2014-12-11 14:29:15,-----------vehicles4dep-----sql:------select  
+				c.name as customerName,
+				dm.nickName,
+				d.registerKey,
+				d.deviceID,
+				v.vin,
+				d.d_esn,
+				v.licenseNumber,
+				l.ign,l.onlineStatus,
+				l.address_num,
+				l.baidu_latitude as latitude ,
+				l.baidu_longitude as longitude,
+				l.heading,
+				concat( l.gpsDate, ' ', l.gpsTime ) as time 
+			from 
+				VehicleInfo v ,
+				provision_obd.Devices d,
+				Devices_MT dm,
+				obd_demo.LocationStatus l,
+				Customers c 
+			where 
+				d.deviceID=dm.deviceID and 
+				dm.vin=v.vin and  
+				dm.customerID  in (null)  and  
+				d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and 
+				d.deviceID=l.deviceID  and 
+				dm.customerID=c.id
+2014-12-11 14:29:21,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (-1) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:21,-----------vehicles4dep-----sql:------select  c.name as customerName,dm.nickName,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,VehModel vm,VehModelNumber vn,Customers c  where d.deviceID=dm.deviceID and dm.vin=v.vin and  dm.ModelNumID =vn.ModelNumID and  vn.ModelID=vm.ModelID  and vm.ModelID   in (-1) and  d.depID  in (1004,1005,1072,1078,1088,1089,1090,1145,1146,1150,1151,1191,1012,1013,1082,1015,1009,1016,1021,1030,1062,1063,1028,1010,1070,1071,1185,1073,1074,1075,1076,1079,1080,1081,1194,1195,1196,1083,1084,1110,1168,1169,1184,1177,1178,1179,1180,1181,1199,1200,1201,1202,1203,1204,1205,1206,1207,1208,1210,1211,1212,1213,1214,1215,1216,1217,1218,1219,1220,1221,1222,1223,1224,1225,1226,1227,1228,1229,1230,1231,1232,1233,1234,1235,1236,1237,1238,1239,1240,1241,1242,1243,1244,1245,1246,1247,1249,1250,1251,1252,1253,1254,1255,1256,1257,1258,1259,1261,1262,1263,1264,1265,1266,1267,1268,1269,1270,1271,1272,1273,1274,1275,1276,1277,1278,1279,1280,1281,1282,1283,1284,1285,1286,1287,1288,1289,1290,1291,1292,1293,1294,1295,1296,1297,1298,1299,1300,1301,1302,1303,1304,1305,1306,1307,1308,1309,1310,1311,1314,1315,1451,1003) and d.deviceID=l.deviceID and dm.customerID=c.id 
+2014-12-11 14:29:22,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:23,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,----------------departments:-----------defDep:1003
+2014-12-11 14:29:27,----------------departments:-----------id:1003
+2014-12-11 14:29:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:29:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:29:27,----------------departments:-----------defDep:1003
+2014-12-11 14:29:27,----------------departments:-----------id:1003
+2014-12-11 14:29:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:29:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:27,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:29:28,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 14:29:31,----------------departments:-----------defDep:1003
+2014-12-11 14:29:31,----------------departments:-----------id:1003
+2014-12-11 14:29:31,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1004 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1012 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1015 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1016 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1028 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1070 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1073 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1075 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1079 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1083 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1168 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1177 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1199 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1200 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1201 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1202 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1203 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1204 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1205 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1206 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1207 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1208 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1210 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1211 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1212 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1213 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1214 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1215 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1216 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1217 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1218 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1219 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1220 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1221 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1222 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1223 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1224 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1225 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1226 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1227 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1228 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1229 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1230 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1231 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1232 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1233 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1234 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1235 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1236 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1237 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1238 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1239 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1240 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1241 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1242 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1243 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1244 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1245 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1246 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1247 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1249 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1250 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1251 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1252 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1253 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1254 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1255 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1256 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1257 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1258 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1259 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1261 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1262 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1263 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1264 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1265 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1266 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1267 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1268 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1269 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1270 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1271 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1272 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1273 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1274 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1275 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1276 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1277 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1278 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1279 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1280 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1281 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1282 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1283 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1284 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1285 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1286 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1287 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1288 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1289 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1290 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1291 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1292 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1293 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1294 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1295 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1296 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1297 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1298 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1299 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1300 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1301 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1302 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1303 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1304 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1305 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1306 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1307 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1308 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1309 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1310 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1311 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1314 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1315 and id>1000
+2014-12-11 14:29:31,----------------departments:------select count(*)  from Opm_Organ where parentId=1451 and id>1000
+2014-12-11 14:46:27,----------------departments:-----------defDep:1003
+2014-12-11 14:46:27,----------------departments:-----------id:1003
+2014-12-11 14:46:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:46:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:46:27,----------------departments:-----------defDep:1003
+2014-12-11 14:46:27,----------------departments:-----------id:1003
+2014-12-11 14:46:27,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:46:27,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:46:27,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:46:28,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:43,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 14:53:44,----------------departments:-----------defDep:1003
+2014-12-11 14:53:44,----------------departments:-----------id:1003
+2014-12-11 14:53:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:53:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:53:44,----------------departments:-----------defDep:1003
+2014-12-11 14:53:44,----------------departments:-----------id:1003
+2014-12-11 14:53:44,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 14:53:44,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 14:53:45,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:45,----------------departments:-----------defDep:1003
+2014-12-11 15:03:45,----------------departments:-----------id:1003
+2014-12-11 15:03:45,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 15:03:45,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 15:03:45,----------------departments:-----------defDep:1003
+2014-12-11 15:03:45,----------------departments:-----------id:1003
+2014-12-11 15:03:45,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 15:03:45,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 15:03:46,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:46,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:03:47,----------------departments:-----------defDep:1003
+2014-12-11 15:03:47,----------------departments:-----------id:1003
+2014-12-11 15:03:47,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1004 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1012 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1015 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1016 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1028 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1070 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1073 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1075 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1079 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1083 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1165 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1168 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1177 and id>1000
+2014-12-11 15:03:47,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2014-12-11 15:03:49,----------------departments:-----------defDep:1003
+2014-12-11 15:03:49,----------------departments:-----------id:1004
+2014-12-11 15:03:49,----------------departments:------select * from Opm_Organ where  parentId=1004 and id>1000
+2014-12-11 15:03:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1005 and id>1000
+2014-12-11 15:03:49,----------------departments:------select count(*)  from Opm_Organ where parentId=1191 and id>1000
+2014-12-11 15:03:50,----------------departments:-----------defDep:1003
+2014-12-11 15:03:50,----------------departments:-----------id:1005
+2014-12-11 15:03:50,----------------departments:------select * from Opm_Organ where  parentId=1005 and id>1000
+2014-12-11 15:03:50,----------------departments:------select count(*)  from Opm_Organ where parentId=1072 and id>1000
+2014-12-11 15:03:51,----------------departments:-----------defDep:1003
+2014-12-11 15:03:51,----------------departments:-----------id:1072
+2014-12-11 15:03:51,----------------departments:------select * from Opm_Organ where  parentId=1072 and id>1000
+2014-12-11 15:03:51,----------------departments:------select count(*)  from Opm_Organ where parentId=1078 and id>1000
+2014-12-11 15:03:51,----------------departments:------select count(*)  from Opm_Organ where parentId=1088 and id>1000
+2014-12-11 15:03:51,----------------departments:------select count(*)  from Opm_Organ where parentId=1089 and id>1000
+2014-12-11 15:06:01,----------------departments:-----------defDep:1003
+2014-12-11 15:06:01,----------------departments:-----------id:1003
+2014-12-11 15:06:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 15:06:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 15:06:01,----------------departments:-----------defDep:1003
+2014-12-11 15:06:01,----------------departments:-----------id:1003
+2014-12-11 15:06:01,----------------departments:------select * from Opm_Organ where id=1003 and id>1000
+2014-12-11 15:06:01,----------------departments:------select count(*)  from Opm_Organ where parentId=1003 and id>1000
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,----------------sql:------select d.deviceID,d.defenceFlag from provision_obd.Devices d where d.deviceID='6C500CB6' limit 1
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:01,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:02,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (null) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:04,----------------departments:-----------defDep:1003
+2014-12-11 15:06:04,----------------departments:-----------id:1003
+2014-12-11 15:06:04,----------------departments:------select * from Opm_Organ where  parentId=1003 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1004 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1012 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1015 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1016 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1028 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1070 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1073 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1075 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1079 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1083 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1165 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1168 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1177 and id>1000
+2014-12-11 15:06:04,----------------departments:------select count(*)  from Opm_Organ where parentId=1192 and id>1000
+2014-12-11 15:06:05,----------------departments:-----------defDep:1003
+2014-12-11 15:06:05,----------------departments:-----------id:1070
+2014-12-11 15:06:05,----------------departments:------select * from Opm_Organ where  parentId=1070 and id>1000
+2014-12-11 15:06:05,----------------departments:------select count(*)  from Opm_Organ where parentId=1071 and id>1000
+2014-12-11 15:06:05,----------------departments:------select count(*)  from Opm_Organ where parentId=1185 and id>1000
+2014-12-11 15:06:06,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1071) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:06,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (1071) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:08,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (-1) and d.deviceID=l.deviceID  and dm.customerID=c.id
+2014-12-11 15:06:08,-----------vehicles4dep-----sql:------select oo.name as depName,c.name as customerName,dm.nickName,d.deviceIndex,d.registerKey,d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,l.heading,concat( l.gpsDate, ' ', l.gpsTime ) as time from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l,Customers c,Opm_Organ oo   where d.deviceID=dm.deviceID and dm.vin=v.vin  and d.depID=oo.id and d.depID  in (-1) and d.deviceID=l.deviceID  and dm.customerID=c.id

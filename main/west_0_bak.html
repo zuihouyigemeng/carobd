@@ -1,0 +1,354 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Complex Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body  >	
+	<!-- 	<div class="easyui-accordion" data-options="fit:true,border:false">
+				<div title="Title1" style="padding:10px;">
+					content1
+				</div>
+				<div title="Title2" data-options="selected:true" style="padding:10px;">
+					content2
+				</div>
+				<div title="Title3" style="padding:10px">
+					content3
+				</div>
+			</div>   -->
+			
+		
+		<div class="easyui-tabs" style="width:250px;height:200px" id='tt1'>	
+
+		<div title="部门"  style="overflow:auto;padding:10px;">
+			<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="depID">
+				
+			</ul>
+		</div>
+		<div title="车系"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   url="../service/vehicleNumber.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_modelID">
+				
+			</ul>
+		</div>
+
+		<div title="客户"  style="overflow:auto;padding:10px;">
+				
+			<ul class="easyui-tree"   url="../service/customer.php?defDep=<?php echo  $userVo->depID ?>" data-options="animate:true,checkbox:true,onlyLeafCheck:true"  id="v_cusID">
+				
+			</ul>
+		</div>
+
+		</div>
+		
+		
+	 <div style="padding:0px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:250px;height:270px"
+        data-options="rownumbers:true,singleSelect:false,selectOnCheck:false,checkOnSelect:false,pagination:true">
+	<!--		data-options="rownumbers:true,singleSelect:false,pagination:true,url:'../service/vehicles.php',method:'get',toolbar:toolbar">   -->
+		<thead>
+			<tr>
+				<th data-options="field:'ck',checkbox:true,width:5"></th>
+				<th data-options="field:'licenseNumber',width:60">车牌号</th>
+				<th data-options="field:'online',width:60,hidden:false">引擎状态</th>
+			    <th data-options="field:'d_esn',width:80,hidden:false">D_ESN</th>
+				<th data-options="field:'address_num',width:80,hidden:true">地址</th>
+				<th data-options="field:'latitude',width:50,hidden:true">latitude</th>
+				<th data-options="field:'longitude',width:50,hidden:true">longitude</th>
+				<th data-options="field:'time',width:100,hidden:true">时间</th>
+				<th data-options="field:'vin',width:50,hidden:true">vin</th>
+				<th data-options="field:'deviceID',width:100,hidden:true">deviceID</th>
+				<th data-options="field:'heading',width:100,hidden:true">heading</th>
+				<th data-options="field:'ign',width:100,hidden:true">ign</th>
+			</tr>
+		</thead>
+	</table>
+              
+	           </div>
+ 	<div id="p" class="easyui-panel" title="车辆列表" style="width:250px;height:150px;padding:0px;">
+				<table border="0" cellspacing="0" cellpadding="1"><tbody>
+	                    <tr height="10px"></tr>
+	                    <tr>
+	                           <td><span>开始时间1</span></td>
+	                           <td align="center"><input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" id='startDate'></input></td>
+	                    </tr>
+	                    <tr>
+	                           <td><span>结束时间</span></td>
+	                           <td align="center"><input class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" id='stopDate'></input></td>
+	            		</tr>
+	            		<script type="text/javascript">
+							function myformatter(date){
+								var y = date.getFullYear();
+								var m = date.getMonth()+1;
+								var d = date.getDate();
+								return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+							}
+							function myparser(s){
+								if (!s) return new Date();
+								var ss = (s.split('-'));
+								var y = parseInt(ss[0],10);
+								var m = parseInt(ss[1],10);
+								var d = parseInt(ss[2],10);
+								if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+									return new Date(y,m-1,d);
+								} else {
+									return new Date();
+								}
+							}
+						</script>
+						<tr height="10px"></tr>
+	            		<tr>
+	                           <td align="center" colspan=2>
+	                           <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:80px" onclick="javascript:search1()">查询</a>
+	                           </td>             
+	            		</tr>
+	            		</tbody>
+	           		 </table>
+	</div>  
+	<script type="text/javascript">
+	          var tabIndex;
+	          var seletedArr=new Array();
+	         
+	          
+		$('#dg').datagrid({
+			onCheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.checkAll(rows);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onCheck: function(rowIndex,rowData){
+				top.onCheck(rowData);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onUncheck: function(rowIndex,rowData){
+				top.onUncheck(rowData);
+			}
+		
+		});
+		
+		$('#dg').datagrid({
+			onUncheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.onUncheckAll(rows);
+			}
+		
+		});
+	
+		
+		$('#dg').datagrid({
+		onDblClickRow: function(rowIndex, rowData){
+			//	alert("DbClick row "+rowData.d_esn);
+				top.vehicleClick(rowData);
+			//	$("#myid", top.document).;
+			//	alert($("#updkbi", top.document).attr("value"));
+		}
+	   });
+		
+		
+		function getSelected(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+			}
+		}
+		function getSelections(){
+			var ss = [];
+			var rows = $('#dg').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];
+				ss.push('<span>'+row.itemid+":"+row.productid+":"+row.attr1+'</span>');
+			}
+			$.messager.alert('Info', ss.join('<br/>'));
+		}
+		
+		
+		
+		//初始为根节点，从页面参数传入
+		var depID='<?php echo  $userVo->depID ?>';
+		$('#depID').tree({
+		onCheck:function(node, checked){
+		//	alert("check");
+		 seletedArr=new Array();
+			var nodes = $('#depID').tree('getChecked');
+			 for (i = 0; i < nodes.length; i++){
+				 seletedArr.push(nodes[i].id);
+			 }
+			  if(seletedArr.length==0){
+				  seletedArr.push(-1);
+			  }
+			 if(seletedArr.length>0){
+				 var tmp=seletedArr.join(",");
+			//	 alert("tmp:"+tmp);
+				 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+					 url:'../service/vehicles4dep.php?searchType=0&deps='+tmp
+							 }
+				);  
+				 
+			 }
+		}
+		});
+		
+		$('#v_modelID').tree({
+			onCheck:function(node, checked){
+			//	alert("check");
+			 seletedArr=new Array();
+				var nodes = $('#v_modelID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 var tmp=seletedArr.join(",");
+				//	 alert("tmp:"+tmp);
+					 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=1&deps='+tmp
+								 }
+					);  
+					 
+				 }
+			}
+			});
+		
+		$('#v_cusID').tree({
+			onCheck:function(node, checked){
+			//	alert("check");
+			 seletedArr=new Array();
+				var nodes = $('#v_cusID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 var tmp=seletedArr.join(",");
+				//	 alert("tmp:"+tmp);
+					 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=2&deps='+tmp
+								 }
+					);  
+					 
+				 }
+			}
+			});
+		
+		
+		
+		
+		$('#tt1').tabs({
+			onSelect: function(title,index){
+                tabIndex=index;
+				
+			  }
+			});
+		
+		
+		$(document).ready(function(){
+		//	var node = $('#depID').tree('find', 1070);
+		//	$('#depID').tree('select', node.target);
+			});
+
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		
+		 function search1(){
+	  			alert("search!");
+	  			var selectRows=$('#dg').datagrid('getChecked');
+	  			if(selectRows.length==0){
+	  				alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			
+	  			var deviceArr=new Array();
+	  			for ( var i=0 ; i < selectRows.length ; ++i ){
+	  				deviceArr.push(selectRows[i].deviceID);
+	  			}
+	  			var startDate=$('#startDate').datebox('getValue')+" 00:00:00";
+	  			alert(startDate);
+	  			
+	  			var stopDate=$('#stopDate').datebox('getValue') +" 23:59:59";
+	  			alert(stopDate);
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  			alert("ppppp");
+	  			top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		
+		
+
+
+		
+		
+	</script>
+		</body>
+</html>

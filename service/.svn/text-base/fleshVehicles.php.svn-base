@@ -1,0 +1,97 @@
+<?php
+include '../DBConnection.php';
+require_once '../log4php/Logger.php';
+Logger :: configure('../log4php.properties');
+$logger = Logger :: getRootLogger();
+$vins = isset ($_POST['vins']) ? $_POST['vins'] : '';
+if($vins==null or $vins==''){
+	$vins = isset ($_GET['vins']) ? $_GET['vins'] : '';
+}
+mysql_select_db("IOV_demo");
+$query = "select d.deviceID,v.vin,d.d_esn,v.licenseNumber,l.ign,l.onlineStatus,l.address_num,l.heading,l.baidu_latitude as latitude ,l.baidu_longitude as longitude,concat( l.gpsDate, ' ', l.gpsTime ) as time,(l.alertStatus1+l.alertStatus2+l.alertStatus3+l.alertStatus4+l.alertStatus5+l.alertStatus6+l.alertStatus7+l.alertStatus8) as alertStatus from VehicleInfo v ,provision_obd.Devices d,Devices_MT dm,obd_demo.LocationStatus l  where d.deviceID=dm.deviceID and dm.vin=v.vin and v.vin  in (" . $vins . ") and d.deviceID=l.deviceID  ";
+$logger->debug("----------------sql1:------" . $query);
+
+//echo $query;
+$result = mysql_query($query);
+$numRows = mysql_num_rows($result);
+$data = array ();
+if ($numRows > 0) {
+	while ($row = mysql_fetch_array($result)) {
+		$node = array ();
+		$node['licenseNumber'] = $row['licenseNumber'];
+		$node['d_esn'] = $row['d_esn'];
+		$node['address_num'] = $row['address_num'];
+		$node['latitude'] = $row['latitude'];
+		$node['longitude'] = $row['longitude'];
+		$node['alertStatus'] = $row['alertStatus'];
+	//	$node['time'] = $row['time'];
+		if($row['time'] <>'0000-00-00 00:00:00'){
+			$node['time'] =date("Y-m-d H:i:s", strtotime($row['time'] . '+8hour'));
+		}
+		else{
+			$node['time']=$row['time'];
+		}
+		$node['vin'] = $row['vin'];
+		$node['deviceID'] = $row['deviceID'];
+		$node['ign'] = $row['ign'];	
+		$node['heading'] = $row['heading'];	
+		
+		if($node['ign']==1){
+			if($row['onlineStatus']==0){
+				$node['online']='离线';
+			}
+			else{
+				$node['online']='运行中';
+			}
+			
+		}
+		else {
+			$node['online']='熄火';
+		}
+		
+		
+//		$url="http://api.map.baidu.com/geoconv/v1/?coords=";
+//		$url.=$row['longitude'];
+//		$url.=",";
+//		$url.=$row['latitude'];
+//		$url.="&from=1&to=5&ak=oCbw1Qz8ayXfZKlgDHKyfsWG";
+//		$result11=sendCurl($url,"");
+//		$dataOrg = json_decode($result11, true);
+//	//	print_r($dataOrg);
+//		$node['longitude']=$dataOrg["result"][0]["x"];
+//		$node['latitude'] = $dataOrg["result"][0]["y"];
+		array_push($data, $node);
+	}
+	mysql_free_result($result);
+}
+
+//echo "</br>";
+echo json_encode($data);
+
+
+
+
+function sendCurl($url,$post_data)
+	{
+		try{
+				$ch = curl_init();
+				curl_setopt($ch, CURLOPT_URL, $url);
+				curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//				curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+				curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+				curl_setopt($ch, CURLOPT_POST, 1);
+				curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+				$result=curl_exec($ch);
+				curl_close($ch);
+				return $result;
+		} catch (Exception $e) {
+				return '{"resultCode":"206","resultMsg":"curl error"}';
+		}
+
+		
+//		$url=$url."?".$post_data;
+//		$result = file_get_contents($url);
+//		return $result;
+		
+	}
+?>

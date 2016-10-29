@@ -1,0 +1,307 @@
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Complex Layout - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui-lang-zh_CN.js"></script>
+</head>
+<body style="padding: 0px;">	
+ 	<div id="p" class="easyui-panel" title="车辆列表" style="width:250px;height:250px;padding:0px;">
+				<table border="0" cellspacing="0" cellpadding="1"><tbody>
+	                    <tr height="10px"></tr>
+	                    <tr>
+	                           <td><span>开始时间</span></td>
+	                           <td align="center"><input class="easyui-datetimebox"  data-options="required:true,showSeconds:false,panelHeight:170"  style="width:150px" id='startDate'></input></td>
+	                    </tr>
+	                    <tr>
+	                           <td><span>结束时间</span></td>
+	                           <td align="center"><input class="easyui-datetimebox" data-options="required:true,showSeconds:false,panelHeight:170"  style="width:150px" id='stopDate'></input></td>
+	            		</tr>
+	      
+	            		<tr>
+	                           <td align="center" colspan=2>
+	                           <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:80px" onclick="javascript:search1()">查询</a>
+	                           </td>             
+	            		</tr>
+	            		</tbody>
+	           		 </table>
+	</div>  
+	<script type="text/javascript">
+	          var tabIndex;
+	          var seletedArr=new Array();
+	         
+	          
+		$('#dg').datagrid({
+			onCheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.checkAll(rows);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onCheck: function(rowIndex,rowData){
+				top.onCheck(rowData);
+			}
+		
+		});
+		
+		
+		$('#dg').datagrid({
+			onUncheck: function(rowIndex,rowData){
+				top.onUncheck(rowData);
+			}
+		
+		});
+		
+		$('#dg').datagrid({
+			onUncheckAll: function(rows){
+			//	alert(rows[0].d_esn);
+				top.onUncheckAll(rows);
+			}
+		
+		});
+	
+		
+		$('#dg').datagrid({
+		onDblClickRow: function(rowIndex, rowData){
+			//	alert("DbClick row "+rowData.d_esn);
+				top.vehicleClick(rowData);
+			//	$("#myid", top.document).;
+			//	alert($("#updkbi", top.document).attr("value"));
+		}
+	   });
+		
+		
+		function getSelected(){
+			var row = $('#dg').datagrid('getSelected');
+			if (row){
+				$.messager.alert('Info', row.itemid+":"+row.productid+":"+row.attr1);
+			}
+		}
+		function getSelections(){
+			var ss = [];
+			var rows = $('#dg').datagrid('getSelections');
+			for(var i=0; i<rows.length; i++){
+				var row = rows[i];
+				ss.push('<span>'+row.itemid+":"+row.productid+":"+row.attr1+'</span>');
+			}
+			$.messager.alert('Info', ss.join('<br/>'));
+		}
+		
+		
+		
+		//初始为根节点，从页面参数传入
+		var depID='<?php echo  $userVo->depID ?>';
+		$('#depID').tree({
+		onCheck:function(node, checked){
+		//	alert("check");
+		 seletedArr=new Array();
+			var nodes = $('#depID').tree('getChecked');
+			 for (i = 0; i < nodes.length; i++){
+				 seletedArr.push(nodes[i].id);
+			 }
+			  if(seletedArr.length==0){
+				  seletedArr.push(-1);
+			  }
+			 if(seletedArr.length>0){
+				 var tmp=seletedArr.join(",");
+			//	 alert("tmp:"+tmp);
+				 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+					 url:'../service/vehicles4dep.php?searchType=0&deps='+tmp
+							 }
+				);  
+				 
+			 }
+		}
+		});
+		
+		$('#v_modelID').tree({
+			onCheck:function(node, checked){
+			//	alert("check");
+			 seletedArr=new Array();
+				var nodes = $('#v_modelID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 var tmp=seletedArr.join(",");
+				//	 alert("tmp:"+tmp);
+					 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=1&models='+tmp+"&deps="+depID
+								 }
+					);  
+					 
+				 }
+			}
+			});
+		
+		$('#v_cusID').tree({
+			onCheck:function(node, checked){
+			//	alert("check");
+			 seletedArr=new Array();
+				var nodes = $('#v_cusID').tree('getChecked');
+				 for (i = 0; i < nodes.length; i++){
+					 seletedArr.push(nodes[i].id);
+				 }
+				  if(seletedArr.length==0){
+					  seletedArr.push(-1);
+				  }
+				 if(seletedArr.length>0){
+					 var tmp=seletedArr.join(",");
+				//	 alert("tmp:"+tmp);
+					 $('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+						 url:'../service/vehicles4dep.php?searchType=2&deps='+depID+"&cus="+tmp
+								 }
+					);  
+					 
+				 }
+			}
+			});
+		
+		
+		
+		
+		$('#tt1').tabs({
+			onSelect: function(title,index){
+                tabIndex=index;
+				
+			  }
+			});
+		
+		
+		$(document).ready(function(){
+		//	var node = $('#depID').tree('find', 1070);
+		//	$('#depID').tree('select', node.target);
+			});
+
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					dg.datagrid('loadData',data);
+				}
+			});
+			if (!data.originalRows){
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+		
+		 function search1(){
+	  		//	alert("search!");
+				deviceArr=window.parent.getCheckedDevices();
+	  			if(deviceArr.length==0){
+	  			alert("请单击车辆进行选择！");
+	  				return;
+	  			}
+	  			
+	  			var startDate=$('#startDate').datetimebox('getValue');
+	  			//startDate=startDate.formatDate("yyyy-MM-dd hh:mm");  
+	  		//	alert(startDate);
+	  			
+	  			var stopDate=$('#stopDate').datetimebox('getValue');
+	  			//stopDate=startDate.formatDate("yyyy-MM-dd hh:mm"); 
+	  		//	alert(stopDate);
+	  			if(startDate == null || startDate ==''){
+	  				alert("请输入开始时间！");
+	  				return ;
+	  			}
+	  			if(stopDate == null || stopDate ==''){
+	  				alert("请输入结束时间！");
+	  				return ;
+	  			}
+	  			if(stopDate<startDate){
+	  				alert("结束时间必须晚于开始时间！");
+	  				return ;
+	  			}
+	  			
+	  			
+	  			
+	  			strStartDate = startDate.replace(/-/g,"/");
+	  			var date1 = new Date(strStartDate);
+	  			
+	  			strStopDate = stopDate.replace(/-/g,"/");
+	  			var date2 = new Date(strStopDate);
+	  			
+	  		  var date3=date2.getTime()-date1.getTime();
+	  		   //计算出相差天数
+	  	    	var days=Math.floor(date3/(24*3600*1000));
+	  		  // alert(days);
+	  		   if(days>31){
+	  			   alert("时间段最多为31天！");
+	  			   return ;
+	  		   }
+	  		
+	  			
+	  		 top.dailySearch(deviceArr,startDate,stopDate);
+	  		}
+		 
+		 
+		 function pagerFilter(data){
+				if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+					data = {
+						total: data.length,
+						rows: data
+					}
+				}
+				var dg = $(this);
+				var opts = dg.datagrid('options');
+				var pager = dg.datagrid('getPager');
+				pager.pagination({
+					onSelectPage:function(pageNum, pageSize){
+						opts.pageNumber = pageNum;
+						opts.pageSize = pageSize;
+						pager.pagination('refresh',{
+							pageNumber:pageNum,
+							pageSize:pageSize
+						});
+						dg.datagrid('loadData',data);
+					}
+				});
+				if (!data.originalRows){
+					data.originalRows = (data.rows);
+				}
+				var start = (opts.pageNumber-1)*parseInt(opts.pageSize);
+				var end = start + parseInt(opts.pageSize);
+				data.rows = (data.originalRows.slice(start, end));
+				return data;
+			}
+		
+		
+
+
+		
+		
+	</script>
+		</body>
+</html>

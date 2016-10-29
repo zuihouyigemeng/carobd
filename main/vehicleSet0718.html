@@ -1,0 +1,237 @@
+
+
+<div id="dlgSet"  class="easyui-dialog" title="终端参数设置"  closed="true"  style="width:550px;height:400px;padding:10px">
+
+
+	
+	<div class="easyui-accordion" style="width:500px;height:300px;">
+		<div title="常规"  style="overflow:auto;padding:10px;">
+		<form id="ff" method="post">
+		
+			<table rules="rows" >
+				<tr align = center height=30px>
+					<td align = left width = 200px>心跳间隔</td>
+					<td><input class="easyui-validatebox textbox" id="heartbeat_interval" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px> 
+					<td align = left width = 200px>心跳类型</td>
+								<td><input class="easyui-validatebox textbox" id="heartbeat_type" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>空转超时时延</td>
+									<td><input class="easyui-validatebox textbox" id="idle" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>附原始数据</td>
+									<td><input class="easyui-validatebox textbox" id="raw_data_include" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>超速阈值</td>
+									<td><input class="easyui-validatebox textbox" id="speed" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>超速保持时延</td>
+										<td><input class="easyui-validatebox textbox" id="speed_duration" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>电量低阈值</td>
+									<td><input class="easyui-validatebox textbox" id="battery" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>油量低阈值</td>
+									<td><input class="easyui-validatebox textbox" id="fuel_level" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>油量异动阈值</td>
+										<td><input class="easyui-validatebox textbox" id="fuel_level_change" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>高转速阈值</td>
+									<td><input class="easyui-validatebox textbox" id="rpm" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>高转速保持时延</td>
+									<td><input class="easyui-validatebox textbox" id="rpm_duration" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>快速心跳计数</td>
+										<td><input class="easyui-validatebox textbox" id="fast_heartbeat_cnt" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>冷却液高温阈值</td>
+					<td><input class="easyui-validatebox textbox" style="text-align:center;border:0;" id="coolant_temp" type="text" name="name" value="" ></input></td>
+
+				</tr>
+			</table>
+		</form>
+			
+		</div>
+		<div title="急加速/急减速"  style="padding:10px;">
+			<table rules="rows">
+				<tr align = right height=30px>
+					<td align = left width = 200px>刹车加速度</td>
+					<td align = center  >
+						<input class="easyui-validatebox textbox" id="break" style="text-align:center;border:0;" type="text" name="name" value="" ></input>
+					</td>
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>加速度</td>
+					<td align = center  >						
+						<input class="easyui-validatebox textbox" id="accel" style="text-align:center;border:0;" type="text" name="name" value="" ></input>
+					</td>
+				</tr>	
+							
+				<tr align = right height=30px>
+					<td align = left width = 200px>转弯加速度</td>
+					<td align = center  >						
+						<input class="easyui-validatebox textbox" id="turn" style="text-align:center;border:0;" type="text" name="name" value="" ></input>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div title="急转弯"  style="padding:10px;">
+			<table rules="rows">
+				<tr align = right height=30px>
+					<td align = left width = 200px>slop_duration</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="slop_duration" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>slop_thresh</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="slop_thresh" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>unauth_duration</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="unauth_duration" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>unauth_thresh</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="unauth_thresh" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>highG</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="highG" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>orient</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="orient" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>hg_hyst</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="hg_hyst" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>				
+				
+				<tr align = right height=30px>
+					<td align = left width = 200px>angle</td>
+					<td align = center  ><input class="easyui-validatebox textbox" id="angle" style="text-align:center;border:0;" type="text" name="name" value="" ></input></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	
+<script>
+
+function getVehicleSetting(token,token_secret,userID,deviceID){	
+	$.post("http://192.168.0.163/zend_obd/jsonAPI/devicesetting.php",
+			{
+			token:"",token_secret:"",userID:"",deviceID:"6C500CB6"
+		
+			},
+			function (data,status){
+				var rows = eval(data);
+				
+				$("#heartbeat_interval").val(rows[0].heartbeat_interval);
+				$("#heartbeat_type").val(rows[0].heartbeat_type);
+				$("#idle").val(rows[0].idle);
+				$("#raw_data_include").val(rows[0].raw_data_include);
+				$("#speed").val(rows[0].speed);
+				$("#speed_duration").val(rows[0].speed_duration);
+				$("#battery").val(rows[0].battery);
+				$("#fuel_level").val(rows[0].fuel_level);
+				$("#fuel_level_change").val(rows[0].fuel_level_change);
+				$("#rpm").val(rows[0].rpm);
+				$("#rpm_duration").val(rows[0].rpm_duration);
+				$("#fast_heartbeat_cnt").val(rows[0].fast_heartbeat_cnt);
+				$("#coolant_temp").val(rows[0].coolant_temp);
+				$("#break").val(rows[0]._break);
+				$("#accel").val(rows[0].accel);
+				$("#turn").val(rows[0].turn);
+				$("#slop_duration").val(rows[0].slop_duration);
+				$("#slop_thresh").val(rows[0].slop_thresh);
+				$("#unauth_duration").val(rows[0].unauth_duration);
+				$("#unauth_thresh").val(rows[0].unauth_thresh);
+				$("#highG").val(rows[0].highG);
+				$("#orient").val(rows[0].orient);
+				$("#hg_hyst").val(rows[0].hg_hyst);
+				$("#angle").val(rows[0].angle);
+				
+			});
+}
+</script>	
+<script>
+		function show(){
+		var one = $("#speed").val();
+		var two = $("#heartbeat_interval").val();
+		var three = $("#idle").val();
+		var four = $("#rpm").val();
+		$.post("http://192.168.0.163/zend_obd/jsonAPI/updatadevicesetting.php",
+				{
+				deviceID:"6C500CB6", speed:one, heartbeat_interval:two, idle:three, rpm:four
+				},
+				function(data,status){
+					var rows = eval(data);
+					
+					if(rows=="200")
+						alert("OK");
+					else
+						alert("error");
+				});
+		}
+</script>
+	
+<table>	
+<tr>
+<td width = 200px></td>
+<td width = 200px align = center>	
+		<input type="button" name="Submit" value="保存编辑" onclick="show();"/>
+</td>
+<td align = center>
+
+</td>
+</tr>
+</table>
+
+</div>  
+
+
+	

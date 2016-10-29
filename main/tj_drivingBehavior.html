@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script src="http://s1.bdstatic.com/r/www/cache/ecom/esl/1-6-10/esl.js"></script>
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+    <style>
+		.icon-trace {background: url('../img/_0003_导出列表.png') no-repeat center center;}
+		.icon-playback {background: url('../img/_0009_详细.png') no-repeat center center;}
+		.icon-detail{background: url('../img/_0004_导出详细.png') no-repeat center center;}
+	</style>
+</head>
+<body >	
+      
+	 <div style="width:1200px;height:250px">
+        <table id="dg" class="easyui-datagrid" title="" style="width:1200px;height:250px"
+        data-options="rownumbers:true,singleSelect:true,selectOnCheck:false,checkOnSelect:false,toolbar:toolbar">
+		<thead>
+			<tr>
+				<th data-options="field:'licenseNumber',width:150">车牌号</th>
+				<th data-options="field:'customer',width:150">客户名称</th>
+				<th data-options="field:'ModelName',width:150">车型</th>
+			    <th data-options="field:'d_esn',width:150,hidden:false">终端号</th>
+				<th data-options="field:'hard_accel',width:130,hidden:false">急加速(次)</th>
+				<th data-options="field:'hard_break',width:130,hidden:false">急刹车(次)</th>
+			    <th data-options="field:'hard_corner',width:130,hidden:false">急转弯(次)</th>
+				<th data-options="field:'deviceID',width:0,hidden:true">deviceID</th>
+			</tr>
+		</thead>
+	</table>
+	</div>
+	<div id="main" style="width:1200px;height:290px"></div>
+	
+              
+	<script type="text/javascript">
+	var glob_rows;
+	var toolbar = [{
+		text:'导出列表',
+		iconCls:'icon-trace',
+		handler:function(){	
+			var selectRows=$('#dg').datagrid('getRows');
+			
+			if(selectRows.length<1){
+				alert("没有数据！");
+				return;
+			}
+			var deviceArr=new Array();
+  			for ( var i=0 ; i < selectRows.length ; ++i ){
+  				deviceArr.push(selectRows[i].deviceID);
+  			}
+			devices=deviceArr.join(",");
+
+			  var url='../smarty/demo/drivingBehaviorList_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+devices;
+		         window.open(url,"_blank");
+			    }
+				
+	},
+//	{
+//		text:'详细',
+//		iconCls:'icon-playback',
+//		handler:function(){
+//		var selectRow=$('#dg').datagrid('getSelected');
+//		if(selectRow==null){
+//			alert("请单击车辆进行选择（最多1辆）！");
+//			return;
+//		}
+//		getData(selectRow.deviceID,glob_startDate,glob_stopDate,selectRow.licenseNumber);
+//		}
+//	},
+	{
+		text:'导出详细',
+		iconCls:'icon-detail',
+		handler:function(){	
+			var selectRow=$('#dg').datagrid('getSelected');
+			if(selectRow==null){
+				alert("请单击车辆进行选择（最多1辆）！");
+				return;
+			}
+			  var url='../smarty/demo/drivingBehavior_excel.php?startDate='+glob_startDate+'&stopDate='+glob_stopDate+'&devices='+selectRow.deviceID;
+		      //  alert(url);
+		         window.open(url,"_blank");
+			    }
+				
+	}
+	];
+	
+	var  glob_startDate;
+	var  glob_stopDate;
+	var  glob_deviceIDs;
+	 function dailySearch(deviceArr,startDate,stopDate){
+		 glob_startDate=startDate;
+		 glob_stopDate=stopDate;
+		 deviceIDs=deviceArr.join(",");
+		 glob_deviceIDs=deviceIDs;
+		 url='../service/tj_drivingBehavior.php?opType=0&startDate='+startDate+'&stopDate='+stopDate+'&devices='+deviceIDs;
+	//	alert(url);
+		 $('#dg').datagrid({   
+			 url:url
+					 }
+		 );
+		
+	  }
+	 
+	
+	  $('#dg').datagrid({
+			 onLoadSuccess: function (data) {
+				if (data.rows.length == 0) {
+				 }
+				 else {
+				 $('#dg').datagrid("selectRow", 0);
+				 var selectRow=$('#dg').datagrid('getSelected');
+				 getData(selectRow.deviceID,glob_startDate,glob_stopDate,selectRow.licenseNumber);
+				 }
+				 },
+			 
+				 onSelect: function(index,row){
+		           //   alert("deviceID:"+row.deviceID);
+					 getData(row.deviceID,glob_startDate,glob_stopDate,row.licenseNumber);
+				}
+			 
+			 });
+  
+   
+      function getData(deviceID,startDate,stopDate,licenseNumber){
+    	//  alert(deviceID+" "+startDate+" "+stopDate);
+    	  $.post("../service/tj_drivingBehavior.php",
+        		  {
+    		      devices:deviceID,startDate:startDate,stopDate:stopDate,opType:'1'
+        		  },
+        		  function(data,status){
+        			//   alert(data);
+        			  var rows=eval(data);
+        			  var x_data=rows[0];
+        			  
+        			  var y_data=rows[1];
+        			  var y_data1=rows[2];
+        			  var y_data2=rows[3];
+        			  
+        			//  alert(y_data);
+        			//  alert(y_data1);
+        			//  alert(y_data2);
+        			  
+        			 
+        			  
+        			  
+        			  require.config({
+        		            paths:{ 
+        		                'echarts' : 'http://echarts.baidu.com/build/echarts',
+        		                'echarts/chart/bar' : 'http://echarts.baidu.com/build/echarts'
+        		            }
+        		        });
+        		        
+        		        // 使用
+        		        require(
+        		            [
+        		                'echarts',
+        		                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+        		            ],
+        		            function (ec) {
+        		                // 基于准备好的dom，初始化echarts图表
+        		                var myChart = ec.init(document.getElementById('main')); 
+        		                
+        		                var option = {
+        		                	title : {
+                                  	        text: '驾驶行为统计('+licenseNumber+')：',
+                                  	        subtext: ''
+                                  	    },
+                                  	 tooltip : {
+                                	        trigger: 'axis'
+                                	    },
+        		                    legend: {
+        		                        data:['急加速(次)','急刹车(次)','急转弯(次)']
+        		                    },
+									toolbox: {
+										show : true,
+										feature : {
+											mark : {show: false},
+											dataView : {show: false, readOnly: false},
+											magicType : {show: true, type: ['line', 'bar']},
+											restore : {show: false},
+											saveAsImage : {show: true}
+										}
+									},
+        		                    xAxis : [
+        		                        {
+        		                            type : 'category',
+        		                            data : x_data
+        		                        }
+        		                    ],
+        		                    yAxis : [
+        		                        {
+        		                            type : 'value'
+        		                        }
+        		                    ],
+        		                    series : [
+        		                        {
+        		                            "name":"急加速(次)",
+        		                            "type":"bar",
+        		                           /* itemStyle: {
+                                                normal: {
+                                                    borderWidth: 6,
+                                                    borderRadius:0,
+                                                    label : {
+                                                        show: true, position: 'insideTop'
+                                                    }
+                                                }
+                                            },*/
+        		                            "data":y_data
+        		                        },
+        		                        {
+        		                            "name":"急刹车(次)",
+        		                            "type":"bar",
+        		                           /* itemStyle: {
+                                                normal: {
+                                                    borderWidth: 6,
+                                                    borderRadius:0,
+                                                    label : {
+                                                        show: true, position: 'insideTop'
+                                                    }
+                                                }
+                                            },*/
+        		                            "data":y_data1
+        		                        }
+        		                        ,
+        		                        {
+        		                            "name":"急转弯(次)",
+        		                            "type":"bar",
+        		                           /* itemStyle: {
+                                                normal: {
+                                                    borderWidth: 6,
+                                                    borderRadius:0,
+                                                    label : {
+                                                        show: true, position: 'insideTop'
+                                                    }
+                                                }
+                                            },*/
+        		                            "data":y_data2
+        		                        }
+        		                    ]
+        		                };
+        		        
+        		                // 为echarts对象加载数据 
+        		                myChart.setOption(option); 
+        		            }
+        		        );
+        			  
+        			  
+        			  
+            
+    	  
+        		  });
+        		  	  
+    }
+	</script>
+		</body>
+</html>

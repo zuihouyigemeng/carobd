@@ -1,0 +1,30 @@
+/* CSS Document */
+#v_cusID .icon-depart {
+	background: url("../img/_0008_客户.png") no-repeat !important;	
+}
+
+#v_modelID .icon-depart {
+	background: url("../img/_0005_车系.png") no-repeat !important;	
+}
+
+#v_modelID .tree-node-selected .icon-depart{
+	background: url("../img/_0005_车系2.png") no-repeat !important;
+}
+
+#v_cusID .tree-node-selected .icon-depart{
+	background: url("../img/_0008_客户2.png") no-repeat !important;
+}
+
+
+#depID .icon-depart {
+	background: url("../img/_0006_部门.png") no-repeat !important;	
+}
+#depID .tree-node-selected .icon-depart{
+	background: url("../img/_0006_部门2.png") no-repeat !important;
+}
+#depID .tree-file.icon-depart {
+	background: url("../img/车队.png") no-repeat !important;	
+}
+#depID .tree-node-selected .tree-file.icon-depart {
+	background: url("../img/车队2.png") no-repeat !important;	
+}

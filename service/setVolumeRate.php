@@ -1,0 +1,146 @@
+<?php
+include '../DBConnection.php';
+include '../../zend_obd/Maintain.php';
+
+$deviceID = $_GET['deviceID'];
+$main_cmd = $_GET['main_cmd'];
+$sub_cmd = $_GET['sub_cmd'];
+$fleet_cmd = $_GET['fleet_cmd'];
+$applyField = $_GET['applyField'];
+$swept = $_GET['swept'];
+$volumeRate = $_GET['volumeRate'];
+
+$type = $_GET['type'];
+
+$ret = array ();
+
+if($type == '0'){//查询数据(4,9命令下的deviceID的参数)
+	$ret = selectCommandQueueByDeviceID($deviceID,'4','9');
+}else if($type == '1'){//设置
+	if(isHasCommandQueueByDeviceID($deviceID,'4','9')){//判断是否存在此设备的设置信息
+		//存在$ret['rows'] = $data;
+	    $ret = updateCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}else{
+		//不存在
+	    $ret = insertCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}
+}else if($type == '2'){//得到汽车参数
+	$ret = getCarByDeviceID($deviceID);
+}else if($type == '3'){//,查询4,8的数据 是否存在
+	$ret = selectCommandQueueByDeviceID($deviceID,'4','10');
+}else if($type == '4'){//,查询4,10的数据 是否存在
+	$ret = selectCommandQueueByDeviceID($deviceID,'4','8');
+}else if($type == '5'){//增加或修改重启设备数据
+	if(isHasCommandQueueByDeviceID($deviceID,'4','10')){//判断是否存在此设备的设置信息
+		//存在$ret['rows'] = $data;
+	    $ret = updateCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}else{
+		//不存在
+	    $ret = insertCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}
+}else if($type == '6'){////增加或修改获取发动机参数 数据
+	if(isHasCommandQueueByDeviceID($deviceID,'4','8')){//判断是否存在此设备的设置信息
+		//存在$ret['rows'] = $data;
+	    $ret = updateCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}else{
+		//不存在
+	    $ret = insertCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate);
+	}
+}
+
+	//设置重启      4,10
+	//获取发动机参数 4,8
+
+
+echo json_encode($ret);
+
+//得到汽车参数
+function getCarByDeviceID($deviceID){
+	mysql_select_db("IOV_demo");
+	
+	$sql = "select v.Swept,v.volume_rate from VehModelNumber v,Devices_MT d 
+			where v.ModelNumID=d.ModelNumID and d.DeviceID='$deviceID'";
+	$data = array ();
+	$result = mysql_query($sql);
+	$checkRows = mysql_num_rows($result);
+	if ($checkRows > 0) {
+		while ($row = mysql_fetch_object($result)) {
+			$data[] = $row;
+		}
+		mysql_free_result($result);
+	}
+	return $data;	
+}
+
+
+/**插入*/
+function insertCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate){
+	mysql_select_db("obd_demo");
+	$sql = "insert into CommandQueue(deviceID,main_cmd,sub_cmd,fleet_cmd,applyField,param1,param2) 
+		VALUES ('$deviceID','$main_cmd','$sub_cmd','$fleet_cmd','$applyField','$swept','$volumeRate')";
+	if (!mysql_query($sql)) {
+		/*$ret["resultCode"] = '1001';
+		$ret["resultMsg"] = "sys error!";*/
+		return 1001;
+	} else {
+		/*$ret["resultCode"] = '200';
+		$ret["resultMsg"] = "success";*/
+		return 200;
+	}
+}
+
+/**根据deviceID查询一条数据*/
+function selectCommandQueueByDeviceID($deviceID,$main_cmd,$sub_cmd){
+	mysql_select_db("obd_demo");
+	$sql = "SELECT * from CommandQueue where deviceID='$deviceID' and main_cmd='$main_cmd' and sub_cmd='$sub_cmd'";
+	$ret = array ();
+	$data = array ();
+	$result = mysql_query($sql);
+	$checkRows = mysql_num_rows($result);
+	if ($checkRows > 0) {
+		while ($row = mysql_fetch_object($result)) {
+			$data[] = $row;
+		}
+		mysql_free_result($result);
+	}
+	//$ret["data"] = $data;
+	return $data;	
+}
+
+/*判断某个设备是否已经存在*/
+function isHasCommandQueueByDeviceID($deviceID,$main_cmd,$sub_cmd){
+	mysql_select_db("obd_demo");
+	$sql = "SELECT * from CommandQueue where deviceID='$deviceID' and main_cmd='$main_cmd' and sub_cmd='$sub_cmd'";
+	$result = mysql_query($sql);
+	$checkRows = mysql_num_rows($result);
+	if($checkRows>0){
+		return true;
+	}else{
+		return false;	
+	}
+}
+
+/*修改*/
+function updateCommandQueue($deviceID,$main_cmd,$sub_cmd,$fleet_cmd,$applyField,$swept,$volumeRate){
+	mysql_select_db("obd_demo");
+	$sql = "update 
+				CommandQueue 
+			set 
+				fleet_cmd='$fleet_cmd',
+				applyField='$applyField',
+				param1='$swept',
+				param2='$volumeRate' 
+			where 
+				deviceID = '$deviceID' and main_cmd='$main_cmd' and sub_cmd='$sub_cmd'";
+		if (!mysql_query($sql)) {
+			/*$ret["resultCode"] = '1001';
+			$ret["resultMsg"] = "sys error!";*/
+			return 1001;
+		} else {
+			/*$ret["resultCode"] = '200';
+			$ret["resultMsg"] = "success";*/
+			return 200;
+		}
+}
+
+?>

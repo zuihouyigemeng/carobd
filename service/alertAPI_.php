@@ -1,0 +1,242 @@
+<?php
+include  dirname(__FILE__).'/../DBConnection.php';
+require_once dirname(__FILE__).'/../log4php/Logger.php';
+Logger :: configure(dirname(__FILE__).'/../log4php.properties');
+define("alartTypes","'规定时间（防盗）','疲劳驾驶告警','出省告警','拔出告警','超速告警','超速告警','电池电量低告警','制冷剂水温告警','DTC告警'");
+
+
+class AlertList{
+	 public function getAlerts($sqlType, $date, $userId, $depId){
+		// $sqlType: 0 -- new alerts (from the $date to now);  1 -- history alerts (up to the $date)
+
+		//	$startDate = date("Y-m-d H:i:s", strtotime($startDate . '-8hour'));
+		//	$stopDate= date("Y-m-d H:i:s", strtotime($stopDate . '-8hour'));
+		$deptsList = $this->getBelowDepts($depId); 	
+		echo "<br>deptsList:";
+		print_r ($deptsList);	
+		
+		$data = array();
+		$sql = "select vm.ModelName,c.name as customer,d.d_esn,vi.licenseNumber,n.title,n.createTime,n.canceltime,n.cancelFlag,n.id as recordId,n.address" .
+		" from  Notifaction n  ,provision_obd.Devices d,VehModelNumber vn,VehModel vm,Devices_MT dm,VehicleInfo vi,Customers c,IOV_demo.Opm_Organ p" .
+		" where dm.ModelNumID=vn.ModelNumID" .
+		" and vn.ModelID=vm.ModelID" .
+		" and dm.customerID=c.id" .
+		" and n.vin=dm.vin" .
+		" and d.deviceID=dm.deviceID" .
+		" and  dm.vin=vi.vin " .
+		" and n.dealFlag =0". 
+		" and d.depId = p.id and p.id in $deptsList" . // (1078,1003)".
+		" and n.title in (" . alartTypes. ")";
+		if ($sqlType ==1 ) 	
+			$sql = $sql . " and n.createTime < '$date'";
+		else 
+			$sql = $sql . " and n.createTime >= '$date'";
+		$sql = $sql . " order by createTime desc ";
+		echo $sql . "<BR>"	;
+		mysql_select_db("IOV_demo");
+		$result = mysql_query($sql);
+		$numRows = mysql_num_rows($result);
+//		$ret = array ();
+//		$data= array ();
+		$i =0;	//number of rows in table (not in db)
+		
+		if ($numRows > 0) {
+			while($row = mysql_fetch_object($result)){
+				//$data[$i] = array();
+				$data[$i]["recordId"] = $row->recordId;
+				$data[$i]["d_esn"] = $row->d_esn;
+				$data[$i]["licenseNumber"] = $row->licenseNumber;
+				$data[$i]["customer"] = $row->customer;
+				$data[$i]["modelName"] = $row->ModelName; 
+				$data[$i]["createTime"] = $row->createTime; 	//toTimeZone( $row->gpsStamp);
+				$data[$i]["title"] = $row->title;
+				$data[$i]["cancelTime"] = $row->canceltime;
+				$data[$i]["cancelFlag"] = ($row->cancelFlag ==0)? "":"已解除";
+				$data[$i]["address"] = $row->address;
+				$i++;				
+			}
+		}
+//		//echo json_encode($ret);
+		if($sqlType==0){
+			//保存读告警数据时间
+			$sql = "update Users_Admin set  ReadAlertTime = now() where userID = $userId;";
+			mysql_select_db("IOV_demo");
+			mysql_query($sql);
+		}
+		return $data;		
+	}
+	
+	public function setHandled($recordId,$userId){
+		$sql = "update Notifaction set dealTime = now(), dealFlag=1,dealer= $userId where id=$recordId";
+		mysql_select_db("IOV_demo");
+		mysql_query($sql);
+		if( mysql_affected_rows()>0) return true;
+		else return false;
+			
+	}	
+	public function hasNewAlerts($userId,$depId){
+		$deptsList = $this->getBelowDepts($depId); 	
+		echo "<br>deptsList:";
+		print_r ($deptsList);	
+
+		$sql = "select ReadAlertTime from Users_Admin where userID = $userId";
+		mysql_select_db("IOV_demo");
+		$result = mysql_query($sql);
+		$numRows = mysql_num_rows($result);
+		if ($numRows ==0) return 0;		//用户查不到
+		$row = mysql_fetch_object($result);
+		
+		$sql = "select count(n.id) " .
+		" from  Notifaction n  ,provision_obd.Devices d,VehModelNumber vn,VehModel vm,Devices_MT dm,VehicleInfo vi,Customers c,IOV_demo.Opm_Organ p " .
+		" where dm.ModelNumID=vn.ModelNumID" .
+		" and vn.ModelID=vm.ModelID" .
+		" and dm.customerID=c.id" .
+		" and n.vin=dm.vin" .
+		" and d.deviceID=dm.deviceID" .
+		" and d.depId = p.id and p.id in $deptsList" . // (1078,1003)".
+		" and  dm.vin=vi.vin " .
+		" and n.dealFlag =0";
+		
+		if  (isset($row->ReadAlertTime)){	//null 则 查询所有
+			$sql = $sql. " and n.createTime > '$row->ReadAlertTime'";
+		}		
+		
+		$result=null;
+		$numRows =0;
+		echo $sql . "<br>";		
+		$result = mysql_query($sql);
+		//$numRows = mysql_num_rows($result);
+		$numOfRows = mysql_fetch_array($result);
+		//print_r($numOfRows);
+		return $numOfRows["count(n.id)"];
+		
+	}
+	
+	private function getBelowDepts ($depId ){	
+		$obj = new AlertList(); 
+		$result = "";
+		$deptsData = null;
+		$deptsData = $obj ->readDept();
+		if ($deptsData != null){
+			$deptTree = new OganizationTree();			
+			$deptTree->init($deptsData["deptArray"], $deptsData["fatherDeptArray"]);			
+			//echo "<br>";
+			$deptsArray = $deptTree->searchDescendants($depId);
+			foreach($deptsArray as $num=>$deptID){
+				if ($result == "") $result = "$deptID";
+				else $result = $result.",$deptID";
+			}
+			$result = "(".$result.")";
+		}
+		return $result;			
+
+	}
+	public  function readDept(){
+		
+		mysql_select_db("IOV_demo");//,$mysql);
+		$sql = "SELECT id,parentId  FROM IOV_demo.Opm_Organ;" ;
+		$depts = array();
+		$depts_parent = array();
+		$rowNum=0;
+		$records = null;
+		$records = mysql_query($sql);
+		$numRows = mysql_num_rows($records);
+		//echo $numRows . "<br>";
+		if ($numRows >0){
+//				$row = mysql_fetch_array($result);
+//				array_push( $depts, $row->id);
+//				array_push( $depts, $row->parentId);
+			while (	$row = mysql_fetch_array($records)){
+				//echo ("<br>----------------row------"  );
+				//print_r ($row);
+				$depts[$rowNum]= $row["id"];
+				//echo ("<br>----------------depts[$rowNum]------"  );
+				//print_r ($depts[$rowNum]);
+				$depts_parent[$rowNum]= $row["parentId"];
+				//echo ("<br>----------------depts_parent[$rowNum]------"  );
+				//print_r ($depts_parent[$rowNum]);
+				$rowNum++;
+				
+				  
+			}		
+		}
+		$result = array("count"=>$rowNum, "deptArray" => $depts, "fatherDeptArray" => $depts_parent);
+		return $result;
+	}				
+}
+
+//$a=array("a"=>"5","b"=>5,"c"=>"5");
+//echo array_search(5,$a,true);
+
+class OganizationTree{	 
+	var $deptArray ;
+	var $fatherDeptArray;
+	public function OganizationTree(){
+		
+	}
+	public function init($deptID_array, $fatherDeptID_array){
+			//print_r($deptID_array);
+			$this->deptArray = $deptID_array;
+			$this->fatherDeptArray = $fatherDeptID_array;
+			//print_r($this->deptArray);
+		return ;
+	}
+	public function searchChildren($deptID)	{
+		$nodeArray = array_keys($this->fatherDeptArray, "$deptID", true);
+		if (count($nodeArray)==0 ||  $nodeArray == false) {
+			//echo "false";
+			return false;
+		}
+		//print_r($nodeArray);
+		$resultArray = array();		
+		foreach($nodeArray  as $num=>$nodeNum	){
+			$resultArray[$num] = $this->deptArray[$nodeNum];
+		}
+		return $resultArray;			
+	}
+	public function searchDescendants($deptID)	{
+		//echo "<BR>nodeID: $deptID<br>";
+		$sonArray = $this->searchChildren($deptID);
+		if ($sonArray == false	) {
+			//echo " is end-node.<br>";
+			return false;			
+		}
+		//print_r($sonArray);
+		$desendantsArray = array();
+		foreach($sonArray as $num=>$sonID){			
+			$sons = $this->searchDescendants($sonID);
+			if ($sons !=  false) {
+				//echo "<br>merge opreation:(1)";
+				//print_r($desendantsArray);
+				//echo "<br>(2)";
+				//print_r($sons);
+				if (count($desendantsArray)==0) $desendantsArray = $sons;
+				else $desendantsArray = array_merge($desendantsArray, $sons);
+				//echo "<br>(3)merged desendantsArray";
+				//print_r($desendantsArray);			
+				
+			};	
+			array_push($desendantsArray, $sonID);
+		}	
+		return $desendantsArray;
+	}
+	public function getParent($deptID){
+		// input: number
+		// return: 
+		// 		fail: return false;
+		// 		success:  return string of id
+		//echo $deptID;
+		$node = array_search("$deptID", $this->deptArray,true);
+		if ($node == false ) {
+			echo "false";
+			return false;
+		}
+		//echo ($node);
+		$str = $this->fatherDeptArray[$node];
+		//print_r($str);
+		return $str;		
+	}
+}
+
+
+?>

@@ -1,0 +1,392 @@
+
+<?php include("session.php"); ?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>设备管理</title>
+	<link rel="stylesheet" type="text/css" href="../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.easyui.min.js"></script>
+</head>
+<body>	
+
+	<div  style="overflow:auto;padding:0px;">
+	  <table id="dg" class="easyui-datagrid" title="" style="width:1450px;height:500px"
+        data-options="toolbar: '#tb'">
+		<thead>
+			<tr>
+				<th data-options="field:'d_esn',width:150">设备ESN</th>
+				<th data-options="field:'registerKey',width:180">设备注册号</th>
+				<th data-options="field:'MDN',width:150">MDN</th>
+			    <th data-options="field:'imsi',width:180,hidden:false">IMSI</th>
+				<th data-options="field:'bindedDepName',width:180,hidden:false">部门</th>
+				<th data-options="field:'licenseNumber',width:180,hidden:false">已绑定车牌号</th>
+				<th data-options="field:'deviceIndex',width:0,hidden:true">deviceIndex</th>
+				<th data-options="field:'depID',width:0,hidden:true">depID</th>
+			</tr>
+		</thead>
+	</table>	
+		<div id="tb" style="height:auto">
+		设备号：<input id='esn' style="width: 150px" value=""></input>
+		注册号：<input id='rk' style="width: 150px" value=""></input>
+		绑定状态:<select  id="binded" 
+						class="easyui-combobox">
+							<option value="2">全部</option>
+							<option value="1">已绑定</option>
+							<option value="0">未绑定</option>
+					</select>
+					
+					<a href="#"
+						class="easyui-linkbutton" data-options="iconCls:'icon-search'"
+						style="width: 80px" onclick="javascript:searchDevices()">查询</a>
+				<!-- 	<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-undo'" style="width: 80px" onclick="assignDep()">设置部门</a>  -->
+					<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true" onclick="append()" style="width: 80px" >添加设备</a>
+					<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true"  style="width: 80px" onclick="toUpdateDevice()">修改设备</a>
+					
+	</div>		
+			
+		</div>
+		
+		<div id="depDlg" class="easyui-dialog" title="部门(提示：双击进行选择)"  data-options="left:400,top:150"  closed="true"  style="width:800px;height:300px">				
+			<ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>"  id="depID">				
+			</ul>
+		</div>
+		
+		<div id="addDeviceDlg" class="easyui-dialog" title=""  data-options="left:300,top:150"  closed="true"  style="width:800px;height:350px">	
+	    <div  style = "width:200px;float:left;right-margin:10px">
+			        <div  class="easyui-panel" title="部门"  style="width:200px;height:300px;">
+				    <ul class="easyui-tree"   url="../service/departments.php?defDep=<?php echo  $userVo->depID ?>"   id="depID1">
+				
+			</ul>
+			         </div>
+		</div>
+		<div id="p" class="easyui-panel" title="设备"  style="height:300px;">
+	    <table align="center" style="margin-top:30px">
+		<tr height="30px">
+		<td width=80>设备ESN：</td>
+		<td width=100 align='left'><input  class="easyui-validatebox textbox"  id="d_esn"  maxlength=8   style="text-align:center;border:1;"  ></td>
+		<td width=80 align='left'>设备IMSI：</td>
+		<td width=120 align='left'><input  class="easyui-validatebox textbox"  id="imsi"  maxlength=15   style="text-align:center;border:1;"  /></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>MDN：</td>
+		<td width=100 align='left'><input class="easyui-validatebox textbox" id="MDN"  maxlength=11  style="text-align:center;border:1;" type="text" value="" /></td>
+		<td width=80 hiht>注册码：</td>
+		<td width=100 align='left'><input class="easyui-validatebox textbox" id="registerKey"  maxlength=15   style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		<tr height="30px">
+		<td width=80>部门：</td>
+		<td width=100 align='left'><input class="easyui-validatebox textbox" id="depName"  disabled="disabled"  style="text-align:center;border:1;" type="text" value="" /></td>
+		</tr>
+		
+		
+		<tr><td  align ="center" colspan=6 > <a href="#"
+						class="easyui-linkbutton" 
+						style="width: 80px" onclick="javascript:dealDevice()">保存</a>
+						</td></tr>
+		</table>
+		</div>
+
+			</div>
+
+		<script>
+		
+		var dealFlag=1
+		var glob_deviceID;
+
+		//初始为根节点，从页面参数传入
+		var depID = '<?php echo  $userVo->depID ?>';
+		
+		function dealDevice(){
+			if(dealFlag==1){
+				addDevice();
+			}
+			else{
+				updateDevice();
+			}
+		}
+		
+		function toUpdateDevice(){
+			dealFlag=2;
+			var selectRows=$('#dg').datagrid('getSelected');
+			if(selectRows==null ){
+				alert("请选择设备！");
+				return;
+			}
+	//		alert("d_esn:"+selectRows.d_esn);
+			$('#d_esn').attr('value',selectRows.d_esn);
+			$('#MDN').attr('value',selectRows.MDN);
+			$('#imsi').attr('value',selectRows.imsi);
+			$('#registerKey').attr('value',selectRows.registerKey);
+			$('#depName').attr('value',selectRows.bindedDepName);
+			glob_depID=selectRows.depID;
+			//$('#addDeviceDlg').attr('title',"test");
+		//	alert($('#addDeviceDlg').panel('options').title);
+		     $('#addDeviceDlg').dialog({title: '修改设备'});
+			 $('#addDeviceDlg').dialog('open');
+		}
+		
+		function addDevice(){
+			d_esn=$('#d_esn').attr('value');
+			if(d_esn==null || d_esn==''){
+				alert("请输入设备ESN!");
+				return;
+			}
+			MDN=$('#MDN').attr('value');
+			if(MDN==null || MDN==''){
+				alert("请输入设备MDN!");
+				return;
+			}
+			imsi=$('#imsi').attr('value');
+			if(imsi==null || imsi==''){
+				alert("请输入设备imsi!");
+				return;
+			}
+			rk=$('#registerKey').attr('value');
+			if(rk==null || rk==''){
+				alert("请输入设备注册码!");
+				return;
+			}
+			
+			if(glob_depID==null){
+				alert("请选择部门!");
+				return;
+			}
+		//	 alert("glob_depID:"+glob_depID);
+			 $.post("../../zend_obd/jsonAPI/devices.php",
+	       		  {
+				  esn:d_esn,MDN:MDN,imsi:imsi,rk:rk,optype:2,deptID:glob_depID
+	       		  },
+	       		  function(data,status){
+					 // console.info("data:"+data);
+	       			  if(data=='1001'){
+	       				  alert("设备已经存在！");
+	       			  }
+	       			  if(data=='200'){
+	       				alert("添加成功！");
+	       				$('#d_esn').attr('value','');
+	       				$('#MDN').attr('value','');
+	       				$('#imsi').attr('value','');
+	       				$('#registerKey').attr('value','');
+	       				$('#addDeviceDlg').dialog('close');
+						/*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+							 url:url
+						});*/
+						//alert(url);
+						setPage(url);
+	       			  }
+	       				        		
+	       		  });	
+		}
+		
+		
+		function updateDevice(){
+			var d_esn=$('#d_esn').attr('value');
+			if(d_esn==null || d_esn==''){
+				alert("请输入设备ESN!");
+				return;
+			}
+			var MDN=$('#MDN').attr('value');
+			if(MDN==null || MDN==''){
+				alert("请输入设备MDN!");
+				return;
+			}
+			var imsi=$('#imsi').attr('value');
+			if(imsi==null || imsi==''){
+				alert("请输入设备imsi!");
+				return;
+			}
+			var rk=$('#registerKey').attr('value');
+			if(rk==null || rk==''){
+				alert("请输入设备注册码!");
+				return;
+			}
+			
+			
+			if(glob_depID==null){
+				alert("请选择部门!");
+				return;
+			}
+			 
+			 $.post("../../zend_obd/jsonAPI/devices.php",
+	       		  {
+				  esn:d_esn,MDN:MDN,imsi:imsi,rk:rk,optype:3,deptID:glob_depID,deviceID:glob_deviceID
+	       		  },
+	       		  function(data,status){
+	       			  if(data=='200'){
+	       				  alert("更新成功！");
+	       				$('#addDeviceDlg').dialog('close');
+	       				searchDevices();
+	       				  
+	       			  }
+	       				        		
+	       		  });	
+		}
+		function append(){
+			dealFlag=1;
+			$('#d_esn').attr('value','');
+			$('#MDN').attr('value','');
+			$('#imsi').attr('value','');
+			$('#registerKey').attr('value','');
+			$('#depName').attr('value','');
+			 $('#addDeviceDlg').dialog({title: '添加设备'});
+			$('#addDeviceDlg').dialog('open');
+			
+			
+		}
+		 function assignDep(){
+			 $('#depDlg').dialog('open');
+		 }
+		 function searchDevices(){
+			 var esn=$('#esn').val();//attr("value");
+			 var rk=$('#rk').val();//attr("value");
+			 var binded=$('#binded').combobox('getValue');
+			 var url='../../zend_obd/jsonAPI/devices.php?optype=0&deptID='+depID+"&binded="+binded;
+			 if(esn!=''){
+				 url+="&esn=";
+				 url+=esn;
+			 }
+			 if(rk!=''){
+				 url+="&rk=";
+				 url+=rk;
+			 }
+			
+		//	 alert(url);
+			 /*$('#dg').datagrid({loadFilter:pagerFilter}).datagrid({   
+				 url:url
+						 }
+			);  */
+			setPage(url);			
+		 }
+		 
+		 
+		 
+			$('#depID').tree({
+				onDblClick:function(node){
+					deptID=node.id;
+			//	alert("deptID:"+deptID);
+			
+				var selectRows=$('#dg').datagrid('getChecked');
+	  		
+	  			if(selectRows.length<1){
+	  				alert("请选择设备！");
+	  				return;
+	  			}
+	  			var deviceArr=new Array();
+	  			for ( var i=0 ; i < selectRows.length ; ++i ){
+	  				deviceArr.push(selectRows[i].deviceIndex);
+	  			}
+				
+				deviceIDs=deviceArr.join(",");
+			//	alert("deviceIDs:"+deviceIDs);
+				$.post("../../zend_obd/jsonAPI/devices.php",
+						  {
+					        optype:1,
+					        deptID:deptID,
+					        str_deps:deviceIDs
+
+						  },
+						  function(data,status){
+						 	if(data==200 || data=='200'){
+						 		alert("设置成功!");
+						 	}
+						 	
+					
+							
+						  
+						  });
+				
+				}
+				});
+		
+		
+		function pagerFilter(data) {
+			if (typeof data.length == 'number' && typeof data.splice == 'function') { // is array
+				data = {
+					total : data.length,
+					rows : data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage : function(pageNum, pageSize) {
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh', {
+						pageNumber : pageNum,
+						pageSize : pageSize
+					});
+					dg.datagrid('loadData', data);
+				}
+			});
+			if (!data.originalRows) {
+				data.originalRows = (data.rows);
+			}
+			var start = (opts.pageNumber - 1) * parseInt(opts.pageSize);
+			var end = start + parseInt(opts.pageSize);
+			data.rows = (data.originalRows.slice(start, end));
+			return data;
+		}
+		
+	  var glob_depID=null;
+		
+		$('#depID1').tree({
+			onClick: function(node){
+				glob_depID=node.id;
+				$("#depName").attr("value",node.text);
+			}
+		});
+		
+		
+		$('#dg').datagrid({
+			onClickRow : function(rowIndex, rowData) {
+				//alert("deviceID:"+rowData.deviceID);
+			 glob_deviceID=rowData.deviceID;
+			
+			}
+		});
+		
+		
+		
+		function setPage(pageURL){
+			$('#dg').datagrid({  
+			
+				url:pageURL, 
+				
+				singleSelect:true,//是否单选
+			
+				pagination:true,//分页控件  
+			
+				rownumbers:true//行号
+			});
+			//设置分页控件  
+			var p = $('#dg').datagrid('getPager');  
+			
+			$(p).pagination({  
+			
+				pageSize: 10,//每页显示的记录条数，默认为10  
+			
+				pageList: [10,20,30,40,50,100],//可以设置每页记录条数的列表  
+			
+				beforePageText: '第',//页数文本框前显示的汉字  
+			
+				afterPageText: '页 共 {pages} 页',  
+			
+				displayMsg: '当前显示 {from} - {to} 条记录   共 {total} 条记录'
+			
+			});	 
+		 }
+	</script>
+		
+
+	
+
+</body>
+</html>
+	
+	

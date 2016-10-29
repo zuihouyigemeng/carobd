@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates
+END
+fuelChange.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/fuelChange.tpl
+END
+daily.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/daily.tpl
+END
+month.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/month.tpl
+END
+date_fuel_consumption.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/date_fuel_consumption.tpl
+END
+date_distance.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/date_distance.tpl
+END
+index.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/index.tpl
+END
+header.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/header.tpl
+END
+canbus.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/canbus.tpl
+END
+cancelAlert.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/cancelAlert.tpl
+END
+footer.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/footer.tpl
+END
+resoveledAlert.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/resoveledAlert.tpl
+END
+speed.tpl
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/LBS/!svn/ver/181/02_OBD/trunk/web/obd_web_1.0.8/smarty/demo/templates/speed.tpl
+END
